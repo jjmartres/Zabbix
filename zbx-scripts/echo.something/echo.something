@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+#
+# Script: echo.something
+# Version: 1.0
+# Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
+# Description: This script echo a string
+# License: GPL2
+#
+# This script is intended for use with Zabbix > 2.0
+# 
+# USAGE:
+#   as a script:      echo.somthing "some string"
+#   as an item:       echo.something["some string"]
+#
+unless ARGV.nil?
+ ARGV.each do |a|
+  puts a
+ end
+ else
+  exit(-1)
+end

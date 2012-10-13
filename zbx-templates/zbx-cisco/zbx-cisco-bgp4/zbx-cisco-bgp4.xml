@@ -481,7 +481,7 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
-                            <name>Status for peer $1</name>
+                            <name>Operational status for peer $1</name>
                             <type>4</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>

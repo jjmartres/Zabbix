@@ -3,16 +3,35 @@ ZBX-CISCO-BGP4
 
 This template use the BGP4-MIB to discover and manage both IPv4 and VPNv4 neighbors on Cisco devices.
 
+Items
+-----
+
+  * Discovery: administrative status of a peer
+  * Discovery: operational status of a peer
+  * Discovery: established time for a peer
+  * Discovery: remote AS for a peer
+  * Discovery: accepted prefixes for IPv4 and/or VPNv4 peers
+  * Discovery: advertised prefixes for IPv4 and/or VPNv4 peers
+  * Discovery: denied prefixes for IPv4 and/or VPNv4 peers
+  * Discovery: prefixes limit for IPv4 and/or VPNv4 peers
+  * Discovery: suppressed prefixes for IPv4 and/or VPNv4 peers
+
 Triggers
 --------
 
-  * **[HIGH]** => BGP peer is down
-  * **[AVERAGE]** => Accepted prefixes for IPv4 as reached the maximum limit
-  * **[AVERAGE]** => Accepted prefixes for VPNv4 as reached the maximum limit
-  * **[AVERAGE]** => IPv4 BGP peer has lost more than 20% of prefixes
-  * **[AVERAGE]** => VPNv4 BGP peer has lost more than 20% of prefixes
-  * **[INFORMATION]** => No prefixes receive for IPv4 peer
-  * **[INFORMATION]** => No prefixes receive for VPNv4 peer
+  * **[HIGH]** => Discovery: BGP peer is down
+  * **[AVERAGE]** => Discovery: accepted prefixes for IPv4 as reached the maximum limit
+  * **[AVERAGE]** => Discovery: accepted prefixes for VPNv4 as reached the maximum limit
+  * **[AVERAGE]** => Discovery: IPv4 BGP peer has lost more than 20% of prefixes
+  * **[AVERAGE]** => Discovery: VPNv4 BGP peer has lost more than 20% of prefixes
+  * **[INFORMATION]** => Discovery: no prefixes receive for IPv4 peer
+  * **[INFORMATION]** => Discovery: no prefixes receive for VPNv4 peer
+
+Graphs
+------
+
+  * Discovery: BGP informations for IPv4 peer
+  * Discovery: BGP informations for VPNv4 peer
 
 Installation
 ------------

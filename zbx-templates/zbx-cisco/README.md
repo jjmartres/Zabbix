@@ -8,6 +8,8 @@ Templates
 
   * [ZBX-CISCO-BGP4](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-cisco/zbx-cisco-bgp4) => use the BGP4-MIB to discover and manage both IPv4 and VPNv4 neighbors.
   * [ZBX-CISCO-CDP](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-cisco/zbx-cisco-cdp) => use the CISCO-CDP-MIB to discover and manage CDP neighbors.
+  * [ZBX-CISCO-ENVMON](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-cisco/zbx-cisco-envmon) => use the ENTITY-MIB and CISCO-ENVMON-MIB to discover and manage environmental of Cisco devices.
+  * [ZBX-CISCO-HARDWARE](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-cisco/zbx-cisco-hardware) => use the ENTITY-MIB to discover and manage physical entity of Cisco devices.
 
 Requirements
 ------------
