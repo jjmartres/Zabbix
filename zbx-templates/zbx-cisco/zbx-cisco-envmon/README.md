@@ -65,17 +65,18 @@ Installation
 ------------
 
 1. Install `echo.something` in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
-2. Add a value mapping named `ciscoEnvMonState` with the following value :
+2. Then `chmod a+x echo.something`
+3. Add a value mapping named `ciscoEnvMonState` with the following value :
   * 1 => normal
   * 2 => warning
   * 3 => critical
   * 4 => shutdown
   * 5 => notPresent
   * 6 => notFunctioning
-3. Import **zbx-cisco-envmon.xml** file into Zabbix.
-4. Add to your host the **{$SNMP_COMMUNITY}** macro with your Cisco SNMP community as value.
-5. Configure **Host Inventory** to `Automatic` for your host.
-6. Associate **ZBX-CISCO-ENVMON** template to the host.
+4. Import **zbx-cisco-envmon.xml** file into Zabbix.
+5. Add to your host the **{$SNMP_COMMUNITY}** macro with your Cisco SNMP community as value.
+6. Configure **Host Inventory** to `Automatic` for your host.
+7. Associate **ZBX-CISCO-ENVMON** template to the host.
  
 ### Requirements
 

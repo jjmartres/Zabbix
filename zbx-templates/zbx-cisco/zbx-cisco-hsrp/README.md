@@ -1,27 +1,36 @@
-ZBX-CISCO-CDP
+ZBX-CISCO-HSRP
 ==============
 
-This template use the CISCO-CDP-MIB to discover and manage CDP neighbors on Cisco devices.
+This template use the CISCO-HSRP-MIB to discover and manage HSRP groups on Cisco devices.
 
 Items
 -----
 
-  * Discovery: CDP neighbor on each interface
-  * Discovery: CDP neighbor platform on each interface
+  * Discovery: active IP address of each HSRP group
+  * Discovery: standby IP address of each HSRP group
+  * Discovery: state of each HSRP group
+  * Discovery: virtual IP address of each HSRP group
 
 Triggers
 --------
 
-  * **[INFORMATION]** => Discovery: CDP neighbor on a particular interface was changed.
+  * **[WARNING]** => Discovery: unexpected state change for each HSRP group
 
 Installation
 ------------
 
 1. Install [advsnmp.discovery](https://github.com/simonkowallik/Zabbix-Addons/tree/master/advsnmp.discovery) in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
 2. Then `chmod a+x advsnmp.discovery`
-4. Import **zbx-cisco-cdp.xml** file into Zabbix.
+3. Add a value mapping named `ciscoHsrpGrpStandbyState` with the following value :
+  * 1 => initial
+  * 2 => learn
+  * 3 => listen
+  * 4 => speak
+  * 5 => standby
+  * 6 => active
+4. Import **zbx-cisco-hsrp.xml** file into Zabbix.
 5. Add to your host the **{$SNMP_COMMUNITY}** macro with your cisco snmp community as value.
-6. Associate **ZBX-CISCO-CDP** template to the host.
+6. Associate **ZBX-CISCO-HSRP** template to the host.
  
 ### Requirements
 
