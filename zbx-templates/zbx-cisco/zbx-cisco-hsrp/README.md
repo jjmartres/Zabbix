@@ -21,7 +21,7 @@ Installation
 
 1. Install [advsnmp.discovery](https://github.com/simonkowallik/Zabbix-Addons/tree/master/advsnmp.discovery) in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
 2. Then `chmod a+x advsnmp.discovery`
-3. Add a value mapping named `ciscoHsrpGrpStandbyState` with the following value :
+3. Add a value mapping named `ciscoHsrpGrpStandbyState` with the following values:
   * 1 => initial
   * 2 => learn
   * 3 => listen

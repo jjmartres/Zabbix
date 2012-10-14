@@ -7,6 +7,7 @@ Templates
 ---------
 
   * [ZBX-CISCO](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-cisco) => templates to discover and manage capabilities on Cisco devices.
+  * [ZBX-APC](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-apc) => template to discover and manage capabilities on APC UPS.
 
 Requirements
 ------------

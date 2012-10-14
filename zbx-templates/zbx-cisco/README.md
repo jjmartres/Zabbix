@@ -11,6 +11,7 @@ Templates
   * [ZBX-CISCO-ENVMON](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-cisco/zbx-cisco-envmon) => use the ENTITY-MIB and CISCO-ENVMON-MIB to discover and manage environmental.
   * [ZBX-CISCO-HARDWARE](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-cisco/zbx-cisco-hardware) => use the ENTITY-MIB to discover and manage physical entity.
   * [ZBX-CISCO-HSRP](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-cisco/zbx-cisco-hsrp) => use the CISCO-HSRP-MIB to discover and manage HSRP groups.
+  * [ZBX-CISCO-INTERFACES](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-cisco/zbx-cisco-interfaces) => use the IF-MIB and CISCO-UDLDP-MIB to discover and manage interfaces.
 
 Requirements
 ------------

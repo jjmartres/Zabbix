@@ -36,7 +36,7 @@ Graphs
 Installation
 ------------
 
-1. Add a value mapping named `ciscoBgpPeerAdminStatus` with the following value :
+1. Add a value mapping named `ciscoBgpPeerAdminStatus` with the following values:
   * 1 => stop
   * 2 => start
 2. Import **zbx-cisco-bgp4.xml** file into Zabbix.
