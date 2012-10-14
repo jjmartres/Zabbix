@@ -17,7 +17,7 @@ Triggers
 Installation
 ------------
 
-1. Install [advsnmp.discovery](https://github.com/simonkowallik/Zabbix-Addons/tree/master/advsnmp.discovery) in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
+1. Install [`advsnmp.discovery`](https://github.com/simonkowallik/Zabbix-Addons/tree/master/advsnmp.discovery) in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
 2. Then `chmod a+x advsnmp.discovery`
 4. Import **zbx-cisco-cdp.xml** file into Zabbix.
 5. Add to your host the **{$SNMP_COMMUNITY}** macro with your cisco snmp community as value.

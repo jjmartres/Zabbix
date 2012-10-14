@@ -7,6 +7,7 @@ Scripts
 -------
 
   * [echo.something](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/echo.something) => simply echo a string.
+  * [if.speed](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/if.speed) => script to query the speed of an interface using the ifSpeed and ifHighSpeed OID and return the right speed value for an interface.
 
 Requirements
 ------------

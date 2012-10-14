@@ -1,7 +1,7 @@
 if.speed
 ========
 
-This script quey the speed of an interface using the ifSpeed and ifHighSpeed OID to return the right speed value for an interface.
+This script quey the speed of an interface using the ifSpeed and ifHighSpeed OID and return the right speed value for an interface.
 
 Installation
 ------------
