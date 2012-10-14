@@ -40,7 +40,7 @@ Installation
   * 1 => stop
   * 2 => start
 2. Import **zbx-cisco-bgp4.xml** file into Zabbix.
-3. Add to your host the **{$SNMP_COMMUNITY}** macro with your Cisco SNMP community as value.
+3. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
 4. Associate **ZBX-CISCO-BGP4** template to the host.
  
 ### Requirements

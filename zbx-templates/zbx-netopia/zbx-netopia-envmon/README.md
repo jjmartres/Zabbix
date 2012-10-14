@@ -45,7 +45,7 @@ Installation
 1. Install [`echo.something`](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/echo.something)) in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
 2. Then `chmod a+x echo.something`
 3. Import **zbx-netopia-envmon.xml** file into Zabbix.
-4. Add to your host the **{$SNMP_COMMUNITY}** macro with your Netopia SNMP community as value.
+4. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
 5. Configure **Host Inventory** to `Automatic` for your host.
 6. Associate **ZBX-NETOPIA-ENVMON** template to the host.
  

@@ -20,7 +20,7 @@ Installation
 ------------
 
 1. Import **zbx-cisco-hardware.xml** file into Zabbix.
-2. Add to your host the **{$SNMP_COMMUNITY}** macro with your Cisco SNMP community as value.
+2. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
 3. Associate **ZBX-CISCO-HARDWARE** template to the host.
  
 ### Requirements

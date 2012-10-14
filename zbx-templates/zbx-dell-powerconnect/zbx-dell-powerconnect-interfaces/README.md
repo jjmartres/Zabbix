@@ -1,7 +1,7 @@
-ZBX-CISCO-INTERFACES
-====================
+ZBX-DELL-POWERCONNECT-INTERFACES
+================================
 
-This template use the IF-MIB and CISCO-UDLDP-MIB to discover and manage interfaces of Cisco devices.
+This template use the IF-MIB to discover and manage interfaces of Dell Powerconnect devices.
 
 Items
 -----
@@ -11,31 +11,19 @@ Items
   * Discovery: speed for each interface
   * Discovery: description for each interface
   * Discovery: alias for each interface
-  * Discovery: UDLD configuration for each interface
-  * Discovery: UDLD link status for each interface
   * Discovery: incoming traffic on each interface
   * Discovery: outgoing traffic on each interface
   * Discovery: inbound errors on each interface
   * Discovery: outbound errors on each interface
   * Discovery: incoming discarded packets on each interface
   * Discovery: outgoing discarded packets on each interface
-  * Discovery: collisions on each interface
-  * Discovery: CRC packets on each interface
-  * Discovery: giants packets on each interface
-  * Discovery: ignored packets on each interface
-  * Discovery: misaligned packets on each interface
-  * Discovery: overruns packets on each interface
-  * Discovery: runts packets on each interface
 
 Triggers
 --------
 
-  * **[HIGH]** => Discovery: an UDLD link has been detected on an interface
   * **[WARNING]** => Discovery: incoming use on an interface exceed 80% for the last 5 minutes
   * **[WARNING]** => Discovery: outgoing use on an interface exceed 80% for the last 5 minutes
   * **[INFORMATION]** => Discovery: operational status was changed for an interface
-  * **[INFORMATION]** => Discovery: unable to determine UDLD status for an interface
-  * **[INFORMATION]** => Discovery: UDLD configuration was changed for an interface
 
 Graphs
 ------
@@ -48,18 +36,9 @@ Installation
 
 1. Install [`if.speed`](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/if.speed) in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
 2. Then `chmod a+x if.speed`
-3. Add a value mapping named `ciscoCudldpInterfaceOperStatus` with the following values:
-  * 1 => shutdwon
-  * 2 => indeterminant
-  * 3 => biDirectional
-  * 4 => notApplicable
-4. Add a value mapping named `ciscoCudldpInterfaceOperMode` with the following values:
-  * 1 => enable
-  * 2 => disable
-  * 3 => aggressive
-4. Import **zbx-cisco-interfaces.xml** file into Zabbix.
-5. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
-7. Associate **ZBX-CISCO-INTERFACES** template to the host.
+3. Import **zbx-dell-powerconnect-interfaces.xml** file into Zabbix.
+4. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
+5. Associate **ZBX-DELL-POWERCONNECT-INTERFACES** template to the host.
 
 ### Requirements
 

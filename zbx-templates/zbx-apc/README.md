@@ -78,7 +78,7 @@ Installation
   * 11 => sleepingUntilPowerReturn
   * 12 => onSmartTrim
 4. Import **zbx-apc-ups.xml** file into Zabbix.
-5. Add to your host the **{$SNMP_COMMUNITY}** macro with your APC SNMP community as value.
+5. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
 6. Configure **Host Inventory** to `Automatic` for your host.
 7. Associate **ZBX-APC-UPS** template to the host.
  

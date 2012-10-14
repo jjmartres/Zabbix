@@ -37,7 +37,7 @@ Installation
 1. Install [`if.speed`](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/if.speed) in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
 2. Then `chmod a+x if.speed`
 3. Import **zbx-netopia-interfaces.xml** file into Zabbix.
-4. Add to your host the **{$SNMP_COMMUNITY}** macro with your Cisco SNMP community as value.
+4. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
 5. Associate **ZBX-NETOPIA-INTERFACES** template to the host.
 
 ### Requirements

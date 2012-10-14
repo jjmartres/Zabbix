@@ -29,7 +29,7 @@ Installation
   * 5 => standby
   * 6 => active
 4. Import **zbx-cisco-hsrp.xml** file into Zabbix.
-5. Add to your host the **{$SNMP_COMMUNITY}** macro with your cisco snmp community as value.
+5. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
 6. Associate **ZBX-CISCO-HSRP** template to the host.
  
 ### Requirements

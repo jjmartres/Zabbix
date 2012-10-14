@@ -9,6 +9,7 @@ Templates
   * [ZBX-CISCO](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-cisco) => templates to discover and manage capabilities on Cisco devices.
   * [ZBX-APC](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-apc) => template to discover and manage capabilities on APC UPS.
   * [ZBX-NETOPIA](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-netopia) => template to discover and manage capabilities on Netopia devices.
+  * [ZBX-DELL-POWERCONNECT](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-dell-powerconnect) => template to discover and manage capabilities on Dell PowerConnect devices.
 
 Requirements
 ------------
