@@ -9,6 +9,7 @@ Scripts
   * [echo.something](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/echo.something) => simply echo a string.
   * [if.speed](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/if.speed) => script to query the speed of an interface using the ifSpeed and ifHighSpeed OID and return the right speed value for an interface.
   * [if.count](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/if.count) => script query ifType and count interface matching a regexp.
+  * [discovery.add](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/discovery.add) => script extend discovery rules, by adding discoverd devices to specified group, with specified template.
 
 Requirements
 ------------

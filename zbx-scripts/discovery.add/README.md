@@ -37,16 +37,16 @@ Usage
 ### As a script
     ./discovery.add [OPTIONS]
 
- where OPTIONS are:
-     -h, --help                       Display this help message
-     -u, --url API_URL                Zabbix API URL
-     -l, --login API_USERNAME         Zabbix username to access the API
-     -p, --password API_PASSWORD      Zabbix password to access the API
-     -d, --device IP_ADDRESS          Device IP address discovered by Zabbix
-     -c, --community SNMP_COMMUNITY   SNMP community used for the device
-     -x, --proxy PROXY_NAME           Zabbix proxy host that will manage the device
-     -g, --group GROUP_NAME           Zabbix host group to add the device
-     -r, --rules RULES                Rules to associate templates to discovered devices. Ex: [['regexp1','template1'],['regexp2','template2']] "some string"
+    OPTIONS
+      -h, --help                       Display this help message
+      -u, --url API_URL                Zabbix API URL
+      -l, --login API_USERNAME         Zabbix username to access the API
+      -p, --password API_PASSWORD      Zabbix password to access the API
+      -d, --device IP_ADDRESS          Device IP address discovered by Zabbix
+      -c, --community SNMP_COMMUNITY   SNMP community used for the device
+      -x, --proxy PROXY_NAME           Zabbix proxy host that will manage the device
+      -g, --group GROUP_NAME           Zabbix host group to add the device
+      -r, --rules RULES                Rules to associate templates to discovered devices. Ex: [['regexp1','template1'],['regexp2','template2']] "some string"
 
 Version
 -------
