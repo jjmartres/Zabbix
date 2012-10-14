@@ -4,7 +4,7 @@
 # Version: 1.0
 # Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
 # Description: this script extend discovery rules, by adding discoverd devices to specified group, with specified template.
-# license: GPL2
+# License: GPL2
 #
 # This script is intended for use with Zabbix > 2.0
 #

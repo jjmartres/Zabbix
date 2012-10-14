@@ -46,7 +46,7 @@ Usage
       -c, --community SNMP_COMMUNITY   SNMP community used for the device
       -x, --proxy PROXY_NAME           Zabbix proxy host that will manage the device
       -g, --group GROUP_NAME           Zabbix host group to add the device
-      -r, --rules RULES                Rules to associate templates to discovered devices. Ex: [['regexp1','template1'],['regexp2','template2']] "some string"
+      -r, --rules RULES                Rules to associate templates to discovered devices. Ex: [['regexp1','template1'],['regexp2','template2']]
 
 Version
 -------

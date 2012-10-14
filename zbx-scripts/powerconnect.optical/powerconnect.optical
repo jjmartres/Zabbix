@@ -1,0 +1,138 @@
+#!/usr/bin/env ruby
+#
+# script: powerconnect.optical
+# version: 1.0
+# author: Jean-Jacques Martrès <jjmartres gmail.com>
+# description: This script query optical transceiver querys on PowerConnect switches
+# license: GPL2
+#
+# DETAIL:
+# Query optical transceiver querys on PowerConnect switches
+#
+# This script is intended for use with Zabbix > 2.0
+# USAGE:
+#   powerconnect.optical [options]
+#
+# Options
+#    -h, --help                       Display this help message
+#    -a, --address IP_ADDRESS         IP address to query
+#    -u, --user USERNAME              Username used to telnet the host
+#    -p, --password PASSWORD          Username associated password
+#    -i, --interface INTERFACE        Transceiver interface to query
+#    -q, --query FLAG                 Flag: TEMP|VOLTAGE|CURRENT|OUTPUTPOWER|INPUTPOWER|TXFAULT|LOS
+#          TEMP - Internally measured transceiver temperatures.
+#          VOLTAGE - Internally measured supply voltage.
+#          CURRENT - Measured TX bias current.
+#          OUTPUTPOWER - Measured optical output power relative to 1mW.
+#          INPUTPOWER - Measured optical power received relative to 1mW.
+#          TXFAULT - Transmitter fault:      if Yes return 1, if No return 2
+#          LOS - Loss of signal:             if Yes return 1, if No return 2
+#    -d, --debug                      Set debug flag
+#
+require 'rubygems'
+require 'net/telnet'
+require 'optparse'
+
+version="0.0.1"
+
+# Howto use it..quiet simple
+OPTIONS = {}
+TELNET_ARGUMENTS = {}
+mandatory_options=[:address, :username, :password, :interface, :query]
+optparse = OptionParser.new do |opts|
+  opts.banner = "Usage: #{$0} [options]"
+  opts.separator ""
+  opts.separator "Options"
+  opts.on('-h', '--help', 'Display this help message') do
+    puts opts
+    exit(-1)
+  end
+  opts.on('-a', '--address IP_ADDRESS', String, 'IP address to query') { |v| OPTIONS[:address] = v }
+  opts.on('-u', '--user USERNAME',String, 'Username used to telnet the host') { |v| OPTIONS[:username] = v }
+  opts.on('-p', '--password PASSWORD', String, 'Username associated password') { |v| OPTIONS[:password] = v }
+  opts.on('-i', '--interface INTERFACE', String, 'Transceiver interface to query') { |v| OPTIONS[:interface] = v }
+  opts.on('-q', '--query FLAG', String, 'Flag: TEMP|VOLTAGE|CURRENT|OUTPUTPOWER|INPUTPOWER|TXFAULT|LOS') { |v| OPTIONS[:query] = v }
+  opts.separator "\t\t\t\t\tTEMP - Internally measured transceiver temperatures."
+  opts.separator "\t\t\t\t\tVOLTAGE - Internally measured supply voltage."
+  opts.separator "\t\t\t\t\tCURRENT - Measured TX bias current."
+  opts.separator "\t\t\t\t\tOUTPUTPOWER - Measured optical output power relative to 1mW."
+  opts.separator "\t\t\t\t\tINPUTPOWER - Measured optical power received relative to 1mW."
+  opts.separator "\t\t\t\t\tTXFAULT - Transmitter fault:      if Yes return 1, if No return 2"
+  opts.separator "\t\t\t\t\tLOS - Loss of signal:             if Yes return 1, if No return 2"
+  opts.on('-d', '--debug', "Set debug flag") do
+    TELNET_ARGUMENTS['Dump_log'] = "dump.log"
+    TELNET_ARGUMENTS['Output_log'] = "output.log"
+  end
+  opts.separator ""
+end
+
+# Show usage when no args pass
+if ARGV.empty?
+  puts optparse
+  exit(-1)
+end
+
+# Validate that mandatory parameters are specified
+begin
+  optparse.parse!(ARGV)
+  missing = mandatory_options.select{|p| OPTIONS[p].nil? }
+  if not missing.empty?
+    puts "Missing options: #{missing.join(', ')}"
+    puts optparse
+    exit(-1)
+  end
+  rescue OptionParser::ParseError,OptionParser::InvalidArgument,OptionParser::InvalidOption
+       puts $!.to_s
+       exit(-1)
+end
+
+# Open a telnet session and run 'show fiber-ports optical-transceiver' command
+TELNET_ARGUMENTS["Host"] = OPTIONS[:address]
+TELNET_ARGUMENTS["Timeout"] = 10
+TELNET_ARGUMENTS["Prompt"] = /.*:/
+TELNET_ARGUMENTS["Waittime"] = 0
+result = ""
+session = Net::Telnet.new( TELNET_ARGUMENTS )
+session.cmd("String" => OPTIONS[:username] ,"Match" => /.*:/,"Timeout" => 180)
+session.cmd("String" => OPTIONS[:password] ,"Match" => /.*>/,"Timeout"=> 60)
+session.cmd("String" => "enable","Match" => /.*#/,"Timeout" => 60)
+session.cmd("String" => "show fiber-ports optical-transceiver #{OPTIONS[:interface]} | include #{OPTIONS[:interface]}","Match" => /.*#/,"Timeout" => 60) { |c| result = c }
+session.close
+result = result.each_line.reject{|x| x.strip == ""}.join.gsub(/\s+/,';')
+if (/^(Ge|Te).*/).match(result)
+ result = result.split(';')
+ case OPTIONS[:query].upcase
+ when "TEMP"
+  # return internally measured transceiver temperatures. *10
+  puts result[1].gsub(".", '').to_i
+  exit(-1)
+ when "VOLTAGE"
+  # return internally measured supply voltage. *1000
+  puts result[2].gsub(".", '').to_i
+  exit(-1)
+ when "CURRENT"
+  # return measured TX bias current. *10
+  puts result[3].gsub(".", '').to_i
+  exit(-1)
+ when "OUTPUTPOWER"
+  # return measured optical output power relative to 1mW. *1000
+  puts result[4].gsub(".", '').to_i
+  exit(-1)
+ when "INPUTPOWER"
+   # return measured optical power received relative to 1mW. *1000
+   puts result[5].gsub(".", '').to_i
+   exit(-1)
+  when "TXFAULT"
+   puts 1 if result[6].match(/(Y|y)es/)
+   puts 2 if result[6].match(/(N|n)o/)
+   exit(-1)
+  when "LOS"
+   puts 1 if result[7].match(/(Y|y)es/)
+   puts 2 if result[7].match(/(N|n)o/)
+   exit(-1)
+  else
+   exit(-1)
+  end
+else
+ exit(-1)
+end
