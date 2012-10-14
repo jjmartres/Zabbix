@@ -12,6 +12,8 @@ Templates
   * [ZBX-CISCO-HARDWARE](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-cisco/zbx-cisco-hardware) => use the ENTITY-MIB to discover and manage physical entity.
   * [ZBX-CISCO-HSRP](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-cisco/zbx-cisco-hsrp) => use the CISCO-HSRP-MIB to discover and manage HSRP groups.
   * [ZBX-CISCO-INTERFACES](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-cisco/zbx-cisco-interfaces) => use the IF-MIB and CISCO-UDLDP-MIB to discover and manage interfaces.
+  * [ZBX-CISCO-MPLS](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-cisco/zbx-cisco-mpls) => use the CISCO-LDP-MIB to discover and manage LDP neighbors.
+  * [ZBX-CISCO-OPTICAL-MONITORING](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-cisco/zbx-cisco-optical-monitoring) => use the CISCO-ENTITY-SENSOR-MIB to discover and manage DOM optical sensors.
 
 Requirements
 ------------
