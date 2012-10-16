@@ -18,6 +18,7 @@ Items
   * Discovery: outbound errors on each interface
   * Discovery: incoming discarded packets on each interface
   * Discovery: outgoing discarded packets on each interface
+  * Discovery: the length of the output packet queue for each interface
 
 Triggers
 --------
@@ -25,12 +26,14 @@ Triggers
   * **[WARNING]** => Discovery: incoming use on an interface exceed 80% for the last 5 minutes
   * **[WARNING]** => Discovery: outgoing use on an interface exceed 80% for the last 5 minutes
   * **[INFORMATION]** => Discovery: operational status was changed for an interface
+  * **[INFORMATION]** => Discovery: the length of the output packet queue is not empty on each interface
 
 Graphs
 ------
 
   * Discovery: traffic (bits/sec, 95th Percentile) for an interface
   * Discovery: errors on an interface
+  * Discovery: length of the output packets queue for an interface
 
 Installation
 ------------

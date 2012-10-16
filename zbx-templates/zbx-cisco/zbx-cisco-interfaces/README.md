@@ -26,6 +26,7 @@ Items
   * Discovery: misaligned packets on each interface
   * Discovery: overruns packets on each interface
   * Discovery: runts packets on each interface
+  * Discovery: the length of the output packet queue for each interface
 
 Triggers
 --------
@@ -36,12 +37,14 @@ Triggers
   * **[INFORMATION]** => Discovery: operational status was changed for an interface
   * **[INFORMATION]** => Discovery: unable to determine UDLD status for an interface
   * **[INFORMATION]** => Discovery: UDLD configuration was changed for an interface
+  * **[INFORMATION]** => Discovery: the length of the output packet queue is not empty on each interface
 
 Graphs
 ------
 
   * Discovery: traffic (bits/sec, 95th Percentile) for an interface
   * Discovery: errors on an interface
+  * Discovery: length of the output packets queue for an interface
 
 Installation
 ------------
