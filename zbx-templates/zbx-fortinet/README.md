@@ -13,7 +13,7 @@ Templates
   * [ZBX-FORTINET-HARDWARE](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-hardware) => use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage hardware.
   * [ZBX-FORTINET-VDOM](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-vdom) => use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage virtual domain.
   * [ZBX-FORTINET-IDS](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-ids) => use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage virtual domain.
-  * [ZBX-FORTINET-VPN](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-vpn) => 
+  * [ZBX-FORTINET-VPN](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet/zbx-fortinet-vpn) => use the FORTINET-CORE-MIB and FORTINET-FORTIGATE-MIB to discover and manage VPN.
 
 Requirements
 ------------
