@@ -10,6 +10,9 @@ Scripts
   * [if.speed](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/if.speed) => script to query the speed of an interface using the ifSpeed and ifHighSpeed OID and return the right speed value for an interface.
   * [if.count](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/if.count) => script query ifType and count interface matching a regexp.
   * [discovery.add](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/discovery.add) => script extend discovery rules, by adding discoverd devices to specified group, with specified template.
+  * [powerconnect.optical](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/powerconnect.optical) => script query optical transceiver on Dell PowerConnect switches.
+  * [if.vdom](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/if.vdom) => script to get associated VDOM for an interface on Fortinet devices.
+  * [vpn.vdom](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/vpn.vdom) => script show asssociated VDOM for a VPN tunnel using SNMP on Fortinet device.
 
 Requirements
 ------------

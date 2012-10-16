@@ -1,0 +1,85 @@
+#!/usr/bin/env ruby
+#
+# Script: vpn.vdom
+# Version: 1.0
+# Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
+# Description: This script show asssociated VDOM for a VPN tunnel using SNMP on Fortinet device.
+# License: GPL2
+#
+# This script is intended for use with Zabbix > 2.0
+#
+# USAGE:
+#   if.vdom [options]
+#
+# OPTIONS
+#     -h, --help                       Display this help message
+#     -d, --device IP_ADDRESS          Device IP address discovered by Zabbix
+#     -c, --community SNMP_COMMUNITY   SNMP community used for the device
+#     -s, --snmpindex SNMP_INDEX       SNMP index
+#
+require 'rubygems'
+require 'optparse'
+require 'snmp'
+
+version="0.0.1"
+
+# Howto use it..quiet simple
+OPTIONS = {}
+mandatory_options=[:deviceip, :community, :snmpindex]
+optparse = OptionParser.new do |opts|
+  opts.banner = "Usage: #{$0} [options]"
+  opts.separator ""
+  opts.separator "Options"
+  opts.on("-h", "--help", "Display this help message") do
+    puts opts
+    exit(-1)
+  end
+  opts.on('-d', '--device IP_ADDRESS', String, 'Device IP address discovered by Zabbix') { |v| OPTIONS[:deviceip] = v }
+  opts.on('-c', '--community SNMP_COMMUNITY',String, 'SNMP community used for the device') { |v| OPTIONS[:community] = v }
+  opts.on('-s', '--snmpindex SNMP_INDEX', Integer, 'SNMP index') { |v| OPTIONS[:snmpindex] = v }
+  opts.separator ""
+end
+
+# Show usage when no args pass
+if ARGV.empty?
+  puts optparse
+  exit(-1)
+end
+
+# Validate that mandatory parameters are specified
+begin
+  optparse.parse!(ARGV)
+  missing = mandatory_options.select{|p| OPTIONS[p].nil? }
+  if not missing.empty?
+    puts "Missing options: #{missing.join(', ')}"
+    puts optparse
+    exit(-1)
+  end
+  rescue OptionParser::ParseError,OptionParser::InvalidArgument,OptionParser::InvalidOption
+       puts $!.to_s
+       exit(-1)
+end
+
+# Query SNMP OID ifSpeed and ifHighSpeed
+if_vdom = Array.new
+
+SNMP::Manager.open(:host => OPTIONS[:deviceip], :community => OPTIONS[:community], :version => :SNMPv2c) do |manager|
+  response = manager.get(["1.3.6.1.4.1.12356.101.12.2.2.1.21.#{OPTIONS[:snmpindex]}"])
+  response.each_varbind do |vb|
+   if_vdom.push(vb.value.to_s)
+  end
+end
+
+if if_vdom.any?
+  ifIndex = if_vdom[0].to_i
+  SNMP::Manager.open(:host => OPTIONS[:deviceip], :community => OPTIONS[:community], :version => :SNMPv2c) do |manager|
+   response = manager.get(["1.3.6.1.4.1.12356.101.3.2.1.1.2.#{ifIndex}"])
+   response.each_varbind do |vb|
+    puts vb.value.to_s
+   end
+  end
+  exit(-1)
+else
+  puts "-- ERROR -- : No response receive from #{OPTIONS[:deviceip]} !"
+  exit(-1)
+end
