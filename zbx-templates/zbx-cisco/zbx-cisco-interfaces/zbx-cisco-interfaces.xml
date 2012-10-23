@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-10-16T16:09:55Z</date>
+    <date>2012-10-23T12:31:19Z</date>
     <groups>
         <group>
             <name>ZBX-CISCO-TEMPLATES</name>
@@ -839,9 +839,7 @@ Detection Protocol Feature on this interface.&quot;</description>
                                     <name>Interface(s)</name>
                                 </application>
                             </applications>
-                            <valuemap>
-                                <name>ciscoCudldpInterfaceOperMode</name>
-                            </valuemap>
+                            <valuemap/>
                         </item_prototype>
                         <item_prototype>
                             <name>Uni-Direction link status for interface $1</name>
@@ -885,9 +883,7 @@ which has the meaning as:&#13;
                                     <name>Interface(s)</name>
                                 </application>
                             </applications>
-                            <valuemap>
-                                <name>ciscoCudldpInterfaceOperStatus</name>
-                            </valuemap>
+                            <valuemap/>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
@@ -910,17 +906,26 @@ which has the meaning as:&#13;
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-CISCO-INTERFACES:ifOperStatus[{#SNMPVALUE}].diff(0)}&gt;0</expression>
+                            <expression>{ZBX-CISCO-INTERFACES:ifAlias[{#SNMPVALUE}].regexp({$INTF_REGEX})}=0&amp;{ZBX-CISCO-INTERFACES:ifOperStatus[{#SNMPVALUE}].diff(0)}&gt;0</expression>
                             <name>Operational status was changed on {HOST.NAME} on interface {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
-                            <description/>
+                            <description>Trigger for interface ifAlias that didn't match user macro {$INT_REGEX}</description>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{ZBX-CISCO-INTERFACES:ifAlias[{#SNMPVALUE}].regexp({$INTF_REGEX})}=1&amp;{ZBX-CISCO-INTERFACES:ifOperStatus[{#SNMPVALUE}].diff(0)}&gt;0</expression>
+                            <name>Operational status was changed on {HOST.NAME} on interface {#SNMPVALUE}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>5</priority>
+                            <description>Trigger for interface ifAlias that match user macro {$INT_REGEX}</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-INTERFACES:ifOutQLen[{#SNMPVALUE}].last(0)}&gt;0</expression>
-                            <name>Output packets queue for {#SNMPVALUE} on {HOST.NAME} is not empty</name>
+                            <name>Ouput packets queue for {#SNMPVALUE} on {HOST.NAME} is not empty</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -1109,6 +1114,38 @@ which has the meaning as:&#13;
                             </graph_items>
                         </graph_prototype>
                         <graph_prototype>
+                            <name>Interface {#SNMPVALUE} - Length of the output packets queue</name>
+                            <width>900</width>
+                            <height>200</height>
+                            <yaxismin>0.0000</yaxismin>
+                            <yaxismax>100.0000</yaxismax>
+                            <show_work_period>1</show_work_period>
+                            <show_triggers>1</show_triggers>
+                            <type>0</type>
+                            <show_legend>1</show_legend>
+                            <show_3d>0</show_3d>
+                            <percent_left>0.0000</percent_left>
+                            <percent_right>0.0000</percent_right>
+                            <ymin_type_1>0</ymin_type_1>
+                            <ymax_type_1>0</ymax_type_1>
+                            <ymin_item_1>0</ymin_item_1>
+                            <ymax_item_1>0</ymax_item_1>
+                            <graph_items>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C80000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>ZBX-CISCO-INTERFACES</host>
+                                        <key>ifOutQLen[{#SNMPVALUE}]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                        <graph_prototype>
                             <name>Interface {#SNMPVALUE} - Traffic (bits/sec, 95th Percentile)</name>
                             <width>900</width>
                             <height>200</height>
@@ -1148,38 +1185,6 @@ which has the meaning as:&#13;
                                     <item>
                                         <host>ZBX-CISCO-INTERFACES</host>
                                         <key>ifOutOctets[{#SNMPVALUE}]</key>
-                                    </item>
-                                </graph_item>
-                            </graph_items>
-                        </graph_prototype>
-                        <graph_prototype>
-                            <name>Length of the output packets queue on interface {#SNMPVALUE}</name>
-                            <width>900</width>
-                            <height>200</height>
-                            <yaxismin>0.0000</yaxismin>
-                            <yaxismax>100.0000</yaxismax>
-                            <show_work_period>1</show_work_period>
-                            <show_triggers>1</show_triggers>
-                            <type>0</type>
-                            <show_legend>1</show_legend>
-                            <show_3d>0</show_3d>
-                            <percent_left>0.0000</percent_left>
-                            <percent_right>0.0000</percent_right>
-                            <ymin_type_1>0</ymin_type_1>
-                            <ymax_type_1>0</ymax_type_1>
-                            <ymin_item_1>0</ymin_item_1>
-                            <ymax_item_1>0</ymax_item_1>
-                            <graph_items>
-                                <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>1</drawtype>
-                                    <color>C80000</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>ZBX-CISCO-INTERFACES</host>
-                                        <key>ifOutQLen[{#SNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>

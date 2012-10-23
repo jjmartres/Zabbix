@@ -31,10 +31,11 @@ Items
 Triggers
 --------
 
+  * **[DISASTER]** => Discovery: operational status was changed for an interface where ifAlias match user macro {$INTF_REGEXP}
   * **[HIGH]** => Discovery: an UDLD link has been detected on an interface
   * **[WARNING]** => Discovery: incoming use on an interface exceed 80% for the last 5 minutes
   * **[WARNING]** => Discovery: outgoing use on an interface exceed 80% for the last 5 minutes
-  * **[INFORMATION]** => Discovery: operational status was changed for an interface
+  * **[INFORMATION]** => Discovery: operational status was changed for an interface where ifAlias didn't match user macro {$INTF_REGEXP}
   * **[INFORMATION]** => Discovery: unable to determine UDLD status for an interface
   * **[INFORMATION]** => Discovery: UDLD configuration was changed for an interface
   * **[INFORMATION]** => Discovery: the length of the output packet queue is not empty on each interface
@@ -62,6 +63,7 @@ Installation
   * 3 => aggressive
 4. Import **zbx-cisco-interfaces.xml** file into Zabbix.
 5. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
+6. Add to your host the **{$INTF_REGEXP}** macro with your regular expression as value (ex: -p-|-P-|-pe-|-PE-)
 7. Associate **ZBX-CISCO-INTERFACES** template to the host.
 
 ### Requirements
