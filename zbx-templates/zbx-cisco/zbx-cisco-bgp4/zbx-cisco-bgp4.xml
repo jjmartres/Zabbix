@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-10-13T11:18:29Z</date>
+    <date>2012-10-23T11:02:42Z</date>
     <groups>
         <group>
             <name>ZBX-CISCO-TEMPLATES</name>
@@ -164,9 +164,7 @@
                                     <name>BGP4 Peer(s)</name>
                                 </application>
                             </applications>
-                            <valuemap>
-                                <name>ciscoBgpPeerAdminStatus</name>
-                            </valuemap>
+                            <valuemap/>
                         </item_prototype>
                         <item_prototype>
                             <name>Advertised prefixes for IPv4 peer $1</name>
@@ -221,6 +219,45 @@
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units>Prefix</units>
+                            <delta>0</delta>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP4 Peer(s)</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>AS Name for IPv4 peer {#SNMPVALUE}</name>
+                            <type>10</type>
+                            <snmp_community/>
+                            <multiplier>0</multiplier>
+                            <snmp_oid/>
+                            <key>as.name[&quot;-p&quot;,&quot;{#SNMPVALUE}&quot;]</key>
+                            <delay>300</delay>
+                            <history>7</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>1</value_type>
+                            <allowed_hosts/>
+                            <units/>
                             <delta>0</delta>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -364,6 +401,45 @@
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
+                            <name>Operational status for peer $1</name>
+                            <type>4</type>
+                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                            <multiplier>0</multiplier>
+                            <snmp_oid>.1.3.6.1.2.1.15.3.1.2.{#SNMPVALUE}</snmp_oid>
+                            <key>ciscoBgpPeerState[{#SNMPVALUE}]</key>
+                            <delay>300</delay>
+                            <history>7</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <delta>0</delta>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>BGP4 Peer(s)</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                        </item_prototype>
+                        <item_prototype>
                             <name>Prefixes limit for IPv4 peer $1</name>
                             <type>4</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
@@ -452,7 +528,7 @@
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
-                            <value_type>3</value_type>
+                            <value_type>1</value_type>
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
@@ -479,47 +555,6 @@
                                 </application>
                             </applications>
                             <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>Operational status for peer $1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.15.3.1.2.{#SNMPVALUE}</snmp_oid>
-                            <key>ciscoBgpPeerState[{#SNMPVALUE}]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>BGP4 Peer(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap>
-                                <name>ciscoBgpPeerState</name>
-                            </valuemap>
                         </item_prototype>
                         <item_prototype>
                             <name>Suppressed prefixes for IPv4 peer $1</name>
@@ -620,12 +655,21 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-CISCO-BGP4:ciscoBgpPeerState[{#SNMPVALUE}].last(#3)}#6&amp;{ZBX-CISCO-BGP4:ciscoBgpPeerAdminStatus[{#SNMPVALUE}].last(0)}=2</expression>
+                            <expression>{ZBX-CISCO-BGP4:ciscoBgpPeerRemoteAs[{#SNMPVALUE}].regexp({$BGP_PEER_AS})}=1&amp;{ZBX-CISCO-BGP4:ciscoBgpPeerState[{#SNMPVALUE}].last(#3)}#6&amp;{ZBX-CISCO-BGP4:ciscoBgpPeerAdminStatus[{#SNMPVALUE}].last(0)}=2</expression>
                             <name>BGP peer {#SNMPVALUE} is DOWN on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
-                            <priority>4</priority>
-                            <description/>
+                            <priority>5</priority>
+                            <description>Trigger for peer that has a remote AS matching {$BGP_PEER_AS} macro.</description>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{ZBX-CISCO-BGP4:ciscoBgpPeerRemoteAs[{#SNMPVALUE}].regexp({$BGP_PEER_AS})}=0&amp;{ZBX-CISCO-BGP4:ciscoBgpPeerState[{#SNMPVALUE}].last(#3)}#6&amp;{ZBX-CISCO-BGP4:ciscoBgpPeerAdminStatus[{#SNMPVALUE}].last(0)}=2</expression>
+                            <name>BGP peer {#SNMPVALUE} is DOWN on {HOST.NAME}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description>Trigger for peer that has a remote AS not matching {$BGP_PEER_AS} macro.</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>

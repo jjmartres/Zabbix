@@ -19,7 +19,8 @@ Items
 Triggers
 --------
 
-  * **[HIGH]** => Discovery: BGP peer is down
+  * **[DISASTER]** => Discovery: BGP peer that remote AS match {$BGP_PEER_AS} macro is down
+  * **[AVERAGE]** => Discovery: BGP peer that remote AS didn't match {$BGP_PEER_AS} macro is down
   * **[AVERAGE]** => Discovery: accepted prefixes for IPv4 as reached the maximum limit
   * **[AVERAGE]** => Discovery: accepted prefixes for VPNv4 as reached the maximum limit
   * **[AVERAGE]** => Discovery: IPv4 BGP peer has lost more than 20% of prefixes
@@ -39,9 +40,12 @@ Installation
 1. Add a value mapping named `ciscoBgpPeerAdminStatus` with the following values:
   * 1 => stop
   * 2 => start
-2. Import **zbx-cisco-bgp4.xml** file into Zabbix.
-3. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
-4. Associate **ZBX-CISCO-BGP4** template to the host.
+3. Install [`as.name`](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/as.name) in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
+4. Then `chmod a+x as.name`
+5. Import **zbx-cisco-bgp4.xml** file into Zabbix.
+6. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
+7. Add to your host the **{$BGP_PEER_AS}** macro with your list BGP peer remote AS as value (ex: ASN1|ASN2|ASN3)
+8. Associate **ZBX-CISCO-BGP4** template to the host.
  
 ### Requirements
 
