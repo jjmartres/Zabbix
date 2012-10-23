@@ -16,6 +16,7 @@ Templates
   * [ZBX-CISCO-OPTICAL-MONITORING](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-cisco/zbx-cisco-optical-monitoring) => use the CISCO-ENTITY-SENSOR-MIB to discover and manage DOM optical sensors.
   * [ZBX-CISCO-VPDN](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-cisco/zbx-cisco-vpdn) => use the CISCO-VPDN-MGMT-MIB to discover and manage Virtual Private Dialup Network.
   * [ZBX-CISCO-xDSL](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-cisco/zbx-cisco-xdsl) => use the ADSL-LINE-MIB and HDSL2-SHDSL-LINE-MIB to discover and manage ADSL and/or HDSL2/SHDSL controllers.
+  * [ZBX-CISCO-PSEUDOWIRE](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-cisco/zbx-cisco-pseudowire) => use the CISCO-IETF-PW-MIB to discover and manage pseudowire connections.
 
 Requirements
 ------------
