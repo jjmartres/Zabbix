@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-10-23T14:59:17Z</date>
+    <date>2012-10-23T15:42:06Z</date>
     <groups>
         <group>
             <name>ZBX-CISCO-TEMPLATES</name>
@@ -91,7 +91,7 @@
                             </valuemap>
                         </item_prototype>
                         <item_prototype>
-                            <name>Associated interface for VC $1</name>
+                            <name>Associated physical interface for VC $1</name>
                             <type>4</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
@@ -341,7 +341,7 @@
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
-                            <value_type>3</value_type>
+                            <value_type>0</value_type>
                             <allowed_hosts/>
                             <units>uptime</units>
                             <delta>0</delta>
@@ -451,7 +451,7 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-PSEUDOWIRE:cpwVcOperStatus[{#SNMPVALUE}].diff(0)}&gt;0</expression>
-                            <name>Operational status for VC {#SNMPVALUE} was changed on {HOSTNAME}</name>
+                            <name>Operational status for pseudowire VC {#SNMPVALUE} was changed on {HOSTNAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -460,7 +460,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-PSEUDOWIRE:cpwVcOperStatus[{#SNMPVALUE}].last(0)}#1</expression>
-                            <name>VC {#SNMPVALUE} is DOWN on {HOST.NAME}</name>
+                            <name>Pseudowire VC {#SNMPVALUE} is DOWN on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
