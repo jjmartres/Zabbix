@@ -13,6 +13,7 @@ Scripts
   * [powerconnect.optical](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/powerconnect.optical) => script query optical transceiver on Dell PowerConnect switches.
   * [if.vdom](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/if.vdom) => script to get associated VDOM for an interface on Fortinet devices.
   * [vpn.vdom](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/vpn.vdom) => script show asssociated VDOM for a VPN tunnel using SNMP on Fortinet device.
+  * [as.name](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/as.name) => script to query **whois.cymru.com** server to get AS Name associated to the IP address.
 
 Requirements
 ------------

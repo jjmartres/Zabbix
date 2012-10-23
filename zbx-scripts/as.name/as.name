@@ -1,0 +1,70 @@
+#!/usr/bin/env ruby
+#
+# Script: as.name
+# Version: 1.0
+# Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
+# Description: Query whois.cymru.com server to get AS Name associated to the IP address
+# License: GPL2
+#
+# This script is intended for use with Zabbix > 2.0
+#
+# USAGE:
+#   as a script:    as.name [options]
+#   as an item:     as.name["-p","BGP_PEER_IP_ADDRESS"]
+#
+# OPTIONS
+#     -h, --help                            Display this help message
+#     -p, --peer BGP_PEER_IP_ADDRESS        BGP peer IP address discovered by Zabbix
+#
+require 'rubygems'
+require 'optparse'
+
+version="0.0.1"
+
+# Howto use it..quiet simple
+OPTIONS = {}
+mandatory_options=[:peer]
+optparse = OptionParser.new do |opts|
+  opts.banner = "Usage: #{$0} [options]"
+  opts.separator ""
+  opts.separator "Options"
+  opts.on("-h", "--help", "Display this help message") do
+    puts opts
+    exit(-1)
+  end
+  opts.on('-p', '--peer BGP_PEER_IP_ADDRESS', String, 'BGP peer IP address discovered by Zabbix') { |v| OPTIONS[:peer] = v }
+  opts.separator ""
+end
+
+# Show usage when no args pass
+if ARGV.empty?
+  puts optparse
+  exit(-1)
+end
+
+# Validate that mandatory parameters are specified
+begin
+  optparse.parse!(ARGV)
+  missing = mandatory_options.select{|p| OPTIONS[p].nil? }
+  if not missing.empty?
+    puts "Missing options: #{missing.join(', ')}"
+    puts optparse
+    exit(-1)
+  end
+  rescue OptionParser::ParseError,OptionParser::InvalidArgument,OptionParser::InvalidOption
+       puts $!.to_s
+       exit(-1)
+end
+
+# Query whois server whois.cymru.com
+t = Thread.new { `whois -h whois.cymru.com " -f #{OPTIONS[:peer]}"` }
+whois = t.value.chomp.gsub(/\s+\|\s+/,"|").split("|")
+
+# Return AS Name
+if whois[2].match("NA") 
+  puts "N/A"
+else
+  puts whois[2]
+end
+
+exit(-1)
