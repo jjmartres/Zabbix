@@ -7,7 +7,8 @@ Installation
 ------------
 
 1. Install `as.name` in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
-2. Then chmod a+x `as.name`
+2. Make sure you have the whois client installed on your Zabbix server and/or proxy.
+3. Then chmod a+x `as.name`
 
 ### Requirements
 
