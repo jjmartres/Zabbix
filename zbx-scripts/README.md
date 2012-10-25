@@ -14,6 +14,7 @@ Scripts
   * [if.vdom](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/if.vdom) => script to get associated VDOM for an interface on Fortinet devices.
   * [vpn.vdom](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/vpn.vdom) => script show asssociated VDOM for a VPN tunnel using SNMP on Fortinet device.
   * [as.name](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/as.name) => script to query **whois.cymru.com** server to get AS Name associated to the IP address.
+  * [ift.ldmode](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/lft.ldmode) => script query ldOpModes OID from the Infortrend MIB (IFT-SNMP-MIB) to get the logical drive operating mode.
 
 Requirements
 ------------
