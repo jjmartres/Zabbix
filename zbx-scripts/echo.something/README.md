@@ -24,7 +24,7 @@ Usage
     ./echo.something "some string"
 
 ### As an item
-Use `echo.something` like an "**External Check**" item in Zabbix.  So, when creating an item, select "**External Check**".  In the "**Key**" field, you specify:
+Use `echo.something` like an **External Check** item in Zabbix.  So, when creating an item, select **External Check**.  In the **Key** field, you specify:
     
     echo.something["ARGUMENT"]
 

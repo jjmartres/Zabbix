@@ -39,7 +39,7 @@ Usage
      -i, --id LD_INDEX                Logical drive index
 
 ### As an item
-Use `ift.ldmode` like an "**External Check**" item in Zabbix.  So, when creating an item, select "**External Check**".  In the "**Key**" field, you specify:
+Use `ift.ldmode` like an **External Check** item in Zabbix.  So, when creating an item, select **External Check**.  In the **Key** field, you specify:
     
     ift.ldmode["-d","IP_ADDRESS","-c","SNMP_COMMUNITY","-i","LD_INDEX"]
 

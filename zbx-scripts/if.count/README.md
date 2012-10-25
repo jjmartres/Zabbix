@@ -39,7 +39,7 @@ Usage
      -r, --regex REGEX                Interface regexp
 
 ### As an item
-Use `if.count` like an "**External Check**" item in Zabbix.  So, when creating an item, select "**External Check**".  In the "**Key**" field, you specify:
+Use `if.count` like an **External Check** item in Zabbix.  So, when creating an item, select **External Check**.  In the **Key** field, you specify:
     
     if.count["-d","IP_ADDRESS","-c","SNMP_COMMUNITY","-r","REGEXP"]
 

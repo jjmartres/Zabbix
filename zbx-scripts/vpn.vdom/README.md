@@ -39,7 +39,7 @@ Usage
      -s, --snmpindex SNMP_INDEX       SNMP index
 
 ### As an item
-Use `vpn.vdom` like an "**External Check**" item in Zabbix.  So, when creating an item, select "**External Check**".  In the "**Key**" field, you specify:
+Use `vpn.vdom` like an **External Check** item in Zabbix.  So, when creating an item, select **External Check**.  In the **Key** field, you specify:
     
     vpn.vdom["-d","IP_ADDRESS","-c","SNMP_COMMUNITY","-s","SNMPINDEX"]
 

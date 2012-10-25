@@ -44,7 +44,7 @@ Usage
        -d, --debug                      Set debug flag
 
 ### As an item
-Use `powerconect.optical` like an "**External Check**" item in Zabbix.  So, when creating an item, select "**External Check**".  In the "**Key**" field, you specify:
+Use `powerconect.optical` like an **External Check** item in Zabbix.  So, when creating an item, select **External Check**.  In the **Key** field, you specify:
 
     powerconnect.optical["-a","IP_ADDRESS","-u","USERNAME","-p","PASSWORD","-i","INTERFACE","-q","FLAG"]
 

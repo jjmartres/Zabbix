@@ -33,7 +33,7 @@ Usage
     -p, --peer BGP_PEER_IP_ADDRESS   BGP peer IP address discovered by Zabbix
 
 ### As an item
-Use `as.name` like an "**External Check**" item in Zabbix.  So, when creating an item, select "**External Check**".  In the "**Key**" field, you specify:
+Use `as.name` like an **External Check** item in Zabbix.  So, when creating an item, select **External Check**.  In the **Key** field, you specify:
     
     as.name["-p","BGP_PEER_IP_ADDRESS"]
 
