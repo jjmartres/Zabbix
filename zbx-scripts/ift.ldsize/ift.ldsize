@@ -77,7 +77,7 @@ if oid_value.any?
   if oid_value[0].match('noSuchInstance')
     puts "-- ERROR -- : No such instance !"
   else
-    size = oid_value[0].hex.to_i * OPTIONS[:blocksize].to_i
+    size = oid_value[0].hex * OPTIONS[:blocksize].to_i
     puts size
     exit(-1)
   end
