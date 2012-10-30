@@ -137,15 +137,15 @@ This template was tested for Zabbix 2.0.0 and higher.
 
 This template use this script to echo "Infortrend" as Device Manufacturer Name for **Host Inventory**.
 
-###### [ift.ldmode](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/lft.ldmode) 1.0
+###### [ift.ldmode](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/ift.ldmode) 1.0
 
 This template use this script to get operational mode for each logical drive.
 
-###### [ift.ldstatus](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/lft.ldstatus) 1.0
+###### [ift.ldstatus](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/ift.ldstatus) 1.0
 
 This template use this script to get the status of each logical drive.
 
-###### [ift.ldsize](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/lft.ldsize) 1.0
+###### [ift.ldsize](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/ift.ldsize) 1.0
 
 This template use this script to get the size of each logical drive.
 
