@@ -87,24 +87,7 @@ if oid_value.any?
     oid_value = oid_value[0].to_i
     ldOpMode = oid_value.to_s(2).to_s.split('').reverse
     ldOpMode = ldOpMode[0..3].reverse.to_s
-    case ldOpMode
-    when "0000"
-      puts "Single drive"
-    when "0001"
-      puts "NON RAID"
-    when "0010"
-      puts "RAID 0"
-    when "0011"
-      puts "RAID 1"
-    when "0100"
-      puts "RAID 3"
-    when "0101"
-      puts "RAID 4"
-    when "0110"
-      puts "RAID 5"
-    else
-      puts "RAID 6"
-    end
+    puts ldOpMode.to_i
     exit(-1)
   end
 else
