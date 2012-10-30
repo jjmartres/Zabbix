@@ -75,36 +75,19 @@ if oid_value.any?
   if oid_value[0].match('noSuchInstance')
     puts "-- ERROR -- : No such instance !"
   else
-    # We need to read BITS 0-3 to get RAID LEVEL
-    # 0 (0000 in binary): Single drive
-    # 1 (0001 in binary): NON-RAID
-    # 2 (0010 in binary): RAID0
-    # 3 (0011 in binary): RAID1
-    # 4 (0100 in binary): RAID3
-    # 5 (0101 in binary): RAID4
-    # 6 (0110 in binary): RAID5
-    # 7 (0111 in binary): RAID6
+    # We need to read BITS 0-2 to get Logical Drive Status
+    # 0 (0000 in binary): GOOD
+    # 1 (0001 in binary): REBUILDING
+    # 2 (0010 in binary): INITIALIZING
+    # 3 (0011 in binary): DEGRADEED
+    # 4 (0100 in binary): DEAD
+    # 5 (0101 in binary): INVALID
+    # 6 (0110 in binary): INCOMPLETE
+    # 7 (0111 in binary): DRIVE MISSING
     oid_value = oid_value[0].to_i
-    ldOpMode = oid_value.to_s(2).to_s.split('').reverse
-    ldOpMode = ldOpMode[0..2].to_s.reverse
-    case ldOpMode
-    when "0"
-      puts "Good"
-    when "001"
-      puts "Rebuilding"
-    when "010"
-      puts "Initializing"
-    when "011"
-      puts "Degraded"
-    when "100"
-      puts "Dead"
-    when "101"
-      puts "Invalid"
-    when "110"
-      puts "Incomplete"
-    else
-      puts "Drive Missing"
-    end
+    ldStatus = oid_value.to_s(2).to_s.split('').reverse
+    ldStatus = ldStatus[0..2].to_s.reverse
+    puts ldStatus.to_i
     exit(-1)
   end
 else
