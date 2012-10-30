@@ -26,11 +26,13 @@ Triggers
 Installation
 ------------
 
-1. Add a value mapping named `ciscoPwVcAdminStatus` with the following values:
+1. Install [`echo.something`](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/echo.something) in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
+2. Then `chmod a+x echo.something`
+3. Add a value mapping named `ciscoPwVcAdminStatus` with the following values:
   * 1 => up
   * 2 => down
   * 3 => testing
-2. Add a value mapping named `ciscoPwOperStatus` with the following values:
+4. Add a value mapping named `ciscoPwOperStatus` with the following values:
   * 1 => up
   * 2 => down
   * 3 => testing
@@ -38,7 +40,7 @@ Installation
   * 5 => dormant
   * 6 => notPresent
   * 7 => lowerlayerDown
-3. Add a value mapping named `ciscoPwVcType` with the following values:
+5. Add a value mapping named `ciscoPwVcType` with the following values:
   * 0 => other
   * 1 => frameRelay
   * 2 => atmAal5Vcc
@@ -59,16 +61,16 @@ Installation
   * 17 => basicTdmIp
   * 18 => tdmCasCesPsn
   * 19 => tdmCasTdmIp
-4. Add a value mapping named `ciscoPwVcPsnType` with the following values:
+6. Add a value mapping named `ciscoPwVcPsnType` with the following values:
   * 1 => mpls
   * 2 => l2tp
   * 3 => ip
   * 4 => mplsOverIp
   * 5 => gre
   * 6 => other
-5. Import **zbx-cisco-pseudowire.xml** file into Zabbix.
-6. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
-7. Associate **ZBX-CISCO-PSEUDOWIRE** template to the host.
+7. Import **zbx-cisco-pseudowire.xml** file into Zabbix.
+8. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
+9. Associate **ZBX-CISCO-PSEUDOWIRE** template to the host.
  
 ### Requirements
 

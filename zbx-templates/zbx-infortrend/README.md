@@ -60,13 +60,13 @@ Triggers
 Installation
 ------------
 
-1. Install [`echo.something`](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/echo.something)) in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
+1. Install [`echo.something`](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/echo.something) in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
 2. Then `chmod a+x echo.something`
-3. Install [`ift.ldmode`]((https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/ift.ldmode)) in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
+3. Install [`ift.ldmode`](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/ift.ldmode) in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
 4. Then `chmod a+x ift.ldmode`
-5. Install [`ift.ldstatus`]((https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/ift.ldstatus)) in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
+5. Install [`ift.ldstatus`](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/ift.ldstatus) in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
 6. Then `chmod a+x ift.ldstatus`
-5. Install [`ift.ldsize`]((https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/ift.ldsize)) in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
+5. Install [`ift.ldsize`](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/ift.ldsize) in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
 6. Then `chmod a+x ift.ldsize`
 7. Add a value mapping named `infortrendHddStatus` with the following values:
   * 0 => New Drive
