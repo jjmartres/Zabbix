@@ -7,7 +7,7 @@ Installation
 ------------
 
 1. Install `discovery.add` in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
-2. Then chmod a+x `discovery.add`
+2. Then `chmod a+x discovery.add`
 3. Install SNMP gem `gem install snmp`
 4. Install SNMP gem `gem install rubix`
 
@@ -46,7 +46,11 @@ Usage
       -c, --community SNMP_COMMUNITY   SNMP community used for the device
       -x, --proxy PROXY_NAME           Zabbix proxy host that will manage the device
       -g, --group GROUP_NAME           Zabbix host group to add the device
-      -r, --rules RULES                Rules to associate templates to discovered devices. Ex: [['regexp1','template1'],['regexp2','template2']]
+      -r, --rules RULES                Rules to associate templates to discovered devices. Ex: "[['template1','regexp1'],['template2','regexp2']]"
+
+    EXAMPLE
+
+      `discovery.add -u http://zabbix/api_jsonrpc.php -l USER_NAME -p USER_PASSWORD -d DISCOVERY.DEVICE.IPADDRESS -c ZABBIX_COMMUNITY -x ZABBIX_PROXY -g MY_GROUP -r "[['MY-CISCO-TEMPLATE','isco'],['MY-NETOPIA-TEMPLATE','etopia']]"`
 
 Version
 -------

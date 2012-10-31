@@ -20,7 +20,11 @@
 #     -c, --community SNMP_COMMUNITY   SNMP community used for the device
 #     -x, --proxy PROXY_NAME           Zabbix proxy host that will manage the device
 #     -g, --group GROUP_NAME           Zabbix host group to add the device
-#     -r, --rules RULES                Rules to associate templates to discovered devices. Ex: [['regexp1','template1'],['regexp2','template2']] "some string"
+#     -r, --rules RULES                Rules to associate templates to discovered devices. Ex: "[['template1','regexp1'],['template2','regexp2']]"
+#
+# Exemple
+#
+#     ./discovery.add -u http://zabbix/api_jsonrpc.php -l USER_NAME -p USER_PASSWORD -d DISCOVERY.DEVICE.IPADDRESS -c ZABBIX_COMMUNITY -x ZABBIX_PROXY -g MY_GROUP -r "[['MY-CISCO-TEMPLATE','isco'],['MY-NETOPIA-TEMPLATE','etopia']]"
 #
 require 'rubygems'
 require 'optparse'
@@ -47,7 +51,7 @@ optparse = OptionParser.new do |opts|
   opts.on('-c', '--community SNMP_COMMUNITY',String, 'SNMP community used for the device') { |v| OPTIONS[:community] = v }
   opts.on('-x', '--proxy PROXY_NAME', String, 'Zabbix proxy host that will manage the device') { |v| OPTIONS[:proxy] = v }
   opts.on('-g', '--group GROUP_NAME', String, 'Zabbix host group to add the device') { |v| OPTIONS[:hostgroup] =v }
-  opts.on('-r', '--rules RULES', String, 'Rules to associate templates to discovered devices. Ex: [[\'regexp1\',\'template1\'],[\'regexp2\',\'template2\']]') { |v| OPTIONS[:rules] =v }
+  opts.on('-r', '--rules RULES', String, 'Rules to associate templates to discovered devices. Ex: "[[\'regexp1\',\'template1\'],[\'regexp2\',\'template2\']]"') { |v| OPTIONS[:rules] =v }
   opts.separator ""
 end
 
@@ -77,13 +81,13 @@ Rubix.connect(OPTIONS[:url],OPTIONS[:username],OPTIONS[:password])
 # We need to ensure that the provided hostgroup and proxy exist
 proxy_host = Rubix.connection.request('proxy.get', 'filter' => { 'host' => OPTIONS[:proxy] })
 host_group = Rubix.connection.request('hostgroup.get', 'filter' => { 'name' => OPTIONS[:hostgroup] })
-if (host_group.has_data? && proxy.has_data?)
+if (host_group.has_data? && proxy_host.has_data?)
   # Has OPTIONS[:proxy] and HOSGROUP exist we need to save proxy_hostid and groupid
   proxy_hostid=(proxy_host.result)[0]["proxyid"]
   groupid=(host_group.result)[0]["groupid"]
   # We need to ensure that device doesn't already exist
   host = Rubix.connection.request('host.get','filter'=> { 'ip' => OPTIONS[:deviceip] })
-  if host.any?
+  if host.result.empty?
     # Query SNMP OID sysDescr and sysName
     sys_information = Array.new
     SNMP::Manager.open(:host => OPTIONS[:deviceip], :community => OPTIONS[:community], :version => :SNMPv2c) do |manager|
@@ -94,7 +98,8 @@ if (host_group.has_data? && proxy.has_data?)
     end
       # We need to ensure that SNMP response is not empty
       if sys_information.any?
-        RULES = Hash[OPTIONS[:rules].map {|template, regexp| [template, regexp]} ]
+        x = eval(OPTIONS[:rules])
+        RULES = Hash[x.map {|template, regexp| [template, regexp]} ]
         RULES.each { |k, v|
           # We can add device if we match the template regexp
           if sys_information[0].match("#{v}")
@@ -103,12 +108,14 @@ if (host_group.has_data? && proxy.has_data?)
             if template.has_data?
               # We need to save templateid
               templateid = template[0]["templateid"]
+              sys_information = sys_information[1].split('.')
+              sys_information = sys_information[0].downcase
               # We can create the host
-              creation = Rubix.connection.request('host.create', 'host'=>OPTIONS[:deviceip],'name'=>sys_information[1].upcase,"proxy_hostid"=>proxy_hostid, "interfaces"=>[{"type"=>2,"main"=>1,"useip"=>1,"ip"=>OPTIONS[:deviceip],"dns"=>"","port"=>161}],"inventory_mode"=>1,"macros"=>[{"macro"=>"{$SNMP_COMMUNITY}","value"=>OPTIONS[:community]}], "templates" => [{"templateid"=>templateid}], "groups" => [{"groupid"=>groupid}])
+              creation = Rubix.connection.request('host.create', 'host'=>OPTIONS[:deviceip],'name'=>sys_information,"proxy_hostid"=>proxy_hostid, "interfaces"=>[{"type"=>2,"main"=>1,"useip"=>1,"ip"=>OPTIONS[:deviceip],"dns"=>"","port"=>161}],"inventory_mode"=>1,"macros"=>[{"macro"=>"{$SNMP_COMMUNITY}","value"=>OPTIONS[:community]}], "templates" => [{"templateid"=>templateid}], "groups" => [{"groupid"=>groupid}])
               if creation.success?
-                puts "-- SUCCESS -- : Device #{sys_information[1].upcase} added."
+                puts "-- SUCCESS -- : Device #{sys_information} added."
               else
-                puts "-- ERROR -- : Device #{sys_information[1].upcase} not added."
+                puts "-- ERROR -- : Device #{sys_information} not added."
               end
             else
               puts "-- ERROR -- : Template #{k} doesn't exist !"
