@@ -46,16 +46,19 @@ Usage
       -c, --community SNMP_COMMUNITY   SNMP community used for the device
       -x, --proxy PROXY_NAME           Zabbix proxy host that will manage the device
       -g, --group GROUP_NAME           Zabbix host group to add the device
-      -r, --rules RULES                Rules to associate templates to discovered devices. Ex: "[['template1','regexp1'],['template2','regexp2']]"
+      -r, --rules RULES                Rules to associate templates to discovered devices. 
+                                       Ex: "[['template1','regexp1'],['template2','regexp2']]"
 
     EXAMPLE
 
-      `discovery.add -u http://zabbix/api_jsonrpc.php -l USER_NAME -p USER_PASSWORD -d DISCOVERY.DEVICE.IPADDRESS -c ZABBIX_COMMUNITY -x ZABBIX_PROXY -g MY_GROUP -r "[['MY-CISCO-TEMPLATE','isco'],['MY-NETOPIA-TEMPLATE','etopia']]"`
+      discovery.add -u http://zabbix/api_jsonrpc.php -l USER_NAME -p USER_PASSWORD -d DISCOVERY.DEVICE.IPADDRESS \
+                    -c ZABBIX_COMMUNITY -x ZABBIX_PROXY -g MY_GROUP \
+                    -r "[['MY-CISCO-TEMPLATE','isco'],['MY-NETOPIA-TEMPLATE','etopia']]"`
 
 Version
 -------
 
-Version 1.0
+Version 2.0
 
 License
 -------
