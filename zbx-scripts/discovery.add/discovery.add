@@ -109,7 +109,7 @@ if (host_group.has_data? && proxy_host.has_data?)
               # We need to save templateid
               templateid = template[0]["templateid"]
               sys_information = sys_information[1].split('.')
-              sys_information = sys_information[0].downcase
+              sys_information = sys_information[0].upcase
               # We can create the host
               creation = Rubix.connection.request('host.create', 'host'=>OPTIONS[:deviceip],'name'=>sys_information,"proxy_hostid"=>proxy_hostid, "interfaces"=>[{"type"=>2,"main"=>1,"useip"=>1,"ip"=>OPTIONS[:deviceip],"dns"=>"","port"=>161}],"inventory_mode"=>1,"macros"=>[{"macro"=>"{$SNMP_COMMUNITY}","value"=>OPTIONS[:community]}], "templates" => [{"templateid"=>templateid}], "groups" => [{"groupid"=>groupid}])
               if creation.success?
