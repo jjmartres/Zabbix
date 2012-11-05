@@ -289,7 +289,7 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-FORTINET-VPN:fgVpnTunEntStatus[{#SNMPVALUE}].last(0)}=1</expression>
-                            <name>VPN tunnel {#SNMPVALUE} on {HOST.NAME} is DOWN</name>
+                            <name>VPN tunnel {#SNMPVALUE} is DOWN</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
