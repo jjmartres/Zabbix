@@ -1,27 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-10-14T12:16:49Z</date>
+    <date>2012-11-05T15:38:18Z</date>
     <groups>
         <group>
-            <name>ZBX-CISCO-TEMPLATES</name>
+            <name>ZBX-NETOPIA-TEMPLATES</name>
         </group>
     </groups>
     <templates>
         <template>
-            <template>ZBX-CISCO-xDSL</template>
-            <name>ZBX-CISCO-xDSL</name>
+            <template>ZBX-NETOPIA-xDSL</template>
+            <name>ZBX-NETOPIA-xDSL</name>
             <groups>
                 <group>
-                    <name>ZBX-CISCO-TEMPLATES</name>
+                    <name>ZBX-NETOPIA-TEMPLATES</name>
                 </group>
             </groups>
             <applications>
                 <application>
                     <name>ADSL Line(s)</name>
-                </application>
-                <application>
-                    <name>SDSL Line(s)</name>
                 </application>
             </applications>
             <items/>
@@ -30,8 +27,8 @@
                     <name>ADSL Controller(s)</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>.1.3.6.1.2.1.31.1.1.1.1</snmp_oid>
-                    <key>ciscoAdslController</key>
+                    <snmp_oid>.1.3.6.1.2.1.2.2.1.3</snmp_oid>
+                    <key>netopiaAdslController</key>
                     <delay>300</delay>
                     <status>0</status>
                     <allowed_hosts/>
@@ -48,7 +45,7 @@
                     <publickey/>
                     <privatekey/>
                     <port/>
-                    <filter>{#SNMPVALUE}:(.*)-adsl</filter>
+                    <filter>{#SNMPVALUE}:94</filter>
                     <lifetime>7</lifetime>
                     <description/>
                     <item_prototypes>
@@ -58,7 +55,7 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
                             <snmp_oid>.1.3.6.1.2.1.10.94.1.1.1.1.1.{#SNMPINDEX}</snmp_oid>
-                            <key>ciscoAdslLineCoding[{#SNMPINDEX}]</key>
+                            <key>netopiaAdslLineCoding[{#SNMPINDEX}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -89,9 +86,7 @@
                                     <name>ADSL Line(s)</name>
                                 </application>
                             </applications>
-                            <valuemap>
-                                <name>ciscoAdslLineCoding</name>
-                            </valuemap>
+                            <valuemap/>
                         </item_prototype>
                         <item_prototype>
                             <name>ADSL line (ID{#SNMPINDEX}) downstream attenuation</name>
@@ -99,7 +94,7 @@
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>1</multiplier>
                             <snmp_oid>.1.3.6.1.2.1.10.94.1.1.3.1.5.{#SNMPINDEX}</snmp_oid>
-                            <key>ciscoAdslAturCurrAtn[{#SNMPVALUE}]</key>
+                            <key>netopiaAdslAturCurrAtn[{#SNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -112,7 +107,7 @@
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
                             <snmpv3_authpassphrase/>
                             <snmpv3_privpassphrase/>
-                            <formula>0.1</formula>
+                            <formula>0.001</formula>
                             <delay_flex/>
                             <params/>
                             <ipmi_sensor/>
@@ -140,8 +135,8 @@ T1.413[10].&quot;</description>
                             <type>4</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.94.1.1.7.1.4.{#SNMPINDEX}</snmp_oid>
-                            <key>ciscoAdslAturPerfESs[{#SNMPVALUE}]</key>
+                            <snmp_oid>.1.3.6.1.2.1.10.94.1.1.7.1.11.{#SNMPINDEX}</snmp_oid>
+                            <key>netopiaAdslAturPerfESs[{#SNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -182,8 +177,8 @@ anomalies, or one or more los or sef defects.&quot;</description>
                             <type>4</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.94.1.1.7.1.1.{#SNMPINDEX}</snmp_oid>
-                            <key>ciscoAdslAturPerfLofs[{#SNMPVALUE}]</key>
+                            <snmp_oid>.1.3.6.1.2.1.10.94.1.1.7.1.8.{#SNMPINDEX}</snmp_oid>
+                            <key>netopiaAdslAturPerfLofs[{#SNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -222,8 +217,8 @@ agent reset.&quot;</description>
                             <type>4</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.94.1.1.7.1.3.{#SNMPINDEX}</snmp_oid>
-                            <key>ciscoAdslAturPerfLprs[{#SNMPVALUE}]</key>
+                            <snmp_oid>.1.3.6.1.2.1.10.94.1.1.7.1.10.{#SNMPINDEX}</snmp_oid>
+                            <key>netopiaAdslAturPerfLprs[{#SNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -262,8 +257,8 @@ agent reset.&quot;</description>
                             <type>4</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.94.1.1.7.1.2.{SNMPINDEX}</snmp_oid>
-                            <key>ciscoAdslAturPerfLoss[{#SNMPVALUE}]</key>
+                            <snmp_oid>.1.3.6.1.2.1.10.94.1.1.7.1.9.{SNMPINDEX}</snmp_oid>
+                            <key>netopiaAdslAturPerfLoss[{#SNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -303,7 +298,7 @@ agent reset.&quot;</description>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>1</multiplier>
                             <snmp_oid>.1.3.6.1.2.1.10.94.1.1.3.1.4.{#SNMPINDEX}</snmp_oid>
-                            <key>ciscoAdslAturCurrSnrMgn[{#SNMPVALUE}]</key>
+                            <key>netopiaAdslAturCurrSnrMgn[{#SNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -316,7 +311,7 @@ agent reset.&quot;</description>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
                             <snmpv3_authpassphrase/>
                             <snmpv3_privpassphrase/>
-                            <formula>0.1</formula>
+                            <formula>0.001</formula>
                             <delay_flex/>
                             <params/>
                             <ipmi_sensor/>
@@ -344,7 +339,7 @@ accordance with T1.413 [10].&quot;</description>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
                             <snmp_oid>.1.3.6.1.2.1.10.94.1.1.3.1.8.{#SNMPINDEX}</snmp_oid>
-                            <key>ciscoAdslAturCurrAttainableRate[{#SNMPVALUE}]</key>
+                            <key>netopiaAdslAturCurrAttainableRate[{#SNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -385,7 +380,7 @@ the current line rate.&quot;</description>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
                             <snmp_oid>.1.3.6.1.2.1.10.94.1.1.1.1.2.{#SNMPINDEX}</snmp_oid>
-                            <key>ciscoAdslLineType[{#SNMPVALUE}]</key>
+                            <key>netopiaAdslLineType[{#SNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -421,7 +416,7 @@ object defines which channel type(s) are supported.&quot;</description>
                                 </application>
                             </applications>
                             <valuemap>
-                                <name>ciscoAdslLineType</name>
+                                <name>netopiaAdslLineType</name>
                             </valuemap>
                         </item_prototype>
                         <item_prototype>
@@ -430,7 +425,7 @@ object defines which channel type(s) are supported.&quot;</description>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>1</multiplier>
                             <snmp_oid>.1.3.6.1.2.1.10.94.1.1.2.1.5.{#SNMPINDEX}</snmp_oid>
-                            <key>ciscoAdslAtucCurrAtn[{#SNMPVALUE}]</key>
+                            <key>netopiaAdslAtucCurrAtn[{#SNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -443,7 +438,7 @@ object defines which channel type(s) are supported.&quot;</description>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
                             <snmpv3_authpassphrase/>
                             <snmpv3_privpassphrase/>
-                            <formula>0.1</formula>
+                            <formula>0.001</formula>
                             <delay_flex/>
                             <params/>
                             <ipmi_sensor/>
@@ -471,8 +466,8 @@ T1.413[10].&quot;</description>
                             <type>4</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.94.1.1.6.1.5.{#SNMPINDEX}</snmp_oid>
-                            <key>ciscoAdslAtucPerfESs[{#SNMPVALUE}]</key>
+                            <snmp_oid>.1.3.6.1.2.1.10.94.1.1.6.1.14.{#SNMPINDEX}</snmp_oid>
+                            <key>netopiaAdslAtucPerfESs[{#SNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -513,8 +508,8 @@ anomalies, or one or more los or sef defects.&quot;</description>
                             <type>4</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.94.1.1.6.1.1.{#SNMPINDEX}</snmp_oid>
-                            <key>ciscoAdslAtucPerfLofs[{#SNMPVALUE}]</key>
+                            <snmp_oid>.1.3.6.1.2.1.10.94.1.1.6.1.10.{#SNMPINDEX}</snmp_oid>
+                            <key>netopiaAdslAtucPerfLofs[{#SNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -554,7 +549,7 @@ agent reset.&quot;</description>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
                             <snmp_oid>.1.3.6.1.2.1.10.94.1.1.6.1.4.{#SNMPINDEX}</snmp_oid>
-                            <key>ciscoAdslAtucPerfLprs[{#SNMPVALUE}]</key>
+                            <key>netopiaAdslAtucPerfLprs[{#SNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -593,8 +588,8 @@ agent reset.&quot;</description>
                             <type>4</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.94.1.1.6.1.2.{#SNMPINDEX}</snmp_oid>
-                            <key>ciscoAdslAtucPerfLoss[{#SNMPVALUE}]</key>
+                            <snmp_oid>.1.3.6.1.2.1.10.94.1.1.6.1.11.{#SNMPINDEX}</snmp_oid>
+                            <key>netopiaAdslAtucPerfLoss[{#SNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -634,7 +629,7 @@ agent reset.&quot;</description>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>1</multiplier>
                             <snmp_oid>.1.3.6.1.2.1.10.94.1.1.2.1.4.{#SNMPINDEX}</snmp_oid>
-                            <key>ciscoAdslAtucCurrSnrMgn[{#SNMPVALUE}]</key>
+                            <key>netopiaAdslAtucCurrSnrMgn[{#SNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -647,7 +642,7 @@ agent reset.&quot;</description>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
                             <snmpv3_authpassphrase/>
                             <snmpv3_privpassphrase/>
-                            <formula>0.1</formula>
+                            <formula>0.001</formula>
                             <delay_flex/>
                             <params/>
                             <ipmi_sensor/>
@@ -675,7 +670,7 @@ accordance with T1.413 [10].&quot;</description>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
                             <snmp_oid>.1.3.6.1.2.1.10.94.1.1.2.1.8.{#SNMPINDEX}</snmp_oid>
-                            <key>ciscoAdslAtucCurrAttainableRate[{#SNMPVALUE}]</key>
+                            <key>netopiaAdslAtucCurrAttainableRate[{#SNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -713,7 +708,7 @@ the current line rate.&quot;</description>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX-CISCO-xDSL:ciscoAdslAtucCurrAtn[{#SNMPVALUE}].avg(1200)}#{ZBX-CISCO-xDSL:ciscoAdslAtucCurrAtn[{#SNMPVALUE}].last(0)}|{ZBX-CISCO-xDSL:ciscoAdslAturCurrAtn[{#SNMPVALUE}].avg(1200)}#{ZBX-CISCO-xDSL:ciscoAdslAturCurrAtn[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-NETOPIA-xDSL:netopiaAdslAtucCurrAtn[{#SNMPVALUE}].avg(1200)}#{ZBX-NETOPIA-xDSL:netopiaAdslAtucCurrAtn[{#SNMPVALUE}].last(0)}|{ZBX-NETOPIA-xDSL:netopiaAdslAturCurrAtn[{#SNMPVALUE}].avg(1200)}#{ZBX-NETOPIA-xDSL:netopiaAdslAturCurrAtn[{#SNMPVALUE}].last(0)}</expression>
                             <name>ADSL line attenuation has changed on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
@@ -722,7 +717,7 @@ the current line rate.&quot;</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-CISCO-xDSL:ciscoAdslAturCurrSnrMgn[{#SNMPVALUE}].avg(1200)}#{ZBX-CISCO-xDSL:ciscoAdslAturCurrSnrMgn[{#SNMPVALUE}].last(0)}|{ZBX-CISCO-xDSL:ciscoAdslAtucCurrSnrMgn[{#SNMPVALUE}].avg(1200)}#{ZBX-CISCO-xDSL:ciscoAdslAtucCurrSnrMgn[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-NETOPIA-xDSL:netopiaAdslAturCurrSnrMgn[{#SNMPVALUE}].avg(1200)}#{ZBX-NETOPIA-xDSL:netopiaAdslAturCurrSnrMgn[{#SNMPVALUE}].last(0)}|{ZBX-NETOPIA-xDSL:netopiaAdslAtucCurrSnrMgn[{#SNMPVALUE}].avg(1200)}#{ZBX-NETOPIA-xDSL:netopiaAdslAtucCurrSnrMgn[{#SNMPVALUE}].last(0)}</expression>
                             <name>ADSL line signal to noise ratio has changed on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
@@ -731,7 +726,7 @@ the current line rate.&quot;</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-CISCO-xDSL:ciscoAdslAtucCurrAttainableRate[{#SNMPVALUE}].avg(1200)}#{ZBX-CISCO-xDSL:ciscoAdslAtucCurrAttainableRate[{#SNMPVALUE}].last(0)}|{ZBX-CISCO-xDSL:ciscoAdslAturCurrAttainableRate[{#SNMPVALUE}].avg(1200)}#{ZBX-CISCO-xDSL:ciscoAdslAturCurrAttainableRate[{#SNMPVALUE}].last(0)}</expression>
+                            <expression>{ZBX-NETOPIA-xDSL:netopiaAdslAtucCurrAttainableRate[{#SNMPVALUE}].avg(1200)}#{ZBX-NETOPIA-xDSL:netopiaAdslAtucCurrAttainableRate[{#SNMPVALUE}].last(0)}|{ZBX-NETOPIA-xDSL:netopiaAdslAturCurrAttainableRate[{#SNMPVALUE}].avg(1200)}#{ZBX-NETOPIA-xDSL:netopiaAdslAturCurrAttainableRate[{#SNMPVALUE}].last(0)}</expression>
                             <name>ADSL line speed has changed on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
@@ -767,8 +762,8 @@ the current line rate.&quot;</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-CISCO-xDSL</host>
-                                        <key>ciscoAdslAtucCurrAtn[{#SNMPVALUE}]</key>
+                                        <host>ZBX-NETOPIA-xDSL</host>
+                                        <key>netopiaAdslAtucCurrAtn[{#SNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -779,8 +774,8 @@ the current line rate.&quot;</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-CISCO-xDSL</host>
-                                        <key>ciscoAdslAturCurrAtn[{#SNMPVALUE}]</key>
+                                        <host>ZBX-NETOPIA-xDSL</host>
+                                        <key>netopiaAdslAturCurrAtn[{#SNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -811,8 +806,8 @@ the current line rate.&quot;</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-CISCO-xDSL</host>
-                                        <key>ciscoAdslAtucCurrSnrMgn[{#SNMPVALUE}]</key>
+                                        <host>ZBX-NETOPIA-xDSL</host>
+                                        <key>netopiaAdslAtucCurrSnrMgn[{#SNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -823,8 +818,8 @@ the current line rate.&quot;</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-CISCO-xDSL</host>
-                                        <key>ciscoAdslAturCurrSnrMgn[{#SNMPVALUE}]</key>
+                                        <host>ZBX-NETOPIA-xDSL</host>
+                                        <key>netopiaAdslAturCurrSnrMgn[{#SNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -855,8 +850,8 @@ the current line rate.&quot;</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-CISCO-xDSL</host>
-                                        <key>ciscoAdslAtucCurrAttainableRate[{#SNMPVALUE}]</key>
+                                        <host>ZBX-NETOPIA-xDSL</host>
+                                        <key>netopiaAdslAtucCurrAttainableRate[{#SNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -867,1119 +862,8 @@ the current line rate.&quot;</description>
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-CISCO-xDSL</host>
-                                        <key>ciscoAdslAturCurrAttainableRate[{#SNMPVALUE}]</key>
-                                    </item>
-                                </graph_item>
-                            </graph_items>
-                        </graph_prototype>
-                    </graph_prototypes>
-                </discovery_rule>
-                <discovery_rule>
-                    <name>SDSL Controller(s)</name>
-                    <type>10</type>
-                    <snmp_community/>
-                    <snmp_oid/>
-                    <key>advsnmp.discovery[{HOST.HOST},&quot;-v2c -c{$SNMP_COMMUNITY}&quot;,1.3.6.1.2.1.10.48.1.3.1.3,1.1,2.1]</key>
-                    <delay>300</delay>
-                    <status>0</status>
-                    <allowed_hosts/>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <filter>{#ADVSNMPVALUE}:(DSL|48 57 49 43 2D 34 53 48 44 53 4C 00)</filter>
-                    <lifetime>7</lifetime>
-                    <description/>
-                    <item_prototypes>
-                        <item_prototype>
-                            <name>SDSL line (ID$1) speed</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.2.1.3.{#ADVSNMPINDEX2}</snmp_oid>
-                            <key>ciscoHdsl2ShdslStatusActualLineRate[{#ADVSNMPINDEX2}]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>bps</units>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description/>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) attenuation on wire pair 1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.1.{#ADVSNMPINDEX2}.2.1.1</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-1]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>dB</units>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;The current loop attenuation for this endpoint as reported in&#13;
-a Network or Customer Side Performance Status message.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) attenuation on wire pair 2</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.1.{#ADVSNMPINDEX2}.2.1.2</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-2]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>dB</units>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;The current loop attenuation for this endpoint as reported in&#13;
-a Network or Customer Side Performance Status message.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) attenuation on wire pair 3</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.1.{#ADVSNMPINDEX2}.2.1.3</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-3]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>dB</units>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;The current loop attenuation for this endpoint as reported in&#13;
-a Network or Customer Side Performance Status message.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) attenuation on wire pair 4</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.1.{#ADVSNMPINDEX2}.2.1.4</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-4]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>dB</units>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;The current loop attenuation for this endpoint as reported in&#13;
-a Network or Customer Side Performance Status message.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) CRC anomalies on wire pair 1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.6.{#ADVSNMPINDEX2}.2.1.1</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointCRCanomalies[{#ADVSNMPINDEX2}-1]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;Count of CRC anomalies on this endpoint since the xU was&#13;
-last restarted.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) CRC anomalies on wire pair 2</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.6.{#ADVSNMPINDEX2}.2.1.2</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointCRCanomalies[{#ADVSNMPINDEX2}-2]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;Count of CRC anomalies on this endpoint since the xU was&#13;
-last restarted.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) CRC anomalies on wire pair 3</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.6.{#ADVSNMPINDEX2}.2.1.3</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointCRCanomalies[{#ADVSNMPINDEX2}-3]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;Count of CRC anomalies on this endpoint since the xU was&#13;
-last restarted.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) CRC anomalies on wire pair 4</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.6.{#ADVSNMPINDEX2}.2.1.4</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointCRCanomalies[{#ADVSNMPINDEX2}-4]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units/>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;Count of CRC anomalies on this endpoint since the xU was&#13;
-last restarted.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) Errored Seconds (ES) on wire pair 1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.4.{#ADVSNMPINDEX2}.2.1.1</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointES[{#ADVSNMPINDEX2}-1]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>s</units>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;Count of Errored Seconds (ES) on this endpoint since the xU&#13;
-was last restarted.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) Errored Seconds (ES) on wire pair 2</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.4.{#ADVSNMPINDEX2}.2.1.2</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointES[{#ADVSNMPINDEX2}-2]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>s</units>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;Count of Errored Seconds (ES) on this endpoint since the xU&#13;
-was last restarted.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) Errored Seconds (ES) on wire pair 3</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.4.{#ADVSNMPINDEX2}.2.1.3</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointES[{#ADVSNMPINDEX2}-3]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>s</units>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;Count of Errored Seconds (ES) on this endpoint since the xU&#13;
-was last restarted.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) Errored Seconds (ES) on wire pair 4</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.4.{#ADVSNMPINDEX2}.2.1.4</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointES[{#ADVSNMPINDEX2}-4]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>s</units>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;Count of Errored Seconds (ES) on this endpoint since the xU&#13;
-was last restarted.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) Loss of Sync Word (LOSW) on wire pair 1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.7.{#ADVSNMPINDEX2}.2.1.1</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointLOSWS[{#ADVSNMPINDEX2}-1]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>s</units>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;Count of Loss of Sync Word (LOSW) Seconds on this endpoint&#13;
-since the xU was last restarted.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) Loss of Sync Word (LOSW) on wire pair 2</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.7.{#ADVSNMPINDEX2}.2.1.2</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointLOSWS[{#ADVSNMPINDEX2}-2]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>s</units>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;Count of Loss of Sync Word (LOSW) Seconds on this endpoint&#13;
-since the xU was last restarted.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) Loss of Sync Word (LOSW) on wire pair 3</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.7.{#ADVSNMPINDEX2}.2.1.3</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointLOSWS[{#ADVSNMPINDEX2}-3]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>s</units>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;Count of Loss of Sync Word (LOSW) Seconds on this endpoint&#13;
-since the xU was last restarted.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) Loss of Sync Word (LOSW) on wire pair 4</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.7.{#ADVSNMPINDEX2}.2.1.4</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointLOSWS[{#ADVSNMPINDEX2}-4]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>s</units>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;Count of Loss of Sync Word (LOSW) Seconds on this endpoint&#13;
-since the xU was last restarted.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) SNR margin on wire pair 1</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.2.{#ADVSNMPINDEX2}.2.1.1</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-1]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>dB</units>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;The current SNR margin for this endpoint as reported in a&#13;
-Status Response/SNR message.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) SNR margin on wire pair 2</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.2.{#ADVSNMPINDEX2}.2.1.2</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-2]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>dB</units>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;The current SNR margin for this endpoint as reported in a&#13;
-Status Response/SNR message.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) SNR margin on wire pair 3</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.2.{#ADVSNMPINDEX2}.2.1.3</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-3]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>dB</units>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;The current SNR margin for this endpoint as reported in a&#13;
-Status Response/SNR message.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                        <item_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) SNR margin on wire pair 4</name>
-                            <type>4</type>
-                            <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                            <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.2.1.10.48.1.5.1.2.{#ADVSNMPINDEX2}.2.1.4</snmp_oid>
-                            <key>ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-4]</key>
-                            <delay>300</delay>
-                            <history>7</history>
-                            <trends>365</trends>
-                            <status>0</status>
-                            <value_type>3</value_type>
-                            <allowed_hosts/>
-                            <units>dB</units>
-                            <delta>0</delta>
-                            <snmpv3_securityname/>
-                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                            <snmpv3_authpassphrase/>
-                            <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
-                            <params/>
-                            <ipmi_sensor/>
-                            <data_type>0</data_type>
-                            <authtype>0</authtype>
-                            <username/>
-                            <password/>
-                            <publickey/>
-                            <privatekey/>
-                            <port/>
-                            <description>&quot;The current SNR margin for this endpoint as reported in a&#13;
-Status Response/SNR message.&quot;</description>
-                            <inventory_link>0</inventory_link>
-                            <applications>
-                                <application>
-                                    <name>SDSL Line(s)</name>
-                                </application>
-                            </applications>
-                            <valuemap/>
-                        </item_prototype>
-                    </item_prototypes>
-                    <trigger_prototypes>
-                        <trigger_prototype>
-                            <expression>{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-1].avg(1200)}#{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-1].last(0)}</expression>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) attenuation on wire pair 1 was changed on {HOST.NAME}</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>1</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-2].avg(1200)}#{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-2].last(0)}</expression>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) attenuation on wire pair 2 was changed on {HOST.NAME}</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>1</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-3].avg(1200)}#{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-3].last(0)}</expression>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) attenuation on wire pair 3 was changed on {HOST.NAME}</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>1</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-4].avg(1200)}#{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-4].last(0)}</expression>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) attenuation on wire pair 4 was changed on {HOST.NAME}</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>1</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-1].avg(1200)}#{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-1].last(0)}</expression>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) SNR margin on wire pair 1 was changed on {HOST.NAME}</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>1</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-2].avg(1200)}#{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-2].last(0)}</expression>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) SNR margin on wire pair 2 was changed on {HOST.NAME}</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>1</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-3].avg(1200)}#{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-3].last(0)}</expression>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) SNR margin on wire pair 3 was changed on {HOST.NAME}</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>1</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-4].avg(1200)}#{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-4].last(0)}</expression>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) SNR margin on wire pair 4 was changed on {HOST.NAME}</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>1</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                    </trigger_prototypes>
-                    <graph_prototypes>
-                        <graph_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) attenuation</name>
-                            <width>900</width>
-                            <height>200</height>
-                            <yaxismin>0.0000</yaxismin>
-                            <yaxismax>100.0000</yaxismax>
-                            <show_work_period>1</show_work_period>
-                            <show_triggers>1</show_triggers>
-                            <type>0</type>
-                            <show_legend>1</show_legend>
-                            <show_3d>0</show_3d>
-                            <percent_left>0.0000</percent_left>
-                            <percent_right>0.0000</percent_right>
-                            <ymin_type_1>0</ymin_type_1>
-                            <ymax_type_1>0</ymax_type_1>
-                            <ymin_item_1>0</ymin_item_1>
-                            <ymax_item_1>0</ymax_item_1>
-                            <graph_items>
-                                <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>2</drawtype>
-                                    <color>4D79FF</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>ZBX-CISCO-xDSL</host>
-                                        <key>ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-1]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <drawtype>2</drawtype>
-                                    <color>794DFF</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>ZBX-CISCO-xDSL</host>
-                                        <key>ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-2]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>2</sortorder>
-                                    <drawtype>2</drawtype>
-                                    <color>D24DFF</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>ZBX-CISCO-xDSL</host>
-                                        <key>ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-3]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>3</sortorder>
-                                    <drawtype>2</drawtype>
-                                    <color>FF4DD2</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>ZBX-CISCO-xDSL</host>
-                                        <key>ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-4]</key>
-                                    </item>
-                                </graph_item>
-                            </graph_items>
-                        </graph_prototype>
-                        <graph_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) SNR margin</name>
-                            <width>900</width>
-                            <height>200</height>
-                            <yaxismin>0.0000</yaxismin>
-                            <yaxismax>100.0000</yaxismax>
-                            <show_work_period>1</show_work_period>
-                            <show_triggers>1</show_triggers>
-                            <type>0</type>
-                            <show_legend>1</show_legend>
-                            <show_3d>0</show_3d>
-                            <percent_left>0.0000</percent_left>
-                            <percent_right>0.0000</percent_right>
-                            <ymin_type_1>0</ymin_type_1>
-                            <ymax_type_1>0</ymax_type_1>
-                            <ymin_item_1>0</ymin_item_1>
-                            <ymax_item_1>0</ymax_item_1>
-                            <graph_items>
-                                <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>2</drawtype>
-                                    <color>4D79FF</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>ZBX-CISCO-xDSL</host>
-                                        <key>ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-1]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>1</sortorder>
-                                    <drawtype>2</drawtype>
-                                    <color>794DFF</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>ZBX-CISCO-xDSL</host>
-                                        <key>ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-2]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>2</sortorder>
-                                    <drawtype>2</drawtype>
-                                    <color>D24DFF</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>ZBX-CISCO-xDSL</host>
-                                        <key>ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-3]</key>
-                                    </item>
-                                </graph_item>
-                                <graph_item>
-                                    <sortorder>3</sortorder>
-                                    <drawtype>2</drawtype>
-                                    <color>FF4DD2</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>ZBX-CISCO-xDSL</host>
-                                        <key>ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-4]</key>
-                                    </item>
-                                </graph_item>
-                            </graph_items>
-                        </graph_prototype>
-                        <graph_prototype>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) speed</name>
-                            <width>900</width>
-                            <height>200</height>
-                            <yaxismin>0.0000</yaxismin>
-                            <yaxismax>100.0000</yaxismax>
-                            <show_work_period>1</show_work_period>
-                            <show_triggers>1</show_triggers>
-                            <type>0</type>
-                            <show_legend>1</show_legend>
-                            <show_3d>0</show_3d>
-                            <percent_left>0.0000</percent_left>
-                            <percent_right>0.0000</percent_right>
-                            <ymin_type_1>0</ymin_type_1>
-                            <ymax_type_1>0</ymax_type_1>
-                            <ymin_item_1>0</ymin_item_1>
-                            <ymax_item_1>0</ymax_item_1>
-                            <graph_items>
-                                <graph_item>
-                                    <sortorder>0</sortorder>
-                                    <drawtype>1</drawtype>
-                                    <color>96E78A</color>
-                                    <yaxisside>0</yaxisside>
-                                    <calc_fnc>2</calc_fnc>
-                                    <type>0</type>
-                                    <item>
-                                        <host>ZBX-CISCO-xDSL</host>
-                                        <key>ciscoHdsl2ShdslStatusActualLineRate[{#ADVSNMPINDEX2}]</key>
+                                        <host>ZBX-NETOPIA-xDSL</host>
+                                        <key>netopiaAdslAturCurrAttainableRate[{#SNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
