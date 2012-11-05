@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 #
 # Script: discovery.add
-# Version: 2.0
+# Version: 1.0
 # Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
 # Description: this script extend discovery rules, by adding discoverd devices to specified group, with specified template.
 # License: GPL2
@@ -20,21 +20,18 @@
 #     -c, --community SNMP_COMMUNITY   SNMP community used for the device
 #     -x, --proxy PROXY_NAME           Zabbix proxy host that will manage the device
 #     -g, --group GROUP_NAME           Zabbix host group to add the device
-#     -r, --rules RULES                Rules to associate templates to discovered devices. 
-#                                      Ex: "[['template1','regexp1'],['template2','regexp2']]"
+#     -r, --rules RULES                Rules to associate templates to discovered devices. Ex: "[['template1','regexp1'],['template2','regexp2']]"
 #
 # Exemple
 #
-#     ./discovery.add -u http://zabbix/api_jsonrpc.php -l USER_NAME -p USER_PASSWORD -d DISCOVERY.DEVICE.IPADDRESS \
-#                     -c ZABBIX_COMMUNITY -x ZABBIX_PROXY -g MY_GROUP \
-#                     -r "[['MY-CISCO-TEMPLATE','isco'],['MY-NETOPIA-TEMPLATE','etopia']]"
+#     ./discovery.add -u http://zabbix/api_jsonrpc.php -l USER_NAME -p USER_PASSWORD -d DISCOVERY.DEVICE.IPADDRESS -c ZABBIX_COMMUNITY -x ZABBIX_PROXY -g MY_GROUP -r "[['MY-CISCO-TEMPLATE','isco'],['MY-NETOPIA-TEMPLATE','etopia']]"
 #
 require 'rubygems'
 require 'optparse'
 require 'rubix'
 require 'snmp'
 
-version="2.0"
+version="0.0.1"
 
 # Howto use it..quiet simple
 OPTIONS = {}
