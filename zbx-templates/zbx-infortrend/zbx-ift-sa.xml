@@ -496,7 +496,7 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-IFT-SA:luDevStatusSlot[{#SNMPVALUE}].last(0)}&gt;0</expression>
-                            <name>{#SNMPVALUE} is MALFUNCTIONING on {HOST.NAME}</name>
+                            <name>{#SNMPVALUE} is MALFUNCTIONING</name>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
@@ -577,7 +577,7 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-IFT-SA:luDevStatusFan[{#SNMPVALUE}].last(0)}&gt;0</expression>
-                            <name>{#SNMPVALUE} is MALFUNCTIONING on {HOST.NAME}</name>
+                            <name>{#SNMPVALUE} is MALFUNCTIONING</name>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
@@ -853,7 +853,7 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-IFT-SA:hddStatus[{#SNMPVALUE}].last(0)}&gt;252</expression>
-                            <name>FAILED state for HDD in slot {#SNMPVALUE} on {HOST.NAME}</name>
+                            <name>FAILED state for HDD in slot {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
@@ -862,7 +862,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-IFT-SA:hddStatus[{#SNMPVALUE}].last(0)}=0</expression>
-                            <name>New HDD has been detected in slot {#SNMPVALUE} on {HOST.NAME}</name>
+                            <name>New HDD has been detected in slot {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -871,7 +871,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-IFT-SA:hddStatus[{#SNMPVALUE}].last(0)}&gt;1 &amp; {ZBX-IFT-SA:hddStatus[{#SNMPVALUE}].last(0)}&lt;64</expression>
-                            <name>NOT ONLINE state for HDD in slot {#SNMPVALUE} on {HOST.NAME}</name>
+                            <name>NOT ONLINE state for HDD in slot {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
@@ -1188,7 +1188,7 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-IFT-SA:ift.ldstatus[&quot;-d&quot;,&quot;{HOST.CONN}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-i&quot;,&quot;{#SNMPINDEX}&quot;].last(0)}=100</expression>
-                            <name>DEAD state for logical drive {#SNMPVALUE} on {HOST.NAME}</name>
+                            <name>DEAD state for logical drive {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
@@ -1197,7 +1197,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-IFT-SA:ift.ldstatus[&quot;-d&quot;,&quot;{HOST.CONN}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-i&quot;,&quot;{#SNMPINDEX}&quot;].last(0)}=11</expression>
-                            <name>DEGRADED state for logical drive {#SNMPVALUE} on {HOST.NAME}</name>
+                            <name>DEGRADED state for logical drive {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
@@ -1206,7 +1206,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-IFT-SA:ldFailedDrvCnt[{#SNMPVALUE}].last(0)}&gt;0</expression>
-                            <name>HDD FAILED state for logical drive {#SNMPVALUE} on {HOST.NAME}</name>
+                            <name>HDD FAILED state for logical drive {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
@@ -1215,7 +1215,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-IFT-SA:ift.ldstatus[&quot;-d&quot;,&quot;{HOST.CONN}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-i&quot;,&quot;{#SNMPINDEX}&quot;].last(0)}=10</expression>
-                            <name>INITIALIZING state for logical drive {#SNMPVALUE} on {HOST.NAME}</name>
+                            <name>INITIALIZING state for logical drive {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -1224,7 +1224,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-IFT-SA:ift.ldstatus[&quot;-d&quot;,&quot;{HOST.CONN}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-i&quot;,&quot;{#SNMPINDEX}&quot;].last(0)}=1</expression>
-                            <name>REBUILDING state for logical drive {#SNMPVALUE} on {HOST.NAME}</name>
+                            <name>REBUILDING state for logical drive {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
@@ -1338,7 +1338,7 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-IFT-SA:luDevStatusPSU[{#SNMPVALUE}].last(0)}&gt;0</expression>
-                            <name>{#SNMPVALUE} is MALFUNCTIONING on {HOST.NAME}</name>
+                            <name>{#SNMPVALUE} is MALFUNCTIONING</name>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
@@ -1419,7 +1419,7 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-IFT-SA:luDevStatusTemp[{#SNMPVALUE}].last(0)}=4</expression>
-                            <name>COLD temperature limit EXCEEDED for {#SNMPVALUE} on {HOST.NAME}</name>
+                            <name>COLD temperature limit EXCEEDED for {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
@@ -1428,7 +1428,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-IFT-SA:luDevStatusTemp[{#SNMPVALUE}].last(0)}=2</expression>
-                            <name>COLD temperature WARNING for {#SNMPVALUE} on {HOST.NAME}</name>
+                            <name>COLD temperature WARNING for {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
@@ -1437,7 +1437,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-IFT-SA:luDevStatusTemp[{#SNMPVALUE}].last(0)}=3</expression>
-                            <name>HOT temperature WARNING for {#SNMPVALUE} on {HOST.NAME}</name>
+                            <name>HOT temperature WARNING for {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
@@ -1446,7 +1446,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-IFT-SA:luDevStatusTemp[{#SNMPVALUE}].last(0)}=1</expression>
-                            <name>{#SNMPVALUE} is MALFUNCTIONING on {HOST.NAME}</name>
+                            <name>{#SNMPVALUE} is MALFUNCTIONING</name>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
@@ -1465,7 +1465,7 @@
     <triggers>
         <trigger>
             <expression>{ZBX-IFT-SA:ctlrName.diff(0)}&gt;0</expression>
-            <name>Hostname was changed on {HOST.NAME}</name>
+            <name>Hostname was changed</name>
             <url/>
             <status>0</status>
             <priority>1</priority>
@@ -1475,7 +1475,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-IFT-SA:fwMajorVersion.diff(0)}&gt;0 &amp; {ZBX-IFT-SA:fwMinorVersion.diff(0)}&gt;0</expression>
-            <name>Software version on {HOST.NAME} was changed</name>
+            <name>Software version was changed</name>
             <url/>
             <status>0</status>
             <priority>1</priority>
