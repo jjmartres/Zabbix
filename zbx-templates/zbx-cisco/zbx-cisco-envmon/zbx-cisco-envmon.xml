@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-11-05T13:59:46Z</date>
+    <date>2012-10-13T19:22:12Z</date>
     <groups>
         <group>
             <name>ZBX-CISCO-TEMPLATES</name>
@@ -645,11 +645,47 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX-CISCO-ENVMON:ciscoEnvMonFanState[{#SNMPVALUE}].diff(0)}&gt;0</expression>
-                            <name>Operational status for {#SNMPVALUE} was changed</name>
+                            <expression>{ZBX-CISCO-ENVMON:ciscoEnvMonFanState[{#SNMPVALUE}].last(0)}=3</expression>
+                            <name>Operational status for {#SNMPVALUE} on {HOST.NAME} is CRITICAL</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{ZBX-CISCO-ENVMON:ciscoEnvMonFanState[{#SNMPVALUE}].last(0)}=6</expression>
+                            <name>Operational status for {#SNMPVALUE} on {HOST.NAME} is NOT FUNCTIONING</name>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{ZBX-CISCO-ENVMON:ciscoEnvMonFanState[{#SNMPVALUE}].last(0)}=4</expression>
+                            <name>Operational status for {#SNMPVALUE} on {HOST.NAME} is SHUTDOWN</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>5</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{ZBX-CISCO-ENVMON:ciscoEnvMonFanState[{#SNMPVALUE}].last(0)}=2</expression>
+                            <name>Operational status for {#SNMPVALUE} on {HOST.NAME} is WARNING</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{ZBX-CISCO-ENVMON:ciscoEnvMonFanState[{#SNMPVALUE}].diff(0)}&gt;0</expression>
+                            <name>Operational status for {#SNMPVALUE} was changed on {HOST.NAME}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>1</priority>
                             <description/>
                             <type>0</type>
                         </trigger_prototype>
@@ -765,11 +801,47 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX-CISCO-ENVMON:ciscoEnvMonSupplyState[{#SNMPVALUE}].diff(0)}&gt;0</expression>
-                            <name>Operational status for {#SNMPVALUE} was changed</name>
+                            <expression>{ZBX-CISCO-ENVMON:ciscoEnvMonSupplyState[{#SNMPVALUE}].last(0)}=3</expression>
+                            <name>Operational status for {#SNMPVALUE} on {HOST.NAME} is CRITICAL</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{ZBX-CISCO-ENVMON:ciscoEnvMonSupplyState[{#SNMPVALUE}].last(0)}=6</expression>
+                            <name>Operational status for {#SNMPVALUE} on {HOST.NAME} is NOT FUNCTIONING</name>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{ZBX-CISCO-ENVMON:ciscoEnvMonSupplyState[{#SNMPVALUE}].last(0)}=4</expression>
+                            <name>Operational status for {#SNMPVALUE} on {HOST.NAME} is SHUTDOWN</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>5</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{ZBX-CISCO-ENVMON:ciscoEnvMonSupplyState[{#SNMPVALUE}].last(0)}=2</expression>
+                            <name>Operational status for {#SNMPVALUE} on {HOST.NAME} is WARNING</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{ZBX-CISCO-ENVMON:ciscoEnvMonSupplyState[{#SNMPVALUE}].diff(0)}&gt;0</expression>
+                            <name>Operational status for {#SNMPVALUE} was changed on {HOST.NAME}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>1</priority>
                             <description/>
                             <type>0</type>
                         </trigger_prototype>
@@ -924,11 +996,47 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX-CISCO-ENVMON:ciscoEnvMonTemperatureState[{#SNMPVALUE}].diff(0)}&gt;0</expression>
-                            <name>Operational status for sensor {#SNMPVALUE} was changed</name>
+                            <expression>{ZBX-CISCO-ENVMON:ciscoEnvMonTemperatureState[{#SNMPVALUE}].last(0)}=3</expression>
+                            <name>Operational status for sensor {#SNMPVALUE} on {HOST.NAME} is CRITICAL</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>3</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{ZBX-CISCO-ENVMON:ciscoEnvMonTemperatureState[{#SNMPVALUE}].last(0)}=6</expression>
+                            <name>Operational status for sensor {#SNMPVALUE} on {HOST.NAME} is NOT FUNCTIONING</name>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{ZBX-CISCO-ENVMON:ciscoEnvMonTemperatureState[{#SNMPVALUE}].last(0)}=4</expression>
+                            <name>Operational status for sensor {#SNMPVALUE} on {HOST.NAME} is SHUTDOWN</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>5</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{ZBX-CISCO-ENVMON:ciscoEnvMonTemperatureState[{#SNMPVALUE}].last(0)}=2</expression>
+                            <name>Operational status for sensor {#SNMPVALUE} on {HOST.NAME} is WARNING</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{ZBX-CISCO-ENVMON:ciscoEnvMonTemperatureState[{#SNMPVALUE}].diff(0)}&gt;0</expression>
+                            <name>Operational status for sensor {#SNMPVALUE} was changed on {HOST.NAME}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>1</priority>
                             <description/>
                             <type>0</type>
                         </trigger_prototype>
@@ -977,7 +1085,7 @@
     <triggers>
         <trigger>
             <expression>{ZBX-CISCO-ENVMON:ciscoCpmCPUTotal5minRev.avg(600)}&gt;50 &amp; {ZBX-CISCO-ENVMON:ciscoCpmCPUTotal5minRev.avg(600)}&lt;60</expression>
-            <name>CPU usage exceeded 50%</name>
+            <name>CPU usage on {HOST.NAME} exceeded 50%</name>
             <url/>
             <status>0</status>
             <priority>2</priority>
@@ -987,7 +1095,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-CISCO-ENVMON:ciscoCpmCPUTotal5minRev.avg(600)}&gt;60 &amp; {ZBX-CISCO-ENVMON:ciscoCpmCPUTotal5minRev.avg(600)}&lt;80</expression>
-            <name>CPU usage exceeded 60%</name>
+            <name>CPU usage on {HOST.NAME} exceeded 60%</name>
             <url/>
             <status>0</status>
             <priority>3</priority>
@@ -997,7 +1105,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-CISCO-ENVMON:ciscoCpmCPUTotal5minRev.avg(600)}&gt;80</expression>
-            <name>CPU usage exceeded 80%</name>
+            <name>CPU usage on {HOST.NAME} exceeded 80%</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
@@ -1007,7 +1115,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-CISCO-ENVMON:sysName.diff(0)}&gt;0</expression>
-            <name>Hostname was changed</name>
+            <name>Hostname was changed on {HOST.NAME}</name>
             <url/>
             <status>0</status>
             <priority>1</priority>
@@ -1017,7 +1125,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-CISCO-ENVMON:ciscoImageString.diff(0)}&gt;0</expression>
-            <name>IOS version was changed</name>
+            <name>IOS version on {HOST.NAME} was changed</name>
             <url/>
             <status>0</status>
             <priority>1</priority>
@@ -1027,7 +1135,7 @@
         </trigger>
         <trigger>
             <expression>({ZBX-CISCO-ENVMON:ciscoMemoryPoolUsed.avg(600)})&gt;0.6*({ZBX-CISCO-ENVMON:ciscoMemoryPoolFree.avg(600)}+{ZBX-CISCO-ENVMON:ciscoMemoryPoolUsed.avg(600)}) &amp; ({ZBX-CISCO-ENVMON:ciscoMemoryPoolUsed.avg(600)})&lt;0.7*({ZBX-CISCO-ENVMON:ciscoMemoryPoolFree.avg(600)}+{ZBX-CISCO-ENVMON:ciscoMemoryPoolUsed.avg(600)})</expression>
-            <name>Memory usage exceeded 60%</name>
+            <name>Memory usage on {HOST.NAME} exceeded 60%</name>
             <url/>
             <status>0</status>
             <priority>2</priority>
@@ -1037,7 +1145,7 @@
         </trigger>
         <trigger>
             <expression>({ZBX-CISCO-ENVMON:ciscoMemoryPoolUsed.avg(600)})&gt;0.7*({ZBX-CISCO-ENVMON:ciscoMemoryPoolFree.avg(600)}+{ZBX-CISCO-ENVMON:ciscoMemoryPoolUsed.avg(600)}) &amp; ({ZBX-CISCO-ENVMON:ciscoMemoryPoolUsed.avg(600)})&lt;0.8*({ZBX-CISCO-ENVMON:ciscoMemoryPoolFree.avg(600)}+{ZBX-CISCO-ENVMON:ciscoMemoryPoolUsed.avg(600)})</expression>
-            <name>Memory usage exceeded 70%</name>
+            <name>Memory usage on {HOST.NAME} exceeded 70%</name>
             <url/>
             <status>0</status>
             <priority>3</priority>
@@ -1047,7 +1155,7 @@
         </trigger>
         <trigger>
             <expression>({ZBX-CISCO-ENVMON:ciscoMemoryPoolUsed.avg(600)})&gt;0.8*({ZBX-CISCO-ENVMON:ciscoMemoryPoolFree.avg(600)}+{ZBX-CISCO-ENVMON:ciscoMemoryPoolUsed.avg(600)})</expression>
-            <name>Memory usage exceeded 80%</name>
+            <name>Memory usage on {HOST.NAME} exceeded 80%</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
