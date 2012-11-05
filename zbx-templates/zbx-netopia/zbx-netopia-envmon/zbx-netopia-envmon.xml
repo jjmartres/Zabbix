@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-10-14T12:58:01Z</date>
+    <date>2012-11-05T15:27:18Z</date>
     <groups>
         <group>
             <name>ZBX-NETOPIA-TEMPLATES</name>
@@ -544,7 +544,7 @@
     <triggers>
         <trigger>
             <expression>{ZBX-NETOPIA-ENVMON:netopiaAverageCpuUtil.last(0)}&gt;50</expression>
-            <name>CPU usage on {HOST.NAME} exceeded 50%</name>
+            <name>CPU usage exceeded 50%</name>
             <url/>
             <status>0</status>
             <priority>2</priority>
@@ -554,7 +554,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-NETOPIA-ENVMON:netopiaAverageCpuUtil.last(0)}&gt;60</expression>
-            <name>CPU usage on {HOST.NAME} exceeded 60%</name>
+            <name>CPU usage exceeded 60%</name>
             <url/>
             <status>0</status>
             <priority>3</priority>
@@ -564,7 +564,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-NETOPIA-ENVMON:netopiaAverageCpuUtil.last(0)}&gt;80</expression>
-            <name>CPU usage on {HOST.NAME} exceeded 80%</name>
+            <name>CPU usage exceeded 80%</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
@@ -574,7 +574,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-NETOPIA-ENVMON:sysName.diff(0)}&gt;0</expression>
-            <name>Hostname was changed on {HOST.NAME}</name>
+            <name>Hostname was changed</name>
             <url/>
             <status>0</status>
             <priority>1</priority>
@@ -584,7 +584,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-NETOPIA-ENVMON:netopiaUsedRAM.avg(600)} &gt; 0.6 * {ZBX-NETOPIA-ENVMON:netopiaTotalRAM.avg(600)}</expression>
-            <name>Memory usage on {HOST.NAME} exceeded 60%</name>
+            <name>Memory usage exceeded 60%</name>
             <url/>
             <status>0</status>
             <priority>2</priority>
@@ -594,7 +594,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-NETOPIA-ENVMON:netopiaUsedRAM.avg(600)} &gt; 0.7 * {ZBX-NETOPIA-ENVMON:netopiaTotalRAM.avg(600)}</expression>
-            <name>Memory usage on {HOST.NAME} exceeded 70%</name>
+            <name>Memory usage exceeded 70%</name>
             <url/>
             <status>0</status>
             <priority>3</priority>
@@ -604,7 +604,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-NETOPIA-ENVMON:netopiaUsedRAM.avg(600)} &gt; 0.8 * {ZBX-NETOPIA-ENVMON:netopiaTotalRAM.avg(600)}</expression>
-            <name>Memory usage on {HOST.NAME} exceeded 80%</name>
+            <name>Memory usage exceeded 80%</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
@@ -614,7 +614,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-NETOPIA-ENVMON:fwVersion.diff(0)}&gt;0</expression>
-            <name>Software version on {HOST.NAME} was changed</name>
+            <name>Software version was changed</name>
             <url/>
             <status>0</status>
             <priority>1</priority>
