@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-10-14T14:47:44Z</date>
+    <date>2012-11-05T15:20:12Z</date>
     <groups>
         <group>
             <name>ZBX-DELL-POWERCONNECT-TEMPLATES</name>
@@ -248,7 +248,7 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-DELL-POWERCONNECT-HARDWARE:productIdentificationBootromVersion[{#SNMPVALUE}].diff(0)}&gt;0</expression>
-                            <name>Bootrom version of unit {#SNMPVALUE} was changed on {HOST.NAME}</name>
+                            <name>Bootrom version of unit {#SNMPVALUE} was changed</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -257,7 +257,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-DELL-POWERCONNECT-HARDWARE:productIdentificationSerialNumber[{#SNMPVALUE}].diff(0)}&gt;0</expression>
-                            <name>Serial number of unit {#SNMPVALUE} was changed on {HOST.NAME}</name>
+                            <name>Serial number of unit {#SNMPVALUE} was changed</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
