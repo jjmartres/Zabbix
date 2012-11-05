@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-10-15T09:44:55Z</date>
+    <date>2012-11-05T16:45:53Z</date>
     <groups>
         <group>
             <name>ZBX-FORTINET-TEMPLATES</name>
@@ -622,7 +622,7 @@
     <triggers>
         <trigger>
             <expression>({ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)}-{ZBX-FORTINET-ENVMON:fgSysSesCount.avg(86400)})&gt;0.2 * {ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)} &amp; ({ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)}-{ZBX-FORTINET-ENVMON:fgSysSesCount.avg(86400)})&lt;0.3 * {ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)}</expression>
-            <name>An increase of 20% of active sessions was detected on {HOST.NAME}</name>
+            <name>An increase of 20% of active sessions was detected</name>
             <url/>
             <status>0</status>
             <priority>3</priority>
@@ -632,7 +632,7 @@
         </trigger>
         <trigger>
             <expression>({ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)}-{ZBX-FORTINET-ENVMON:fgSysSesCount.avg(86400)})&gt;0.3 * {ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)} &amp; ({ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)}-{ZBX-FORTINET-ENVMON:fgSysSesCount.avg(86400)})&lt;0.4 * {ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)}</expression>
-            <name>An increase of 30% of active sessions was detected on {HOST.NAME}</name>
+            <name>An increase of 30% of active sessions was detected</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
@@ -642,7 +642,7 @@
         </trigger>
         <trigger>
             <expression>({ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)}-{ZBX-FORTINET-ENVMON:fgSysSesCount.avg(86400)})&gt;0.4 * {ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)}</expression>
-            <name>An increase of 40% of active sessions was detected on {HOST.NAME}</name>
+            <name>An increase of 40% of active sessions was detected</name>
             <url/>
             <status>0</status>
             <priority>5</priority>
@@ -652,7 +652,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-FORTINET-ENVMON:fgSysCpuUsage.avg(600)}&gt;50</expression>
-            <name>CPU usage on {HOST.NAME} exceeded 50%</name>
+            <name>CPU usage exceeded 50%</name>
             <url/>
             <status>0</status>
             <priority>2</priority>
@@ -662,7 +662,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-FORTINET-ENVMON:fgSysCpuUsage.avg(600)}&gt;60</expression>
-            <name>CPU usage on {HOST.NAME} exceeded 60%</name>
+            <name>CPU usage exceeded 60%</name>
             <url/>
             <status>0</status>
             <priority>3</priority>
@@ -672,7 +672,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-FORTINET-ENVMON:fgSysCpuUsage.avg(600)}&gt;80</expression>
-            <name>CPU usage on {HOST.NAME} exceeded 80%</name>
+            <name>CPU usage exceeded 80%</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
@@ -682,7 +682,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-FORTINET-ENVMON:sysDescr.diff(0)}&gt;0</expression>
-            <name>Hostname was changed on {HOST.NAME}</name>
+            <name>Hostname was changed</name>
             <url/>
             <status>0</status>
             <priority>1</priority>
@@ -692,7 +692,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-FORTINET-ENVMON:fgSysVersionIps.diff(0)}&gt;1</expression>
-            <name>IPS signature database on {HOST.NAME} was changed</name>
+            <name>IPS signature database was changed</name>
             <url/>
             <status>0</status>
             <priority>1</priority>
@@ -702,7 +702,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-FORTINET-ENVMON:fgSysMemUsage.avg(600)}&gt;60</expression>
-            <name>Memory usage on {HOST.NAME} exceeded 60%</name>
+            <name>Memory usage exceeded 60%</name>
             <url/>
             <status>0</status>
             <priority>2</priority>
@@ -712,7 +712,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-FORTINET-ENVMON:fgSysMemUsage.avg(600)}&gt;70</expression>
-            <name>Memory usage on {HOST.NAME} exceeded 70%</name>
+            <name>Memory usage exceeded 70%</name>
             <url/>
             <status>0</status>
             <priority>3</priority>
@@ -722,7 +722,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-FORTINET-ENVMON:fgSysMemUsage.avg(600)}&gt;80</expression>
-            <name>Memory usage on {HOST.NAME} exceeded 80%</name>
+            <name>Memory usage exceeded 80%</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
@@ -732,7 +732,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-FORTINET-ENVMON:fgSysVersion.diff(0)}&gt;0</expression>
-            <name>Software version on {HOST.NAME} was changed</name>
+            <name>Software version was changed</name>
             <url/>
             <status>0</status>
             <priority>1</priority>
@@ -742,7 +742,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-FORTINET-ENVMON:fgSysVersionAv.diff(0)}&gt;1</expression>
-            <name>Virus signature database on {HOST.NAME} was changed</name>
+            <name>Virus signature database was changed</name>
             <url/>
             <status>0</status>
             <priority>1</priority>
