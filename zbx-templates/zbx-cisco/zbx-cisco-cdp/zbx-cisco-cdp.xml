@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-10-13T12:16:57Z</date>
+    <date>2012-11-05T13:49:21Z</date>
     <groups>
         <group>
             <name>ZBX-CISCO-TEMPLATES</name>
@@ -131,7 +131,7 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-CDP:ciscoCdpCacheDeviceId[{#ADVSNMPVALUE}].diff(0)}&gt;0|{ZBX-CISCO-CDP:ciscoCdpCachePlatform[{#ADVSNMPVALUE}].diff(0)}&gt;0</expression>
-                            <name>CDP neighbor on interface {#ADVSNMPVALUE} on {HOST.NAME} was changed</name>
+                            <name>CDP neighbor on interface {#ADVSNMPVALUE} was changed</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
