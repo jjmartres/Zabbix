@@ -901,7 +901,7 @@
     <triggers>
         <trigger>
             <expression>{ZBX-APC-UPS:upsAdvBatteryTemperature.last(0)}&gt;40</expression>
-            <name>High battery temperature on {HOST.NAME}</name>
+            <name>High battery temperature</name>
             <url/>
             <status>0</status>
             <priority>5</priority>
@@ -911,7 +911,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-APC-UPS:upsBasicBatteryStatus.last(0)}#2</expression>
-            <name>Loss of input power on {HOST.NAME}</name>
+            <name>Loss of input power</name>
             <url/>
             <status>0</status>
             <priority>5</priority>
@@ -921,7 +921,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-APC-UPS:upsAdvOutputLoad.last(0)}&gt;90</expression>
-            <name>Output load too high on {HOST.NAME}</name>
+            <name>Output load too high</name>
             <url/>
             <status>0</status>
             <priority>2</priority>
@@ -931,7 +931,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-APC-UPS:upsAdvOutputLoad.last(0)}&gt;95</expression>
-            <name>Output load too high on {HOST.NAME}</name>
+            <name>Output load too high</name>
             <url/>
             <status>0</status>
             <priority>5</priority>
@@ -941,7 +941,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-APC-UPS:upsAdvReplaceBatteryIndicator.last(0)}#1</expression>
-            <name>Replace battery on {HOST.NAME}</name>
+            <name>Replace battery</name>
             <url/>
             <status>0</status>
             <priority>5</priority>
@@ -951,7 +951,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-APC-UPS:upsAdvRunTimeRemaining.last(0)}&lt;5</expression>
-            <name>Run time remaining CRITICAL on {HOST.NAME}</name>
+            <name>Run time remaining CRITICAL</name>
             <url/>
             <status>0</status>
             <priority>5</priority>
@@ -961,7 +961,7 @@
         </trigger>
         <trigger>
             <expression>{ZBX-APC-UPS:upsAdvRunTimeRemaining.last(0)}&lt;10</expression>
-            <name>Run time remaining LOW on {HOST.NAME}</name>
+            <name>Run time remaining LOW</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
