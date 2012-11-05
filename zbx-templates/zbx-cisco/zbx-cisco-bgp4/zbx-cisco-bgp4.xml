@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-11-05T13:46:06Z</date>
+    <date>2012-10-23T11:02:42Z</date>
     <groups>
         <group>
             <name>ZBX-CISCO-TEMPLATES</name>
@@ -164,9 +164,7 @@
                                     <name>BGP4 Peer(s)</name>
                                 </application>
                             </applications>
-                            <valuemap>
-                                <name>ciscoBgpPeerAdminStatus</name>
-                            </valuemap>
+                            <valuemap/>
                         </item_prototype>
                         <item_prototype>
                             <name>Advertised prefixes for IPv4 peer $1</name>
@@ -439,9 +437,7 @@
                                     <name>BGP4 Peer(s)</name>
                                 </application>
                             </applications>
-                            <valuemap>
-                                <name>ciscoBgpPeerState</name>
-                            </valuemap>
+                            <valuemap/>
                         </item_prototype>
                         <item_prototype>
                             <name>Prefixes limit for IPv4 peer $1</name>
@@ -642,7 +638,7 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-BGP4:ciscoIPv4cbgpPeerPrefixLimit[{#SNMPVALUE}].last(0)}&gt;0&amp;({ZBX-CISCO-BGP4:ciscoIPv4cbgpPeerPrefixAccepted[{#SNMPVALUE}].avg(3600)})&gt;0.9*({ZBX-CISCO-BGP4:ciscoIPv4cbgpPeerPrefixLimit[{#SNMPVALUE}].last(0)})</expression>
-                            <name>Accepted prefixes for IPv4 peer {#SNMPVALUE} as reached the maximum limit</name>
+                            <name>Accepted prefixes for IPv4 peer {#SNMPVALUE} on {HOST.NAME} as reached the maximum limit</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
@@ -651,7 +647,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-BGP4:ciscoVPNv4cbgpPeerPrefixLimit[{#SNMPVALUE}].last(0)}&gt;0 &amp; ({ZBX-CISCO-BGP4:ciscoVPNv4cbgpPeerPrefixAccepted[{#SNMPVALUE}].avg(3600)})&gt;0.9*({ZBX-CISCO-BGP4:ciscoVPNv4cbgpPeerPrefixLimit[{#SNMPVALUE}].last(0)})</expression>
-                            <name>Accepted prefixes for VPNv4 peer {#SNMPVALUE} as reached the maximum limit</name>
+                            <name>Accepted prefixes for VPNv4 peer {#SNMPVALUE} on {HOST.NAME} as reached the maximum limit</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
@@ -660,7 +656,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-BGP4:ciscoBgpPeerRemoteAs[{#SNMPVALUE}].regexp({$BGP_PEER_AS})}=1&amp;{ZBX-CISCO-BGP4:ciscoBgpPeerState[{#SNMPVALUE}].last(#3)}#6&amp;{ZBX-CISCO-BGP4:ciscoBgpPeerAdminStatus[{#SNMPVALUE}].last(0)}=2</expression>
-                            <name>BGP peer {#SNMPVALUE} is DOWN</name>
+                            <name>BGP peer {#SNMPVALUE} is DOWN on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
@@ -669,7 +665,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-BGP4:ciscoBgpPeerRemoteAs[{#SNMPVALUE}].regexp({$BGP_PEER_AS})}=0&amp;{ZBX-CISCO-BGP4:ciscoBgpPeerState[{#SNMPVALUE}].last(#3)}#6&amp;{ZBX-CISCO-BGP4:ciscoBgpPeerAdminStatus[{#SNMPVALUE}].last(0)}=2</expression>
-                            <name>BGP peer {#SNMPVALUE} is DOWN</name>
+                            <name>BGP peer {#SNMPVALUE} is DOWN on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
@@ -687,7 +683,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-BGP4:ciscoBgpPeerState[{#SNMPVALUE}].last(0)}=6&amp;{ZBX-CISCO-BGP4:ciscoIPv4cbgpPeerPrefixAccepted[{#SNMPVALUE}].last(0)}=0</expression>
-                            <name>No prefixes received for IPv4 peer {#SNMPVALUE}</name>
+                            <name>No prefixes received for IPv4 peer {#SNMPVALUE} on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -696,7 +692,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-BGP4:ciscoBgpPeerState[{#SNMPVALUE}].last(0)}=6&amp;{ZBX-CISCO-BGP4:ciscoVPNv4cbgpPeerPrefixAccepted[{#SNMPVALUE}].last(0)}=0</expression>
-                            <name>No prefixes received for VPNv4 peer {#SNMPVALUE}</name>
+                            <name>No prefixes received for VPNv4 peer {#SNMPVALUE} on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
