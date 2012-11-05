@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-10-13T22:02:54Z</date>
+    <date>2012-11-05T14:02:06Z</date>
     <groups>
         <group>
             <name>ZBX-CISCO-TEMPLATES</name>
@@ -209,7 +209,7 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-HARDWARE:ciscoEntPhysicalSerialNum[{#SNMPVALUE}].diff(0)}&gt;0</expression>
-                            <name>Serial number of module {#SNMPVALUE} was changed on {HOST.NAME}</name>
+                            <name>Serial number of module {#SNMPVALUE} was changed</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
