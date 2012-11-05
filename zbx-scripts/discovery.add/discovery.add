@@ -102,7 +102,7 @@ if (host_group.has_data? && proxy_host.has_data?)
         RULES = Hash[x.map {|template, regexp| [template, regexp]} ]
         RULES.each { |k, v|
           # We can add device if we match the template regexp
-          if sys_information[0].to_s.match("#{v}")
+          if sys_information[0].match("#{v}")
             # Lookup for the template ID
             template = Rubix.connection.request('template.get', 'filter' => {'name' => k })
             if template.has_data?
@@ -111,16 +111,9 @@ if (host_group.has_data? && proxy_host.has_data?)
               sys_information = sys_information[1].split('.')
               sys_information = sys_information[0].upcase
               # We can create the host
-              creation = Rubix.connection.request('host.create', 'host'=>OPTIONS[:deviceip],'name'=>sys_information,"proxy_hostid"=>proxy_hostid, "interfaces"=>[{"type"=>2,"main"=>1,"useip"=>1,"ip"=>OPTIONS[:deviceip],"dns"=>"","port"=>161}],"macros"=>[{"macro"=>"{$SNMP_COMMUNITY}","value"=>OPTIONS[:community]}], "templates" => [{"templateid"=>templateid}], "groups" => [{"groupid"=>groupid}])
+              creation = Rubix.connection.request('host.create', 'host'=>OPTIONS[:deviceip],'name'=>sys_information,"proxy_hostid"=>proxy_hostid, "interfaces"=>[{"type"=>2,"main"=>1,"useip"=>1,"ip"=>OPTIONS[:deviceip],"dns"=>"","port"=>161}],"inventory_mode"=>1,"macros"=>[{"macro"=>"{$SNMP_COMMUNITY}","value"=>OPTIONS[:community]}], "templates" => [{"templateid"=>templateid}], "groups" => [{"groupid"=>groupid}])
               if creation.success?
-                # We need to update the host freshly created to enable INVENTORY
-                host_id = Rubix.connection.request('host.get','filter'=> { 'ip' => OPTIONS[:deviceip] })
-                update = Rubix.connection.request('host.update', 'hostid'=> host_id.result[0]["hostid"], "inventory_mode" => 1)
-                if update.success?
-                  puts "-- SUCCESS -- : Device #{sys_information} added with template #{k}."
-                else
-                  puts "-- WARNING -- : Device #{sys_information} added without INVENTORY_MODE."
-                end
+                puts "-- SUCCESS -- : Device #{sys_information} added."
               else
                 puts "-- ERROR -- : Device #{sys_information} not added."
               end
