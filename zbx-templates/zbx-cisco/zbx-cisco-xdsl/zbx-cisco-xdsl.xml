@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-11-05T14:24:54Z</date>
+    <date>2012-10-14T12:16:49Z</date>
     <groups>
         <group>
             <name>ZBX-CISCO-TEMPLATES</name>
@@ -89,7 +89,9 @@
                                     <name>ADSL Line(s)</name>
                                 </application>
                             </applications>
-                            <valuemap/>
+                            <valuemap>
+                                <name>ciscoAdslLineCoding</name>
+                            </valuemap>
                         </item_prototype>
                         <item_prototype>
                             <name>ADSL line (ID{#SNMPINDEX}) downstream attenuation</name>
@@ -418,7 +420,9 @@ object defines which channel type(s) are supported.&quot;</description>
                                     <name>ADSL Line(s)</name>
                                 </application>
                             </applications>
-                            <valuemap/>
+                            <valuemap>
+                                <name>ciscoAdslLineType</name>
+                            </valuemap>
                         </item_prototype>
                         <item_prototype>
                             <name>ADSL line (ID{#SNMPINDEX}) upstream attenuation</name>
@@ -710,7 +714,7 @@ the current line rate.&quot;</description>
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-xDSL:ciscoAdslAtucCurrAtn[{#SNMPVALUE}].avg(1200)}#{ZBX-CISCO-xDSL:ciscoAdslAtucCurrAtn[{#SNMPVALUE}].last(0)}|{ZBX-CISCO-xDSL:ciscoAdslAturCurrAtn[{#SNMPVALUE}].avg(1200)}#{ZBX-CISCO-xDSL:ciscoAdslAturCurrAtn[{#SNMPVALUE}].last(0)}</expression>
-                            <name>ADSL line attenuation has changed</name>
+                            <name>ADSL line attenuation has changed on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -719,7 +723,7 @@ the current line rate.&quot;</description>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-xDSL:ciscoAdslAturCurrSnrMgn[{#SNMPVALUE}].avg(1200)}#{ZBX-CISCO-xDSL:ciscoAdslAturCurrSnrMgn[{#SNMPVALUE}].last(0)}|{ZBX-CISCO-xDSL:ciscoAdslAtucCurrSnrMgn[{#SNMPVALUE}].avg(1200)}#{ZBX-CISCO-xDSL:ciscoAdslAtucCurrSnrMgn[{#SNMPVALUE}].last(0)}</expression>
-                            <name>ADSL line signal to noise ratio has changed</name>
+                            <name>ADSL line signal to noise ratio has changed on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -728,7 +732,7 @@ the current line rate.&quot;</description>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-xDSL:ciscoAdslAtucCurrAttainableRate[{#SNMPVALUE}].avg(1200)}#{ZBX-CISCO-xDSL:ciscoAdslAtucCurrAttainableRate[{#SNMPVALUE}].last(0)}|{ZBX-CISCO-xDSL:ciscoAdslAturCurrAttainableRate[{#SNMPVALUE}].avg(1200)}#{ZBX-CISCO-xDSL:ciscoAdslAturCurrAttainableRate[{#SNMPVALUE}].last(0)}</expression>
-                            <name>ADSL line speed has changed</name>
+                            <name>ADSL line speed has changed on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -1740,7 +1744,7 @@ Status Response/SNR message.&quot;</description>
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-1].avg(1200)}#{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-1].last(0)}</expression>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) attenuation on wire pair 1 was changed</name>
+                            <name>SDSL line (ID{#ADVSNMPINDEX2}) attenuation on wire pair 1 was changed on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -1749,7 +1753,7 @@ Status Response/SNR message.&quot;</description>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-2].avg(1200)}#{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-2].last(0)}</expression>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) attenuation on wire pair 2 was changed</name>
+                            <name>SDSL line (ID{#ADVSNMPINDEX2}) attenuation on wire pair 2 was changed on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -1758,7 +1762,7 @@ Status Response/SNR message.&quot;</description>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-3].avg(1200)}#{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-3].last(0)}</expression>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) attenuation on wire pair 3 was changed</name>
+                            <name>SDSL line (ID{#ADVSNMPINDEX2}) attenuation on wire pair 3 was changed on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -1767,7 +1771,7 @@ Status Response/SNR message.&quot;</description>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-4].avg(1200)}#{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrAtn[{#ADVSNMPINDEX2}-4].last(0)}</expression>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) attenuation on wire pair 4 was changed</name>
+                            <name>SDSL line (ID{#ADVSNMPINDEX2}) attenuation on wire pair 4 was changed on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -1776,7 +1780,7 @@ Status Response/SNR message.&quot;</description>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-1].avg(1200)}#{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-1].last(0)}</expression>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) SNR margin on wire pair 1 was changed</name>
+                            <name>SDSL line (ID{#ADVSNMPINDEX2}) SNR margin on wire pair 1 was changed on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -1785,7 +1789,7 @@ Status Response/SNR message.&quot;</description>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-2].avg(1200)}#{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-2].last(0)}</expression>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) SNR margin on wire pair 2 was changed</name>
+                            <name>SDSL line (ID{#ADVSNMPINDEX2}) SNR margin on wire pair 2 was changed on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -1794,7 +1798,7 @@ Status Response/SNR message.&quot;</description>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-3].avg(1200)}#{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-3].last(0)}</expression>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) SNR margin on wire pair 3 was changed</name>
+                            <name>SDSL line (ID{#ADVSNMPINDEX2}) SNR margin on wire pair 3 was changed on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -1803,7 +1807,7 @@ Status Response/SNR message.&quot;</description>
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-4].avg(1200)}#{ZBX-CISCO-xDSL:ciscoHdsl2ShdslEndpointCurrSnrMgn[{#ADVSNMPINDEX2}-4].last(0)}</expression>
-                            <name>SDSL line (ID{#ADVSNMPINDEX2}) SNR margin on wire pair 4 was changed</name>
+                            <name>SDSL line (ID{#ADVSNMPINDEX2}) SNR margin on wire pair 4 was changed on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
