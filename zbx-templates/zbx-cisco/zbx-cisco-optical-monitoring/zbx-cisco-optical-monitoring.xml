@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-10-14T10:29:45Z</date>
+    <date>2012-11-05T14:12:31Z</date>
     <groups>
         <group>
             <name>ZBX-CISCO-TEMPLATES</name>
@@ -248,7 +248,7 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-OPTICAL-MONITORING:ciscoEntSensorValue[{#SNMPVALUE}].last(0)}&gt;{ZBX-CISCO-OPTICAL-MONITORING:ciscoEntSensorThresholdValueHigh[{#SNMPVALUE}].last(0)}</expression>
-                            <name>High signal ALARM for {#SNMPVALUE} on {HOST.NAME}</name>
+                            <name>High signal ALARM for {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
@@ -257,7 +257,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-OPTICAL-MONITORING:ciscoEntSensorThresholdValueHigh[{#SNMPVALUE}].last(0)}&gt;{ZBX-CISCO-OPTICAL-MONITORING:ciscoEntSensorValue[{#SNMPVALUE}].last(0)}&amp;{ZBX-CISCO-OPTICAL-MONITORING:ciscoEntSensorValue[{#SNMPVALUE}].last(0)}&gt;{ZBX-CISCO-OPTICAL-MONITORING:ciscoEntSensorThresholdValueHighWarn[{#SNMPVALUE}].last(0)}</expression>
-                            <name>High signal WARNING for {#SNMPVALUE} on {HOST.NAME}</name>
+                            <name>High signal WARNING for {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
@@ -266,7 +266,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-OPTICAL-MONITORING:ciscoEntSensorValue[{#SNMPVALUE}].last(0)}&lt;{ZBX-CISCO-OPTICAL-MONITORING:ciscoEntSensorThresholdValueLow[{#SNMPVALUE}].last(0)}</expression>
-                            <name>Low signal ALARM for {#SNMPVALUE} on {HOST.NAME}</name>
+                            <name>Low signal ALARM for {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
@@ -275,7 +275,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-OPTICAL-MONITORING:ciscoEntSensorThresholdValueLowWarn[{#SNMPVALUE}].last(0)}&gt;{ZBX-CISCO-OPTICAL-MONITORING:ciscoEntSensorValue[{#SNMPVALUE}].last(0)}&amp;{ZBX-CISCO-OPTICAL-MONITORING:ciscoEntSensorValue[{#SNMPVALUE}].last(0)}&gt;{ZBX-CISCO-OPTICAL-MONITORING:ciscoEntSensorThresholdValueLow[{#SNMPVALUE}].last(0)}</expression>
-                            <name>Low signal WARNING for {#SNMPVALUE} on {HOST.NAME}</name>
+                            <name>Low signal WARNING for {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
