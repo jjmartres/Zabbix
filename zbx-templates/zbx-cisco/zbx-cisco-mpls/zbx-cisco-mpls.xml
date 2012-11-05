@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-10-14T10:23:02Z</date>
+    <date>2012-11-05T14:50:34Z</date>
     <groups>
         <group>
             <name>ZBX-CISCO-TEMPLATES</name>
@@ -87,7 +87,7 @@
                                 </application>
                             </applications>
                             <valuemap>
-                                <name>ciscoMplsLdpPeerLabelDistributionMethod</name>
+                              <name>ciscoMplsLdpPeerLabelDistributionMethod</name>
                             </valuemap>
                         </item_prototype>
                     </item_prototypes>
