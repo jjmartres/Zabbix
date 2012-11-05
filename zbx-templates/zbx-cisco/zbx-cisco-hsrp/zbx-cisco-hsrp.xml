@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-11-05T14:04:13Z</date>
+    <date>2012-10-13T22:19:07Z</date>
     <groups>
         <group>
             <name>ZBX-CISCO-TEMPLATES</name>
@@ -211,7 +211,7 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-HSRP:ciscoHsrpGrpStandbyState[{#ADVSNMPINDEX3}].diff(0)}&gt;0</expression>
-                            <name>Unexpected state change for HSRP group {#ADVSNMPINDEX3}</name>
+                            <name>Unexpected state change for HSRP group {#ADVSNMPINDEX3} on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
