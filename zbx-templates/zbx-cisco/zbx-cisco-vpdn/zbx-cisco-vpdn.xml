@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-11-05T14:19:40Z</date>
+    <date>2012-10-14T12:08:42Z</date>
     <groups>
         <group>
             <name>ZBX-CISCO-TEMPLATES</name>
@@ -27,7 +27,7 @@
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <multiplier>0</multiplier>
-                    <snmp_oid>.1.3.6.1.4.1.9.10.24.1.1.4.1.2.2</snmp_oid>
+                    <snmp_oid>.1.3.6.1.4.1.9.10.24.1.1.4.1.2[&quot;index&quot;,&quot;.1.3.6.1.4.1.9.10.24.1.1.4.1.1&quot;,&quot;2&quot;]</snmp_oid>
                     <key>ciscoVpdnSystemTunnelTotal</key>
                     <delay>300</delay>
                     <history>7</history>
@@ -105,7 +105,7 @@
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <multiplier>0</multiplier>
-                    <snmp_oid>.1.3.6.1.4.1.9.10.24.1.1.4.1.3.2</snmp_oid>
+                    <snmp_oid>.1.3.6.1.4.1.9.10.24.1.1.4.1.3[&quot;index&quot;,&quot;.1.3.6.1.4.1.9.10.24.1.1.4.1.1&quot;,&quot;2&quot;]</snmp_oid>
                     <key>ciscoVpdnSystemSessionTotal</key>
                     <delay>300</delay>
                     <history>7</history>
