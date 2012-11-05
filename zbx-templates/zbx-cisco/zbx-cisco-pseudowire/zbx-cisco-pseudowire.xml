@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-10-23T16:01:33Z</date>
+    <date>2012-11-05T14:15:37Z</date>
     <groups>
         <group>
             <name>ZBX-CISCO-TEMPLATES</name>
@@ -451,7 +451,7 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-PSEUDOWIRE:cpwVcOperStatus[{#SNMPVALUE}].diff(0)}&gt;0</expression>
-                            <name>Operational status for pseudowire VC {#SNMPVALUE} was changed on {HOSTNAME}</name>
+                            <name>Operational status for pseudowire VC {#SNMPVALUE} was changed</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -460,7 +460,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-PSEUDOWIRE:cpwVcOperStatus[{#SNMPVALUE}].last(0)}#1</expression>
-                            <name>Pseudowire VC {#SNMPVALUE} is DOWN on {HOST.NAME}</name>
+                            <name>Pseudowire VC {#SNMPVALUE} is DOWN</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
