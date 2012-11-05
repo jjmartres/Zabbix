@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-11-05T14:08:40Z</date>
+    <date>2012-10-23T12:31:19Z</date>
     <groups>
         <group>
             <name>ZBX-CISCO-TEMPLATES</name>
@@ -889,7 +889,7 @@ which has the meaning as:&#13;
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-INTERFACES:ciscoCudldpInterfaceOperStatus[{#SNMPVALUE}].last(0)}=1</expression>
-                            <name>An Uni-Direction link has been detected of interface {#SNMPVALUE}</name>
+                            <name>An Uni-Direction link has been detected of interface {#SNMPVALUE} on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
@@ -898,7 +898,7 @@ which has the meaning as:&#13;
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-INTERFACES:if.speed[&quot;-d&quot;,&quot;{HOST.HOST}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;].last(0)}&gt;0 &amp; ({ZBX-CISCO-INTERFACES:ifInOctets[{#SNMPVALUE}].avg(300)})&gt;({ZBX-CISCO-INTERFACES:if.speed[&quot;-d&quot;,&quot;{HOST.HOST}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;].last(0)})*0.8</expression>
-                            <name>Incoming use on interface {#SNMPVALUE} exceed 80% for the last 5 minutes</name>
+                            <name>Incoming use on interface {#SNMPVALUE} on {HOST.NAME} exceed 80% for the last 5 minutes</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
@@ -907,7 +907,7 @@ which has the meaning as:&#13;
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-INTERFACES:ifAlias[{#SNMPVALUE}].regexp({$INTF_REGEX})}=0&amp;{ZBX-CISCO-INTERFACES:ifOperStatus[{#SNMPVALUE}].diff(0)}&gt;0</expression>
-                            <name>Operational status was changed on interface {#SNMPVALUE}</name>
+                            <name>Operational status was changed on {HOST.NAME} on interface {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -916,7 +916,7 @@ which has the meaning as:&#13;
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-INTERFACES:ifAlias[{#SNMPVALUE}].regexp({$INTF_REGEX})}=1&amp;{ZBX-CISCO-INTERFACES:ifOperStatus[{#SNMPVALUE}].diff(0)}&gt;0</expression>
-                            <name>Operational status was changed on interface {#SNMPVALUE}</name>
+                            <name>Operational status was changed on {HOST.NAME} on interface {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
@@ -925,7 +925,7 @@ which has the meaning as:&#13;
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-INTERFACES:ifOutQLen[{#SNMPVALUE}].last(0)}&gt;0</expression>
-                            <name>Ouput packets queue for {#SNMPVALUE} is not empty</name>
+                            <name>Ouput packets queue for {#SNMPVALUE} on {HOST.NAME} is not empty</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -934,7 +934,7 @@ which has the meaning as:&#13;
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-INTERFACES:if.speed[&quot;-d&quot;,&quot;{HOST.HOST}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;].last(0)}&gt;0 &amp; ({ZBX-CISCO-INTERFACES:ifOutOctets[{#SNMPVALUE}].avg(300)})&gt;({ZBX-CISCO-INTERFACES:if.speed[&quot;-d&quot;,&quot;{HOST.HOST}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;].last(0)})*0.8</expression>
-                            <name>Outgoing use on interface {#SNMPVALUE} exceed 80% for the last 5 minutes</name>
+                            <name>Outgoing use on interface {#SNMPVALUE} on {HOST.NAME} exceed 80% for the last 5 minutes</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
@@ -943,7 +943,7 @@ which has the meaning as:&#13;
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-INTERFACES:ciscoCudldpInterfaceOperStatus[{#SNMPVALUE}].last(0)}=2&amp;{ZBX-CISCO-INTERFACES:ifAdminStatus[{#SNMPVALUE}].last(0)}=1</expression>
-                            <name>Unable to determine Uni-Direction link status of interface {#SNMPVALUE}</name>
+                            <name>Unable to determine Uni-Direction link status of interface {#SNMPVALUE} on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -952,7 +952,7 @@ which has the meaning as:&#13;
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-CISCO-INTERFACES:ciscoCudldpInterfaceOperMode[{#SNMPVALUE}].diff(0)}&gt;0</expression>
-                            <name>Uni-Direction link configuration of interface {#SNMPVALUE}</name>
+                            <name>Uni-Direction link configuration of interface {#SNMPVALUE} was changed on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
