@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-10-23T12:41:26Z</date>
+    <date>2012-11-05T15:30:18Z</date>
     <groups>
         <group>
             <name>ZBX-NETOPIA-TEMPLATES</name>
@@ -525,7 +525,7 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-NETOPIA-INTERFACES:if.speed[&quot;-d&quot;,&quot;{HOST.HOST}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;].last(0)}&gt;0 &amp; ({ZBX-NETOPIA-INTERFACES:ifInOctets[{#SNMPVALUE}].avg(300)})&gt;({ZBX-NETOPIA-INTERFACES:if.speed[&quot;-d&quot;,&quot;{HOST.HOST}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;].last(0)})*0.8</expression>
-                            <name>Incoming use on interface {#SNMPVALUE} on {HOST.NAME} exceed 80% for the last 5 minutes</name>
+                            <name>Incoming use on interface {#SNMPVALUE} exceed 80% for the last 5 minutes</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
@@ -534,7 +534,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-NETOPIA-INTERFACES:ifAlias[{#SNMPVALUE}].regexp({$INTF_REGEX})}=1&amp;{ZBX-NETOPIA-INTERFACES:ifOperStatus[{#SNMPVALUE}].diff(0)}&gt;0</expression>
-                            <name>Operational status was changed on {HOST.NAME} on interface {#SNMPVALUE}</name>
+                            <name>Operational status was changed on interface {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
@@ -543,7 +543,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-NETOPIA-INTERFACES:ifAlias[{#SNMPVALUE}].regexp({$INTF_REGEX})}=0&amp;{ZBX-NETOPIA-INTERFACES:ifOperStatus[{#SNMPVALUE}].diff(0)}&gt;0</expression>
-                            <name>Operational status was changed on {HOST.NAME} on interface {#SNMPVALUE}</name>
+                            <name>Operational status was changed on interface {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
@@ -552,7 +552,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-NETOPIA-INTERFACES:if.speed[&quot;-d&quot;,&quot;{HOST.HOST}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;].last(0)}&gt;0 &amp; ({ZBX-NETOPIA-INTERFACES:ifOutOctets[{#SNMPVALUE}].avg(300)})&gt;({ZBX-NETOPIA-INTERFACES:if.speed[&quot;-d&quot;,&quot;{HOST.HOST}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;].last(0)})*0.8</expression>
-                            <name>Outgoing use on interface {#SNMPVALUE} on {HOST.NAME} exceed 80% for the last 5 minutes</name>
+                            <name>Outgoing use on interface {#SNMPVALUE} exceed 80% for the last 5 minutes</name>
                             <url/>
                             <status>0</status>
                             <priority>2</priority>
@@ -561,7 +561,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-NETOPIA-INTERFACES:ifOutQLen[{#SNMPVALUE}].last(0)}&gt;0</expression>
-                            <name>Output packets queue for {#SNMPVALUE} on {HOST.NAME} is not empty</name>
+                            <name>Output packets queue for {#SNMPVALUE} is not empty</name>
                             <url/>
                             <status>0</status>
                             <priority>1</priority>
