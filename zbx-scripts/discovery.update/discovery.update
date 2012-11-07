@@ -34,7 +34,7 @@ version="0.0.1"
 
 # Howto use it..quiet simple
 OPTIONS = {}
-mandatory_options=[:url, :username, :password, :deviceip, :community, :rules, :proxy]
+mandatory_options=[:url, :username, :password, :deviceip, :community, :rules]
 optparse = OptionParser.new do |opts|
   opts.banner = "Usage: #{$0} [options]"
   opts.separator ""
@@ -76,57 +76,65 @@ end
 # Connect to the Zabbix API
 Rubix.connect(OPTIONS[:url],OPTIONS[:username],OPTIONS[:password])
 
-# We need to ensure that the provided hostgroup and proxy exist
-proxy_host = Rubix.connection.request('proxy.get', 'filter' => { 'host' => OPTIONS[:proxy] })
-#host_group = Rubix.connection.request('hostgroup.get', 'filter' => { 'name' => OPTIONS[:hostgroup] })
-if proxy_host.has_data?
-  # Has OPTIONS[:proxy] and HOSGROUP exist we need to save proxy_hostid and groupid
-  proxy_hostid=(proxy_host.result)[0]["proxyid"]
-  # We need to ensure that device is already added
-  host = Rubix.connection.request('host.get','filter'=> { 'host' => OPTIONS[:deviceip] })
-  if host.has_data?
-    # Save hostid
-    host_id = host.result[0]["hostid"]
-    # Query SNMP OID sysDescr and sysName
-    sys_information = Array.new
-    SNMP::Manager.open(:host => OPTIONS[:deviceip], :community => OPTIONS[:community], :version => :SNMPv2c) do |manager|
-      response = manager.get(["sysDescr.0","sysName.0"])
-      response.each_varbind do |vb|
-        sys_information.push(vb.value.to_s)
-      end
-    end
-      # We need to ensure that SNMP response is not empty
-      if sys_information.any?
-        x = eval(OPTIONS[:rules])
-        RULES = Hash[x.map {|template, regexp| [template, regexp]} ]
-        RULES.each { |k, v|
-          # We can add device if we match the template regexp
-          if sys_information[0].to_s.match("#{v}")
-            # Lookup for the template ID
-            template = Rubix.connection.request('template.get', 'filter' => {'name' => k })
-            if template.has_data?
-              # We need to save templateid
-              templateid = template[0]["templateid"]
-              sys_information = sys_information[1].split('.')
-              sys_information = sys_information[0].upcase
-              # We can update the host
-              update = Rubix.connection.request('host.update', 'hostid'=>host_id,'name'=>sys_information,"proxy_hostid"=>proxy_hostid, "inventory_mode"=>1,"macros"=>[{"macro"=>"{$SNMP_COMMUNITY}","value"=>OPTIONS[:community]}], "templates" => [{"templateid"=>templateid}])
-              if update.success?
-                puts "-- SUCCESS -- : Device #{sys_information} updated."
-              else
-                puts "-- ERROR -- : Device #{sys_information} not updated."
-              end
-            else
-              puts "-- ERROR -- : Template #{k} doesn't exist !"
-            end
-          end
-        }
-      else
-        puts "-- ERROR -- : No response receive from #{OPTIONS[:deviceip]} !"
-      end
+# We need to ensure that the provided proxy exist
+if OPTIONS[:proxy]
+  proxy = Rubix.connection.request('proxy.get', 'filter' => { 'host' => OPTIONS[:proxy] })
+  if proxy.has_data?
+    proxy_hostid=(proxy.result)[0]["proxyid"]
   else
-    puts "-- ERROR -- : Device #{OPTIONS[:deviceip]} doesn't exist !"
+    puts "-- ERROR -- : Proxy #{OPTIONS[:proxy]} doesn't exist !" if proxy.success?
+    exit(-1)
   end
 else
-  puts "-- ERROR -- : Proxy #{OPTIONS[:proxy]} doesn't exist !" if proxy.success?
+  proxy_hostid=nil
+end
+
+# We need to ensure that device is already added
+host = Rubix.connection.request('host.get','filter'=> { 'host' => OPTIONS[:deviceip] })
+if host.has_data?
+  # Save hostid
+  host_id = host.result[0]["hostid"]
+  # Query SNMP OID sysDescr and sysName
+  sys_information = Array.new
+  SNMP::Manager.open(:host => OPTIONS[:deviceip], :community => OPTIONS[:community], :version => :SNMPv2c) do |manager|
+    response = manager.get(["sysDescr.0","sysName.0"])
+    response.each_varbind do |vb|
+      sys_information.push(vb.value.to_s)
+    end
+  end
+  # We need to ensure that SNMP response is not empty
+  if sys_information.any?
+    x = eval(OPTIONS[:rules])
+    RULES = Hash[x.map {|template, regexp| [template, regexp]} ]
+    RULES.each { |k, v|
+      # We can update device if we match the template regexp
+      if sys_information[0].to_s.match("#{v}")
+        # Lookup for the template ID
+        template = Rubix.connection.request('template.get', 'filter' => {'name' => k })
+        if template.has_data?
+          # We need to save templateid
+          templateid = template[0]["templateid"]
+          sys_information = sys_information[1].split('.')
+          sys_information = sys_information[0].upcase
+          # We can update the host
+          if OPTIONS[:proxy]
+            update = Rubix.connection.request('host.update', 'hostid'=>host_id,'name'=>sys_information,"proxy_hostid"=>proxy_hostid, "inventory_mode"=>1,"macros"=>[{"macro"=>"{$SNMP_COMMUNITY}","value"=>OPTIONS[:community]}], "templates" => [{"templateid"=>templateid}])
+          else
+            update = Rubix.connection.request('host.update', 'hostid'=>host_id,'name'=>sys_information, "inventory_mode"=>1,"macros"=>[{"macro"=>"{$SNMP_COMMUNITY}","value"=>OPTIONS[:community]}], "templates" => [{"templateid"=>templateid}])
+          end
+          if update.success?
+            puts "-- SUCCESS -- : Device #{sys_information} updated."
+          else
+            puts "-- ERROR -- : Device #{sys_information} not updated."
+          end
+        else
+          puts "-- ERROR -- : Template #{k} doesn't exist !"
+        end
+      end
+    }
+  else
+    puts "-- ERROR -- : No response receive from #{OPTIONS[:deviceip]} !"
+  end
+else
+  puts "-- ERROR -- : Device #{OPTIONS[:deviceip]} doesn't exist !"
 end
