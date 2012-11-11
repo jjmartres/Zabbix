@@ -170,7 +170,7 @@
     </triggers>
     <graphs>
         <graph>
-            <name>L2TP tunnels on {HOST.NAME}</name>
+            <name>L2TP tunnels</name>
             <width>900</width>
             <height>200</height>
             <yaxismin>0.0000</yaxismin>
@@ -202,7 +202,7 @@
             </graph_items>
         </graph>
         <graph>
-            <name>SDSL links on {HOST.NAME}</name>
+            <name>SDSL links</name>
             <width>900</width>
             <height>200</height>
             <yaxismin>0.0000</yaxismin>
@@ -234,7 +234,7 @@
             </graph_items>
         </graph>
         <graph>
-            <name>VPDN sessions on {HOST.NAME}</name>
+            <name>VPDN sessions</name>
             <width>900</width>
             <height>200</height>
             <yaxismin>0.0000</yaxismin>

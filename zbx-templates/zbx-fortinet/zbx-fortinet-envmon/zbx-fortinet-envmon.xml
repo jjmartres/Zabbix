@@ -773,7 +773,7 @@
     </triggers>
     <graphs>
         <graph>
-            <name>Active sessions on {HOST.NAME}</name>
+            <name>Active sessions</name>
             <width>900</width>
             <height>200</height>
             <yaxismin>0.0000</yaxismin>
@@ -805,7 +805,7 @@
             </graph_items>
         </graph>
         <graph>
-            <name>CPU usage on {HOST.NAME}</name>
+            <name>CPU usage</name>
             <width>900</width>
             <height>200</height>
             <yaxismin>0.0000</yaxismin>
@@ -837,7 +837,7 @@
             </graph_items>
         </graph>
         <graph>
-            <name>Disk usage on {HOST.NAME}</name>
+            <name>Disk usage</name>
             <width>900</width>
             <height>200</height>
             <yaxismin>0.0000</yaxismin>
@@ -869,7 +869,7 @@
             </graph_items>
         </graph>
         <graph>
-            <name>Memory usage on {HOST.NAME}</name>
+            <name>Memory usage</name>
             <width>900</width>
             <height>200</height>
             <yaxismin>0.0000</yaxismin>
