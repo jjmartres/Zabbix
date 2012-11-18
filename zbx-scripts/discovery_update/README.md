@@ -43,6 +43,10 @@ This script require SNMP gem 1.1.0 or higher.
 
 This script require RUBIX gem 0.5.14 or higher
 
+###### [Net-Ping](http://rubygems.org/gems/net-ping) 1.5.3
+
+This script require net-ping gem 1.5.3 or higher
+
 
 Usage
 -----

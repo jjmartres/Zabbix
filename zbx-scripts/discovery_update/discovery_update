@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 #
 # Script: discovery_update
-# Version: 1.0
 # Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
 # Description: Discovery update extend the discovery capabilities of Zabbix
 # License: GPL2
@@ -34,8 +33,9 @@ require 'rubix'
 require 'snmp'
 require 'logger'
 require 'yaml'
+require 'net/ping/external'
 
-version="0.0.3"
+version="0.4.1"
 
 # Howto use it ... quiet simple
 OPTIONS = {}
@@ -74,7 +74,7 @@ begin
 end
 
 # Log each events
-log = Logger.new("/var/log/zabbix/discovery_update.log")
+log = Logger.new(STDOUT)
 
 # Start logger
 log.level = Logger::DEBUG
@@ -97,11 +97,11 @@ Rubix.connect(cnf["api"]["url"],cnf["api"]["login"],cnf["api"]["password"])
 cnf.each_key { |key|
   if key !~ /api/
     log.info "Working on #{key}..."
+
     # We need to ensure that the provided proxy exist
     proxy = Rubix.connection.request('proxy.get', 'filter' => { 'host' => key })
-    proxy_id = nil
     if proxy.has_data?
-      proxy_id=(proxy.result)[0]["proxyid"]
+      proxy_id=(proxy.result)[0]
     else
       log.error "Proxy #{key} doesn't exist !" if proxy.success?
       exit(-1)
@@ -122,7 +122,10 @@ cnf.each_key { |key|
     if hosts.count.to_i.zero?
       log.error "No hosts to update on this group"
       exit(-1)
+    else
+      log.info "We need to update #{hosts.count} hosts"
     end
+
     count = 0
     x = eval(cnf[key]["rules"])
     RULES = Hash[x.map {|template, regexp| [template, regexp]} ]
@@ -130,37 +133,47 @@ cnf.each_key { |key|
       host_id = hosts.fetch(count)["hostid"]
       host = Rubix.connection.request('host.getobjects', 'hostid'=> host_id )
       sys_information = Array.new
-      SNMP::Manager.open(:host => host.result[0]["host"], :community => cnf[key]['snmp_community'], :version => :SNMPv2c) do |manager|
-        response = manager.get(["sysDescr.0","sysName.0"])
-        response.each_varbind do |vb|
-          sys_information.push(vb.value.to_s)
-        end
-      end
-      if sys_information.any?
-        RULES.each { |k,v|
-          # We can update device if we match the template regexp
-          if sys_information[0].to_s.match("#{v}")
-            # Lookup for the template ID
-            template = Rubix.connection.request('template.get', 'filter' => {'name' => k })
-            if template.has_data?
-              # We need to save templateid
-              templateid = template[0]["templateid"]
-              sys_information = sys_information[1].split('.')
-              sys_information = sys_information[0].upcase
-              # We can update the host
-              update = Rubix.connection.request('host.update', 'hostid'=>host_id,'name'=>sys_information,"status" => 0, "inventory_mode"=>1,"macros"=>[{"macro"=>"{$SNMP_COMMUNITY}","value"=> cnf[key]['snmp_community']}], "templates" => [{"templateid"=>templateid}])
-              if update.success?
-                log.info "Device #{sys_information} updated (ID#{host_id})."
-              else
-                log.warn "Device #{sys_information} not updated (ID#{host_id})."
-              end
-            else
-              log.error "Template #{k} doesn't exist !"
-            end
+
+      # Check if host is up
+      if Net::Ping::External.new(host.result[0]["host"]).ping?
+        SNMP::Manager.open(:host => host.result[0]["host"], :community => cnf[key]['snmp_community'], :version => :SNMPv2c) do |manager|
+          response = manager.get(["sysDescr.0","sysName.0"])
+          response.each_varbind do |vb|
+            sys_information.push(vb.value.to_s)
           end
-        }
+        end
+        if sys_information.any?
+          RULES.each { |k,v|
+
+            # We can update device if we match the template regexp
+            if sys_information[0].to_s.match("#{v}")
+
+              # Lookup for the template ID
+              template = Rubix.connection.request('template.get', 'filter' => {'name' => k })
+              if template.has_data?
+
+                # We need to save templateid
+                templateid = template[0]["templateid"]
+                sys_information = sys_information[1].split('.')
+                sys_information = sys_information[0].upcase
+
+                # We can update the host
+                update = Rubix.connection.request('host.update', 'hostid'=>host_id,'name'=>sys_information,"status" => 0, "inventory_mode"=>1,"macros"=>[{"macro"=>"{$SNMP_COMMUNITY}","value"=> cnf[key]['snmp_community']}], "templates" => [{"templateid"=>templateid}])
+                if update.success?
+                  log.info "Device #{sys_information} updated (ID#{host_id})."
+                else
+                  log.warn "Device #{sys_information} not updated (ID#{host_id})."
+                end
+              else
+                log.error "Template #{k} doesn't exist !"
+              end
+            end
+          }
+        else
+          log.fatal "No response receive from #{host.result[0]["host"]} !"
+        end
       else
-        log.fatal "No response receive from #{host.result[0]["host"]} !"
+        log.error "#{host.result[0]["host"]} is not responding !"
       end
       count = count +1
     end
