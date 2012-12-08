@@ -117,7 +117,7 @@ Installation
   * `Include=C:\Program Files\Zabbix\etc\zbx-dcs.conf`
 5. Import **zbx-datacore-ssv.xml** file into Zabbix.
 6. Add to your host the **{$DCS_USER}** macro with your DataCore server username as value.
-7. Add to your host the **{$DCS_PASSWORD}** macro with your DataCore server username as value.
+7. Add to your host the **{$DCS_PASSWORD}** macro with your DataCore server password as value.
 8. Associate **ZBX-DATACORE-SSV** template to the host.
 
 ### Requirements
