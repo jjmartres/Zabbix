@@ -12,6 +12,7 @@ Templates
   * [ZBX-DELL-POWERCONNECT](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-dell-powerconnect) => template to discover and manage capabilities on Dell PowerConnect devices.
   * [ZBX-FORTINET](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet) => template to discover and manage capabilities on Fortinet devices.
   * [ZBX-INFORTREND](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-infortrend) => template to discover and manage capabilities on Infortrend storage array.
+  * [ZBX-DATACORE](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-datacore) => template to discover and manage DataCore SANsymphony-V server.
 
 Requirements
 ------------
