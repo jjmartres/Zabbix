@@ -112,7 +112,7 @@ Installation
 
 1. Install [`Zabbix Agent`](http://www.zabbix.com/downloads/2.0.3/zabbix_agents_2.0.3.win.zip) on both DataCore server
 2. Install all `*.ps1` files to the Zabbix Agent script directory on both DataCore server
-3. Install [`zbx-dcs.conf`](https://github.com/jjmartres/Zabbix/tree/master/zbx-template) to the Zabbix Agent config directory on both DataCore server
+3. Install [`zbx-dcs.conf`](https://github.com/jjmartres/Zabbix/blob/master/zbx-templates/zbx-datacore/zbx-dcs.conf) to the Zabbix Agent config directory on both DataCore server
 4. Add the following line to your Zabbix Agent configuration on both DataCore server
   * `Include=C:\Program Files\Zabbix\etc\zbx-dcs.conf`
 5. Import **zbx-datacore-ssv.xml** file into Zabbix.
