@@ -1196,16 +1196,6 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-POWERWARE-UPS:xupsOutputSource.last(0)}&lt;4</expression>
-            <name>Check status</name>
-            <url/>
-            <status>0</status>
-            <priority>2</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
             <expression>{ZBX-POWERWARE-UPS:xupsAlarms.last(0)}#0</expression>
             <name>Detected alarm(s)</name>
             <url/>

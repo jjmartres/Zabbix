@@ -37,7 +37,6 @@ Triggers
   * **[AVERAGE]** => Detected alarm(s)
   * **[AVERAGE]** => Battery is discharging
   * **[WARNING]** => On automatic bypass
-  * **[WARNING]** => Check status
   * **[INFORMATION]** => On manual bypass
   * **[INFORMATION]** => Device has just been restarted
   * **[INFORMATION]** => Hostname was changed
