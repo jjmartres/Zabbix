@@ -130,7 +130,7 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX-CISCO-CDP:ciscoCdpCacheDeviceId[{#ADVSNMPVALUE}].diff(0)}&gt;0|{KHP-CISCO-CDP:ciscoCdpCachePlatform[{#ADVSNMPVALUE}].diff(0)}&gt;0</expression>
+                            <expression>{ZBX-CISCO-CDP:ciscoCdpCacheDeviceId[{#ADVSNMPVALUE}].diff(0)}&gt;0|{ZBX-CISCO-CDP:ciscoCdpCachePlatform[{#ADVSNMPVALUE}].diff(0)}&gt;0</expression>
                             <name>CDP neighbor on interface {#ADVSNMPVALUE} was changed</name>
                             <url/>
                             <status>0</status>
