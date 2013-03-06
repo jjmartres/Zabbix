@@ -149,7 +149,7 @@
                             <snmpv3_authpassphrase/>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
-                            <delay_flex>50/1-7,00:00-24:00</delay_flex>
+                            <delay_flex/>
                             <params/>
                             <ipmi_sensor/>
                             <data_type>0</data_type>
@@ -229,7 +229,7 @@
                             <snmpv3_authpassphrase/>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
-                            <delay_flex>50/1-7,00:00-24:00</delay_flex>
+                            <delay_flex/>
                             <params/>
                             <ipmi_sensor/>
                             <data_type>0</data_type>
@@ -270,7 +270,7 @@
                             <snmpv3_authpassphrase/>
                             <snmpv3_privpassphrase/>
                             <formula>1</formula>
-                            <delay_flex>50/1-7,00:00-24:00</delay_flex>
+                            <delay_flex/>
                             <params/>
                             <ipmi_sensor/>
                             <data_type>0</data_type>
