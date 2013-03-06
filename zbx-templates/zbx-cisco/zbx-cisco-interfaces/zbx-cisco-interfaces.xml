@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-11-05T14:08:40Z</date>
+    <date>2013-03-06T14:07:15Z</date>
     <groups>
         <group>
             <name>ZBX-CISCO-TEMPLATES</name>
@@ -143,7 +143,7 @@
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
-                            <delta>1</delta>
+                            <delta>2</delta>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
                             <snmpv3_authpassphrase/>
@@ -183,7 +183,7 @@ this interface</description>
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
-                            <delta>1</delta>
+                            <delta>2</delta>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
                             <snmpv3_authpassphrase/>
@@ -262,7 +262,7 @@ redundancy checksum errors.</description>
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
-                            <delta>1</delta>
+                            <delta>2</delta>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
                             <snmpv3_authpassphrase/>
@@ -302,7 +302,7 @@ then the physical media permitted.</description>
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
-                            <delta>1</delta>
+                            <delta>2</delta>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
                             <snmpv3_authpassphrase/>
@@ -342,7 +342,7 @@ ignored by this interface.</description>
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
-                            <delta>1</delta>
+                            <delta>2</delta>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
                             <snmpv3_authpassphrase/>
@@ -381,7 +381,7 @@ ignored by this interface.</description>
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
-                            <delta>1</delta>
+                            <delta>2</delta>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
                             <snmpv3_authpassphrase/>
@@ -498,7 +498,7 @@ ignored by this interface.</description>
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
-                            <delta>1</delta>
+                            <delta>2</delta>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
                             <snmpv3_authpassphrase/>
@@ -579,7 +579,7 @@ misaligned.</description>
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
-                            <delta>1</delta>
+                            <delta>2</delta>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
                             <snmpv3_authpassphrase/>
@@ -618,7 +618,7 @@ misaligned.</description>
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
-                            <delta>1</delta>
+                            <delta>2</delta>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
                             <snmpv3_authpassphrase/>
@@ -696,7 +696,7 @@ misaligned.</description>
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
-                            <delta>1</delta>
+                            <delta>2</delta>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
                             <snmpv3_authpassphrase/>
@@ -736,7 +736,7 @@ the to hardware receive.</description>
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
-                            <delta>1</delta>
+                            <delta>2</delta>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
                             <snmpv3_authpassphrase/>
