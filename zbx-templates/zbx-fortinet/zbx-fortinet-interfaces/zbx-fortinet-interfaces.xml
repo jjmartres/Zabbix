@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-11-05T17:01:58Z</date>
+    <date>2013-03-06T16:34:59Z</date>
     <groups>
         <group>
             <name>ZBX-FORTINET-TEMPLATES</name>
@@ -221,7 +221,7 @@
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
-                            <delta>1</delta>
+                            <delta>2</delta>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
                             <snmpv3_authpassphrase/>
@@ -260,7 +260,7 @@
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
-                            <delta>1</delta>
+                            <delta>2</delta>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
                             <snmpv3_authpassphrase/>
@@ -356,7 +356,11 @@
                             <port/>
                             <description/>
                             <inventory_link>0</inventory_link>
-                            <applications/>
+                            <applications>
+                                <application>
+                                    <name>Interface(s)</name>
+                                </application>
+                            </applications>
                             <valuemap/>
                         </item_prototype>
                         <item_prototype>
@@ -414,7 +418,7 @@
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
-                            <delta>1</delta>
+                            <delta>2</delta>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
                             <snmpv3_authpassphrase/>
@@ -453,7 +457,7 @@
                             <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
-                            <delta>1</delta>
+                            <delta>2</delta>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
                             <snmpv3_authpassphrase/>
