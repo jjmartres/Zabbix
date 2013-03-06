@@ -35,7 +35,7 @@ require 'logger'
 require 'yaml'
 require 'net/ping/external'
 
-version="0.4.1"
+version="0.4.7"
 
 # Howto use it ... quiet simple
 OPTIONS = {}
@@ -137,9 +137,13 @@ cnf.each_key { |key|
       # Check if host is up
       if Net::Ping::External.new(host.result[0]["host"]).ping?
         SNMP::Manager.open(:host => host.result[0]["host"], :community => cnf[key]['snmp_community'], :version => :SNMPv2c) do |manager|
-          response = manager.get(["sysDescr.0","sysName.0"])
-          response.each_varbind do |vb|
-            sys_information.push(vb.value.to_s)
+          begin
+            response = manager.get(["sysDescr.0","sysName.0"])
+            response.each_varbind do |vb|
+              sys_information.push(vb.value.to_s)
+            end
+          rescue
+            log.error "SNMP request timeout. Host #{host.result[0]["host"]} is not responding."
           end
         end
         if sys_information.any?
@@ -170,10 +174,10 @@ cnf.each_key { |key|
             end
           }
         else
-          log.fatal "No response receive from #{host.result[0]["host"]} !"
+          log.error "No response receive from #{host.result[0]["host"]} !"
         end
       else
-        log.error "#{host.result[0]["host"]} is not responding !"
+        log.error "Host #{host.result[0]["host"]} is not responding."
       end
       count = count +1
     end
