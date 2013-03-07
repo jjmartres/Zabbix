@@ -6,6 +6,15 @@ This template use the SANsymphony-V Cmdlets to discover and manage DataCore SANs
 Items
 -----
 
+  * Zabbix agent status on DataCore console server
+  * Zabbix agent version on DataCore console server
+  * Number of process on DataCore console server
+  * Processor load (15min average) on DataCore console server
+  * Processor load (5min average) on DataCore console server
+  * Processor load (1min average) on DataCore console server
+  * Discovery: free disk space on DataCore console server
+  * Discovery: total disk space on DataCore console server
+  * Discovery: used disk space on DataCore console server
   * DataCore server name
   * DataCore server state
   * DataCore server power state
@@ -101,6 +110,7 @@ Graphs
   * Served virtual disk
   * Message logged
   * DataCore server cache
+  * Discovery: disk space usage on DataCore console server
   * Discovery: virtual disk size
   * Discovery: pool disk space
   * Discovery: physical disk space
@@ -110,19 +120,24 @@ Graphs
 Installation
 ------------
 
-1. Install [`Zabbix Agent`](http://www.zabbix.com/downloads/2.0.3/zabbix_agents_2.0.3.win.zip) on both DataCore server
+1. Install [`Zabbix Agent`](http://www.zabbix.com/downloads/2.0.4/zabbix_agents_2.0.4.win.zip) on both DataCore server
 2. Install all `*.ps1` files to the Zabbix Agent script directory on both DataCore server
 3. Install [`zbx-dcs.conf`](https://github.com/jjmartres/Zabbix/blob/master/zbx-templates/zbx-datacore/zbx-dcs.conf) to the Zabbix Agent config directory on both DataCore server
 4. Add the following line to your Zabbix Agent configuration on both DataCore server
   * `Include=C:\Program Files\Zabbix\etc\zbx-dcs.conf`
 5. Import **zbx-datacore-ssv.xml** file into Zabbix.
-6. Add to your host the **{$DCS_USER}** macro with your DataCore server username as value.
-7. Add to your host the **{$DCS_PASSWORD}** macro with your DataCore server password as value.
-8. Associate **ZBX-DATACORE-SSV** template to the host.
+6. Create your host and use the DataCore console IP address as host IP address. If you don't have a console server, use the Datacore server IP address.
+7. Add to your host the **{$DCS_USER}** macro with your DataCore server username as value.
+8. Add to your host the **{$DCS_PASSWORD}** macro with your DataCore server password as value.
+9. Add to your host the **{$DCS\_CONSOLE\_NAME}** macro with your DataCore console server name. If you don't have a console server simple add the IP address of your DataCore server.
+10. Add to your host the **{$DCS_IPADDR}** macro with your DataCore server IP address.
+11. Associate **ZBX-DATACORE-SSV** template to the host.
 
 ### Requirements
 
 This template was tested for Zabbix 2.0.0 and higher.
+
+As mentionned by DataCore on [`FAQ1348`](http://datacore.custhelp.com/app/answers/detail/a_id/1348), it is not recommended to run monitoring scripts directly on a production server to prevent unwanted CPU load. This template is created to be deployed on a console management server (a Windows server with SANsymphony-V Cmdlets installed), but can also be used directly on a production server.
 
 ###### [DataCore SANsymphony-V Cmdlets](http://www.datacore.com/SSV-Webhelp/Getting_Started_with_SANsymphony-V_Cmdlets.htm) 9.0 or higher
 

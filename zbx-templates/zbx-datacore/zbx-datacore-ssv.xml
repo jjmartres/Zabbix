@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-12-08T13:43:46Z</date>
+    <date>2013-03-07T20:49:45Z</date>
     <groups>
         <group>
             <name>ZBX-DATACORE-TEMPLATES</name>
@@ -19,6 +19,9 @@
             <applications>
                 <application>
                     <name>Alert messages</name>
+                </application>
+                <application>
+                    <name>Datacore Console</name>
                 </application>
                 <application>
                     <name>Datacore Server</name>
@@ -43,7 +46,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},AvailableSystemMemory]</key>
+                    <key>DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},AvailableSystemMemory]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -82,7 +85,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfCacheSize]</key>
+                    <key>DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfCacheSize]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -121,7 +124,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},CacheState]</key>
+                    <key>DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},CacheState]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -155,53 +158,12 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Datacore executive service</name>
-                    <type>0</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
-                    <key>service_state[Dcsx]</key>
-                    <delay>300</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>Datacore Server</name>
-                        </application>
-                    </applications>
-                    <valuemap>
-                        <name>Windows service state</name>
-                    </valuemap>
-                </item>
-                <item>
                     <name>Datacore server name</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Caption]</key>
+                    <key>DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Caption]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -240,7 +202,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>DcsAlert[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Diagnostic]</key>
+                    <key>DcsAlert[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Diagnostic]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -279,7 +241,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},DiagnosticMode]</key>
+                    <key>DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},DiagnosticMode]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -318,7 +280,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>DcsAlert[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Error]</key>
+                    <key>DcsAlert[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Error]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -357,7 +319,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfFreeCache]</key>
+                    <key>DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfFreeCache]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -396,7 +358,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>DcsAlert[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Info]</key>
+                    <key>DcsAlert[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Info]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -435,7 +397,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},LogStatus]</key>
+                    <key>DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},LogStatus]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -464,6 +426,45 @@
                     <applications>
                         <application>
                             <name>Datacore Server</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Number of processes</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>proc.num[]</key>
+                    <delay>60</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>0</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Datacore Console</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -474,7 +475,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PowerState]</key>
+                    <key>DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PowerState]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -508,12 +509,129 @@
                     <valuemap/>
                 </item>
                 <item>
+                    <name>Processor load (1 min average)</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>system.cpu.load[,avg1]</key>
+                    <delay>60</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Datacore Console</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Processor load (5 min average)</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>system.cpu.load[,avg5]</key>
+                    <delay>60</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Datacore Console</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Processor load (15 min average)</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>system.cpu.load[,avg15]</key>
+                    <delay>60</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Datacore Console</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
                     <name>Product Name</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},ProductName]</key>
+                    <key>DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},ProductName]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -552,7 +670,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},TotalVirtualDisk]</key>
+                    <key>DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},TotalVirtualDisk]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -591,7 +709,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},State]</key>
+                    <key>DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},State]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -630,7 +748,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},StorageUsed]</key>
+                    <key>DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},StorageUsed]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -669,7 +787,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},TotalSystemMemory]</key>
+                    <key>DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},TotalSystemMemory]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -708,7 +826,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>DcsAlert[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Trace]</key>
+                    <key>DcsAlert[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Trace]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -742,12 +860,51 @@
                     <valuemap/>
                 </item>
                 <item>
+                    <name>Version of Zabbix agent</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>agent.version</key>
+                    <delay>3600</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>1</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Datacore Console</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
                     <name>Warning</name>
                     <type>0</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>DcsAlert[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Warning]</key>
+                    <key>DcsAlert[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Warning]</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -780,14 +937,247 @@
                     </applications>
                     <valuemap/>
                 </item>
+                <item>
+                    <name>Zabbix agent</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>agent.ping</key>
+                    <delay>60</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description>The agent always returns 1 for this item. It could be used in combination with nodata() for availability check.</description>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Datacore Console</name>
+                        </application>
+                    </applications>
+                    <valuemap>
+                        <name>Zabbix agent ping status</name>
+                    </valuemap>
+                </item>
             </items>
             <discovery_rules>
+                <discovery_rule>
+                    <name>Console mounted filesystem discovery</name>
+                    <type>0</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>vfs.fs.discovery</key>
+                    <delay>3600</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <filter>{#FSTYPE}:@File systems for discovery</filter>
+                    <lifetime>30</lifetime>
+                    <description/>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>Free disk space on $1</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <multiplier>0</multiplier>
+                            <snmp_oid/>
+                            <key>vfs.fs.size[{#FSNAME},free]</key>
+                            <delay>60</delay>
+                            <history>7</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>B</units>
+                            <delta>0</delta>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Datacore Console</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Total disk space on $1</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <multiplier>0</multiplier>
+                            <snmp_oid/>
+                            <key>vfs.fs.size[{#FSNAME},total]</key>
+                            <delay>3600</delay>
+                            <history>7</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>B</units>
+                            <delta>0</delta>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Datacore Console</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Used disk space on $1</name>
+                            <type>0</type>
+                            <snmp_community/>
+                            <multiplier>0</multiplier>
+                            <snmp_oid/>
+                            <key>vfs.fs.size[{#FSNAME},used]</key>
+                            <delay>60</delay>
+                            <history>7</history>
+                            <trends>365</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units>B</units>
+                            <delta>0</delta>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privpassphrase/>
+                            <formula>1</formula>
+                            <delay_flex/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <data_type>0</data_type>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Datacore Console</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                        </item_prototype>
+                    </item_prototypes>
+                    <trigger_prototypes/>
+                    <graph_prototypes>
+                        <graph_prototype>
+                            <name>Disk space usage {#FSNAME}</name>
+                            <width>900</width>
+                            <height>200</height>
+                            <yaxismin>0.0000</yaxismin>
+                            <yaxismax>0.0000</yaxismax>
+                            <show_work_period>0</show_work_period>
+                            <show_triggers>0</show_triggers>
+                            <type>2</type>
+                            <show_legend>1</show_legend>
+                            <show_3d>1</show_3d>
+                            <percent_left>0.0000</percent_left>
+                            <percent_right>0.0000</percent_right>
+                            <ymin_type_1>0</ymin_type_1>
+                            <ymax_type_1>0</ymax_type_1>
+                            <ymin_item_1>0</ymin_item_1>
+                            <ymax_item_1>0</ymax_item_1>
+                            <graph_items>
+                                <graph_item>
+                                    <sortorder>0</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>C80000</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>2</type>
+                                    <item>
+                                        <host>ZBX-DATACORE-SSV</host>
+                                        <key>vfs.fs.size[{#FSNAME},total]</key>
+                                    </item>
+                                </graph_item>
+                                <graph_item>
+                                    <sortorder>1</sortorder>
+                                    <drawtype>0</drawtype>
+                                    <color>00C800</color>
+                                    <yaxisside>0</yaxisside>
+                                    <calc_fnc>2</calc_fnc>
+                                    <type>0</type>
+                                    <item>
+                                        <host>ZBX-DATACORE-SSV</host>
+                                        <key>vfs.fs.size[{#FSNAME},used]</key>
+                                    </item>
+                                </graph_item>
+                            </graph_items>
+                        </graph_prototype>
+                    </graph_prototypes>
+                </discovery_rule>
                 <discovery_rule>
                     <name>Physical disks</name>
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>DcsPhysicalDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Discovery]</key>
+                    <key>DcsPhysicalDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Discovery]</key>
                     <delay>300</delay>
                     <status>0</status>
                     <allowed_hosts/>
@@ -814,7 +1204,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPhysicalDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},BusType,{#DISKID}]</key>
+                            <key>DcsPhysicalDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},BusType,{#DISKID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -853,7 +1243,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPhysicalDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Type,{#DISKID}]</key>
+                            <key>DcsPhysicalDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Type,{#DISKID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -892,7 +1282,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPhysicalDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},FreeSpace,{#DISKID}]</key>
+                            <key>DcsPhysicalDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},FreeSpace,{#DISKID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -931,7 +1321,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPhysicalDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfTotalPendingCommands,{#DISKID}]</key>
+                            <key>DcsPhysicalDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfTotalPendingCommands,{#DISKID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -970,7 +1360,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPhysicalDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfTotalReads,{#DISKID}]</key>
+                            <key>DcsPhysicalDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfTotalReads,{#DISKID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1009,7 +1399,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPhysicalDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Size,{#DISKID}]</key>
+                            <key>DcsPhysicalDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Size,{#DISKID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1048,7 +1438,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPhysicalDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},DiskStatus,{#DISKID}]</key>
+                            <key>DcsPhysicalDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},DiskStatus,{#DISKID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1087,7 +1477,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPhysicalDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},DiskTier,{#DISKID}]</key>
+                            <key>DcsPhysicalDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},DiskTier,{#DISKID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1126,7 +1516,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPhysicalDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfTotalWrites,{#DISKID}]</key>
+                            <key>DcsPhysicalDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfTotalWrites,{#DISKID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1162,7 +1552,7 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsPhysicalDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfTotalPendingCommands,{#DISKID}].last(0)}&gt;0</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsPhysicalDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfTotalPendingCommands,{#DISKID}].last(0)}&gt;0</expression>
                             <name>Pending operations detected on {#DISKNAME} (ID: {#DISKID})</name>
                             <url/>
                             <status>0</status>
@@ -1171,7 +1561,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsPhysicalDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},DiskStatus,{#DISKID}].iregexp(Online)}=0</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsPhysicalDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},DiskStatus,{#DISKID}].iregexp(Online)}=0</expression>
                             <name>{#DISKNAME} (ID: {#DISKID}) is NOT ONLINE</name>
                             <url/>
                             <status>0</status>
@@ -1208,7 +1598,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>ZBX-DATACORE-SSV</host>
-                                        <key>DcsPhysicalDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfTotalPendingCommands,{#DISKID}]</key>
+                                        <key>DcsPhysicalDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfTotalPendingCommands,{#DISKID}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -1220,7 +1610,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>ZBX-DATACORE-SSV</host>
-                                        <key>DcsPhysicalDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfTotalReads,{#DISKID}]</key>
+                                        <key>DcsPhysicalDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfTotalReads,{#DISKID}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -1232,7 +1622,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>ZBX-DATACORE-SSV</host>
-                                        <key>DcsPhysicalDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfTotalWrites,{#DISKID}]</key>
+                                        <key>DcsPhysicalDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfTotalWrites,{#DISKID}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -1264,7 +1654,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>ZBX-DATACORE-SSV</host>
-                                        <key>DcsPhysicalDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},FreeSpace,{#DISKID}]</key>
+                                        <key>DcsPhysicalDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},FreeSpace,{#DISKID}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -1276,7 +1666,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>ZBX-DATACORE-SSV</host>
-                                        <key>DcsPhysicalDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Size,{#DISKID}]</key>
+                                        <key>DcsPhysicalDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Size,{#DISKID}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -1288,7 +1678,7 @@
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Discovery]</key>
+                    <key>DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Discovery]</key>
                     <delay>300</delay>
                     <status>0</status>
                     <allowed_hosts/>
@@ -1315,7 +1705,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAllocated,{#POOLALIAS}]</key>
+                            <key>DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAllocated,{#POOLALIAS}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1354,7 +1744,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAvailable,{#POOLALIAS}]</key>
+                            <key>DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAvailable,{#POOLALIAS}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1393,7 +1783,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesInReclamation,{#POOLALIAS}]</key>
+                            <key>DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesInReclamation,{#POOLALIAS}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1432,7 +1822,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},MaxTierNumber,{#POOLALIAS}]</key>
+                            <key>DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},MaxTierNumber,{#POOLALIAS}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1471,7 +1861,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesOverSubscribed,{#POOLALIAS}]</key>
+                            <key>DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesOverSubscribed,{#POOLALIAS}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1510,7 +1900,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PresenceStatus,{#POOLALIAS}]</key>
+                            <key>DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PresenceStatus,{#POOLALIAS}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1549,7 +1939,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PoolStatus,{#POOLALIAS}]</key>
+                            <key>DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PoolStatus,{#POOLALIAS}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1585,7 +1975,7 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAvailable,{#POOLALIAS}].last(0)} &lt; 0.1 * {ZBX-DATACORE-SSV:DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAllocated,{#POOLALIAS}].last(0)}</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAvailable,{#POOLALIAS}].last(0)} &lt; 0.1 * {ZBX-DATACORE-SSV:DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAllocated,{#POOLALIAS}].last(0)}</expression>
                             <name>Pool disk {#POOLALIAS} has less than 10% of available space</name>
                             <url/>
                             <status>0</status>
@@ -1594,7 +1984,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAvailable,{#POOLALIAS}].last(0)} &gt; 0.1 * {ZBX-DATACORE-SSV:DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAllocated,{#POOLALIAS}].last(0)} &amp; {ZBX-DATACORE-SSV:DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAvailable,{#POOLALIAS}].last(0)} &lt; 0.2 * {ZBX-DATACORE-SSV:DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAllocated,{#POOLALIAS}].last(0)}</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAvailable,{#POOLALIAS}].last(0)} &gt; 0.1 * {ZBX-DATACORE-SSV:DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAllocated,{#POOLALIAS}].last(0)} &amp; {ZBX-DATACORE-SSV:DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAvailable,{#POOLALIAS}].last(0)} &lt; 0.2 * {ZBX-DATACORE-SSV:DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAllocated,{#POOLALIAS}].last(0)}</expression>
                             <name>Pool disk {#POOLALIAS} has less than 20% of available space</name>
                             <url/>
                             <status>0</status>
@@ -1603,7 +1993,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAvailable,{#POOLALIAS}].last(0)} &gt; 0.2 * {ZBX-DATACORE-SSV:DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAllocated,{#POOLALIAS}].last(0)} &amp; {ZBX-DATACORE-SSV:DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAvailable,{#POOLALIAS}].last(0)} &lt; 0.3 * {ZBX-DATACORE-SSV:DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAllocated,{#POOLALIAS}].last(0)}</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAvailable,{#POOLALIAS}].last(0)} &gt; 0.2 * {ZBX-DATACORE-SSV:DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAllocated,{#POOLALIAS}].last(0)} &amp; {ZBX-DATACORE-SSV:DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAvailable,{#POOLALIAS}].last(0)} &lt; 0.3 * {ZBX-DATACORE-SSV:DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAllocated,{#POOLALIAS}].last(0)}</expression>
                             <name>Pool disk {#POOLALIAS} has less than 30% of available space</name>
                             <url/>
                             <status>0</status>
@@ -1612,7 +2002,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesOverSubscribed,{#POOLALIAS}].last(0)}&gt;0</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesOverSubscribed,{#POOLALIAS}].last(0)}&gt;0</expression>
                             <name>Pool disk {#POOLALIAS} has over subscribed space</name>
                             <url/>
                             <status>0</status>
@@ -1621,7 +2011,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PoolStatus,{#POOLALIAS}].iregexp(Initializing)}=1</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PoolStatus,{#POOLALIAS}].iregexp(Initializing)}=1</expression>
                             <name>Pool disk {#POOLALIAS} is INITIALIZING</name>
                             <url/>
                             <status>0</status>
@@ -1630,7 +2020,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PoolStatus,{#POOLALIAS}].iregexp(Offline)}=1</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PoolStatus,{#POOLALIAS}].iregexp(Offline)}=1</expression>
                             <name>Pool disk {#POOLALIAS} is OFFLINE</name>
                             <url/>
                             <status>0</status>
@@ -1639,7 +2029,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PoolStatus,{#POOLALIAS}].iregexp(MissingDisks)}=1</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PoolStatus,{#POOLALIAS}].iregexp(MissingDisks)}=1</expression>
                             <name>Pool disk {#POOLALIAS} MISSED DISK</name>
                             <url/>
                             <status>0</status>
@@ -1648,7 +2038,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesInReclamation,{#POOLALIAS}].last(0)}&gt;0</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesInReclamation,{#POOLALIAS}].last(0)}&gt;0</expression>
                             <name>Pool disk {#POOLALIAS} need space reclamation</name>
                             <url/>
                             <status>0</status>
@@ -1685,7 +2075,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>ZBX-DATACORE-SSV</host>
-                                        <key>DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAllocated,{#POOLALIAS}]</key>
+                                        <key>DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAllocated,{#POOLALIAS}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -1697,7 +2087,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>ZBX-DATACORE-SSV</host>
-                                        <key>DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAvailable,{#POOLALIAS}]</key>
+                                        <key>DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesAvailable,{#POOLALIAS}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -1709,7 +2099,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>ZBX-DATACORE-SSV</host>
-                                        <key>DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesInReclamation,{#POOLALIAS}]</key>
+                                        <key>DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesInReclamation,{#POOLALIAS}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -1721,7 +2111,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>ZBX-DATACORE-SSV</host>
-                                        <key>DcsPoolDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfBytesOverSubscribed,{#POOLALIAS}]</key>
+                                        <key>DcsPoolDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfBytesOverSubscribed,{#POOLALIAS}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -1733,7 +2123,7 @@
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Discovery]</key>
+                    <key>DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Discovery]</key>
                     <delay>300</delay>
                     <status>0</status>
                     <allowed_hosts/>
@@ -1760,7 +2150,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PortName,{#PORTID}]</key>
+                            <key>DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PortName,{#PORTID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1799,7 +2189,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Connected,{#PORTID}]</key>
+                            <key>DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Connected,{#PORTID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1838,7 +2228,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfPendingInitiatorCommands,{#PORTID}]</key>
+                            <key>DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfPendingInitiatorCommands,{#PORTID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1877,7 +2267,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfInitiatorReads,{#PORTID}]</key>
+                            <key>DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfInitiatorReads,{#PORTID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1916,7 +2306,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfInitiatorWrites,{#PORTID}]</key>
+                            <key>DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfInitiatorWrites,{#PORTID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1955,7 +2345,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},RoleCapability,{#PORTID}]</key>
+                            <key>DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},RoleCapability,{#PORTID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -1994,7 +2384,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfPendingTargetCommands,{#PORTID}]</key>
+                            <key>DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfPendingTargetCommands,{#PORTID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -2033,7 +2423,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfTargetReads,{#PORTID}]</key>
+                            <key>DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfTargetReads,{#PORTID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -2072,7 +2462,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfTargetWrites,{#PORTID}]</key>
+                            <key>DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfTargetWrites,{#PORTID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -2111,7 +2501,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PortType,{#PORTID}]</key>
+                            <key>DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PortType,{#PORTID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -2147,7 +2537,7 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},RoleCapability,{#PORTID}].diff(0)}&gt;0</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},RoleCapability,{#PORTID}].diff(0)}&gt;0</expression>
                             <name>Role capability on SCSI port {#PORTNAME} was changed</name>
                             <url/>
                             <status>0</status>
@@ -2156,7 +2546,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Connected,{#PORTID}].iregexp(False)}=1 &amp; {ZBX-DATACORE-SSV:DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Connected,{#PORTID}].diff(0)}&gt;0</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Connected,{#PORTID}].iregexp(False)}=1 &amp; {ZBX-DATACORE-SSV:DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Connected,{#PORTID}].diff(0)}&gt;0</expression>
                             <name>SCSI port {#PORTNAME} is NOT CONNECTED</name>
                             <url/>
                             <status>0</status>
@@ -2193,7 +2583,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>ZBX-DATACORE-SSV</host>
-                                        <key>DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfPendingInitiatorCommands,{#PORTID}]</key>
+                                        <key>DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfPendingInitiatorCommands,{#PORTID}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -2205,7 +2595,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>ZBX-DATACORE-SSV</host>
-                                        <key>DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfInitiatorReads,{#PORTID}]</key>
+                                        <key>DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfInitiatorReads,{#PORTID}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -2217,7 +2607,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>ZBX-DATACORE-SSV</host>
-                                        <key>DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfInitiatorWrites,{#PORTID}]</key>
+                                        <key>DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfInitiatorWrites,{#PORTID}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -2229,7 +2619,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>ZBX-DATACORE-SSV</host>
-                                        <key>DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfPendingTargetCommands,{#PORTID}]</key>
+                                        <key>DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfPendingTargetCommands,{#PORTID}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -2241,7 +2631,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>ZBX-DATACORE-SSV</host>
-                                        <key>DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfTargetReads,{#PORTID}]</key>
+                                        <key>DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfTargetReads,{#PORTID}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -2253,7 +2643,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>ZBX-DATACORE-SSV</host>
-                                        <key>DcsPort[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfTargetWrites,{#PORTID}]</key>
+                                        <key>DcsPort[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfTargetWrites,{#PORTID}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -2265,7 +2655,7 @@
                     <type>0</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>DcsVirtualDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Discovery]</key>
+                    <key>DcsVirtualDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Discovery]</key>
                     <delay>300</delay>
                     <status>0</status>
                     <allowed_hosts/>
@@ -2292,7 +2682,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsVirtualDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},MirrorStatus,{#VDID}]</key>
+                            <key>DcsVirtualDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},MirrorStatus,{#VDID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -2331,7 +2721,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsVirtualDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},IsServed,{#VDID}]</key>
+                            <key>DcsVirtualDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},IsServed,{#VDID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -2370,7 +2760,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsVirtualDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Size,{#VDID}]</key>
+                            <key>DcsVirtualDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Size,{#VDID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -2409,7 +2799,7 @@
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>DcsVirtualDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},DiskStatus,{#VDID}]</key>
+                            <key>DcsVirtualDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},DiskStatus,{#VDID}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -2445,7 +2835,7 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsVirtualDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},MirrorStatus,{#VDID}].iregexp(DoubleFailure)}=1</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsVirtualDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},MirrorStatus,{#VDID}].iregexp(DoubleFailure)}=1</expression>
                             <name>Mirrored virtual disk {#VDNAME} is in DOUBLE FAILURE</name>
                             <url/>
                             <status>0</status>
@@ -2454,7 +2844,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsVirtualDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},MirrorStatus,{#VDID}].iregexp(FullRecoveryPending)}=1</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsVirtualDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},MirrorStatus,{#VDID}].iregexp(FullRecoveryPending)}=1</expression>
                             <name>Virtual disk {#VDNAME} has FULL RECOVERY PENDING</name>
                             <url/>
                             <status>0</status>
@@ -2463,7 +2853,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsVirtualDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},MirrorStatus,{#VDID}].iregexp(LogRecoveryPending)}=1</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsVirtualDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},MirrorStatus,{#VDID}].iregexp(LogRecoveryPending)}=1</expression>
                             <name>Virtual disk {#VDNAME} has LOG RECOVERY PENDING</name>
                             <url/>
                             <status>0</status>
@@ -2472,7 +2862,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsVirtualDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},MirrorStatus,{#VDID}].iregexp(InFullRecovery)}=1</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsVirtualDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},MirrorStatus,{#VDID}].iregexp(InFullRecovery)}=1</expression>
                             <name>Virtual disk {#VDNAME} is in FULL RECOVERY</name>
                             <url/>
                             <status>0</status>
@@ -2481,7 +2871,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsVirtualDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},MirrorStatus,{#VDID}].iregexp(InLogRecovery)}=1</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsVirtualDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},MirrorStatus,{#VDID}].iregexp(InLogRecovery)}=1</expression>
                             <name>Virtual disk {#VDNAME} is in LOG RECOVERY</name>
                             <url/>
                             <status>0</status>
@@ -2490,7 +2880,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsVirtualDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},DiskStatus,{#VDID}].iregexp(Online)}#1</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsVirtualDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},DiskStatus,{#VDID}].iregexp(Online)}#1</expression>
                             <name>Virtual disk {#VDNAME} is NOT ONLINE</name>
                             <url/>
                             <status>0</status>
@@ -2499,7 +2889,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsVirtualDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},MirrorStatus,{#VDID}].iregexp(FullRecoveryNeeded)}=1</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsVirtualDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},MirrorStatus,{#VDID}].iregexp(FullRecoveryNeeded)}=1</expression>
                             <name>Virtual disk {#VDNAME} need FULL RECOVERY</name>
                             <url/>
                             <status>0</status>
@@ -2508,7 +2898,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsVirtualDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},MirrorStatus,{#VDID}].iregexp(LogRecoveryNeeded)}=1</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsVirtualDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},MirrorStatus,{#VDID}].iregexp(LogRecoveryNeeded)}=1</expression>
                             <name>Virtual disk {#VDNAME} need LOG RECOVERY</name>
                             <url/>
                             <status>0</status>
@@ -2517,7 +2907,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-DATACORE-SSV:DcsVirtualDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},IsServed,{#VDID}].diff(0)}&gt;0</expression>
+                            <expression>{ZBX-DATACORE-SSV:DcsVirtualDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},IsServed,{#VDID}].diff(0)}&gt;0</expression>
                             <name>Virtual disk {#VDNAME} served status was changed</name>
                             <url/>
                             <status>0</status>
@@ -2554,7 +2944,7 @@
                                     <type>0</type>
                                     <item>
                                         <host>ZBX-DATACORE-SSV</host>
-                                        <key>DcsVirtualDisk[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Size,{#VDID}]</key>
+                                        <key>DcsVirtualDisk[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Size,{#VDID}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -2569,17 +2959,7 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>{ZBX-DATACORE-SSV:service_state[Dcsx].last(0)}#0</expression>
-            <name>Datacore executive service is DOWN</name>
-            <url/>
-            <status>0</status>
-            <priority>5</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>{ZBX-DATACORE-SSV:DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},CacheState].diff(0)}&gt;0</expression>
+            <expression>{ZBX-DATACORE-SSV:DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},CacheState].diff(0)}&gt;0</expression>
             <name>Datacore server cache state was changed</name>
             <url/>
             <status>0</status>
@@ -2589,7 +2969,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-DATACORE-SSV:DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},DiagnosticMode].diff(0)}&gt;0</expression>
+            <expression>{ZBX-DATACORE-SSV:DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},DiagnosticMode].diff(0)}&gt;0</expression>
             <name>Datacore server diagnostic mode was changed</name>
             <url/>
             <status>0</status>
@@ -2599,7 +2979,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-DATACORE-SSV:DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},LogStatus].iregexp(Operational)}#1</expression>
+            <expression>{ZBX-DATACORE-SSV:DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},LogStatus].iregexp(Operational)}#1</expression>
             <name>Datacore server log status is NOT OPERATIONAL</name>
             <url/>
             <status>0</status>
@@ -2609,7 +2989,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-DATACORE-SSV:DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Caption].diff(0)}&gt;0</expression>
+            <expression>{ZBX-DATACORE-SSV:DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Caption].diff(0)}&gt;0</expression>
             <name>Datacore server name was changed</name>
             <url/>
             <status>0</status>
@@ -2619,7 +2999,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-DATACORE-SSV:DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PowerState].iregexp(BatteryLow)}=1</expression>
+            <expression>{ZBX-DATACORE-SSV:DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PowerState].iregexp(BatteryLow)}=1</expression>
             <name>Datacore server power state is BatteryLow</name>
             <url/>
             <status>0</status>
@@ -2629,7 +3009,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-DATACORE-SSV:DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PowerState].iregexp(Unknown)}=1 | {ZBX-DATACORE-SSV:DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PowerState].iregexp(ACOffline)}=1</expression>
+            <expression>{ZBX-DATACORE-SSV:DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PowerState].iregexp(Unknown)}=1 | {ZBX-DATACORE-SSV:DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PowerState].iregexp(ACOffline)}=1</expression>
             <name>Datacore server power state is OFFLINE</name>
             <url/>
             <status>0</status>
@@ -2639,7 +3019,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-DATACORE-SSV:DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},State].iregexp(Online)}#1</expression>
+            <expression>{ZBX-DATACORE-SSV:DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},State].iregexp(Online)}#1</expression>
             <name>Datacore server state is NOT ONLINE</name>
             <url/>
             <status>0</status>
@@ -2649,7 +3029,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-DATACORE-SSV:DcsAlert[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Diagnostic].last(0)}&gt;0</expression>
+            <expression>{ZBX-DATACORE-SSV:DcsAlert[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Diagnostic].last(0)}&gt;0</expression>
             <name>Message of level DIAGNOSTIC logged</name>
             <url/>
             <status>0</status>
@@ -2659,7 +3039,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-DATACORE-SSV:DcsAlert[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Error].last(0)}&gt;0</expression>
+            <expression>{ZBX-DATACORE-SSV:DcsAlert[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Error].last(0)}&gt;0</expression>
             <name>Message of level ERROR logged</name>
             <url/>
             <status>0</status>
@@ -2669,7 +3049,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-DATACORE-SSV:DcsAlert[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Info].last(0)}&gt;0</expression>
+            <expression>{ZBX-DATACORE-SSV:DcsAlert[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Info].last(0)}&gt;0</expression>
             <name>Message of level INFORMATION logged</name>
             <url/>
             <status>0</status>
@@ -2679,7 +3059,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-DATACORE-SSV:DcsAlert[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Trace].last(0)}&gt;0</expression>
+            <expression>{ZBX-DATACORE-SSV:DcsAlert[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Trace].last(0)}&gt;0</expression>
             <name>Message of level TRACE logged</name>
             <url/>
             <status>0</status>
@@ -2689,7 +3069,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-DATACORE-SSV:DcsAlert[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Warning].last(0)}&gt;0</expression>
+            <expression>{ZBX-DATACORE-SSV:DcsAlert[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Warning].last(0)}&gt;0</expression>
             <name>Message of level WARNING logged</name>
             <url/>
             <status>0</status>
@@ -2700,6 +3080,62 @@
         </trigger>
     </triggers>
     <graphs>
+        <graph>
+            <name>Datacore Console CPU load</name>
+            <width>900</width>
+            <height>200</height>
+            <yaxismin>0.0000</yaxismin>
+            <yaxismax>100.0000</yaxismax>
+            <show_work_period>1</show_work_period>
+            <show_triggers>1</show_triggers>
+            <type>0</type>
+            <show_legend>1</show_legend>
+            <show_3d>0</show_3d>
+            <percent_left>0.0000</percent_left>
+            <percent_right>0.0000</percent_right>
+            <ymin_type_1>1</ymin_type_1>
+            <ymax_type_1>0</ymax_type_1>
+            <ymin_item_1>0</ymin_item_1>
+            <ymax_item_1>0</ymax_item_1>
+            <graph_items>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>009900</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>ZBX-DATACORE-SSV</host>
+                        <key>system.cpu.load[,avg1]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>000099</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>ZBX-DATACORE-SSV</host>
+                        <key>system.cpu.load[,avg5]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>990000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>ZBX-DATACORE-SSV</host>
+                        <key>system.cpu.load[,avg15]</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
         <graph>
             <name>Datacore server cache</name>
             <width>900</width>
@@ -2727,7 +3163,7 @@
                     <type>0</type>
                     <item>
                         <host>ZBX-DATACORE-SSV</host>
-                        <key>DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfCacheSize]</key>
+                        <key>DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfCacheSize]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -2739,7 +3175,7 @@
                     <type>0</type>
                     <item>
                         <host>ZBX-DATACORE-SSV</host>
-                        <key>DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},PerfFreeCache]</key>
+                        <key>DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},PerfFreeCache]</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -2771,7 +3207,7 @@
                     <type>0</type>
                     <item>
                         <host>ZBX-DATACORE-SSV</host>
-                        <key>DcsAlert[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Diagnostic]</key>
+                        <key>DcsAlert[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Diagnostic]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -2783,7 +3219,7 @@
                     <type>0</type>
                     <item>
                         <host>ZBX-DATACORE-SSV</host>
-                        <key>DcsAlert[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Error]</key>
+                        <key>DcsAlert[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Error]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -2795,7 +3231,7 @@
                     <type>0</type>
                     <item>
                         <host>ZBX-DATACORE-SSV</host>
-                        <key>DcsAlert[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Info]</key>
+                        <key>DcsAlert[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Info]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -2807,7 +3243,7 @@
                     <type>0</type>
                     <item>
                         <host>ZBX-DATACORE-SSV</host>
-                        <key>DcsAlert[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Trace]</key>
+                        <key>DcsAlert[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Trace]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -2819,7 +3255,7 @@
                     <type>0</type>
                     <item>
                         <host>ZBX-DATACORE-SSV</host>
-                        <key>DcsAlert[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},Warning]</key>
+                        <key>DcsAlert[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},Warning]</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -2851,7 +3287,7 @@
                     <type>0</type>
                     <item>
                         <host>ZBX-DATACORE-SSV</host>
-                        <key>DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},TotalVirtualDisk]</key>
+                        <key>DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},TotalVirtualDisk]</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -2883,7 +3319,7 @@
                     <type>0</type>
                     <item>
                         <host>ZBX-DATACORE-SSV</host>
-                        <key>DcsServer[{HOST.IP},{$DCS_USER},{$DCS_PASSWORD},StorageUsed]</key>
+                        <key>DcsServer[{$DCS_IPADDR},{$DCS_USER},{$DCS_PASSWORD},StorageUsed]</key>
                     </item>
                 </graph_item>
             </graph_items>
