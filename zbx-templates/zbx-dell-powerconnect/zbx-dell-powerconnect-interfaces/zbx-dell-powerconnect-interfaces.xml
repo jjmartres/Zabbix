@@ -45,7 +45,7 @@
                     <publickey/>
                     <privatekey/>
                     <port/>
-                    <filter>{#SNMPVALUE}:(Fe|Ge|Te|Po)</filter>
+                    <filter>{#SNMPVALUE}:(Fe|Ge|Te|Po|g)</filter>
                     <lifetime>7</lifetime>
                     <description/>
                     <item_prototypes>
