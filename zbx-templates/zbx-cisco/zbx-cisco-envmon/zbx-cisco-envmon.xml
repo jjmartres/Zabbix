@@ -1075,6 +1075,16 @@
             <type>0</type>
             <dependencies/>
         </trigger>
+        <trigger>
+            <expression>{ZBX-CISCO-ENVMON:sysName.diff(0)}&gt;0</expression>
+            <name>{HOST.NAME} was changed</name>
+            <url/>
+            <status>0</status>
+            <priority>1</priority>
+            <description/>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
     </triggers>
     <graphs>
         <graph>
