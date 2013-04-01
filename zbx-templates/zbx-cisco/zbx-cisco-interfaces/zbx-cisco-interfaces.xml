@@ -45,7 +45,7 @@
                     <publickey/>
                     <privatekey/>
                     <port/>
-                    <filter>{#SNMPVALUE}:(-adsl|Ethernet|-aal5|Vlan|Dialer|Tunnel)</filter>
+                    <filter>{#SNMPVALUE}:(-adsl|Ethernet|-aal5|Vlan|Dialer|Tunnel|Port-channel)</filter>
                     <lifetime>7</lifetime>
                     <description/>
                     <item_prototypes>
