@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2012-11-05T16:45:53Z</date>
+    <date>2013-04-10T09:56:14Z</date>
     <groups>
         <group>
             <name>ZBX-FORTINET-TEMPLATES</name>
@@ -651,7 +651,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-FORTINET-ENVMON:fgSysCpuUsage.avg(600)}&gt;50</expression>
+            <expression>{ZBX-FORTINET-ENVMON:fgSysCpuUsage.avg(600)}&gt;50 &amp; {ZBX-FORTINET-ENVMON:fgSysCpuUsage.avg(600)}&lt;60</expression>
             <name>CPU usage exceeded 50%</name>
             <url/>
             <status>0</status>
@@ -661,7 +661,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-FORTINET-ENVMON:fgSysCpuUsage.avg(600)}&gt;60</expression>
+            <expression>{ZBX-FORTINET-ENVMON:fgSysCpuUsage.avg(600)}&gt;60 &amp; {ZBX-FORTINET-ENVMON:fgSysCpuUsage.avg(600)}&lt;80</expression>
             <name>CPU usage exceeded 60%</name>
             <url/>
             <status>0</status>
@@ -701,7 +701,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-FORTINET-ENVMON:fgSysMemUsage.avg(600)}&gt;60</expression>
+            <expression>{ZBX-FORTINET-ENVMON:fgSysMemUsage.avg(600)}&gt;60 &amp; {ZBX-FORTINET-ENVMON:fgSysMemUsage.avg(600)}&lt;70</expression>
             <name>Memory usage exceeded 60%</name>
             <url/>
             <status>0</status>
@@ -711,7 +711,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-FORTINET-ENVMON:fgSysMemUsage.avg(600)}&gt;70</expression>
+            <expression>{ZBX-FORTINET-ENVMON:fgSysMemUsage.avg(600)}&gt;70 &amp; {ZBX-FORTINET-ENVMON:fgSysMemUsage.avg(600)}&lt;80</expression>
             <name>Memory usage exceeded 70%</name>
             <url/>
             <status>0</status>
