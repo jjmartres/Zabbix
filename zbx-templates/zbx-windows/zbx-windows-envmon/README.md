@@ -6,7 +6,9 @@ This template use Zabbix agent to discover and manage environmental informations
 Items
 -----
 
-  * Uptime
+  * System uptime
+  * System local time
+  * System boot time
   * System detailed information (Populates **OS** inventory field Tag)
   * System serial number (Populates **Serial number A** inventory field Tag)
   * Windows server roles (Populates **OS (Full details)** inventory field Tag)
