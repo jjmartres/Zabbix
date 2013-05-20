@@ -151,7 +151,8 @@ Installation
 	7. Install [`zabbix_wus_update_all.vbs`](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-windows/zbx-windows-envmon/zabbix_wus_update_all.vbs) in the script directory of your Zabbix agent.
 	8. Install [`zabbix_wus_update_crit.vbs`](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-windows/zbx-windows-envmon/zabbix_wus_update_crit.vbs) in the script directory of your Zabbix agent.
 	9. Add the following line to your Zabbix agent configuration file. Note that `<zabbix_script_path>` is your Zabbix agent script path :
-		
+		  
+      EnableRemoteCommands=1
 			UnsafeUserParameters=1
 			UserParameter = system.discovery[*],%systemroot%\system32\cscript.exe /nologo /T:30 <zabbix_script_path>\zabbix_win_system_discovery.vbs $1
 			UserParameter = quota[*],%systemroot%\system32\cscript.exe /nologo /T:30 <zabbix_script_path>\zabbix_win_quota.vbs $1 $2
