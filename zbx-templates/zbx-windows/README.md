@@ -6,8 +6,9 @@ A collection of Zabbix templates to manage Windows based server.
 Templates
 ---------
 
-  * [ZBX-WINDOWS-ENVMON](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-windows/zbx-windows-envmon) => use zabbix agent to discover and manage environmental windows based server.
-  
+  * [ZBX-WINDOWS-ENVMON](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-windows/zbx-windows-envmon) => use zabbix agent to discover and manage environmental Windows based server.
+  * [ZBX-WINDOWS-MSSQL](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-windows/zbx-windows-mssql) => use zabbix agent to discover and manage SQL server.
+
 Requirements
 ------------
 
