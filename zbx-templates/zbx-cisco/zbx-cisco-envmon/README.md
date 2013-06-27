@@ -29,20 +29,17 @@ Triggers
 --------
 
   * **[DISASTER]** => Device is UNREACHABLE or DOWN
-  * **[DISASTER]** => Discovery: each fan, operational status is SHUTDOWN
-  * **[DISASTER]** => Discovery: each power supply, operational status is SHUTDOWN
-  * **[DISASTER]** => Discovery: each temperature sensor, operational status is SHUTDOWN
+  * **[DISASTER]** => Discovery: each fan, operational status is FAILED
+  * **[DISASTER]** => Discovery: each power supply, operational status is FAILED
+  * **[DISASTER]** => Discovery: each temperature sensor, operational status is FAILED
   * **[HIGH]** => Device as just been restarted
   * **[HIGH]** => Memory usage on device exceeded 80%
   * **[HIGH]** => CPU usage on device exceeded 80%
-  * **[HIGH]** => Discovery: each fan, operational status is NOT FUNCTIONNING
-  * **[HIGH]** => Discovery: each power supply, operational status is NOT FUNCTIONNING
-  * **[HIGH]** => Discovery: each temperature sensor, operational status is NOT FUNCTIONNING
+  * **[HIGH]** => Discovery: each fan, operational status is CRITICAL
+  * **[HIGH]** => Discovery: each power supply, operational status is CRITICAL
+  * **[HIGH]** => Discovery: each temperature sensor, operational status is CRITICAL
   * **[AVERAGE]** => Memory usage on device exceeded 70%
   * **[AVERAGE]** => CPU usage on device exceeded 60%
-  * **[AVERAGE]** => Discovery: each fan, operational status is CRITICAL
-  * **[AVERAGE]** => Discovery: each power supply, operational status is CRITICAL
-  * **[AVERAGE]** => Discovery: each temperature sensor, operational status is CRITICAL
   * **[WARNING]** => Memory usage on device exceeded 60%
   * **[WARNING]** => CPU usage on device exceeded 50%
   * **[WARNING]** => Discovery: each fan, operational status is WARNING
