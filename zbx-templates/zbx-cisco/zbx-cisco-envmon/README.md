@@ -11,6 +11,7 @@ Items
   * Device Manufacturer Name (Populates host inventory field **Tag**)
   * Device Name (Populates host inventory field **Name**)
   * Device reachability using ICMP
+  * Device packet loss
   * Device Serail Number (Populates host inventory field **Serial Number A**)
   * IOS Version (Populates host inventory field **OS**)
   * IOS Version (full) (Populates host inventory field **OS (Full details)**)
@@ -40,6 +41,7 @@ Triggers
   * **[HIGH]** => Discovery: each temperature sensor, operational status is CRITICAL
   * **[AVERAGE]** => Memory usage on device exceeded 70%
   * **[AVERAGE]** => CPU usage on device exceeded 60%
+  * **[AVERAGE]** => Device packet loss detected
   * **[WARNING]** => Memory usage on device exceeded 60%
   * **[WARNING]** => CPU usage on device exceeded 50%
   * **[WARNING]** => Discovery: each fan, operational status is WARNING
