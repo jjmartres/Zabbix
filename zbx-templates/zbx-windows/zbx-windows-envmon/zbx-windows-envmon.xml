@@ -2653,6 +2653,10 @@
                     <macro>{$QUOTA_THRESHOLD_LOW}</macro>
                     <value>5368709120</value>
                 </macro>
+        <macro>
+          <macro>{$PROCESS_THRESHOLD_MAX}</macro>
+          <value>300</value>
+        </macro>
             </macros>
             <templates>
                 <template>
@@ -2934,7 +2938,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-WINDOWS-ENVMON:proc.num[].last(0)}&gt;300</expression>
+            <expression>{ZBX-WINDOWS-ENVMON:proc.num[].last(0)}&gt;{$PROCESS_THRESHOLD_MAX}</expression>
             <name>Too many processes on {HOST.NAME}</name>
             <url/>
             <status>0</status>

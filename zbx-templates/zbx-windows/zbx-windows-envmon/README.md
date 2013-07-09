@@ -84,7 +84,7 @@ Triggers
   * **[AVERAGE]** => Lack of free swap space
   * **[AVERAGE]** => Zabbix agent is unreachable for 5 minutes
   * **[AVERAGE]** => Host information was changed
-  * **[AVERAGE]** => Too many processes
+  * **[AVERAGE]** => Too many processes. Value is greater than macro {$PROCESS\_THRESHOLD\_MAX}
   * **[AVERAGE]** => Application error message(s) logged in eventlog
   * **[AVERAGE]** => Directory service error message(s) logged in eventlog
   * **[AVERAGE]** => System error message(s) logged in eventlog
@@ -132,6 +132,7 @@ Macros
   * **{$QUOTA\_THRESHOLD\_CRIT}** => Critical threshold value for quota usage. Default value is 2147483648 (Bytes), 2GB.
   * **{$QUOTA\_THRESHOLD\_DEPL}** = Depleted threshold value for quota usage. Default value is 524288000 (Bytes), 500MB.
   * **{$QUOTA\_THRESHOLD\_LOW}** = Low threshold value for quota usage. Default value is 5368709120 (Bytes), 5GB.
+  * **{$PROCESS\_THRESHOLD\_MAX}** = Threshold value for max process. Default value is 300.
 
 Installation
 ------------
