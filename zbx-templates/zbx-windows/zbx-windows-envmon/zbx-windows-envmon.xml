@@ -1820,7 +1820,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-WINDOWS-ENVMON:perf_counter[&quot;\234(0 {#FSNAME})\1482&quot;].last(0)}&lt;20</expression>
+                            <expression>{ZBX-WINDOWS-ENVMON:perf_counter[&quot;\234(0 {#FSNAME})\1482&quot;].avg(1800)}&lt;20</expression>
                             <name>Too many disk transfert/s (IOPS) detected on {#FSNAME}</name>
                             <url/>
                             <status>0</status>
