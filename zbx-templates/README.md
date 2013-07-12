@@ -13,6 +13,9 @@ Templates
   * [ZBX-FORTINET](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet) => template to discover and manage capabilities on Fortinet devices.
   * [ZBX-INFORTREND](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-infortrend) => template to discover and manage capabilities on Infortrend storage array.
   * [ZBX-DATACORE](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-datacore) => template to discover and manage DataCore SANsymphony-V server.
+  * [ZBX-BROCADE] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-brocade) => template to discover and manage Brocade Fiber-Channel switches.
+  * [ZBX-EATON] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-eaton) => template to discover and manage Eaton UPS.
+  * [ZBX-WINDOWS] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-windows) => template to discover and manage capabilities on Windows server.
 
 Requirements
 ------------
@@ -29,6 +32,6 @@ This template were distributed under the terms of the GNU General Public License
   Copyright (c) 2012 Jean-Jacques Martrès
 
 ### Authors
-  
+
   Jean-Jacques Martrès
   (jjmartres |at| gmail |dot| com)
