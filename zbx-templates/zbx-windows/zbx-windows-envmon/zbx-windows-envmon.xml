@@ -2658,11 +2658,7 @@
           <value>300</value>
         </macro>
             </macros>
-            <templates>
-                <template>
-                    <name>ZBX-TEMPLATE-SYSTEM-DEVICE-WINDOWS</name>
-                </template>
-            </templates>
+            <templates/>
             <screens/>
         </template>
     </templates>
