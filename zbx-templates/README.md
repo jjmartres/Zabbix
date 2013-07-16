@@ -16,6 +16,7 @@ Templates
   * [ZBX-BROCADE] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-brocade) => template to discover and manage Brocade Fiber-Channel switches.
   * [ZBX-EATON] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-eaton) => template to discover and manage Eaton UPS.
   * [ZBX-WINDOWS] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-windows) => template to discover and manage capabilities on Windows server.
+  * [ZBX-VEEAM] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-veeam) => template to discover and manage VEEAM Backup & Replication jobs.
 
 Requirements
 ------------
