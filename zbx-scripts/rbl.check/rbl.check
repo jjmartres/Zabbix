@@ -84,23 +84,21 @@ end
   "WHITELIST" => "http://www.whitelisted.org",
   "BACKSCATTERER" => "http://www.backscatterer.org/index.php",
   "PROJECTHONEYPOT" => "http://www.projecthoneypot.org/ip_#{OPTIONS[:ip]}",
-  "TOREXITNODE" => "www.dan.me.uk"
-  }
+  "TOREXITNODE" => "www.dan.me.uk",
+  "SPAMCOP" => "http://www.spamcop.net/w3m?action=checkblock&ip=#{OPTIONS[:ip]}"
+}
 
 # Query DNS Server
 check = DNSBL::Client.new
 lookup = check.lookup(OPTIONS[:ip])
 
 if lookup.empty?
-  puts "Not listed"
+  message = "Not listed"
 else
-  message = "Listed on: "
-  lookup.each.with_index do |obj, index|
-    if index == lookup.count-1
-        message = message + obj.dnsbl + " (" + rbllookupUrl[obj.dnsbl] + ")"
-    else
-        message = message + obj.dnsbl + " (" + rblLookupUrl[obj.dnsbl] + "), "
-    end
-   end
-   puts message
+  message = "Listed on: \n"
+  lookup.each_with_index do |obj, index|
+    message = message + "\t" + obj.dnsbl + " (" + rblLookupUrl[obj.dnsbl] + ")\n"
+  end
 end
+
+puts message
