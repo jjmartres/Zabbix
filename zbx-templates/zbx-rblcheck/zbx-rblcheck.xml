@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>2.0</version>
+    <date>2013-07-23T19:30:06Z</date>
+    <groups>
+        <group>
+            <name>ZBX-RBLCHECK-TEMPLATES</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>ZBX-RBLCHECK</template>
+            <name>ZBX-RBLCHECK</name>
+            <groups>
+                <group>
+                    <name>ZBX-RBLCHECK-TEMPLATES</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>RBL Check</name>
+                </application>
+            </applications>
+            <items>
+                <item>
+                    <name>RBL check</name>
+                    <type>10</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>rbl.check[&quot;-i&quot;,&quot;{HOST.IP}&quot;]</key>
+                    <delay>300</delay>
+                    <history>365</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>1</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>RBL Check</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+            </items>
+            <discovery_rules/>
+            <macros/>
+            <templates/>
+            <screens/>
+        </template>
+    </templates>
+    <triggers>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-i&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;Not&quot;)}=0</expression>
+            <name>{HOST.NAME} is listed on some RBLs</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description/>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+    </triggers>
+</zabbix_export>
