@@ -18,12 +18,12 @@
             </groups>
             <applications>
                 <application>
-                    <name>RBL Check</name>
+                    <name>RBL(s) Check</name>
                 </application>
             </applications>
             <items>
                 <item>
-                    <name>RBL check</name>
+                    <name>RBL(s) check</name>
                     <type>10</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
