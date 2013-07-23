@@ -6,7 +6,7 @@ This script queries DNS Blacklists for listings.
 Installation
 ------------
 
-1. Install `rbl.check in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
+1. Install `rbl.check` in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
 2. Then chmod a+x `rbl.check`
 3. Install SNMP gem `gem install dnsbl-client`
 
