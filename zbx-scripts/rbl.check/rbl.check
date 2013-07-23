@@ -1,0 +1,106 @@
+#!/usr/bin/env ruby
+#
+# Script: rbl.check
+# Version: 1.0
+# Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
+# Description: This script queries DNS Blacklists for listings
+# License: GPL2
+#
+# This script is intended for use with Zabbix > 2.0
+#
+# USAGE:
+#  as a script:          rbl.check [options]
+#  as an item:           rbl.check["-i","SMTP_IP_ADDRESS"]
+#
+# OPTIONS
+#     -h, --help                       Display this help message
+#     -i, --ip IP_ADDRESS              SMTP server IP address
+#
+require 'rubygems'
+require 'optparse'
+require 'dnsbl/client'
+
+version="0.0.1"
+
+# Howto use it..quiet simple
+OPTIONS = {}
+mandatory_options=[:ip]
+optparse = OptionParser.new do |opts|
+  opts.banner = "Usage: #{$0} [options]"
+  opts.separator ""
+  opts.separator "Options"
+  opts.on("-h", "--help", "Display this help message") do
+    puts opts
+    exit(-1)
+  end
+  opts.on('-i', '--ip IP_ADDRESS', String, 'SMTP server IP address') { |v| OPTIONS[:ip] = v }
+  opts.separator ""
+end
+
+# Show usage when no args pass
+if ARGV.empty?
+  puts optparse
+  exit(-1)
+end
+
+# Validate that mandatory parameters are specified
+begin
+  optparse.parse!(ARGV)
+  missing = mandatory_options.select{|p| OPTIONS[p].nil? }
+  if not missing.empty?
+    puts "Missing options: #{missing.join(', ')}"
+    puts optparse
+    exit(-1)
+  end
+  rescue OptionParser::ParseError,OptionParser::InvalidArgument,OptionParser::InvalidOption
+       puts $!.to_s
+       exit(-1)
+end
+
+ rblLookupUrl = {
+  "VIRBL" => "http://virbl.bit.nl/lookup/index.php?ip=#{OPTIONS[:ip]}",
+  "SPAMHAUS" => "http://www.spamhaus.org/query/ip/#{OPTIONS[:ip]}",
+  "URIBL" => "https://admin.uribl.com",
+  "SURBL" => "http://www.surbl.org/surbl-analysis",
+  "NJABL" => "http://njabl.org/cgi-bin/lookup.cgi?query=#{OPTIONS[:ip]}",
+  "SORBS" => "http://www.sorbs.net/lookup.shtml",
+  "AHBL" => "http://ahbl.org/lktool",
+  "DRONEBL" => "http://dronebl.org/lookup?ip=#{OPTIONS[:ip]}",
+  "BARRACUDA" => "http://www.barracudacentral.org/lookups",
+  "DRONE_ABUSE_CH" => "http://dnsbl.abuse.ch/?ipaddress=#{OPTIONS[:ip]}",
+  "HTTPBL_ABUSE_CH" => "http://dnsbl.abuse.ch/?ipaddress=#{OPTIONS[:ip]}",
+  "SPAM_ABUSE_CH" => "http://dnsbl.abuse.ch/?ipaddress=#{OPTIONS[:ip]}",
+  "MAILSHELL"=> "http://www50.mailshell.com/live_feed/livefeed_lookup.php",
+  "CBL" => "http://cbl.abuseat.org/lookup.cgi?ip=#{OPTIONS[:ip]}&.pubmit=Lookup",
+  "RHSBL" => "http://www.ahbl.org/lktool",
+  "FIVETENSG" => "blackholes.five-ten-sg.com",
+  "INPS" => "http://dnsbl.inps.de/query.cgi?action=check&lang=en&ip=#{OPTIONS[:ip]}&quick=1",
+  "MANITU" => "http://www.dnsbl.manitu.net/lookup.php?language=en&value=#{OPTIONS[:ip]}",
+  "NOMOREFUN" => "http://moensted.dk/spam/no-more-funn/?addr=#{OPTIONS[:ip]}",
+  "SPAMCANNIBAL" => "http://www.spamcannibal.org/cannibal.cgi",
+  "UCEPROTECT1" => "http://www.uceprotect.net/en/rblcheck.php",
+  "UCEPROTECT2" => "http://www.uceprotect.net/en/rblcheck.php",
+  "UCEPROTECT3" => "http://www.uceprotect.net/en/rblcheck.php",
+  "WHITELIST" => "http://www.whitelisted.org",
+  "BACKSCATTERER" => "http://www.backscatterer.org/index.php",
+  "PROJECTHONEYPOT" => "http://www.projecthoneypot.org/ip_#{OPTIONS[:ip]}",
+  "TOREXITNODE" => "www.dan.me.uk"
+  }
+
+# Query DNS Server
+check = DNSBL::Client.new
+lookup = check.lookup(OPTIONS[:ip])
+
+if lookup.empty?
+  puts "Not listed"
+else
+  message = "Listed on: "
+  lookup.each.with_index do |obj, index|
+    if index == lookup.count-1
+        message = message + obj.dnsbl + " (" + rbllookupUrl[obj.dnsbl] + ")"
+    else
+        message = message + obj.dnsbl + " (" + rblLookupUrl[obj.dnsbl] + "), "
+    end
+   end
+   puts message
+end

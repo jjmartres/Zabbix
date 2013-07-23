@@ -39,8 +39,8 @@ Usage
      -s, --snmpindex SNMP_INDEX       SNMP index
 
 ### As an item
-Use `if.speed` like an **External Check** item in Zabbix.  So, when creating an item, select **External Check**.  In the **Key** field, you specify:
-    
+Use `if.speed` like an **External Check** item in Zabbix. So, when creating an item, select **External Check**.  In the **Key** field, you specify:
+
     if.speed["-d","IP_ADDRESS","-c","SNMP_COMMUNITY","-s","SNMPINDEX"]
 
 Version
@@ -58,6 +58,6 @@ This scriptis distributed under the terms of the GNU General Public License as p
   Copyright (c) 2012 Jean-Jacques Martrès
 
 ### Authors
-  
+
   Jean-Jacques Martrès
   (jjmartres |at| gmail |dot| com)

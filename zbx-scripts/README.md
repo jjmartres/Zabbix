@@ -17,6 +17,7 @@ Scripts
   * [ift.ldmode](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/lft.ldmode) => script query ldOpModes OID from the Infortrend MIB (IFT-SNMP-MIB) to get the logical drive operating mode.
   * [ift.ldstatus](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/lft.ldstatus) => script query ldStatus OID from the Infortrend MIB (IFT-SNMP-MIB) to get the logical drive status.
   * [ift.ldsize](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/lft.ldsize) => script query ldSize OID from the Infortrend MIB (IFT-SNMP-MIB) to get the logical drive size.
+  * [rbl.check](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/rbl.check) => script queries DNS Blacklists for listings
 
 Requirements
 ------------
@@ -33,6 +34,6 @@ This scripts are distributed under the terms of the GNU General Public License a
   Copyright (c) 2012 Jean-Jacques Martrès
 
 ### Authors
-  
+
   Jean-Jacques Martrès
   (jjmartres |at| gmail |dot| com)
