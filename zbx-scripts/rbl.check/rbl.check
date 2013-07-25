@@ -38,7 +38,6 @@ Supported RBLs are :
   BACKSCATTERER       =>     ips.backscatterer.org
   PROJECTHONEYPOT     =>     dnsbl.httpbl.org
   TOREXITNODE         =>     torexit.dan.me.uk
-  ABUSEAT             =>     cbl.abuseat.org
   UNSUBSCORE          =>     ubl.unsubscore.com
   DYNA_SPAMRATS       =>     dyna.spamrats.com
   NOPTR_SPAMRATS      =>     noptr.spamrats.com
@@ -112,7 +111,6 @@ end
 c = DNSBL::Client.new
 
 # Add more RBL server
-c.add_dnsbl("ABUSEAT","cbl.abuseat.org",'ip',{"0"=>"OK","127.0.0.2"=>"Blacklisted"})
 c.add_dnsbl("UNSUBSCORE", "ubl.unsubscore.com",'ip',{"0"=>"OK","127.0.0.2"=>"Blacklisted"})
 c.add_dnsbl("DYNA_SPAMRATS","dyna.spamrats.com",'ip',{"0"=>"OK","127.0.0.36"=>"Blacklisted"})
 c.add_dnsbl("NOPTR_SPAMRATS","noptr.spamrats.com",'ip',{"0"=>"OK","127.0.0.37"=>"Blacklisted"})

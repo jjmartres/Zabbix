@@ -70,7 +70,6 @@ Use `rbl.check` like an **External Check** item in Zabbix.  So, when creating an
   BACKSCATTERER       =>     ips.backscatterer.org
   PROJECTHONEYPOT     =>     dnsbl.httpbl.org
   TOREXITNODE         =>     torexit.dan.me.uk
-  ABUSEAT             =>     cbl.abuseat.org
   UNSUBSCORE          =>     ubl.unsubscore.com
   DYNA_SPAMRATS       =>     dyna.spamrats.com
   NOPTR_SPAMRATS      =>     noptr.spamrats.com
