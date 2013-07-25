@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2013-07-23T19:30:06Z</date>
+    <date>2013-07-25T07:39:00Z</date>
     <groups>
         <group>
             <name>ZBX-RBLCHECK-TEMPLATES</name>
@@ -28,7 +28,7 @@
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>rbl.check[&quot;-i&quot;,&quot;{HOST.IP}&quot;]</key>
+                    <key>rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;]</key>
                     <delay>300</delay>
                     <history>365</history>
                     <trends>365</trends>
@@ -56,7 +56,7 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>RBL Check</name>
+                            <name>RBL(s) Check</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -70,12 +70,382 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-i&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;Not&quot;)}=0</expression>
-            <name>{HOST.NAME} is listed on some RBLs</name>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;AHBL&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on AHBL</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
-            <description/>
+            <description>Lookup URL: http://www.ahbl.org/lktool</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;BACKSCATTERER&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on BACKSCATTERER</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.backscatterer.org/?target=test</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;BARRACUDA&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on BARRACUDA</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.barracudacentral.org/lookups</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;BOGONS_CYMRU&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on BOGONS_CYMRU</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL:</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;CBL&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on CBL</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://cbl.abuseat.org/lookup.cgi</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;CBL_ANTISPAM_ORG_CN&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on CBL_ANTISPAM_ORG_CN</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.anti-spam.org.cn/Rbl/Query/Result?IP={HOST.IP}&amp;submit=Lookup</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;CDL_ANTISPAM_ORG_CN&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on CDL_ANTISPAM_ORG_CN</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.anti-spam.org.cn/Rbl/Query/Result?IP={HOST.IP}&amp;submit=Lookup</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;DRONEBL&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on DRONEBL</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://dronebl.org/lookup</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;DRONE_ABUSE_CH&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on DRONE_ABUSE_CH</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://dnsbl.abuse.ch/</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;DYNA_SPAMRATS&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on DYNA_SPAMRATS</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.spamrats.com/rats-dyna.php</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;FIVETENSG&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on FIVETENSG</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL:</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;HTTPBL_ABUSE_CH&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on HTTPBL_ABUSE_CH</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://dnsbl.abuse.ch/</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;INPS&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on INPS</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://dnsbl.inps.de/query.cgi?ip={HOST.IP}&amp;lang=en&amp;action=check</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;MAILSHELL&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on MAILSHELL</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL:</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;MANITU&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on MANITU</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.dnsbl.manitu.net/lookup.php?language=en&amp;value={HOST.IP}</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;NJABL&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on NJABL</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.njabl.org/cgi-bin/lookup.cgi?query={HOST.IP}</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot; NOMOREFUN&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on  NOMOREFUN</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://moensted.dk/spam/no-more-funn/?addr={HOST.IP}</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;NOPTR_SPAMRATS&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on NOPTR_SPAMRATS</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.spamrats.com/rats-noptr.php</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;PROJECTHONEYPOT&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on PROJECTHONEYPOT</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL:</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;RFC-IGNORANT&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on RFC-IGNORANT</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL:</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;RHSBL&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on RHSBL</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.ahbl.org/lktool</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;SORBS&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on SORBS</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.sorbs.net/lookup.shtml</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;SPAMCANNIBAL&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on SPAMCANNIBAL</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.spamcannibal.org/cannibal.cgi</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;SPAMCOP&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on SPAMCOP</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.spamcop.net/w3m?action=checkblock&amp;ip={HOST.IP}</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;SPAMHAUS&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on SPAMHAUS</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.spamhaus.org/query/ip/{HOST.IP}</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;SPAMLAB&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on SPAMLAB</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://tools.appriver.com/index.aspx?tool=rbl</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;SPAM_ABUSE_CH&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on SPAM_ABUSE_CH</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://dnsbl.abuse.ch/</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;SPAM_SPAMRATS&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on SPAM_SPAMRATS</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.spamrats.com/rats-spam.php</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;SURBL&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on SURBL</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.surbl.org/surbl-analysis</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;SURRIEL&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on SURRIEL</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://psbl.org/listing?ip={HOST.IP}&amp;list=PSBL+list+query</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;TOREXITNODE&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on TOREXITNODE</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL:</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;UCEPROTECT1&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on UCEPROTECT1</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.dnsbl.info/dnsbl-details.php?dnsbl=dnsbl-1.uceprotect.net</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;UCEPROTECT2&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on UCEPROTECT2</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.dnsbl.info/dnsbl-details.php?dnsbl=dnsbl-2.uceprotect.net</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;UCEPROTECT3&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on UCEPROTECT3</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.dnsbl.info/dnsbl-details.php?dnsbl=dnsbl-3.uceprotect.net</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;UNSUBSCORE&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on UNSUBSCORE</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.lashback.com/blacklist/</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;URIBL&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on URIBL</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: https://admin.uribl.com/?section=lookup;</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;VIRBL&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on VIRBL</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://virbl.bit.nl/lookup/index.php?ip={HOST.IP}&amp;x=0&amp;y=0</description>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-RBLCHECK:rbl.check[&quot;-q&quot;,&quot;{HOST.IP}&quot;].regexp(&quot;WHITELIST&quot;)}=1</expression>
+            <name>{HOST.NAME} is blacklisted on WHITELIST</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description>Lookup URL: http://www.whitelisted.org/</description>
             <type>0</type>
             <dependencies/>
         </trigger>
