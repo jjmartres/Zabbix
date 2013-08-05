@@ -25,7 +25,7 @@ Credits
 -------
 
 * **Vincent Besançon** - NSIS wizard. Thank's to nullsoft NSIS magic
-* **ZABBIX SIA** of course 
+* **ZABBIX SIA** of course
 
 License
 -------
@@ -37,6 +37,6 @@ This scripts are distributed under the terms of the GNU General Public License a
   Copyright (c) 2013 Jean-Jacques Martrès
 
 ### Authors
-  
+
   Jean-Jacques Martrès
   (jjmartres |at| gmail |dot| com)
