@@ -120,7 +120,7 @@ Graphs
 Installation
 ------------
 
-1. Install [`Zabbix Agent`](http://www.zabbix.com/downloads/2.0.4/zabbix_agents_2.0.4.win.zip) on both DataCore server
+1. Install [`Zabbix Agent`](http://www.zabbix.com/downloads/2.0.4/zabbix_agents_2.0.7.win.zip) on both DataCore server
 2. Install all `*.ps1` files to the Zabbix Agent script directory on both DataCore server
 3. Install [`zbx-dcs.conf`](https://github.com/jjmartres/Zabbix/blob/master/zbx-templates/zbx-datacore/zbx-dcs.conf) to the Zabbix Agent config directory on both DataCore server
 4. Add the following line to your Zabbix Agent configuration on both DataCore server
@@ -129,9 +129,8 @@ Installation
 6. Create your host and use the DataCore console IP address as host IP address. If you don't have a console server, use the Datacore server IP address.
 7. Add to your host the **{$DCS_USER}** macro with your DataCore server username as value.
 8. Add to your host the **{$DCS_PASSWORD}** macro with your DataCore server password as value.
-9. Add to your host the **{$DCS\_CONSOLE\_NAME}** macro with your DataCore console server name. If you don't have a console server simple add the IP address of your DataCore server.
-10. Add to your host the **{$DCS_IPADDR}** macro with your DataCore server IP address.
-11. Associate **ZBX-DATACORE-SSV** template to the host.
+9. Add to your host the **{$DCS_IPADDR}** macro with your DataCore server IP address.
+10. Associate **ZBX-DATACORE-SSV** template to the host.
 
 ### Requirements
 
