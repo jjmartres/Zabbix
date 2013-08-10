@@ -13,8 +13,8 @@ Items
   * Discovery: alias for each interface
   * Discovery: UDLD configuration for each interface
   * Discovery: UDLD link status for each interface
-  * Discovery: incoming traffic on each interface
-  * Discovery: outgoing traffic on each interface
+  * Discovery: incoming traffic on each interface (64Bits counters used)
+  * Discovery: outgoing traffic on each interface (64Bits counters used)
   * Discovery: inbound errors on each interface
   * Discovery: outbound errors on each interface
   * Discovery: incoming discarded packets on each interface
