@@ -39,10 +39,14 @@ Installation
       UnsafeUserParameters=1
       UserParameter=vbr[*],%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -command "& C:\Zabbix\zabbix\_vbr\_job.ps1" "$1" "$2"
 
-5. Import **zbx-veeam-backup.xml** file into Zabbix.
-6. Add to your host the followed macro with value
-  1. **{$VEEAM\_MAX\_RUNNING\_JOB}**
-7. Associate **ZBX-VEEAM-BACKUP** template to the host.
+
+2. Add a value mapping named `vbrJobStatus` with the following values:
+  * 0 => Failed
+  * 1 => Warning
+  * 2 => Success
+3. Import **zbx-veeam-backup.xml** file into Zabbix.
+4. Add to your host the followed macro with value **{$VEEAM\_MAX\_RUNNING\_JOB}**
+5. Associate **ZBX-VEEAM-BACKUP** template to the host.
 
 ### Requirements
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2013-07-16T07:21:41Z</date>
+    <date>2013-08-12T10:21:32Z</date>
     <groups>
         <group>
             <name>ZBX-VEEAM-TEMPLATES</name>
@@ -217,7 +217,7 @@
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
-                            <value_type>1</value_type>
+                            <value_type>3</value_type>
                             <allowed_hosts/>
                             <units/>
                             <delta>0</delta>
@@ -243,7 +243,9 @@
                                     <name>VEEAM Backup &amp; Recovery job(s)</name>
                                 </application>
                             </applications>
-                            <valuemap/>
+                            <valuemap>
+                                <name>vbrJobStatus</name>
+                            </valuemap>
                         </item_prototype>
                         <item_prototype>
                             <name>Type for job named {#JOBNAME}</name>
@@ -287,20 +289,20 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX-VEEAM-BACKUP:vbr[Status,{#JOBID}].iregexp(Warning)}=1</expression>
-                            <name>VEEAM job {#JOBNAME} has completed with WARNING</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>2</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{ZBX-VEEAM-BACKUP:vbr[Status,{#JOBID}].iregexp(Failed)}=1</expression>
+                            <expression>{ZBX-VEEAM-BACKUP:vbr[Status,{#JOBID}].avg(86400)}&lt;1</expression>
                             <name>VEEAM job {#JOBNAME} has FAILED</name>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{ZBX-VEEAM-BACKUP:vbr[Status,{#JOBID}].avg(86400)}&lt;2</expression>
+                            <name>VEEAM job {#JOBNAME} has terminated with WARNING</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>2</priority>
                             <description/>
                             <type>0</type>
                         </trigger_prototype>
@@ -366,7 +368,7 @@
     <triggers>
         <trigger>
             <expression>{ZBX-VEEAM-BACKUP:vbr[&quot;RunningJob&quot;].last(0)}&gt;{$VEEAM_MAX_RUNNING_JOB}</expression>
-            <name>Too many running VEEAM job(s)</name>
+            <name>Too many running VEEAM jobs</name>
             <url/>
             <status>0</status>
             <priority>3</priority>

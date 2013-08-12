@@ -51,7 +51,17 @@ switch ($ITEM) {
   }
   "Status"  {
   $query = Get-VBRJob | Where-Object {$_.Id -like "*$ID*"}
-  [string]$query.GetLastResult()
+    switch ([string]$query.GetLastResult()) {
+      "Failed" {
+        return "0"
+      }
+      "Warning" {
+        return "1"
+      }
+      default {
+        return "2"
+      }
+    }
   }
   "IncludedSize"{
   $query = Get-VBRJob | Where-Object {$_.Id -like "*$ID*"}
