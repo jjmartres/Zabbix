@@ -34,15 +34,11 @@ Installation
   If your choose to install the Zabbix agent from the source, you need to :
   1. Install [`zabbix_vbr_job.ps1`](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-veeam/zabbix_vbr_job.ps1) in the script directory of your Zabbix agent.
   2. Add the following line to your Zabbix agent configuration file. Note that `<zabbix_script_path>` is your Zabbix agent script path :
-
-<<<<<<< HEAD
     ```
     EnableRemoteCommands=1
     UnsafeUserParameters=1
     UserParameter=vbr[*],%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -command "& C:\Zabbix\zabbix\_vbr\_job.ps1" "$1" "$2"
     ```
->>>>>>> 7ec94834689449c0c9ce01db8ce6afcfc6b1a045
-
 2. Add a value mapping named `vbrJobStatus` with the following values:
    * 0 => Failed
    * 1 => Warning
