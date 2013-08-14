@@ -54,13 +54,14 @@ Graphs
 Installation
 ------------
 
-1. Add a value mapping named `iwpServiceStatus` with the following values:
+1. Configure IceWarp SNMP Server has described [here](http://esupport.icewarp.com/index.php?/Knowledgebase/Article/View/180/16/snmp-in-icewarp)
+2. Add a value mapping named `iwpServiceStatus` with the following values:
    * 0 => Not running
    * 1 => Running
-2. Import **zbx-icewarp-server.xml** file into Zabbix.
-3. Add to your host the followed macro with value **{$ICEWARP_RECEIVED_MESSAGES}**
-4. Add to your host the followed macro with value **{$ICEWARP_UNTRANSMITTED_MESSAGES}**
-5. Associate **ZBX-ICEWARP-SERVER** template to the host.
+3. Import **zbx-icewarp-server.xml** file into Zabbix.
+4. Add to your host the followed macro with value **{$ICEWARP_RECEIVED_MESSAGES}**
+5. Add to your host the followed macro with value **{$ICEWARP_UNTRANSMITTED_MESSAGES}**
+6. Associate **ZBX-ICEWARP-SERVER** template to the host.
 
 ### Requirements
 
