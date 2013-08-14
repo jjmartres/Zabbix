@@ -21,7 +21,7 @@ This template is distributed  under the terms of the GNU General Public License 
 
 ### Copyright
 
-  Copyright (c) 2013 Jean-Jacques Martrès
+  Copyright (c) Jean-Jacques Martrès
 
 ### Authors
 

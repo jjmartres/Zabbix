@@ -17,6 +17,7 @@ Templates
   * [ZBX-EATON] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-eaton) => template to discover and manage Eaton UPS.
   * [ZBX-WINDOWS] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-windows) => template to discover and manage capabilities on Windows server.
   * [ZBX-VEEAM] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-veeam) => template to discover and manage VEEAM Backup & Replication jobs.
+ 
 
 Requirements
 ------------
@@ -30,7 +31,7 @@ This template were distributed under the terms of the GNU General Public License
 
 ### Copyright
 
-  Copyright (c) 2012 Jean-Jacques Martrès
+  Copyright (c) Jean-Jacques Martrès
 
 ### Authors
 
