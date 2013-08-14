@@ -17,7 +17,7 @@ Templates
   * [ZBX-EATON] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-eaton) => template to discover and manage Eaton UPS.
   * [ZBX-WINDOWS] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-windows) => template to discover and manage capabilities on Windows server.
   * [ZBX-VEEAM] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-veeam) => template to discover and manage VEEAM Backup & Replication jobs.
- 
+  *  [ZBX-ICEWARP] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-icewarp) => template to managed IceWarp Server.
 
 Requirements
 ------------
