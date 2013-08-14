@@ -768,7 +768,7 @@ then the allowable physical media permitted</description>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>if.speed[&quot;-d&quot;,&quot;{HOST.HOST}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;]</key>
+                            <key>if.speed[&quot;-d&quot;,&quot;{HOST.CONN}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -897,7 +897,7 @@ which has the meaning as:&#13;
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-CISCO-INTERFACES:if.speed[&quot;-d&quot;,&quot;{HOST.HOST}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;].last(0)}&gt;0 &amp; ({ZBX-CISCO-INTERFACES:ifHCInOctets[{#SNMPVALUE}].avg(300)})&gt;({ZBX-CISCO-INTERFACES:if.speed[&quot;-d&quot;,&quot;{HOST.HOST}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;].last(0)})*0.8</expression>
+                            <expression>{ZBX-CISCO-INTERFACES:if.speed[&quot;-d&quot;,&quot;{HOST.CONN}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;].last(0)}&gt;0 &amp; ({ZBX-CISCO-INTERFACES:ifHCInOctets[{#SNMPVALUE}].avg(300)})&gt;({ZBX-CISCO-INTERFACES:if.speed[&quot;-d&quot;,&quot;{HOST.CONN}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;].last(0)})*0.8</expression>
                             <name>Incoming use on interface {#SNMPVALUE} exceed 80% for the last 5 minutes</name>
                             <url/>
                             <status>0</status>
@@ -933,7 +933,7 @@ which has the meaning as:&#13;
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-CISCO-INTERFACES:if.speed[&quot;-d&quot;,&quot;{HOST.HOST}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;].last(0)}&gt;0 &amp; ({ZBX-CISCO-INTERFACES:IfHCOutOctets[{#SNMPVALUE}].avg(300)})&gt;({ZBX-CISCO-INTERFACES:if.speed[&quot;-d&quot;,&quot;{HOST.HOST}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;].last(0)})*0.8</expression>
+                            <expression>{ZBX-CISCO-INTERFACES:if.speed[&quot;-d&quot;,&quot;{HOST.CONN}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;].last(0)}&gt;0 &amp; ({ZBX-CISCO-INTERFACES:IfHCOutOctets[{#SNMPVALUE}].avg(300)})&gt;({ZBX-CISCO-INTERFACES:if.speed[&quot;-d&quot;,&quot;{HOST.CONN}&quot;,&quot;-c&quot;,&quot;{$SNMP_COMMUNITY}&quot;,&quot;-s&quot;,&quot;{#SNMPINDEX}&quot;].last(0)})*0.8</expression>
                             <name>Outgoing use on interface {#SNMPVALUE} exceed 80% for the last 5 minutes</name>
                             <url/>
                             <status>0</status>
