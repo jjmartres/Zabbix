@@ -18,7 +18,7 @@ Templates
   * [ZBX-WINDOWS] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-windows) => template to discover and manage capabilities on Windows server.
   * [ZBX-VEEAM] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-veeam) => template to discover and manage VEEAM Backup & Replication jobs.
   * [ZBX-ICEWARP] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-icewarp) => template to manage IceWarp Server.
-  * [ZBX-SMSTOOLS] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-smstools) => template to manage SMStools.
+  * [ZBX-SMSTOOLS] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-smstools) => template to manage SMSTOOLS.
 
 Requirements
 ------------
