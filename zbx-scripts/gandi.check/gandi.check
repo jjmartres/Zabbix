@@ -293,6 +293,10 @@ end
 # initiate API call
 api = Gandi::Session.new(OPTIONS[:apikey] , "https://rpc.gandi.net/xmlrpc/")
 
+# disable SSL warnings
+api.instance_variable_get(:@http).instance_variable_set(:@verify_mode, OpenSSL::SSL::VERIFY_NONE)
+
+
 case OPTIONS[:query].upcase
   when "DOMAIN_LIST"
     # get domain list associated to the apikey
