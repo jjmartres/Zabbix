@@ -244,7 +244,7 @@ module Gandi
       @server = XMLRPC::Client.new2(endpoint)
 
       # disable SSL warnings
-      @server.instance_variable_get(:@http).instance_variable_set(:@verify_mode, OpenSSL::SSL::VERIFY_NONE)
+      @server.instance_variable_get("@http").verify_mode = OpenSSL::SSL::VERIFY_NONE
     end
 
     def method_missing(method, *args)
