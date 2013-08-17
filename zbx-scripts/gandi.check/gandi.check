@@ -1,0 +1,371 @@
+#!/usr/bin/env ruby
+#
+# Script: gandi.check
+# Version: 2.0.5
+# Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
+# Description: This script query ldStatus OID from the Infortrend MIB (IFT-SNMP-MIB) to get the logical drive status.
+# License: GPL2
+#
+# This script is intended for use with Zabbix > 2.0
+#
+# USAGE:
+#  as a script:          gandi.check [options]
+#  as an item:           gandi.check["-q","QUEYRY_FLAG","-k","API_KEY","-i","ITEM"]
+#
+# OPTIONS
+#     -h, --help                       Display this help message
+#     -q, --query QUEYRY_FLAG          DOMAIN_LIST, DOMAIN_EXPIRY, CERT_LIST, CERT_EXPIRY
+#     -k, --apikey API_KEY             24-character API key
+#     -i, --item ITEM                  Domain name or certificate id
+#
+
+require 'rubygems'
+require 'optparse'
+require 'hashie'
+require 'xmlrpc/client'
+
+module Gandi
+  # imported from https://github.com/veilleperso/gandi
+  VERSION = '2.0.5'
+
+  def self.silence_warnings
+    old_verbose, $VERBOSE = $VERBOSE, nil
+    yield
+  ensure
+    $VERBOSE = old_verbose
+  end
+
+  silence_warnings do
+    # gandi sometimes return <nil/> values so let's accept them to prevent exceptions
+    XMLRPC::Config::ENABLE_NIL_PARSER = true
+    XMLRPC::Config::ENABLE_NIL_CREATE = true
+  end
+
+  # define errors exceptions
+  class DataError < ArgumentError ; end
+  class ServerError < RuntimeError ; end
+
+  VALID_METHODS = %w(
+  catalog.list
+  cert.count
+  cert.info
+  cert.list
+  contact.balance
+  contact.can_associate
+  contact.can_associate_domain
+  contact.create
+  contact.delete
+  contact.info
+  contact.list
+  contact.update
+  datacenter.list
+  domain.autorenew.activate
+  domain.autorenew.deactivate
+  domain.available
+  domain.contacts.set
+  domain.count
+  domain.create
+  domain.dnssec.create
+  domain.dnssec.delete
+  domain.dnssec.list
+  domain.forward.count
+  domain.forward.create
+  domain.forward.delete
+  domain.forward.list
+  domain.forward.update
+  domain.host.count
+  domain.host.create
+  domain.host.delete
+  domain.host.info
+  domain.host.list
+  domain.host.update
+  domain.info
+  domain.list
+  domain.mailbox.alias.set
+  domain.mailbox.count
+  domain.mailbox.create
+  domain.mailbox.delete
+  domain.mailbox.info
+  domain.mailbox.list
+  domain.mailbox.purge
+  domain.mailbox.responder.activate
+  domain.mailbox.responder.deactivate
+  domain.mailbox.update
+  domain.nameservers.set
+  domain.owner.set
+  domain.owner.set_dry_run
+  domain.packmail.autorenew
+  domain.packmail.create
+  domain.packmail.delete
+  domain.packmail.info
+  domain.packmail.renew
+  domain.packmail.update
+  domain.renew
+  domain.reseller.set
+  domain.restore
+  domain.status.lock
+  domain.status.unlock
+  domain.tld.list
+  domain.tld.region
+  domain.transferin.available
+  domain.transferin.proceed
+  domain.webredir.count
+  domain.webredir.create
+  domain.webredir.delete
+  domain.webredir.list
+  domain.webredir.update
+  domain.zone.clone_zone
+  domain.zone.count
+  domain.zone.create
+  domain.zone.delete
+  domain.zone.info
+  domain.zone.list
+  domain.zone.record.add
+  domain.zone.record.count
+  domain.zone.record.delete
+  domain.zone.record.list
+  domain.zone.record.set
+  domain.zone.record.update
+  domain.zone.set
+  domain.zone.update
+  domain.zone.version.count
+  domain.zone.version.delete
+  domain.zone.version.new_version
+  domain.zone.version.set
+  domain.zone.version.list
+  hosting.datacenter.list
+  hosting.disk.count
+  hosting.disk.create
+  hosting.disk.create_from
+  hosting.disk.delete
+  hosting.disk.info
+  hosting.disk.list
+  hosting.disk.list_kernels
+  hosting.disk.list_options
+  hosting.disk.rollback_from
+  hosting.disk.update
+  hosting.iface.count
+  hosting.iface.create
+  hosting.iface.delete
+  hosting.iface.info
+  hosting.iface.ip_attach
+  hosting.iface.ip_detach
+  hosting.iface.list
+  hosting.iface.update
+  hosting.image.info
+  hosting.image.list
+  hosting.ip.count
+  hosting.ip.create
+  hosting.ip.delete
+  hosting.ip.info
+  hosting.ip.list
+  hosting.ip.update
+  hosting.product.create
+  hosting.product.delete
+  hosting.product.renew
+  hosting.product.update
+  hosting.vm.count
+  hosting.vm.create
+  hosting.vm.create_from
+  hosting.vm.delete
+  hosting.vm.disk_attach
+  hosting.vm.disk_detach
+  hosting.vm.disk_rollback
+  hosting.vm.iface_attach
+  hosting.vm.iface_detach
+  hosting.vm.info
+  hosting.vm.list
+  hosting.vm.reboot
+  hosting.vm.start
+  hosting.vm.stop
+  hosting.vm.update
+  paas.count
+  paas.create
+  paas.delete
+  paas.info
+  paas.list
+  paas.renew
+  paas.restart
+  paas.update
+  paas.vhost.count
+  paas.vhost.create
+  paas.vhost.delete
+  paas.vhost.get_dns_entries
+  paas.vhost.info
+  paas.vhost.list
+  paas.snapshot.count
+  paas.snapshot.info
+  paas.snapshot.list
+  paas.type.count
+  paas.type.list
+  operation.cancel
+  operation.count
+  operation.info
+  operation.list
+  operation.relaunch
+  )
+
+  class ProxyCall
+    attr_accessor :server, :api_key, :chained
+
+    def initialize(server, api_key)
+      self.server = server
+      self.api_key = api_key
+      self.chained = []
+      self
+    end
+
+    def method_missing(method, *args)
+      self.chained << method
+      method_name = chained.join(".")
+      if Gandi::VALID_METHODS.include?(method_name)
+        # puts "CALL: #{method_name} - #{api_key} - #{args.inspect}"
+        method_name.sub!('clone_zone','clone')
+        method_name.sub!('new_version','new')
+        res = self.server.call(method_name, api_key, *args)
+        if res.is_a?(Array)
+          res.collect! { |x| x.is_a?(Hash) ? Hashie::Mash.new(x) : x }
+        elsif res.is_a?(Hash)
+          Hashie::Mash.new(res)
+        else
+          res
+        end
+      else
+        self
+      end
+    end
+  end
+
+  class Session
+    attr_reader :api_key
+
+    def initialize(api_key, endpoint = "https://rpc.gandi.net/xmlrpc/")
+      @api_key  = api_key
+      @server = XMLRPC::Client.new2(endpoint)
+    end
+
+    def method_missing(method, *args)
+      ProxyCall.new(@server, self.api_key).send(method, *args)
+    rescue XMLRPC::FaultException => exception
+      raise(exception.faultCode < 500000 ? Gandi::ServerError : Gandi::DataError, exception.faultString)
+    end
+  end
+
+end
+
+# how to use it...quiet simple
+OPTIONS = {}
+mandatory_options=[:apikey, :query]
+optparse = OptionParser.new do |opts|
+  opts.banner = "Usage: #{$0} [options]"
+  opts.separator ""
+  opts.separator "Options"
+  opts.on("-h", "--help", "Display this help message") do
+    puts opts
+    exit(-1)
+  end
+  opts.on('-q', '--query FLAG', String, 'Flag: DOMAIN_LIST, DOMAIN_EXPIRY, CERT_LIST, CERT_EXPIRY"]') { |v| OPTIONS[:query] = v }
+  opts.on('-k', '--apikey KEY', String, '24-character API key') { |v| OPTIONS[:apikey] = v }
+  opts.on('-i', '--item ITEM', String, 'Domain name or certificate id') { |v| OPTIONS[:item] = v }
+  opts.separator ""
+end
+
+# show usage when no args pass
+if ARGV.empty?
+  puts optparse
+  exit(-1)
+end
+
+# validate that mandatory parameters are specified
+begin
+  optparse.parse!(ARGV)
+  missing = mandatory_options.select{|p| OPTIONS[p].nil? }
+  if not missing.empty?
+    puts "Missing options: #{missing.join(', ')}"
+    puts optparse
+    exit(-1)
+  end
+  rescue OptionParser::ParseError,OptionParser::InvalidArgument,OptionParser::InvalidOption
+       puts $!.to_s
+       exit(-1)
+end
+
+# initiate API call
+api = Gandi::Session.new(OPTIONS[:apikey] , "https://rpc.gandi.net/xmlrpc/")
+
+case OPTIONS[:query].upcase
+  when "DOMAIN_LIST"
+    # get domain list associated to the apikey
+    domainsCount = api.domain.count
+    @domains = api.domain.list({'items_per_page' => domainsCount})
+
+    # begin json document
+    puts "{  \"data\":["
+
+    x = 0
+    @domains.each do |domain|
+      x += 1
+      if x < domainsCount
+        puts "{ \"{#ID}\":\"#{domain.id}\", \"{#FQDN}\":\"#{domain.fqdn}\"},"
+      else
+        puts "{ \"{#ID}\":\"#{domain.id}\", \"{#FQDN}\":\"#{domain.fqdn}\"}"
+      end
+    end
+
+    # end json document
+    puts "] }"
+
+    # exit anyway
+    exit(-1)
+
+  when "DOMAIN_EXPIRY"
+
+    # get domain date_registry_end
+    domain = api.domain.info(OPTIONS[:item])
+    puts DateTime.new(domain["date_registry_end"].year,domain["date_registry_end"].month,domain["date_registry_end"].day,domain["date_registry_end"].hour,domain["date_registry_end"].min,domain["date_registry_end"].sec).to_time.to_i
+
+    # exit anyway
+    exit(-1)
+
+  when "CERT_LIST"
+
+   # get certificate list associated to the apikey
+    certsCount = api.cert.count
+    @certs = api.cert.list({'items_per_page' => certsCount})
+
+    # begin json document
+    puts "{  \"data\":["
+
+    x = 0
+    @certs.each do |cert|
+      x += 1
+      if x < certsCount
+        puts "{ \"{#ID}\":\"#{cert.id}\", \"{#CN}\":\"#{cert.cn}\"},"
+      else
+        puts "{ \"{#ID}\":\"#{cert.id}\", \"{#CN}\":\"#{cert.cn}\"}"
+      end
+    end
+
+    # end json document
+    puts "] }"
+
+    # exit anyway
+    exit(-1)
+
+  when "CERT_EXPIRY"
+
+    # get certificate date_end
+    cert = api.cert.info(OPTIONS[:item].to_i)
+    puts DateTime.new(cert["date_end"].year,cert["date_end"].month,cert["date_end"].day,cert["date_end"].hour,cert["date_end"].min,cert["date_end"].sec).to_time.to_i
+
+    # exit anyway
+    exit(-1)
+
+
+
+  else
+    exit(-1)
+end
+
+
+
