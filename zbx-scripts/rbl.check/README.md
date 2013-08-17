@@ -8,7 +8,7 @@ Installation
 
 1. Install `rbl.check` in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
 2. Then chmod a+x `rbl.check`
-3. Install SNMP gem `gem install dnsbl-client`
+3. Install DNSBL-Client gem `gem install dnsbl-client`
 
 ### Requirements
 
@@ -93,7 +93,7 @@ This scriptis distributed under the terms of the GNU General Public License as p
 
 ### Copyright
 
-  Copyright (c) 2013 Jean-Jacques Martrès
+  Copyright (c) Jean-Jacques Martrès
 
 ### Authors
 
