@@ -319,6 +319,12 @@ case OPTIONS[:query].upcase
 
     # exit anyway
     exit(-1)
+  when "DOMAIN_COUNT"
+    # get domain count
+    puts api.domain.count
+
+    # exit anyway
+    exit(-1)
 
   when "DOMAIN_EXPIRY"
 
@@ -333,7 +339,7 @@ case OPTIONS[:query].upcase
 
    # get certificate list associated to the apikey
     certsCount = api.cert.count
-    @certs = api.cert.list({'items_per_page' => certsCount})
+    @certs = api.cert.list({'items_per_page' => certsCount, 'status' => 'valid' })
 
     # begin json document
     puts "{  \"data\":["
@@ -350,6 +356,13 @@ case OPTIONS[:query].upcase
 
     # end json document
     puts "] }"
+
+    # exit anyway
+    exit(-1)
+
+  when "CERT_COUNT"
+    # get certificate count
+    puts api.cert.count
 
     # exit anyway
     exit(-1)
