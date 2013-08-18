@@ -10,15 +10,15 @@ Items
   * Discovery : status for each jobs
   * Discovery : type for each jobs
   * Discovery : number of virtual machine in each jobs
-  * Discoveyr : size included in each jobs
+  * Discovery : size included in each jobs
   * Discovery : size excluded in each jobs
 
 Triggers
 --------
 
-  * **[HIGH]** => Job has FAILED
+  * **[HIGH]** => Discovery: Job has FAILED
   * **[AVERAGE]** => Too many running jobs. Value is greater than macro {$VEEAM\_MAX\_RUNNING\_JOB}
-  * **[WARNING]** => Job has completed with WARNING
+  * **[WARNING]** => Discovery: Job has completed with WARNING
 
 Graphs
 ------
