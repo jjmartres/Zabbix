@@ -3,7 +3,7 @@
 # Script: gandi.check
 # Version: 2.0.5
 # Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
-# Description: This script query ldStatus OID from the Infortrend MIB (IFT-SNMP-MIB) to get the logical drive status.
+# Description: This script query the Gandi API to get information on domain and certificate
 # License: GPL2
 #
 # This script is intended for use with Zabbix > 2.0
