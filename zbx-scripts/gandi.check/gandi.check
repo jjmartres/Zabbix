@@ -18,7 +18,6 @@
 #     -k, --apikey API_KEY             24-character API key
 #     -i, --item ITEM                  Domain name or certificate id
 #
-
 require 'rubygems'
 require 'optparse'
 require 'hashie'
@@ -325,7 +324,7 @@ case OPTIONS[:query].upcase
 
     # get domain date_registry_end
     domain = api.domain.info(OPTIONS[:item])
-    puts DateTime.new(domain["date_registry_end"].year,domain["date_registry_end"].month,domain["date_registry_end"].day,domain["date_registry_end"].hour,domain["date_registry_end"].min,domain["date_registry_end"].sec).to_time.to_i
+    puts Time.utc(domain["date_registry_end"].year,domain["date_registry_end"].month,domain["date_registry_end"].day,domain["date_registry_end"].hour,domain["date_registry_end"].min,domain["date_registry_end"].sec).to_i
 
     # exit anyway
     exit(-1)
@@ -359,7 +358,7 @@ case OPTIONS[:query].upcase
 
     # get certificate date_end
     cert = api.cert.info(OPTIONS[:item].to_i)
-    puts DateTime.new(cert["date_end"].year,cert["date_end"].month,cert["date_end"].day,cert["date_end"].hour,cert["date_end"].min,cert["date_end"].sec).to_time.to_i
+    puts Time.utc(cert["date_end"].year,cert["date_end"].month,cert["date_end"].day,cert["date_end"].hour,cert["date_end"].min,cert["date_end"].sec).to_i
 
     # exit anyway
     exit(-1)
