@@ -34,7 +34,7 @@ Usage
 
     where OPTIONS are :
      -h, --help                       Display this help message
-     -q, --query QUEYRY_FLAG          DOMAIN_LIST, DOMAIN_EXPIRY, CERT_LIST, CERT_EXPIRY
+     -q, --query QUEYRY_FLAG          DOMAIN_LIST, DOMAIN_COUNT, DOMAIN_EXPIRY, CERT_LIST, CERT_COUNT, CERT_EXPIRY
      -k, --apikey API_KEY             24-character API key
      -i, --item ITEM                  Domain name or certificate id
 
