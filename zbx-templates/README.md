@@ -19,6 +19,7 @@ Templates
   * [ZBX-VEEAM] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-veeam) => template to discover and manage VEEAM Backup & Replication jobs.
   * [ZBX-ICEWARP] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-icewarp) => template to manage IceWarp Server.
   * [ZBX-SMSTOOLS] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-smstools) => template to manage SMSTOOLS.
+  * [ZBX-GANDI](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-gandi) => template to manage domain and certificate expiry from Gandi API
 
 Requirements
 ------------
