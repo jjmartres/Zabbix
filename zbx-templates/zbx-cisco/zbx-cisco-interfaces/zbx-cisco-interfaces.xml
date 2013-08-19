@@ -648,7 +648,7 @@ misaligned.</description>
                             <type>4</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>1</multiplier>
-                            <snmp_oid>IF-MIB::IfHCOutOctets.{#SNMPINDEX}</snmp_oid>
+                            <snmp_oid>IF-MIB::ifHCOutOctets.{#SNMPINDEX}</snmp_oid>
                             <key>IfHCOutOctets[{#SNMPVALUE}]</key>
                             <delay>60</delay>
                             <history>7</history>
