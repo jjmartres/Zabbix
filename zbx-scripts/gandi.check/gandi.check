@@ -1,23 +1,24 @@
 #!/usr/bin/env ruby
-#
-# Script: gandi.check
-# Version: 2.0.5
-# Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
-# Description: This script query the Gandi API to get information on domain and certificate
-# License: GPL2
-#
-# This script is intended for use with Zabbix > 2.0
-#
-# USAGE:
-#  as a script:          gandi.check [options]
-#  as an item:           gandi.check["-q","QUEYRY_FLAG","-k","API_KEY","-i","ITEM"]
-#
-# OPTIONS
-#     -h, --help                       Display this help message
-#     -q, --query QUEYRY_FLAG          DOMAIN_LIST, DOMAIN_EXPIRY, CERT_LIST, CERT_EXPIRY
-#     -k, --apikey API_KEY             24-character API key
-#     -i, --item ITEM                  Domain name or certificate id
-#
+
+=begin
+Script: gandi.check
+Version: 2.0.5
+Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
+Description: This script query the Gandi API to get information on domain and certificate
+License: GPL2
+
+This script is intended for use with Zabbix > 2.0
+
+USAGE:
+ as a script:          gandi.check [options]
+ as an item:           gandi.check["-q","QUEYRY_FLAG","-k","API_KEY","-i","ITEM"]
+
+OPTIONS
+    -h, --help                       Display this help message
+    -q, --query QUEYRY_FLAG          DOMAIN_LIST, DOMAIN_EXPIRY, CERT_LIST, CERT_EXPIRY
+    -k, --apikey API_KEY             24-character API key
+    -i, --item ITEM                  Domain name or certificate id
+=end
 require 'rubygems'
 require 'optparse'
 require 'hashie'

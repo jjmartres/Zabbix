@@ -1,23 +1,24 @@
 #!/usr/bin/env ruby
-#
-# Script: if.count
-# Version: 1.0
-# Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
-# Description: This script query ifType and count interface matching a regexp
-# License: GPL2
-#
-# This script is intended for use with Zabbix > 2.0
-#
-# USAGE:
-#   as a script:    if.count [options]
-#   as an item:     if.count["-d","IP_ADDRESS","-c","SNMP_COMMUNITY","-r","REGEXP"]
-#
-# OPTIONS
-#     -h, --help                       Display this help message
-#     -d, --device IP_ADDRESS          Device IP address discovered by Zabbix
-#     -c, --community SNMP_COMMUNITY   SNMP community used for the device
-#     -r, --regex REGEX                Interface regexp
-#
+
+=begin
+Script: if.count
+Version: 1.0
+Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
+Description: This script query ifType and count interface matching a regexp
+License: GPL2
+
+This script is intended for use with Zabbix > 2.0
+
+USAGE:
+  as a script:    if.count [options]
+  as an item:     if.count["-d","IP_ADDRESS","-c","SNMP_COMMUNITY","-r","REGEXP"]
+
+OPTIONS
+    -h, --help                       Display this help message
+    -d, --device IP_ADDRESS          Device IP address discovered by Zabbix
+    -c, --community SNMP_COMMUNITY   SNMP community used for the device
+    -r, --regex REGEX                Interface regexp
+=end
 require 'rubygems'
 require 'optparse'
 require 'snmp'

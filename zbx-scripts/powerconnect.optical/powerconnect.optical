@@ -1,34 +1,35 @@
 #!/usr/bin/env ruby
-#
-# script: powerconnect.optical
-# version: 1.0
-# author: Jean-Jacques Martrès <jjmartres gmail.com>
-# description: This script query optical transceiver querys on PowerConnect switches
-# license: GPL2
-#
-# DETAIL:
-# Query optical transceiver querys on PowerConnect switches
-#
-# This script is intended for use with Zabbix > 2.0
-# USAGE:
-#   powerconnect.optical [options]
-#
-# Options
-#    -h, --help                       Display this help message
-#    -a, --address IP_ADDRESS         IP address to query
-#    -u, --user USERNAME              Username used to telnet the host
-#    -p, --password PASSWORD          Username associated password
-#    -i, --interface INTERFACE        Transceiver interface to query
-#    -q, --query FLAG                 Flag: TEMP|VOLTAGE|CURRENT|OUTPUTPOWER|INPUTPOWER|TXFAULT|LOS
-#          TEMP - Internally measured transceiver temperatures.
-#          VOLTAGE - Internally measured supply voltage.
-#          CURRENT - Measured TX bias current.
-#          OUTPUTPOWER - Measured optical output power relative to 1mW.
-#          INPUTPOWER - Measured optical power received relative to 1mW.
-#          TXFAULT - Transmitter fault:      if Yes return 1, if No return 2
-#          LOS - Loss of signal:             if Yes return 1, if No return 2
-#    -d, --debug                      Set debug flag
-#
+
+=begin
+script: powerconnect.optical
+version: 1.0
+author: Jean-Jacques Martrès <jjmartres gmail.com>
+description: This script query optical transceiver querys on PowerConnect switches
+license: GPL2
+
+DETAIL:
+Query optical transceiver querys on PowerConnect switches
+
+This script is intended for use with Zabbix > 2.0
+USAGE:
+  powerconnect.optical [options]
+
+Options
+   -h, --help                       Display this help message
+   -a, --address IP_ADDRESS         IP address to query
+   -u, --user USERNAME              Username used to telnet the host
+   -p, --password PASSWORD          Username associated password
+   -i, --interface INTERFACE        Transceiver interface to query
+   -q, --query FLAG                 Flag: TEMP|VOLTAGE|CURRENT|OUTPUTPOWER|INPUTPOWER|TXFAULT|LOS
+         TEMP - Internally measured transceiver temperatures.
+         VOLTAGE - Internally measured supply voltage.
+         CURRENT - Measured TX bias current.
+         OUTPUTPOWER - Measured optical output power relative to 1mW.
+         INPUTPOWER - Measured optical power received relative to 1mW.
+         TXFAULT - Transmitter fault:      if Yes return 1, if No return 2
+         LOS - Loss of signal:             if Yes return 1, if No return 2
+   -d, --debug                      Set debug flag
+=end
 require 'rubygems'
 require 'net/telnet'
 require 'optparse'

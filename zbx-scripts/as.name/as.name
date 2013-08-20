@@ -1,21 +1,22 @@
 #!/usr/bin/env ruby
-#
-# Script: as.name
-# Version: 1.0
-# Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
-# Description: Query whois.cymru.com server to get AS Name associated to the IP address
-# License: GPL2
-#
-# This script is intended for use with Zabbix > 2.0
-#
-# USAGE:
-#   as a script:    as.name [options]
-#   as an item:     as.name["-p","BGP_PEER_IP_ADDRESS"]
-#
-# OPTIONS
-#     -h, --help                            Display this help message
-#     -p, --peer BGP_PEER_IP_ADDRESS        BGP peer IP address discovered by Zabbix
-#
+
+=begin
+ Script: as.name
+ Version: 1.0
+ Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
+ Description: Query whois.cymru.com server to get AS Name associated to the IP address
+ License: GPL2
+
+ This script is intended for use with Zabbix > 2.0
+
+ USAGE:
+   as a script:    as.name [options]
+   as an item:     as.name["-p","BGP_PEER_IP_ADDRESS"]
+
+ OPTIONS
+     -h, --help                            Display this help message
+     -p, --peer BGP_PEER_IP_ADDRESS        BGP peer IP address discovered by Zabbix
+=end
 require 'rubygems'
 require 'optparse'
 
@@ -61,7 +62,7 @@ t = Thread.new { `whois -h whois.cymru.com " -f #{OPTIONS[:peer]}"` }
 whois = t.value.chomp.gsub(/\s+\|\s+/,"|").split("|")
 
 # Return AS Name
-if whois[2].match("NA") 
+if whois[2].match("NA")
   puts "N/A"
 else
   puts whois[2]

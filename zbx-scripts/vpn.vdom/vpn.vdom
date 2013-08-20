@@ -1,22 +1,23 @@
 #!/usr/bin/env ruby
-#
-# Script: vpn.vdom
-# Version: 1.0
-# Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
-# Description: This script show asssociated VDOM for a VPN tunnel using SNMP on Fortinet device.
-# License: GPL2
-#
-# This script is intended for use with Zabbix > 2.0
-#
-# USAGE:
-#   if.vdom [options]
-#
-# OPTIONS
-#     -h, --help                       Display this help message
-#     -d, --device IP_ADDRESS          Device IP address discovered by Zabbix
-#     -c, --community SNMP_COMMUNITY   SNMP community used for the device
-#     -s, --snmpindex SNMP_INDEX       SNMP index
-#
+
+=begin
+Script: vpn.vdom
+Version: 1.0
+Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
+Description: This script show asssociated VDOM for a VPN tunnel using SNMP on Fortinet device.
+License: GPL2
+
+This script is intended for use with Zabbix > 2.0
+
+USAGE:
+  if.vdom [options]
+
+OPTIONS
+    -h, --help                       Display this help message
+    -d, --device IP_ADDRESS          Device IP address discovered by Zabbix
+    -c, --community SNMP_COMMUNITY   SNMP community used for the device
+    -s, --snmpindex SNMP_INDEX       SNMP index
+=end
 require 'rubygems'
 require 'optparse'
 require 'snmp'

@@ -1,24 +1,25 @@
 #!/usr/bin/env ruby
-#
-# Script: ift.ldsize
-# Version: 1.0
-# Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
-# Description: This script query ldSize OID from the Infortrend MIB (IFT-SNMP-MIB) to get the logical drive size.
-# License: GPL2
-#
-# This script is intended for use with Zabbix > 2.0
-#
-# USAGE:
-#  as a script:          ift.ldsize [options]
-#  as an item:           ift.ldsize["-d","IP_ADDRESS","-c","SNMP_COMMUNITY","-i","LD_INDEX","-b","BLOCK_SIZE"]
-#
-# OPTIONS
-#     -h, --help                       Display this help message
-#     -d, --device IP_ADDRESS          Device IP address discovered by Zabbix
-#     -c, --community SNMP_COMMUNITY   SNMP community used for the device
-#     -i, --id LD_INDEX                Logical drive index
-#     -b, --block BLOCK_SIZE           Block size value
-#
+
+=begin
+Script: ift.ldsize
+Version: 1.0
+Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
+Description: This script query ldSize OID from the Infortrend MIB (IFT-SNMP-MIB) to get the logical drive size.
+License: GPL2
+
+This script is intended for use with Zabbix > 2.0
+
+USAGE:
+ as a script:          ift.ldsize [options]
+ as an item:           ift.ldsize["-d","IP_ADDRESS","-c","SNMP_COMMUNITY","-i","LD_INDEX","-b","BLOCK_SIZE"]
+
+OPTIONS
+    -h, --help                       Display this help message
+    -d, --device IP_ADDRESS          Device IP address discovered by Zabbix
+    -c, --community SNMP_COMMUNITY   SNMP community used for the device
+    -i, --id LD_INDEX                Logical drive index
+    -b, --block BLOCK_SIZE           Block size value
+=end
 require 'rubygems'
 require 'optparse'
 require 'snmp'

@@ -1,32 +1,33 @@
 #!/usr/bin/env ruby
-#
-# Script: discovery_update
-# Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
-# Description: Discovery update extend the discovery capabilities of Zabbix
-# License: GPL2
-#
-# This script is intended for use with Zabbix > 2.0
-#
-# USAGE:
-#
-#   as a script:    discovery_update [options]
-#
-# OPTIONS
-#     -h, --help                            Display this help message
-#     -c, --config CONFIG_FILE              Configuration file
-#
-# CONFIG FILE FORMAT
-#
-#    api:
-#      url:                "zabbix api url"
-#      login:              "zabbix username"
-#      password:           "zabbix password"
-#
-#    your-proxy-name:
-#      group:              "host group name"
-#      snmp_community:     "device SNMP community"
-#      rules:              "[['TEMPLATE_NAME_1','regex1'],['TEMPLATE_NAME_2','regex2']]"
-#
+
+=begin
+Script: discovery_update
+Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
+Description: Discovery update extend the discovery capabilities of Zabbix
+License: GPL2
+
+This script is intended for use with Zabbix > 2.0
+
+USAGE:
+
+  as a script:    discovery_update [options]
+
+  OPTIONS
+     -h, --help                            Display this help message
+     -c, --config CONFIG_FILE              Configuration file
+
+  CONFIG FILE FORMAT
+
+     api:
+       url:                "zabbix api url"
+       login:              "zabbix username"
+       password:           "zabbix password"
+
+     your-proxy-name:
+       group:              "host group name"
+       snmp_community:     "device SNMP community"
+       rules:              "[['TEMPLATE_NAME_1','regex1'],['TEMPLATE_NAME_2','regex2']]"
+=end
 require 'rubygems'
 require 'optparse'
 require 'rubix'

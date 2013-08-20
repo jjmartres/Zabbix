@@ -1,23 +1,24 @@
 #!/usr/bin/env ruby
-#
-# Script: if.vdom
-# Version: 1.0
-# Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
-# Description: This script show asssociated VDOM for an interface using SNMP on FortiNet device.
-# License: GPL2
-#
-# This script is intended for use with Zabbix > 2.0
-#
-# USAGE:
-#  as a script:          if.vdom [options]
-#  as an item:           if.vdom["-d","IP_ADDRESS","-c","SNMP_COMMUNITY","-s","SNMPINDEX"]
-#
-# OPTIONS
-#     -h, --help                       Display this help message
-#     -d, --device IP_ADDRESS          Device IP address discovered by Zabbix
-#     -c, --community SNMP_COMMUNITY   SNMP community used for the device
-#     -s, --snmpindex SNMP_INDEX           SNMP index
-#
+
+=begin
+Script: if.vdom
+Version: 1.0
+Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
+Description: This script show asssociated VDOM for an interface using SNMP on FortiNet device.
+License: GPL2
+
+This script is intended for use with Zabbix > 2.0
+
+USAGE:
+ as a script:          if.vdom [options]
+ as an item:           if.vdom["-d","IP_ADDRESS","-c","SNMP_COMMUNITY","-s","SNMPINDEX"]
+
+OPTIONS
+    -h, --help                       Display this help message
+    -d, --device IP_ADDRESS          Device IP address discovered by Zabbix
+    -c, --community SNMP_COMMUNITY   SNMP community used for the device
+    -s, --snmpindex SNMP_INDEX           SNMP index
+=end
 require 'rubygems'
 require 'optparse'
 require 'snmp'

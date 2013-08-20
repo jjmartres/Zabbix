@@ -1,23 +1,24 @@
 #!/usr/bin/env ruby
-#
-# Script: ift.ldstatus
-# Version: 1.0
-# Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
-# Description: This script query ldStatus OID from the Infortrend MIB (IFT-SNMP-MIB) to get the logical drive status.
-# License: GPL2
-#
-# This script is intended for use with Zabbix > 2.0
-#
-# USAGE:
-#  as a script:          ift.ldstatus [options]
-#  as an item:           ift.ldstatus["-d","IP_ADDRESS","-c","SNMP_COMMUNITY","-i","LD_INDEX"]
-#
-# OPTIONS
-#     -h, --help                       Display this help message
-#     -d, --device IP_ADDRESS          Device IP address discovered by Zabbix
-#     -c, --community SNMP_COMMUNITY   SNMP community used for the device
-#     -i, --id LD_INDEX                Logical drive index
-#
+
+=begin
+Script: ift.ldstatus
+Version: 1.0
+Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
+Description: This script query ldStatus OID from the Infortrend MIB (IFT-SNMP-MIB) to get the logical drive status.
+License: GPL2
+
+This script is intended for use with Zabbix > 2.0
+
+USAGE:
+ as a script:          ift.ldstatus [options]
+ as an item:           ift.ldstatus["-d","IP_ADDRESS","-c","SNMP_COMMUNITY","-i","LD_INDEX"]
+
+OPTIONS
+    -h, --help                       Display this help message
+    -d, --device IP_ADDRESS          Device IP address discovered by Zabbix
+    -c, --community SNMP_COMMUNITY   SNMP community used for the device
+    -i, --id LD_INDEX                Logical drive index
+=end
 require 'rubygems'
 require 'optparse'
 require 'snmp'
