@@ -19,6 +19,7 @@ Scripts
   * [ift.ldsize](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/lft.ldsize) => script query ldSize OID from the Infortrend MIB (IFT-SNMP-MIB) to get the logical drive size.
   * [rbl.check](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/rbl.check) => script queries DNS Blacklists for listings.
   * [gandi.check](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/gandi.check) => script  query Gandi API to manage domain and certificate.
+* [vsphere.check](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/vsphere.check) => script  query vSphere API to manage VMWARE Infrastructure.
 
 Requirements
 ------------
