@@ -1,0 +1,403 @@
+#!/usr/bin/env ruby
+
+=begin
+Script: vsphere.check
+Version: 2.0.3
+Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
+Description: This script use the vSphere API to discover and manage vSphere Infrastructure
+License: GPL2
+
+USAGE:
+  as a script:          vsphere.check [options]
+  as an item:           vsphere.check["-q","key","-i","item","-v","vcenter","-u","username","-p","password","-o","dir"]
+
+OPTIONS
+    -h, --help                       Display this help message
+    -k, --key KEY                    Query key. Available keys are:
+                                        api.call
+                                        api.status
+                                        api.serial
+                                        hosts.discovery
+                                        host.hostname
+                                        host.product
+                                        host.hardwaremodel
+                                        host.cpumodel
+                                        host.cpumhz
+                                        host.cpucore
+                                        host.cpuusage
+                                        host.totalmemorysize
+                                        host.memoryusage
+                                        host.powerstate
+                                        host.maintenancemode
+                                        host.uptime
+                                        host.overallstatus
+                                        datastores.discovery
+                                        datastore.name
+                                        datastore.capacity
+                                        datastore.freespace
+                                        datastore.vmcount
+                                        datastore.vmlist
+                                        virtualmachines.discovery
+                                        virtualmachine.name
+                                        virtualmachine.runninghost
+                                        virtualmachine.powerstate
+                                        virtualmachine.guestfullname
+                                        virtualmachine.hostname
+                                        virtualmachine.ipaddress
+                                        virtualmachine.vmwaretools
+                                        virtualmachine.maxcpuusage
+                                        virtualmachine.numcpu
+                                        virtualmachine.overallcpuusage
+                                        virtualmachine.memorysizemb
+                                        virtualmachine.hostmemoryusage
+                                        virtualmachine.guestmemoryusage
+                                        virtualmachine.uncommittedstorage
+                                        virtualmachine.usedstorage
+                                        virtualmachine.unsharedstorage
+                                        virtualmachine.storagelocation
+                                        virtualmachine.uptime
+                                        virtualmachine.overallstatus
+    -i, --item ITEM                  Item to query
+    -v, --vcenter VCENTER            Fqdn or IP address of your vcenter
+    -u, --username USERNAME          Username
+    -p, --password PASSWORD          Password
+    -o, --output-dir DIRECTORY       Output directory
+=end
+require 'rubygems'
+require 'rbvmomi'
+require 'optparse'
+require 'logger'
+require 'json'
+
+VERSION="2.0.5"
+
+# list of available keys
+AVAILABLE_KEYS = %w(
+  api.call
+  api.status
+  api.serial
+  hosts.discovery
+  host.hostname
+  host.product
+  host.hardwaremodel
+  host.cpumodel
+  host.cpumhz
+  host.cpucore
+  host.cpuusage
+  host.totalmemorysize
+  host.memoryusage
+  host.powerstate
+  host.maintenancemode
+  host.uptime
+  host.overallstatus
+  datastores.discovery
+  datastore.name
+  datastore.capacity
+  datastore.freespace
+  datastore.vmcount
+  datastore.vmlist
+  virtualmachines.discovery
+  virtualmachine.name
+  virtualmachine.runninghost
+  virtualmachine.powerstate
+  virtualmachine.guestfullname
+  virtualmachine.hostname
+  virtualmachine.ipaddress
+  virtualmachine.vmwaretools
+  virtualmachine.maxcpuusage
+  virtualmachine.numcpu
+  virtualmachine.overallcpuusage
+  virtualmachine.memorysizemb
+  virtualmachine.hostmemoryusage
+  virtualmachine.guestmemoryusage
+  virtualmachine.uncommittedstorage
+  virtualmachine.usedstorage
+  virtualmachine.unsharedstorage
+  virtualmachine.storagelocation
+  virtualmachine.uptime
+  virtualmachine.overallstatus
+)
+
+# how to use it...quiet simple
+OPTIONS = {}
+mandatory_options=[:key, :vcenter, :username, :password, :directory]
+optparse = OptionParser.new do |opts|
+  opts.banner = "Usage: #{$0} [OPTIONS]"
+  opts.separator ""
+  opts.separator "OPTIONS"
+  opts.on("-h", "--help", "Display this help message") do
+    puts opts
+    exit(-1)
+  end
+  opts.on('-k', '--key KEY', String, 'Query key. Available keys are:') { |v| OPTIONS[:key] = v }
+  AVAILABLE_KEYS.each do |key|
+    opts.separator "\t\t\t\t\t#{key}"
+  end
+  opts.on('-i', '--item ITEM', String, 'Host, Datastore, VirtualMachine name to query') { |v| OPTIONS[:item] = v }
+  opts.on('-v', '--vcenter VCENTER', String, 'FQDN or IP address of your vCenter') { |v| OPTIONS[:vcenter] = v }
+  opts.on('-u', '--username USERNAME', String, 'vCenter username') { |v| OPTIONS[:username] = v }
+  opts.on('-p', '--password PASSWORD', String, 'vCenter password') { |v| OPTIONS[:password] = v }
+  opts.on('-o', '--output-dir DIRECTORY', String, 'Directory where to save json and log files') { |v| OPTIONS[:directory] = v }
+  opts.separator ""
+end
+
+# show usage when no args pass
+if ARGV.empty?
+  puts optparse
+  exit(-1)
+end
+
+# validate that mandatory parameters are specified
+begin
+  optparse.parse!(ARGV)
+  missing = mandatory_options.select{|p| OPTIONS[p].nil? }
+  if not missing.empty?
+    puts "Missing options: #{missing.join(', ')}"
+    puts optparse
+    exit(-1)
+  end
+  rescue OptionParser::ParseError,OptionParser::InvalidArgument,OptionParser::InvalidOption
+       puts $!.to_s
+       exit(-1)
+end
+
+# validate that key match available keys
+if not (defined?(OPTIONS[:key])).nil? # will now return true or false
+  if not AVAILABLE_KEYS.include? OPTIONS[:key]
+    puts optparse
+    exit(-1)
+  end
+end
+
+@key = OPTIONS[:key].split('.')
+
+beginning_time = Time.now
+
+# create directory if not exist
+Dir.mkdir(OPTIONS[:directory]) unless File.exists?(OPTIONS[:directory])
+
+# initiate logger
+logger = Logger.new(OPTIONS[:directory] + '/' + OPTIONS[:vcenter] + '.log', 'weekly')
+
+# method to save data to a json file
+def writejson(data)
+  data = data.to_json
+  begin
+    f = File.open(File.join(OPTIONS[:directory], "#{OPTIONS[:vcenter]}.json"), "w")
+    f << data
+  rescue Exception => message
+    logger.error(message)
+    exit(-1)
+  ensure
+    f.close unless f.nil?
+  end
+end
+
+# method to read data from json file
+def readjson
+  begin
+    f = File.open( File.join(OPTIONS[:directory], "#{OPTIONS[:vcenter]}.json"), "r")
+    data = f.readlines
+  rescue Exception => message
+    logger.error(message)
+    exit(-1)
+  ensure
+    f.close unless f.nil?
+    return JSON.parse(data[0])
+  end
+end
+
+# begin switch statement
+case OPTIONS[:key]
+
+# when match api.call key
+when "api.call"
+  # init dataContainer
+  @dataContainer = Hash.new
+  [ "api", "hosts", "datastores", "virtualmachines"].each do |a|
+    @dataContainer[a] = {}
+  end
+
+  # initiate conection to the vCenter
+  # todo: need to handle http error
+  begin
+    @vim = RbVmomi::VIM.connect :host => OPTIONS[:vcenter], :user => OPTIONS[:username], :password => OPTIONS[:password], :insecure => true
+    logger.info("Connected to #{OPTIONS[:vcenter]}")
+  rescue RbVmomi::Fault => fault
+    logger.error("Unable to connect to #{OPTIONS[:vcenter]}. #{fault.message}")
+    print fault.message
+    exit(-1)
+  end
+
+  # log that data collection is started
+  logger.info("Data collection started")
+
+  # get the vCenter rootFolder
+  begin
+    @rootFolder = @vim.serviceInstance.content.rootFolder
+  rescue RbVmomi::Fault => fault
+    logger.error("Unable to get the vCenter root folder. #{fault.message}")
+    print fault.message
+    exit(-1)
+  end
+
+  # get all datacenters
+  begin
+    @datacenters = @rootFolder.childEntity.grep(RbVmomi::VIM::Datacenter)
+  rescue RbVmomi::Fault => fault
+    logger.error("Unable to get all Datacenters. #{fault.message}")
+    print fault.message
+    exit(-1)
+  end
+
+  # get serviceContent view
+  begin
+    @serviceContent = @vim.serviceContent.viewManager
+  rescue RbVmomi::Fault => fault
+    logger.error("Unable to get Service Content View. #{fault.message}")
+    print fault.message
+    exit(-1)
+  end
+
+  # collect hosts informations
+  @datacenters.each do |datacenter|
+    # get all computerRessources on all datacenters
+    begin
+      @computerRessources = datacenter.hostFolder.childEntity
+    rescue RbVmomi::Fault => fault
+      logger.error("Unable to get all Computer Ressources. #{fault.message}")
+      print fault.message
+      exit(-1)
+    end
+    if @computerRessources.size > 1
+      i = 0
+      while i < (@computerRessources.size) do
+       datacenter.hostFolder.childEntity[i].host.grep(RbVmomi::VIM::HostSystem).each do |host|
+        name = host.name.gsub(/:/,"-")
+        data = {
+          "hostname"         => host.name,
+          "product"          => host.summary.config.product.fullName,
+          "hardwaremodel"    => host.summary.hardware.model,
+          "cpumodel"         => host.summary.hardware.cpuModel,
+          "cpumhz"           => host.summary.hardware.cpuMhz,
+          "cpucore"          => host.summary.hardware.numCpuCores,
+          "cpuusage"         => host.summary.quickStats.overallCpuUsage,
+          "totalmemorysize"  => host.summary.hardware.memorySize/1024/1024,
+          "memoryusage"      => host.summary.quickStats.overallMemoryUsage,
+          "powerstate"       => host.summary.runtime.powerState,
+          "maintenancemode"  => host.summary.runtime.inMaintenanceMode,
+          "uptime"           => host.summary.quickStats.uptime,
+          "overallstatus"    => host.summary.overallStatus
+        }
+        @dataContainer["hosts"][name]=data
+       end
+       i += 1
+      end
+    else
+      datacenter.hostFolder.childEntity[0].host.grep(RbVmomi::VIM::HostSystem).each do |host|
+       name = host.name.gsub(/:/,"-")
+       data = {
+          "hostname"         => host.name,
+          "product"          => host.summary.config.product.fullName,
+          "hardwaremodel"    => host.summary.hardware.model,
+          "cpumodel"         => host.summary.hardware.cpuModel,
+          "cpumhz"           => host.summary.hardware.cpuMhz,
+          "cpucore"          => host.summary.hardware.numCpuCores,
+          "cpuusage"         => host.summary.quickStats.overallCpuUsage,
+          "totalmemorysize"  => host.summary.hardware.memorySize/1024/1024,
+          "memoryusage"      => host.summary.quickStats.overallMemoryUsage,
+          "powerstate"       => host.summary.runtime.powerState,
+          "maintenancemode"  => host.summary.runtime.inMaintenanceMode,
+          "uptime"           => host.summary.quickStats.uptime,
+          "overallstatus"    => host.summary.overallStatus
+       }
+      @dataContainer["hosts"][name]=data
+      end
+    end
+  end
+
+  # collect datastores informations
+  @datacenters.each do |datacenter|
+    datacenter.datastore.grep(RbVmomi::VIM::Datastore).each do |datastore|
+     name = datastore.name.gsub(/:/,"-")
+     vmlist =[]
+     datastore.vm.grep(RbVmomi::VIM::VirtualMachine).each {|v| vmlist << v.name }
+     data = {
+        "name"           => datastore.name,
+        "capacity"       => datastore.summary.capacity,
+        "freespace"      => datastore.summary.freeSpace,
+        "vmcount"        => ((vmlist.join(', ')).split(",")).count,
+        "vmlist"         => vmlist.join(', ')
+     }
+     @dataContainer["datastores"][name]=data
+    end
+  end
+
+  # collect virtualmachines informations
+  @serviceContent.CreateContainerView({:container => @rootFolder ,:type => ['VirtualMachine'], :recursive => true}).view.each do |vm|
+    name = vm.name.gsub(/:/,"-")
+    data = {
+      "name"               => vm.name,
+      "runninghost"        => vm.runtime.host.name,
+      "powerstate"         => vm.summary.runtime.powerState,
+      "guestfullname"      => vm.summary.guest.guestFullName,
+      "hostname"           => vm.summary.guest.hostName,
+      "ipaddress"          => vm.summary.guest.ipAddress,
+      "vmwaretools"        => vm.summary.guest.toolsStatus,
+      "maxcpuusage"        => vm.summary.runtime.maxCpuUsage,
+      "numcpu"             => vm.summary.config.numCpu,
+      "overallcpuusage"    => vm.summary.quickStats.overallCpuUsage,
+      "memorysizemb"       => vm.summary.config.memorySizeMB,
+      "hostmemoryusage"    => vm.summary.quickStats.hostMemoryUsage,
+      "guestmemoryusage"   => vm.summary.quickStats.guestMemoryUsage,
+      "uncommittedstorage" => vm.summary.storage.uncommitted,
+      "usedstorage"        => vm.summary.storage.committed,
+      "unsharedstorage"    => vm.summary.storage.unshared,
+      "storagelocation"    => vm.summary.config.vmPathName,
+      "uptime"             => vm.summary.quickStats.uptimeSeconds,
+      "overallstatus"      => vm.summary.overallStatus
+    }
+    @dataContainer["virtualmachines"][name]=data
+  end
+
+  # log that data collection is terminated
+  logger.info("Data collection terminated (#{(Time.now - beginning_time).to_i} seconds)")
+
+  # set api serial number
+  @dataContainer["api"]["serial"] = "#{Time.now.utc.to_i}"
+
+  # set api check status
+  @dataContainer["api"]["status"] = "OK"
+
+  # save data
+  writejson(@dataContainer)
+
+  # return OK (API Status) and exit
+  puts @dataContainer["api"]["status"] + "\n"
+  exit(-1)
+
+# when match discovery key
+when /^([a-z]*\.discovery)$/
+  # read previously saved json file
+  @data = readjson
+
+  # produce Zabbix json object
+  puts "{  \"data\":["
+
+  x = 0
+  @data[@key[0]].each do |host|
+    x += 1
+    if x < @data[@key[0]].size
+      puts "{ \"{##{@key[0].chop.upcase}}\":\"#{host[0]}\"},"
+    else
+      puts "{ \"{##{@key[0].chop.upcase}}\":\"#{host[0]}\"}"
+    end
+  end
+
+  puts "] }"
+
+# when any other keys
+else
+  @data = readjson
+  puts @data["#{@key[0]}s"][OPTIONS[:item]][@key[1]]
+end
