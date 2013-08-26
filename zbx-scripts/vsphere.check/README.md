@@ -98,7 +98,7 @@ Use `vsphere.check` like an **External Check** item in Zabbix.  So, when creatin
 Version
 -------
 
-Version 2.0.5
+Version 2.0.6
 
 License
 -------
