@@ -2,7 +2,7 @@
 
 =begin
 Script: vsphere.check
-Version: 2.0.3
+Version: 2.0.6
 Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
 Description: This script use the vSphere API to discover and manage vSphere Infrastructure
 License: GPL2
