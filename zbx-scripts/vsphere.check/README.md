@@ -8,8 +8,8 @@ Installation
 
 1. Install `vsphere.check` in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
 2. Then chmod a+x `vsphere.check`
-3. Install nokogiri gem `gem install nokogiri -version=1.5.10`
-4. Install rbvmomi gem `gem  install rbvmomi`
+3. Install nokogiri gem `sudo gem install nokogiri --version=1.5.10`. Please ensure that your system has the following [requirements](http://nokogiri.org/tutorials/installing_nokogiri.html).
+4. Install rbvmomi gem `sudo gem  install rbvmomi`
 
 ### Requirements
 
