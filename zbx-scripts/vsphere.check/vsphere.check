@@ -198,12 +198,12 @@ def readjson
   begin
     f = File.open( File.join(OPTIONS[:directory], "#{OPTIONS[:vcenter]}.json"), "r")
     data = f.readlines
-  rescue Exception => message
-    logger.error(message)
+    return JSON.parse(data[0])
+  rescue Exception => error
+    logger.error(error.message)
     exit(-1)
   ensure
     f.close unless f.nil?
-    return JSON.parse(data[0])
   end
 end
 

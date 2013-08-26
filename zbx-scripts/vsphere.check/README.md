@@ -93,7 +93,7 @@ Usage
 ### As an item
 Use `vsphere.check` like an **External Check** item in Zabbix.  So, when creating an item, select **External Check**.  In the **Key** field, you specify:
 
-    vsphere.check["-q","key","-i","item","-v","vcenter","-u","username","-p","password","-o","dir"]
+    vsphere.check["-k","key","-i","item","-v","vcenter","-u","username","-p","password","-o","dir"]
 
 Version
 -------
