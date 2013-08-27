@@ -41,7 +41,6 @@ Usage
       -h, --help                       Display this help message
       -k, --key KEY                    Query key. Available keys are:
                                         api.call
-                                        api.status
                                         api.serial
                                         hosts.discovery
                                         host.hostname
@@ -98,7 +97,7 @@ Use `vsphere.check` like an **External Check** item in Zabbix.  So, when creatin
 Version
 -------
 
-Version 2.0.6
+Version 3.0.1
 
 License
 -------

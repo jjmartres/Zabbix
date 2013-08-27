@@ -2,7 +2,7 @@
 
 =begin
 Script: vsphere.check
-Version: 2.0.6
+Version: 3.0.1
 Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
 Description: This script use the vSphere API to discover and manage vSphere Infrastructure
 License: GPL2
@@ -15,7 +15,6 @@ OPTIONS
     -h, --help                       Display this help message
     -k, --key KEY                    Query key. Available keys are:
                                         api.call
-                                        api.status
                                         api.serial
                                         hosts.discovery
                                         host.hostname
@@ -68,13 +67,12 @@ require 'rbvmomi'
 require 'optparse'
 require 'logger'
 require 'json'
-
-VERSION="2.0.6"
+require 'socket'
+require 'timeout'
 
 # list of available keys
 AVAILABLE_KEYS = %w(
   api.call
-  api.status
   api.serial
   hosts.discovery
   host.hostname
@@ -185,8 +183,8 @@ def writejson(data)
   begin
     f = File.open(File.join(OPTIONS[:directory], "#{OPTIONS[:vcenter]}.json"), "w")
     f << data
-  rescue Exception => message
-    @logger.error(message)
+  rescue Exception => fault
+    @logger.error(fault.message)
     exit(-1)
   ensure
     f.close unless f.nil?
@@ -199,8 +197,8 @@ def readjson
     f = File.open( File.join(OPTIONS[:directory], "#{OPTIONS[:vcenter]}.json"), "r")
     data = f.readlines
     return JSON.parse(data[0])
-  rescue Exception => error
-    @logger.error(error.message)
+  rescue Exception => fault
+    @logger.error(fault.message)
     exit(-1)
   ensure
     f.close unless f.nil?
@@ -212,14 +210,32 @@ case OPTIONS[:key]
 
 # when match api.call key
 when "api.call"
+
   # init dataContainer
   @dataContainer = Hash.new
   [ "api", "hosts", "datastores", "virtualmachines"].each do |a|
     @dataContainer[a] = {}
   end
 
+  # check if vCenter port (TCP 443) is reachable
+  begin
+    Timeout::timeout(10) do
+      begin
+        TCPSocket.new(OPTIONS[:vcenter], 443).close
+      rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH => fault
+        @logger.error(fault.message)
+        puts fault.message
+        exit(-1)
+      end
+    end
+  rescue
+    message = "Connection timeout"
+    @logger.error(message)
+    puts message
+    exit(-1)
+  end
+
   # initiate conection to the vCenter
-  # todo: need to handle http error
   begin
     @vim = RbVmomi::VIM.connect :host => OPTIONS[:vcenter], :user => OPTIONS[:username], :password => OPTIONS[:password], :insecure => true
     @logger.info("Connected to #{OPTIONS[:vcenter]}")
@@ -229,151 +245,154 @@ when "api.call"
     exit(-1)
   end
 
-  # log that data collection is started
-  @logger.info("Data collection started")
+  # long runtime, so fork it
+  fork do
+    Process.setsid
 
-  # get the vCenter rootFolder
-  begin
-    @rootFolder = @vim.serviceInstance.content.rootFolder
-  rescue RbVmomi::Fault => fault
-    @logger.error("Unable to get the vCenter root folder. #{fault.message}")
-    print fault.message
-    exit(-1)
-  end
+    # log that data collection is started
+    @logger.info("Data collection started")
 
-  # get all datacenters
-  begin
-    @datacenters = @rootFolder.childEntity.grep(RbVmomi::VIM::Datacenter)
-  rescue RbVmomi::Fault => fault
-    @logger.error("Unable to get all Datacenters. #{fault.message}")
-    print fault.message
-    exit(-1)
-  end
-
-  # get serviceContent view
-  begin
-    @serviceContent = @vim.serviceContent.viewManager
-  rescue RbVmomi::Fault => fault
-    @logger.error("Unable to get Service Content View. #{fault.message}")
-    print fault.message
-    exit(-1)
-  end
-
-  # collect hosts informations
-  @datacenters.each do |datacenter|
-    # get all computerRessources on all datacenters
+    # get the vCenter rootFolder
     begin
-      @computerRessources = datacenter.hostFolder.childEntity
+      @rootFolder = @vim.serviceInstance.content.rootFolder
     rescue RbVmomi::Fault => fault
-      @logger.error("Unable to get all Computer Ressources. #{fault.message}")
+      @logger.error("Unable to get the vCenter root folder. #{fault.message}")
       print fault.message
       exit(-1)
     end
-    if @computerRessources.size > 1
-      i = 0
-      while i < (@computerRessources.size) do
-       datacenter.hostFolder.childEntity[i].host.grep(RbVmomi::VIM::HostSystem).each do |host|
-        name = host.name.gsub(/:/,"-")
-        data = {
-          "hostname"         => host.name,
-          "product"          => host.summary.config.product.fullName,
-          "hardwaremodel"    => host.summary.hardware.model,
-          "cpumodel"         => host.summary.hardware.cpuModel,
-          "cpumhz"           => host.summary.hardware.cpuMhz,
-          "cpucore"          => host.summary.hardware.numCpuCores,
-          "cpuusage"         => host.summary.quickStats.overallCpuUsage,
-          "totalmemorysize"  => host.summary.hardware.memorySize/1024/1024,
-          "memoryusage"      => host.summary.quickStats.overallMemoryUsage,
-          "powerstate"       => host.summary.runtime.powerState,
-          "maintenancemode"  => host.summary.runtime.inMaintenanceMode,
-          "uptime"           => host.summary.quickStats.uptime,
-          "overallstatus"    => host.summary.overallStatus
-        }
+
+    # get all datacenters
+    begin
+      @datacenters = @rootFolder.childEntity.grep(RbVmomi::VIM::Datacenter)
+    rescue RbVmomi::Fault => fault
+      @logger.error("Unable to get all Datacenters. #{fault.message}")
+      print fault.message
+      exit(-1)
+    end
+
+    # get serviceContent view
+    begin
+      @serviceContent = @vim.serviceContent.viewManager
+    rescue RbVmomi::Fault => fault
+      @logger.error("Unable to get Service Content View. #{fault.message}")
+      print fault.message
+      exit(-1)
+    end
+
+    # collect hosts informations
+    @datacenters.each do |datacenter|
+      # get all computerRessources on all datacenters
+      begin
+        @computerRessources = datacenter.hostFolder.childEntity
+      rescue RbVmomi::Fault => fault
+        @logger.error("Unable to get all Computer Ressources. #{fault.message}")
+        print fault.message
+        exit(-1)
+      end
+      if @computerRessources.size > 1
+        i = 0
+        while i < (@computerRessources.size) do
+         datacenter.hostFolder.childEntity[i].host.grep(RbVmomi::VIM::HostSystem).each do |host|
+          name = host.name.gsub(/:/,"-")
+          data = {
+            "hostname"         => host.name,
+            "product"          => host.summary.config.product.fullName,
+            "hardwaremodel"    => host.summary.hardware.model,
+            "cpumodel"         => host.summary.hardware.cpuModel,
+            "cpumhz"           => host.summary.hardware.cpuMhz,
+            "cpucore"          => host.summary.hardware.numCpuCores,
+            "cpuusage"         => host.summary.quickStats.overallCpuUsage,
+            "totalmemorysize"  => host.summary.hardware.memorySize/1024/1024,
+            "memoryusage"      => host.summary.quickStats.overallMemoryUsage,
+            "powerstate"       => host.summary.runtime.powerState,
+            "maintenancemode"  => host.summary.runtime.inMaintenanceMode,
+            "uptime"           => host.summary.quickStats.uptime,
+            "overallstatus"    => host.summary.overallStatus
+          }
+          @dataContainer["hosts"][name]=data
+         end
+         i += 1
+        end
+      else
+        datacenter.hostFolder.childEntity[0].host.grep(RbVmomi::VIM::HostSystem).each do |host|
+         name = host.name.gsub(/:/,"-")
+         data = {
+            "hostname"         => host.name,
+            "product"          => host.summary.config.product.fullName,
+            "hardwaremodel"    => host.summary.hardware.model,
+            "cpumodel"         => host.summary.hardware.cpuModel,
+            "cpumhz"           => host.summary.hardware.cpuMhz,
+            "cpucore"          => host.summary.hardware.numCpuCores,
+            "cpuusage"         => host.summary.quickStats.overallCpuUsage,
+            "totalmemorysize"  => host.summary.hardware.memorySize/1024/1024,
+            "memoryusage"      => host.summary.quickStats.overallMemoryUsage,
+            "powerstate"       => host.summary.runtime.powerState,
+            "maintenancemode"  => host.summary.runtime.inMaintenanceMode,
+            "uptime"           => host.summary.quickStats.uptime,
+            "overallstatus"    => host.summary.overallStatus
+         }
         @dataContainer["hosts"][name]=data
-       end
-       i += 1
+        end
       end
-    else
-      datacenter.hostFolder.childEntity[0].host.grep(RbVmomi::VIM::HostSystem).each do |host|
-       name = host.name.gsub(/:/,"-")
+    end
+
+    # collect datastores informations
+    @datacenters.each do |datacenter|
+      datacenter.datastore.grep(RbVmomi::VIM::Datastore).each do |datastore|
+       name = datastore.name.gsub(/:/,"-")
+       vmlist =[]
+       datastore.vm.grep(RbVmomi::VIM::VirtualMachine).each {|v| vmlist << v.name }
        data = {
-          "hostname"         => host.name,
-          "product"          => host.summary.config.product.fullName,
-          "hardwaremodel"    => host.summary.hardware.model,
-          "cpumodel"         => host.summary.hardware.cpuModel,
-          "cpumhz"           => host.summary.hardware.cpuMhz,
-          "cpucore"          => host.summary.hardware.numCpuCores,
-          "cpuusage"         => host.summary.quickStats.overallCpuUsage,
-          "totalmemorysize"  => host.summary.hardware.memorySize/1024/1024,
-          "memoryusage"      => host.summary.quickStats.overallMemoryUsage,
-          "powerstate"       => host.summary.runtime.powerState,
-          "maintenancemode"  => host.summary.runtime.inMaintenanceMode,
-          "uptime"           => host.summary.quickStats.uptime,
-          "overallstatus"    => host.summary.overallStatus
+          "name"           => datastore.name,
+          "capacity"       => datastore.summary.capacity,
+          "freespace"      => datastore.summary.freeSpace,
+          "vmcount"        => ((vmlist.join(', ')).split(",")).count,
+          "vmlist"         => vmlist.join(', ')
        }
-      @dataContainer["hosts"][name]=data
+       @dataContainer["datastores"][name]=data
       end
     end
-  end
 
-  # collect datastores informations
-  @datacenters.each do |datacenter|
-    datacenter.datastore.grep(RbVmomi::VIM::Datastore).each do |datastore|
-     name = datastore.name.gsub(/:/,"-")
-     vmlist =[]
-     datastore.vm.grep(RbVmomi::VIM::VirtualMachine).each {|v| vmlist << v.name }
-     data = {
-        "name"           => datastore.name,
-        "capacity"       => datastore.summary.capacity,
-        "freespace"      => datastore.summary.freeSpace,
-        "vmcount"        => ((vmlist.join(', ')).split(",")).count,
-        "vmlist"         => vmlist.join(', ')
-     }
-     @dataContainer["datastores"][name]=data
+    # collect virtualmachines informations
+    @serviceContent.CreateContainerView({:container => @rootFolder ,:type => ['VirtualMachine'], :recursive => true}).view.each do |vm|
+      name = vm.name.gsub(/:/,"-")
+      data = {
+        "name"               => vm.name,
+        "runninghost"        => vm.runtime.host.name,
+        "powerstate"         => vm.summary.runtime.powerState,
+        "guestfullname"      => vm.summary.guest.guestFullName,
+        "hostname"           => vm.summary.guest.hostName,
+        "ipaddress"          => vm.summary.guest.ipAddress,
+        "vmwaretools"        => vm.summary.guest.toolsStatus,
+        "maxcpuusage"        => vm.summary.runtime.maxCpuUsage,
+        "numcpu"             => vm.summary.config.numCpu,
+        "overallcpuusage"    => vm.summary.quickStats.overallCpuUsage,
+        "memorysizemb"       => vm.summary.config.memorySizeMB,
+        "hostmemoryusage"    => vm.summary.quickStats.hostMemoryUsage,
+        "guestmemoryusage"   => vm.summary.quickStats.guestMemoryUsage,
+        "uncommittedstorage" => vm.summary.storage.uncommitted,
+        "usedstorage"        => vm.summary.storage.committed,
+        "unsharedstorage"    => vm.summary.storage.unshared,
+        "storagelocation"    => vm.summary.config.vmPathName,
+        "uptime"             => vm.summary.quickStats.uptimeSeconds,
+        "overallstatus"      => vm.summary.overallStatus
+      }
+      @dataContainer["virtualmachines"][name]=data
     end
-  end
 
-  # collect virtualmachines informations
-  @serviceContent.CreateContainerView({:container => @rootFolder ,:type => ['VirtualMachine'], :recursive => true}).view.each do |vm|
-    name = vm.name.gsub(/:/,"-")
-    data = {
-      "name"               => vm.name,
-      "runninghost"        => vm.runtime.host.name,
-      "powerstate"         => vm.summary.runtime.powerState,
-      "guestfullname"      => vm.summary.guest.guestFullName,
-      "hostname"           => vm.summary.guest.hostName,
-      "ipaddress"          => vm.summary.guest.ipAddress,
-      "vmwaretools"        => vm.summary.guest.toolsStatus,
-      "maxcpuusage"        => vm.summary.runtime.maxCpuUsage,
-      "numcpu"             => vm.summary.config.numCpu,
-      "overallcpuusage"    => vm.summary.quickStats.overallCpuUsage,
-      "memorysizemb"       => vm.summary.config.memorySizeMB,
-      "hostmemoryusage"    => vm.summary.quickStats.hostMemoryUsage,
-      "guestmemoryusage"   => vm.summary.quickStats.guestMemoryUsage,
-      "uncommittedstorage" => vm.summary.storage.uncommitted,
-      "usedstorage"        => vm.summary.storage.committed,
-      "unsharedstorage"    => vm.summary.storage.unshared,
-      "storagelocation"    => vm.summary.config.vmPathName,
-      "uptime"             => vm.summary.quickStats.uptimeSeconds,
-      "overallstatus"      => vm.summary.overallStatus
-    }
-    @dataContainer["virtualmachines"][name]=data
-  end
+    # log that data collection is terminated
+    @logger.info("Data collection terminated (#{(Time.now - beginning_time).to_i} seconds)")
 
-  # log that data collection is terminated
-  @logger.info("Data collection terminated (#{(Time.now - beginning_time).to_i} seconds)")
+    # set api serial number
+    @dataContainer["api"]["serial"] = "#{Time.now.utc.to_i}"
 
-  # set api serial number
-  @dataContainer["api"]["serial"] = "#{Time.now.utc.to_i}"
+    # save data
+    writejson(@dataContainer)
 
-  # set api check status
-  @dataContainer["api"]["status"] = "OK"
+  end #end fork
 
-  # save data
-  writejson(@dataContainer)
-
-  # return OK (API Status) and exit
-  puts @dataContainer["api"]["status"] + "\n"
+  # return that process has launched. See logfile for more information
+  puts "OK"
   exit(-1)
 
 # when match discovery key
@@ -395,6 +414,10 @@ when /^([a-z]*\.discovery)$/
   end
 
   puts "] }"
+
+when /^api.(serial|status)/
+  @data = readjson
+  puts @data["#{@key[0]}"][@key[1]]
 
 # when any other keys
 else
