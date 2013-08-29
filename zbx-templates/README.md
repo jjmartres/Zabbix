@@ -13,13 +13,14 @@ Templates
   * [ZBX-FORTINET](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-fortinet) => template to discover and manage capabilities on Fortinet devices.
   * [ZBX-INFORTREND](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-infortrend) => template to discover and manage capabilities on Infortrend storage array.
   * [ZBX-DATACORE](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-datacore) => template to discover and manage DataCore SANsymphony-V server.
-  * [ZBX-BROCADE] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-brocade) => template to discover and manage Brocade Fiber-Channel switches.
-  * [ZBX-EATON] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-eaton) => template to discover and manage Eaton UPS.
-  * [ZBX-WINDOWS] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-windows) => template to discover and manage capabilities on Windows server.
-  * [ZBX-VEEAM] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-veeam) => template to discover and manage VEEAM Backup & Replication jobs.
-  * [ZBX-ICEWARP] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-icewarp) => template to manage IceWarp Server.
-  * [ZBX-SMSTOOLS] (https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-smstools) => template to manage SMSTOOLS.
+  * [ZBX-BROCADE](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-brocade) => template to discover and manage Brocade Fiber-Channel switches.
+  * [ZBX-EATON](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-eaton) => template to discover and manage Eaton UPS.
+  * [ZBX-WINDOWS](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-windows) => template to discover and manage capabilities on Windows server.
+  * [ZBX-VEEAM](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-veeam) => template to discover and manage VEEAM Backup & Replication jobs.
+  * [ZBX-ICEWARP](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-icewarp) => template to manage IceWarp Server.
+  * [ZBX-SMSTOOLS](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-smstools) => template to manage SMSTOOLS.
   * [ZBX-GANDI](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-gandi) => template to manage domain and certificate expiry from Gandi API
+  * [ZBX-DRBD](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-drbd) => template to manage [DRBD](http://www.drbd.org) ressources.
 
 Requirements
 ------------
