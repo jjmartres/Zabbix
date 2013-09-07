@@ -1,7 +1,7 @@
 ZABBIX TEMPLATES
 ================
 
-A collection of Zabbix templates.
+A collection of Zabbix templates. You can also have a look to [VIMbix](https://github.com/jjmartres/vimbix) which is a VMware Virtual Infrastructure Methodology RESTfull proxy for Zabbix.
 
 Templates
 ---------
@@ -21,6 +21,7 @@ Templates
   * [ZBX-SMSTOOLS](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-smstools) => template to manage SMSTOOLS.
   * [ZBX-GANDI](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-gandi) => template to manage domain and certificate expiry from Gandi API
   * [ZBX-DRBD](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-drbd) => template to manage [DRBD](http://www.drbd.org) ressources.
+  * [ZBX-VMWARE](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-vmware) => template to manage VMware vCenter (both vCSA and Windows server)
 
 Requirements
 ------------
