@@ -544,6 +544,7 @@
                     <value>toto</value>
                 </macro>
             </macros>
+            <macros/>
             <templates/>
             <screens/>
         </template>

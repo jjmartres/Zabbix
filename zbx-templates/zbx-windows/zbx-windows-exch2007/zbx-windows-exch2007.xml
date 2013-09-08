@@ -1,0 +1,546 @@
+<?xml version="1.0"?>
+<zabbix_export version="1.0" date="25.10.07" time="03.53">
+	<hosts>
+		<host name="Template_Win2003_Exch_2007">
+			<ip>0.0.0.0</ip>
+			<port>10050</port>
+			<status>3</status>
+			<groups>
+				<group>Templates</group>
+			</groups>
+			<items>
+				<item type="0" key="perf_counter[&quot;\Database(Information Store)\Database Cache Size&quot;]" value_type="0">
+					<description>Exchange IS: Database Cache Size</description>
+					<delay>60</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<units>Bytes</units>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>Exchange Memory</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\Database(Information Store)\Database Page Fault Stalls/sec&quot;]" value_type="0">
+					<description>Exchange IS: Database Page Fault Stalls</description>
+					<delay>30</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>Exchange Memory</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchange OWA\Current Users&quot;]" value_type="0">
+					<description>Exchange OWA: Current Users</description>
+					<delay>60</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>Exchange Connections</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeIS Mailbox(_Total)\Active Client Logons&quot;]" value_type="0">
+					<description>Exchange IS: Mailbox Active Client logons</description>
+					<delay>60</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>Exchange Connections</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeIS Mailbox(_Total)\Local Deliveries&quot;]" value_type="0">
+					<description>Exchange IS: Messages Delivered Locally</description>
+					<delay>60</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<delta>2</delta>
+					<formula>100</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>Exchange Message History</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeIS Mailbox(_Total)\Messages Sent&quot;]" value_type="0">
+					<description>Exchange IS: Messages Sent</description>
+					<delay>60</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<delta>2</delta>
+					<formula>100</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>Exchange Message History</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeIS\Active Connection Count&quot;]" value_type="0">
+					<description>Exchange IS: Active Connections</description>
+					<delay>60</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>Exchange Connections</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeIS\Active User Count&quot;]" value_type="0">
+					<description>Exchange IS: Active User Count</description>
+					<delay>60</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>Exchange Connections</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeTransport Queues(_total)\Active Remote Delivery Queue Length&quot;]" value_type="0">
+					<description>Exchange Transport: Remote Queue Length</description>
+					<delay>60</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>Exchange Message History</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeTransport SmtpReceive(_total)\Average recipients/message&quot;]" value_type="0">
+					<description>Exchange Transport: Average recipients per incoming message</description>
+					<delay>20</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>Exchange Message History</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeTransport SmtpReceive(_total)\Connections Total&quot;]" value_type="0">
+					<description>Exchange Transport: Connections Received</description>
+					<delay>30</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<multiplier>1</multiplier>
+					<delta>2</delta>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>Exchange Connections</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeTransport SmtpReceive(_total)\Messages Received Total&quot;]" value_type="0">
+					<description>Exchange Transport: Messages Received</description>
+					<delay>60</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<multiplier>1</multiplier>
+					<delta>2</delta>
+					<formula>100</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>Exchange Message History</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeTransport SmtpSend(_total)\Average Recipients/message&quot;]" value_type="0">
+					<description>Exchange Transport: Average recipients per outgoing message</description>
+					<delay>20</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>Exchange Message History</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeTransport SmtpSend(_total)\Messages Sent Total&quot;]" value_type="0">
+					<description>Exchange Transport: Messages Sent</description>
+					<delay>60</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<delta>2</delta>
+					<formula>100</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>Exchange Message History</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\Process(store)\Private Bytes&quot;]" value_type="3">
+					<description>Memory: Information store</description>
+					<delay>60</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<units>Bytes</units>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<applications>
+						<application>Exchange Memory</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[aspnet_state]" value_type="3">
+					<description>Service State: ASP.NET State</description>
+					<delay>120</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<valuemap>Windows service state</valuemap>
+					<applications>
+						<application>Exchange Services</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[HTTPFilter]" value_type="3">
+					<description>Service State: HTTP SSL</description>
+					<delay>120</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<valuemap>Windows service state</valuemap>
+					<applications>
+						<application>Exchange Services</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[IISADMIN]" value_type="3">
+					<description>Service State: IIS Admin</description>
+					<delay>120</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<valuemap>Windows service state</valuemap>
+					<applications>
+						<application>Exchange Services</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[MSExchangeADTopology]" value_type="3">
+					<description>Service State: Exchange Active Directory Topology</description>
+					<delay>120</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<valuemap>Windows service state</valuemap>
+					<applications>
+						<application>Exchange Services</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[MSExchangeAntispamUpdate]" value_type="3">
+					<description>Service State: Exchange Anti-spam Update</description>
+					<delay>120</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<valuemap>Windows service state</valuemap>
+					<applications>
+						<application>Exchange Services</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[MSExchangeEdgeSync]" value_type="3">
+					<description>Service State: Exchange EdgeSync</description>
+					<delay>120</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<valuemap>Windows service state</valuemap>
+					<applications>
+						<application>Exchange Services</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[MSExchangeFDS]" value_type="3">
+					<description>Service State: Exchange File Distribution</description>
+					<delay>120</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<valuemap>Windows service state</valuemap>
+					<applications>
+						<application>Exchange Services</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[MSExchangeIS]" value_type="3">
+					<description>Service State: Exchange Information Store</description>
+					<delay>120</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<valuemap>Windows service state</valuemap>
+					<applications>
+						<application>Exchange Services</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[MSExchangeMailboxAssistants]" value_type="3">
+					<description>Service State: Exchange Mailbox Assistants</description>
+					<delay>120</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<valuemap>Windows service state</valuemap>
+					<applications>
+						<application>Exchange Services</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[MSExchangeMailSubmission]" value_type="3">
+					<description>Service State: Exchange Mail Submission</description>
+					<delay>120</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<valuemap>Windows service state</valuemap>
+					<applications>
+						<application>Exchange Services</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[MSExchangePop3]" value_type="3">
+					<description>Service State: Exchange POP3</description>
+					<delay>120</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<valuemap>Windows service state</valuemap>
+					<applications>
+						<application>Exchange Services</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[MSExchangeRepl]" value_type="3">
+					<description>Service State: Exchange Replication Service</description>
+					<delay>120</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<valuemap>Windows service state</valuemap>
+					<applications>
+						<application>Exchange Services</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[MSExchangeSA]" value_type="3">
+					<description>Service State: Exchange System Attendant</description>
+					<delay>120</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<valuemap>Windows service state</valuemap>
+					<applications>
+						<application>Exchange Services</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[MSExchangeServiceHost]" value_type="3">
+					<description>Service State: Exchange Service Host</description>
+					<delay>120</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<valuemap>Windows service state</valuemap>
+					<applications>
+						<application>Exchange Services</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[MSExchangeTransportLogSearch]" value_type="3">
+					<description>Service State: Exchange Transport Log Search</description>
+					<delay>120</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<valuemap>Windows service state</valuemap>
+					<applications>
+						<application>Exchange Services</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[MSExchangeTransport]" value_type="3">
+					<description>Service State: Exchange Transport</description>
+					<delay>120</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<valuemap>Windows service state</valuemap>
+					<applications>
+						<application>Exchange Services</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[W3SVC]" value_type="3">
+					<description>Service State: World Wide Web Publishing</description>
+					<delay>120</delay>
+					<history>31</history>
+					<trends>365</trends>
+					<formula>1</formula>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<valuemap>Windows service state</valuemap>
+					<applications>
+						<application>Exchange Services</application>
+					</applications>
+				</item>
+			</items>
+			<triggers>
+				<trigger>
+					<description>{HOSTNAME} has WWW Service State In Questionable State</description>
+					<expression>{{HOSTNAME}:service_state[W3SVC].avg(300)}&gt;0</expression>
+					<priority>2</priority>
+				</trigger>
+				<trigger>
+					<description>{HOSTNAME} has Exchange Information Store in Questionable State</description>
+					<expression>{{HOSTNAME}:service_state[MSExchangeIS].avg(300)}&gt;0</expression>
+					<priority>4</priority>
+				</trigger>
+				<trigger>
+					<description>{HOSTNAME} has Exchange Transport in Questionable State</description>
+					<expression>{{HOSTNAME}:service_state[MSExchangeTransport].avg(300)}&gt;0</expression>
+					<priority>4</priority>
+				</trigger>
+				<trigger>
+					<description>{HOSTNAME} has Exchange Mail Submission Service in Questionable State</description>
+					<expression>{{HOSTNAME}:service_state[MSExchangeMailSubmission].avg(300)}&gt;0</expression>
+					<priority>4</priority>
+				</trigger>
+				<trigger>
+					<description>{HOSTNAME} has Exchange System Attendant in Questionable State</description>
+					<expression>{{HOSTNAME}:service_state[MSExchangeSA].avg(300)}&gt;0</expression>
+					<priority>4</priority>
+				</trigger>
+				<trigger>
+					<description>{HOSTNAME} has Exchange Service Host Service in Questionable State</description>
+					<expression>{{HOSTNAME}:service_state[MSExchangeServiceHost].avg(300)}&gt;0</expression>
+					<priority>4</priority>
+				</trigger>
+				<trigger>
+					<description>{HOSTNAME} has IIS Admin Service Service in Questionable State.</description>
+					<expression>{{HOSTNAME}:service_state[IISADMIN].avg(300)}&gt;0</expression>
+					<priority>2</priority>
+				</trigger>
+				<trigger>
+					<description>{HOSTNAME} has Exchange Active Directory Topology Service in Questionable State.</description>
+					<expression>{{HOSTNAME}:service_state[MSExchangeADTopology].avg(300)}&gt;0</expression>
+					<priority>4</priority>
+				</trigger>
+			</triggers>
+			<graphs>
+				<graph name="Messages: Received" width="900" height="200">
+					<show_work_period>1</show_work_period>
+					<show_triggers>1</show_triggers>
+					<yaxismin>0.0000</yaxismin>
+					<yaxismax>100.0000</yaxismax>
+					<graph_elements>
+						<graph_element item="{HOSTNAME}:perf_counter[&quot;\MSExchangeTransport SmtpReceive(_total)\Messages Received Total&quot;]">
+							<drawtype>2</drawtype>
+							<color>009900</color>
+							<yaxisside>1</yaxisside>
+							<calc_fnc>7</calc_fnc>
+							<periods_cnt>5</periods_cnt>
+						</graph_element>
+					</graph_elements>
+				</graph>
+				<graph name="Messages: Sent" width="900" height="200">
+					<show_work_period>1</show_work_period>
+					<show_triggers>1</show_triggers>
+					<yaxismin>0.0000</yaxismin>
+					<yaxismax>100.0000</yaxismax>
+					<graph_elements>
+						<graph_element item="{HOSTNAME}:perf_counter[&quot;\MSExchangeTransport SmtpSend(_total)\Messages Sent Total&quot;]">
+							<drawtype>2</drawtype>
+							<color>0000CC</color>
+							<yaxisside>1</yaxisside>
+							<calc_fnc>7</calc_fnc>
+							<periods_cnt>5</periods_cnt>
+						</graph_element>
+					</graph_elements>
+				</graph>
+				<graph name="Messages: Local Delivery" width="900" height="200">
+					<show_work_period>1</show_work_period>
+					<show_triggers>1</show_triggers>
+					<yaxismin>0.0000</yaxismin>
+					<yaxismax>100.0000</yaxismax>
+					<graph_elements>
+						<graph_element item="{HOSTNAME}:perf_counter[&quot;\MSExchangeIS Mailbox(_Total)\Local Deliveries&quot;]">
+							<drawtype>2</drawtype>
+							<color>009900</color>
+							<yaxisside>1</yaxisside>
+							<calc_fnc>7</calc_fnc>
+							<periods_cnt>5</periods_cnt>
+						</graph_element>
+					</graph_elements>
+				</graph>
+			</graphs>
+		</host>
+	</hosts>
+</zabbix_export>

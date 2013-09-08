@@ -1,0 +1,1521 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export version="1.0" date="17.10.11" time="09.50">
+	<hosts>
+		<host name="Exchange 2010">
+			<proxy_hostid>0</proxy_hostid>
+			<useip>1</useip>
+			<dns></dns>
+			<ip>127.0.0.1</ip>
+			<port>10050</port>
+			<status>3</status>
+			<useipmi>0</useipmi>
+			<ipmi_ip>127.0.0.1</ipmi_ip>
+			<ipmi_port>623</ipmi_port>
+			<ipmi_authtype>0</ipmi_authtype>
+			<ipmi_privilege>2</ipmi_privilege>
+			<ipmi_username></ipmi_username>
+			<ipmi_password></ipmi_password>
+			<groups>
+				<group>Templates</group>
+			</groups>
+			<triggers>
+				<trigger>
+					<description>Active Mailbox Delivery Queue Length is too high.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:perf_counter["\MSExchangeTransport Queues(_total)\Active Mailbox Delivery Queue Length"].last(0)}&gt;250</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments>Active Mailbox Delivery Queue Length is too high.&#13;
+http://technet.microsoft.com/en-us/library/ff367923.aspx</comments>
+				</trigger>
+				<trigger>
+					<description>Active Non-Smtp Delivery Queue Length too high.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:perf_counter["\MSExchangeTransport Queues(_total)\Active Non-Smtp Delivery Queue Length"].last(0)}&gt;250</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments>Active Non-Smtp Delivery Queue Length too high.&#13;
+http://technet.microsoft.com/en-us/library/ff367923.aspx</comments>
+				</trigger>
+				<trigger>
+					<description>Active Remote Delivery Queue Length is too high.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:perf_counter["\MSExchangeTransport Queues(_total)\Active Remote Delivery Queue Length"].last(0)}&gt;250</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments>Active Remote Delivery Queue Length is too high.&#13;
+ttp://technet.microsoft.com/en-us/library/ff367923.aspx</comments>
+				</trigger>
+				<trigger>
+					<description>Aggregate Delivery Queue Length is High</description>
+					<type>0</type>
+					<expression>{Exchange 2010:perf_counter["\MSExchangeTransport Queues(_total)\Aggregate Delivery Queue Length (All Queues)"].last(0)}&gt;3000</expression>
+					<url></url>
+					<status>0</status>
+					<priority>2</priority>
+					<comments>Aggregate Delivery Queue Length is higher then the microsoft recommednded. http://technet.microsoft.com/en-us/library/ff367923.aspx</comments>
+				</trigger>
+				<trigger>
+					<description>Aggregate Delivery Queue Length is too High</description>
+					<type>0</type>
+					<expression>{Exchange 2010:perf_counter["\MSExchangeTransport Queues(_total)\Aggregate Delivery Queue Length (All Queues)"].last(0)}&gt;5000</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments>Aggregate Delivery Queue Length is too high.&#13;
+ http://technet.microsoft.com/en-us/library/ff367923.aspx</comments>
+				</trigger>
+				<trigger>
+					<description>Largest Delivery Queue Length too high.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:perf_counter["\MSExchangeTransport Queues(_total)\Largest Delivery Queue Length"].last(0)}&gt;200</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments>Largest Delivery Queue Length too high.&#13;
+http://technet.microsoft.com/en-us/library/ff367923.aspx</comments>
+				</trigger>
+				<trigger>
+					<description>Poison Queue Length is high.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:perf_counter["\MSExchangeTransport Queues(_total)\Poison Queue Length"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>0</priority>
+					<comments>Poison Queue Length is high.&#13;
+http://technet.microsoft.com/en-us/library/ff367923.aspx</comments>
+				</trigger>
+				<trigger>
+					<description>Retry Mailbox Delivery Queue Length too high.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:perf_counter["\MSExchangeTransport Queues(_total)\Retry Mailbox Delivery Queue Length"].last(0)}&gt;250</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments>Retry Mailbox Delivery Queue Length too high.&#13;
+http://technet.microsoft.com/en-us/library/ff367923.aspx</comments>
+				</trigger>
+				<trigger>
+					<description>Retry Non-Smtp Delivery Queue Length too high.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:perf_counter["\MSExchangeTransport Queues(_total)\Retry Non-Smtp Delivery Queue Length"].last(0)}&gt;100</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments>Retry Non-Smtp Delivery Queue Length too high.&#13;
+http://technet.microsoft.com/en-us/library/ff367923.aspx</comments>
+				</trigger>
+				<trigger>
+					<description>Retry Remote Delivery Queue Length too high.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:perf_counter["\MSExchangeTransport Queues(_total)\Retry Remote Delivery Queue Length"].last(0)}&gt;100</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments>Retry Remote Delivery Queue Length too high.&#13;
+http://technet.microsoft.com/en-us/library/ff367923.aspx</comments>
+				</trigger>
+				<trigger>
+					<description>Submission Queue Length too high.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:perf_counter["\MSExchangeTransport Queues(_total)\Submission Queue Length"].last(0)}&gt;100</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments>Submission Queue Length too high.&#13;
+http://technet.microsoft.com/en-us/library/ff367923.aspx</comments>
+				</trigger>
+				<trigger>
+					<description>Unreachable Queue Length too high.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:perf_counter["\MSExchangeTransport Queues(_total)\Unreachable Queue Length"].last(0)}&gt;100</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments>Unreachable Queue too high.&#13;
+http://technet.microsoft.com/en-us/library/ff367923.aspx</comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Fibre Channel Platform Registration Service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["FCRegSvc"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange Active Directory Topology service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangeADTopology"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange Anti-spam Update service not running</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangeAntispamUpdate"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange EdgeSync Service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangeEdgeSync"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange Forms-Based Authentication service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangeFBA"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange File Distribution service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangeFDS"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange IMAP4 service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangeImap4"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange Information Store service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangeIS"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange Mailbox Assistants service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangeMailboxAssistants"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange Mailbox Replication service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangeMailboxReplication"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange Mail Submission service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangeMailSubmission"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange Monitoring service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangeMonitoring"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange POP3 service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangePop3"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange Protected Service Host service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangeProtectedServiceHost"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange Replication service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangeRepl"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange RPC Client Access service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangeRPC"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange Search Indexer not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangeSearch"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange Service Host service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangeServiceHost"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange Throttling service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangeThrottling"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange Transport service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangeTransport"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange Transport Log Search service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSExchangeTransportLogSearch"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Search (Exchange) service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["msftesql-Exchange"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft iSCSI Initiator Service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["MSiSCSI"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+				<trigger>
+					<description>Microsoft Exchange Server Extension for Windows Server Backup service not running.</description>
+					<type>0</type>
+					<expression>{Exchange 2010:service_state["wsbexchange"].last(0)}#0</expression>
+					<url></url>
+					<status>0</status>
+					<priority>4</priority>
+					<comments></comments>
+				</trigger>
+			</triggers>
+			<items>
+				<item type="0" key="perf_counter[&quot;\MSExchangeTransport Queues(_total)\Active Mailbox Delivery Queue Length&quot;]" value_type="3">
+					<description>Shows the number of messages in the active mailbox queues.</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>30</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010 Transport</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeTransport Queues(_total)\Active Non-Smtp Delivery Queue Length&quot;]" value_type="3">
+					<description>Shows the number of messages in the drop directory used by a Foreign connector.</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>30</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010 Transport</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeTransport Queues(_total)\Active Remote Delivery Queue Length&quot;]" value_type="3">
+					<description>Shows the number of messages in the active remote delivery queues.</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>30</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010 Transport</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeTransport Queues(_total)\Aggregate Delivery Queue Length (All Queues)&quot;]" value_type="3">
+					<description>Shows the number of messages queued for delivery in all queues.</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>30</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010 Transport</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeTransport Queues(_total)\Largest Delivery Queue Length&quot;]" value_type="3">
+					<description>Shows the number of messages in the largest delivery queues.</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>30</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010 Transport</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeTransport Queues(_total)\Poison Queue Length&quot;]" value_type="3">
+					<description>Shows the number of messages in the poison message queue.</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>30</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010 Transport</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeTransport Queues(_total)\Retry Mailbox Delivery Queue Length&quot;]" value_type="3">
+					<description>Shows the number of messages in a retry state attempting to deliver a message to a remote mailbox.</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>30</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010 Transport</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeTransport Queues(_total)\Retry Non-Smtp Delivery Queue Length&quot;]" value_type="3">
+					<description>Shows the number of messages in a retry state in the non-SMTP gateway delivery queues.</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>30</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010 Transport</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeTransport Queues(_total)\Retry Remote Delivery Queue Length&quot;]" value_type="3">
+					<description>Shows the number of messages in a retry state in the remote delivery queues.</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>30</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010 Transport</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeTransport Queues(_total)\Submission Queue Length&quot;]" value_type="3">
+					<description>Shows the number of messages in the submission queue.</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>30</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010 Transport</application>
+					</applications>
+				</item>
+				<item type="0" key="perf_counter[&quot;\MSExchangeTransport Queues(_total)\Unreachable Queue Length&quot;]" value_type="3">
+					<description>Shows the number of messages in the Unreachable queue.</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>30</delay>
+					<history>90</history>
+					<trends>365</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010 Transport</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;FCRegSvc&quot;]" value_type="3">
+					<description>Service state of Microsoft Fibre Channel Platform Registration Service ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangeADTopology&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange Active Directory Topology ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangeAntispamUpdate&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange Anti-spam Update ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangeEdgeSync&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange EdgeSync ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangeFBA&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange Forms-Based Authentication ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangeFDS&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange File Distribution ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangeImap4&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange IMAP4 ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangeIS&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange Information Store ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangeMailboxAssistants&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange Mailbox Assistants ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangeMailboxReplication&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange Mailbox Replication ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangeMailSubmission&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange Mail Submission ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangeMonitoring&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange Monitoring ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangePop3&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange POP3 ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangeProtectedServiceHost&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange Protected Service Host ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangeRepl&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange Replication ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangeRPC&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange RPC Client Access ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangeSearch&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange Search Indexer ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangeServiceHost&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange Service Host ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangeThrottling&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange Throttling ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>1800</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangeTransport&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange Transport ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSExchangeTransportLogSearch&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange Transport Log Search ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;msftesql-Exchange&quot;]" value_type="3">
+					<description>Service state of Microsoft Search  (Exchange) ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;MSiSCSI&quot;]" value_type="3">
+					<description>Service state of Microsoft iSCSI Initiator Service ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+				<item type="0" key="service_state[&quot;wsbexchange&quot;]" value_type="3">
+					<description>Service state of Microsoft Exchange Server Extension for Windows Server Backup ($1)</description>
+					<ipmi_sensor></ipmi_sensor>
+					<delay>60</delay>
+					<history>7</history>
+					<trends>90</trends>
+					<status>0</status>
+					<data_type>0</data_type>
+					<units></units>
+					<multiplier>0</multiplier>
+					<delta>0</delta>
+					<formula>1</formula>
+					<lastlogsize>0</lastlogsize>
+					<logtimefmt></logtimefmt>
+					<delay_flex></delay_flex>
+					<authtype>0</authtype>
+					<username></username>
+					<password></password>
+					<publickey></publickey>
+					<privatekey></privatekey>
+					<params></params>
+					<trapper_hosts></trapper_hosts>
+					<snmp_community>public</snmp_community>
+					<snmp_oid>interfaces.ifTable.ifEntry.ifInOctets.1</snmp_oid>
+					<snmp_port>161</snmp_port>
+					<snmpv3_securityname></snmpv3_securityname>
+					<snmpv3_securitylevel>0</snmpv3_securitylevel>
+					<snmpv3_authpassphrase></snmpv3_authpassphrase>
+					<snmpv3_privpassphrase></snmpv3_privpassphrase>
+					<applications>
+						<application>Microsoft Exchange 2010</application>
+					</applications>
+				</item>
+			</items>
+			<templates/>
+			<graphs/>
+			<macros/>
+		</host>
+	</hosts>
+	<dependencies/>
+</zabbix_export>
