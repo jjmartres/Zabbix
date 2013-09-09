@@ -1196,7 +1196,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-POWERWARE-UPS:xupsAlarms.last(0)}#0</expression>
+            <expression>{ZBX-POWERWARE-UPS:xupsAlarms.diff(0)}&gt;0</expression>
             <name>Detected alarm(s)</name>
             <url/>
             <status>0</status>
