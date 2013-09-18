@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2013-04-15T19:04:40Z</date>
+    <date>2013-09-18T13:37:28Z</date>
     <groups>
         <group>
             <name>ZBX-BROCADE-FC-TEMPLATES</name>
@@ -9,8 +9,8 @@
     </groups>
     <templates>
         <template>
-            <template>ZBX-BROCADE-FC-PORT</template>
-            <name>ZBX-BROCADE-FC-PORT</name>
+            <template>KHP-BROCADE-FC-PORT</template>
+            <name>KHP-BROCADE-FC-PORT</name>
             <groups>
                 <group>
                     <name>ZBX-BROCADE-FC-TEMPLATES</name>
@@ -25,10 +25,10 @@
             <discovery_rules>
                 <discovery_rule>
                     <name>FiberChannel Ports</name>
-                    <type>1</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.1</snmp_oid>
-                    <key>swFcPort</key>
+                    <type>10</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>advsnmp.discovery[{HOST.HOST},&quot;-v1 -c{$SNMP_COMMUNITY}&quot;,.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.37,1.1]</key>
                     <delay>300</delay>
                     <status>0</status>
                     <allowed_hosts/>
@@ -54,9 +54,9 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.5.{#SNMPINDEX}</snmp_oid>
-                            <key>swFcPortAdmStatus[{#SNMPVALUE}]</key>
-                            <delay>60</delay>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.5.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFcPortAdmStatus[{#ADVSNMPVALUE}]</key>
+                            <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
@@ -95,9 +95,9 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.25.{#SNMPINDEX}</snmp_oid>
-                            <key>swFCPortRxBadEofs[{#SNMPVALUE}]</key>
-                            <delay>30</delay>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.25.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFCPortRxBadEofs[{#ADVSNMPVALUE}]</key>
+                            <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
@@ -134,9 +134,9 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.15.{#SNMPINDEX}</snmp_oid>
-                            <key>swFCPortRxC2Frames[{#SNMPVALUE}]</key>
-                            <delay>30</delay>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.15.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFCPortRxC2Frames[{#ADVSNMPVALUE}]</key>
+                            <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
@@ -173,9 +173,9 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.16.{#SNMPINDEX}</snmp_oid>
-                            <key>swFCPortRxC3Frames[{#SNMPVALUE}]</key>
-                            <delay>30</delay>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.16.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFCPortRxC3Frames[{#ADVSNMPVALUE}]</key>
+                            <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
@@ -212,9 +212,9 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.22.{#SNMPINDEX}</snmp_oid>
-                            <key>swFCPortRxCrcs[{#SNMPVALUE}]</key>
-                            <delay>30</delay>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.22.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFCPortRxCrcs[{#ADVSNMPVALUE}]</key>
+                            <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
@@ -251,8 +251,8 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.36.{#SNMPINDEX}</snmp_oid>
-                            <key>swFcPortName[{#SNMPVALUE}]</key>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.36.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFcPortName[{#ADVSNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -290,9 +290,9 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.26.{#SNMPINDEX}</snmp_oid>
-                            <key>swFCPortRxEncOutFrs[{#SNMPVALUE}]</key>
-                            <delay>30</delay>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.26.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFCPortRxEncOutFrs[{#ADVSNMPVALUE}]</key>
+                            <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
@@ -329,9 +329,9 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.21.{#SNMPINDEX}</snmp_oid>
-                            <key>swFCPortRxEncInFrs[{#SNMPVALUE}]</key>
-                            <delay>30</delay>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.21.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFCPortRxEncInFrs[{#ADVSNMPVALUE}]</key>
+                            <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
@@ -368,9 +368,9 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.14.{#SNMPINDEX}</snmp_oid>
-                            <key>swFCPortRxFrames[{#SNMPVALUE}]</key>
-                            <delay>30</delay>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.14.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFCPortRxFrames[{#ADVSNMPVALUE}]</key>
+                            <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
@@ -407,9 +407,9 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.13.{#SNMPINDEX}</snmp_oid>
-                            <key>swFCPortTxFrames[{#SNMPVALUE}]</key>
-                            <delay>30</delay>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.13.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFCPortTxFrames[{#ADVSNMPVALUE}]</key>
+                            <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
@@ -446,9 +446,9 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.18.{#SNMPINDEX}</snmp_oid>
-                            <key>swFCPortRxMcasts[{#SNMPVALUE}]</key>
-                            <delay>30</delay>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.18.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFCPortRxMcasts[{#ADVSNMPVALUE}]</key>
+                            <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
@@ -485,9 +485,9 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.30.{#SNMPINDEX}</snmp_oid>
-                            <key>swFCPortTxMcasts[{#SNMPVALUE}]</key>
-                            <delay>30</delay>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.30.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFCPortTxMcasts[{#ADVSNMPVALUE}]</key>
+                            <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
@@ -524,9 +524,9 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.4.{#SNMPINDEX}</snmp_oid>
-                            <key>swFcPortOpStatus[{#SNMPVALUE}]</key>
-                            <delay>60</delay>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.4.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFcPortOpStatus[{#ADVSNMPVALUE}]</key>
+                            <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
@@ -565,8 +565,8 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.35.{#SNMPINDEX}</snmp_oid>
-                            <key>swFcPortSpeed[{#SNMPVALUE}]</key>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.35.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFcPortSpeed[{#ADVSNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -606,8 +606,8 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.7.{#SNMPINDEX}</snmp_oid>
-                            <key>swFcPortTXType[{#SNMPVALUE}]</key>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.7.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFcPortTXType[{#ADVSNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -647,9 +647,9 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.23.{#SNMPINDEX}</snmp_oid>
-                            <key>swFCPortRxTruncs[{#SNMPVALUE}]</key>
-                            <delay>30</delay>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.23.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFCPortRxTruncs[{#ADVSNMPVALUE}]</key>
+                            <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
@@ -686,9 +686,9 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.24.{#SNMPINDEX}</snmp_oid>
-                            <key>swFCPortRxTooLongs[{#SNMPVALUE}]</key>
-                            <delay>30</delay>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.24.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFCPortRxTooLongs[{#ADVSNMPVALUE}]</key>
+                            <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
@@ -725,9 +725,9 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.12.{#SNMPINDEX}</snmp_oid>
-                            <key>swFCPortRxWords[{#SNMPVALUE}]</key>
-                            <delay>30</delay>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.12.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFCPortRxWords[{#ADVSNMPVALUE}]</key>
+                            <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
@@ -764,9 +764,9 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.11.{#SNMPINDEX}</snmp_oid>
-                            <key>swFCPortTxWords[{#SNMPVALUE}]</key>
-                            <delay>30</delay>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.11.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFCPortTxWords[{#ADVSNMPVALUE}]</key>
+                            <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
                             <status>0</status>
@@ -803,8 +803,8 @@
                             <type>1</type>
                             <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                             <multiplier>0</multiplier>
-                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.34.{#SNMPINDEX}</snmp_oid>
-                            <key>swFcPortWwn[{#SNMPVALUE}]</key>
+                            <snmp_oid>.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.34.{#ADVSNMPINDEX2}</snmp_oid>
+                            <key>swFcPortWwn[{#ADVSNMPVALUE}]</key>
                             <delay>300</delay>
                             <history>7</history>
                             <trends>365</trends>
@@ -840,8 +840,8 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{ZBX-BROCADE-FC-PORT:swFCPortRxCrcs[{#SNMPVALUE}].last(0)}&gt;0 | {ZBX-BROCADE-FC-PORT:swFCPortRxBadEofs[{#SNMPVALUE}].avg(0)}&gt;0 | {ZBX-BROCADE-FC-PORT:swFCPortRxEncOutFrs[{#SNMPVALUE}].avg(0)}&gt;0 | {ZBX-BROCADE-FC-PORT:swFCPortRxTooLongs[{#SNMPVALUE}].avg(0)}&gt;0 | {ZBX-BROCADE-FC-PORT:swFCPortRxTruncs[{#SNMPVALUE}].avg(0)}&gt;0</expression>
-                            <name>Errors was detectes on port {#SNMPVALUE}</name>
+                            <expression>{KHP-BROCADE-FC-PORT:swFCPortRxCrcs[{#ADVSNMPVALUE}].last(0)}&gt;0 | {KHP-BROCADE-FC-PORT:swFCPortRxBadEofs[{#ADVSNMPVALUE}].avg(0)}&gt;0 | {KHP-BROCADE-FC-PORT:swFCPortRxEncOutFrs[{#ADVSNMPVALUE}].avg(0)}&gt;0 | {KHP-BROCADE-FC-PORT:swFCPortRxTooLongs[{#ADVSNMPVALUE}].avg(0)}&gt;0 | {KHP-BROCADE-FC-PORT:swFCPortRxTruncs[{#ADVSNMPVALUE}].avg(0)}&gt;0</expression>
+                            <name>Error(s) was detected on {#ADVSNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
@@ -849,8 +849,8 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{ZBX-BROCADE-FC-PORT:swFcPortAdmStatus[{#SNMPVALUE}].diff(0)}&lt;0 &amp; {ZBX-BROCADE-FC-PORT:swFcPortOpStatus[{#SNMPVALUE}].diff(0)}&gt;0</expression>
-                            <name>Operational status was changed on port {#SNMPVALUE}</name>
+                            <expression>{KHP-BROCADE-FC-PORT:swFcPortAdmStatus[{#ADVSNMPVALUE}].diff(0)}&lt;0 &amp; {KHP-BROCADE-FC-PORT:swFcPortOpStatus[{#ADVSNMPVALUE}].diff(0)}&gt;0</expression>
+                            <name>Operational status has changed on port {#ADVSNMPVALUE}</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
@@ -860,7 +860,7 @@
                     </trigger_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
-                            <name>Monitor port {#SNMPVALUE}</name>
+                            <name>Monitor port {#ADVSNMPVALUE}</name>
                             <width>900</width>
                             <height>200</height>
                             <yaxismin>0.0000</yaxismin>
@@ -885,8 +885,8 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-BROCADE-FC-PORT</host>
-                                        <key>swFCPortTxWords[{#SNMPVALUE}]</key>
+                                        <host>KHP-BROCADE-FC-PORT</host>
+                                        <key>swFCPortTxWords[{#ADVSNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -897,8 +897,8 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-BROCADE-FC-PORT</host>
-                                        <key>swFCPortRxWords[{#SNMPVALUE}]</key>
+                                        <host>KHP-BROCADE-FC-PORT</host>
+                                        <key>swFCPortRxWords[{#ADVSNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -909,8 +909,8 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-BROCADE-FC-PORT</host>
-                                        <key>swFCPortTxFrames[{#SNMPVALUE}]</key>
+                                        <host>KHP-BROCADE-FC-PORT</host>
+                                        <key>swFCPortTxFrames[{#ADVSNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -921,8 +921,8 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-BROCADE-FC-PORT</host>
-                                        <key>swFCPortRxFrames[{#SNMPVALUE}]</key>
+                                        <host>KHP-BROCADE-FC-PORT</host>
+                                        <key>swFCPortRxFrames[{#ADVSNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -933,8 +933,8 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-BROCADE-FC-PORT</host>
-                                        <key>swFCPortTxMcasts[{#SNMPVALUE}]</key>
+                                        <host>KHP-BROCADE-FC-PORT</host>
+                                        <key>swFCPortTxMcasts[{#ADVSNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -945,8 +945,8 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-BROCADE-FC-PORT</host>
-                                        <key>swFCPortRxMcasts[{#SNMPVALUE}]</key>
+                                        <host>KHP-BROCADE-FC-PORT</host>
+                                        <key>swFCPortRxMcasts[{#ADVSNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -957,8 +957,8 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-BROCADE-FC-PORT</host>
-                                        <key>swFCPortRxC2Frames[{#SNMPVALUE}]</key>
+                                        <host>KHP-BROCADE-FC-PORT</host>
+                                        <key>swFCPortRxC2Frames[{#ADVSNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -969,8 +969,8 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-BROCADE-FC-PORT</host>
-                                        <key>swFCPortRxC3Frames[{#SNMPVALUE}]</key>
+                                        <host>KHP-BROCADE-FC-PORT</host>
+                                        <key>swFCPortRxC3Frames[{#ADVSNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -981,8 +981,8 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-BROCADE-FC-PORT</host>
-                                        <key>swFCPortRxBadEofs[{#SNMPVALUE}]</key>
+                                        <host>KHP-BROCADE-FC-PORT</host>
+                                        <key>swFCPortRxBadEofs[{#ADVSNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -993,8 +993,8 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-BROCADE-FC-PORT</host>
-                                        <key>swFCPortRxCrcs[{#SNMPVALUE}]</key>
+                                        <host>KHP-BROCADE-FC-PORT</host>
+                                        <key>swFCPortRxCrcs[{#ADVSNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -1005,8 +1005,8 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-BROCADE-FC-PORT</host>
-                                        <key>swFCPortRxEncInFrs[{#SNMPVALUE}]</key>
+                                        <host>KHP-BROCADE-FC-PORT</host>
+                                        <key>swFCPortRxEncInFrs[{#ADVSNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -1017,8 +1017,8 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-BROCADE-FC-PORT</host>
-                                        <key>swFCPortRxTooLongs[{#SNMPVALUE}]</key>
+                                        <host>KHP-BROCADE-FC-PORT</host>
+                                        <key>swFCPortRxTooLongs[{#ADVSNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -1029,8 +1029,8 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-BROCADE-FC-PORT</host>
-                                        <key>swFCPortRxTruncs[{#SNMPVALUE}]</key>
+                                        <host>KHP-BROCADE-FC-PORT</host>
+                                        <key>swFCPortRxTruncs[{#ADVSNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -1145,7 +1145,7 @@
                     <trigger_prototypes/>
                     <graph_prototypes>
                         <graph_prototype>
-                            <name>{#SNMPVALUE} - Traffic (bits/sec, 95th Percentile)</name>
+                            <name>Port {#SNMPVALUE} - Traffic (bits/sec, 95th Percentile)</name>
                             <width>900</width>
                             <height>200</height>
                             <yaxismin>0.0000</yaxismin>
@@ -1170,7 +1170,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-BROCADE-FC-PORT</host>
+                                        <host>KHP-BROCADE-FC-PORT</host>
                                         <key>ifInOctets[{#SNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
@@ -1182,7 +1182,7 @@
                                     <calc_fnc>2</calc_fnc>
                                     <type>0</type>
                                     <item>
-                                        <host>ZBX-BROCADE-FC-PORT</host>
+                                        <host>KHP-BROCADE-FC-PORT</host>
                                         <key>ifOutOctets[{#SNMPVALUE}]</key>
                                     </item>
                                 </graph_item>
