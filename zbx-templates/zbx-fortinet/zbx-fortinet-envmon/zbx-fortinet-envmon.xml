@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2013-04-10T09:56:14Z</date>
+    <date>2013-09-20T06:37:18Z</date>
     <groups>
         <group>
             <name>ZBX-FORTINET-TEMPLATES</name>
@@ -715,6 +715,16 @@
             <url/>
             <status>0</status>
             <priority>4</priority>
+            <description/>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-FORTINET-ENVMON:fnSysSerial.diff(0)}&gt;0</expression>
+            <name>Device Serial Number was changed</name>
+            <url/>
+            <status>0</status>
+            <priority>1</priority>
             <description/>
             <type>0</type>
             <dependencies/>
