@@ -15,7 +15,6 @@ Items
   * FortiOS Version (Populates host inventory field **OS**)
   * Memory usage for the last 5 minutes
   * Uptime
-  * CPU usage for the last 5 minutes
   * Disk Usage
   * Number of active sessions
   * IPS signature database version
@@ -28,13 +27,10 @@ Triggers
   * **[DISASTER]** => An increase of 40% of active sessions was detected
   * **[HIGH]** => Device as just been restarted
   * **[HIGH]** => Memory usage on device exceeded 80%
-  * **[HIGH]** => CPU usage on device exceeded 80%
   * **[HIGH]** => An increase of 30% of active sessions was detected
   * **[AVERAGE]** => An increase of 20% of active sessions was detected
   * **[AVERAGE]** => Memory usage on device exceeded 70%
-  * **[AVERAGE]** => CPU usage on device exceeded 60%
   * **[WARNING]** => Memory usage on device exceeded 60%
-  * **[WARNING]** => CPU usage on device exceeded 50%
   * **[INFORMATION]** => Software version on device was changed
   * **[INFORMATION]** => Hostname was changed on device
   * **[INFORMATION]** => IPS signature database was changed
@@ -44,7 +40,6 @@ Triggers
 Graphs
 ------
 
-  * CPU usage
   * Memory usage
   * Disk Usage
   * Active sessions
@@ -65,7 +60,7 @@ This template was tested for Zabbix 2.0.0 and higher.
 
 ###### [echo.something](https://github.com/jjmartres/Zabbix/tree/master/zbx-scripts/echo.something) 1.0
 
-This template use this script to echo "Cisco Systems" as Device Manufacturer Name for **Host Inventory**.
+This template use this script to echo "Fortinet" as Device Manufacturer Name for **Host Inventory**.
 
 License
 -------

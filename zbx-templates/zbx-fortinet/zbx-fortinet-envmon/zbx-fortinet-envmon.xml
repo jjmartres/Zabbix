@@ -574,45 +574,6 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Used CPU for the last 5 minutes</name>
-                    <type>4</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <multiplier>0</multiplier>
-                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.1.3.0</snmp_oid>
-                    <key>fgSysCpuUsage</key>
-                    <delay>300</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>0</value_type>
-                    <allowed_hosts/>
-                    <units>%</units>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>System</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                </item>
-                <item>
                     <name>Virus signature database version</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
@@ -685,36 +646,6 @@
             <url/>
             <status>0</status>
             <priority>5</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>{ZBX-FORTINET-ENVMON:fgSysCpuUsage.avg(600)}&gt;50 &amp; {ZBX-FORTINET-ENVMON:fgSysCpuUsage.avg(600)}&lt;60</expression>
-            <name>CPU usage exceeded 50%</name>
-            <url/>
-            <status>0</status>
-            <priority>2</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>{ZBX-FORTINET-ENVMON:fgSysCpuUsage.avg(600)}&gt;60 &amp; {ZBX-FORTINET-ENVMON:fgSysCpuUsage.avg(600)}&lt;80</expression>
-            <name>CPU usage exceeded 60%</name>
-            <url/>
-            <status>0</status>
-            <priority>3</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>{ZBX-FORTINET-ENVMON:fgSysCpuUsage.avg(600)}&gt;80</expression>
-            <name>CPU usage exceeded 80%</name>
-            <url/>
-            <status>0</status>
-            <priority>4</priority>
             <description/>
             <type>0</type>
             <dependencies/>
@@ -849,38 +780,6 @@
                     <item>
                         <host>ZBX-FORTINET-ENVMON</host>
                         <key>fgSysSesCount</key>
-                    </item>
-                </graph_item>
-            </graph_items>
-        </graph>
-        <graph>
-            <name>CPU usage</name>
-            <width>900</width>
-            <height>200</height>
-            <yaxismin>0.0000</yaxismin>
-            <yaxismax>100.0000</yaxismax>
-            <show_work_period>1</show_work_period>
-            <show_triggers>1</show_triggers>
-            <type>0</type>
-            <show_legend>1</show_legend>
-            <show_3d>0</show_3d>
-            <percent_left>0.0000</percent_left>
-            <percent_right>0.0000</percent_right>
-            <ymin_type_1>0</ymin_type_1>
-            <ymax_type_1>0</ymax_type_1>
-            <ymin_item_1>0</ymin_item_1>
-            <ymax_item_1>0</ymax_item_1>
-            <graph_items>
-                <graph_item>
-                    <sortorder>0</sortorder>
-                    <drawtype>1</drawtype>
-                    <color>EACC00</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>ZBX-FORTINET-ENVMON</host>
-                        <key>fgSysCpuUsage</key>
                     </item>
                 </graph_item>
             </graph_items>
