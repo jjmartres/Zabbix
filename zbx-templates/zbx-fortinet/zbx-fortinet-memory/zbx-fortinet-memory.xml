@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2013-09-20T06:37:18Z</date>
+    <date>2013-09-20T07:48:15Z</date>
     <groups>
         <group>
             <name>ZBX-FORTINET-TEMPLATES</name>
@@ -9,8 +9,8 @@
     </groups>
     <templates>
         <template>
-            <template>ZBX-FORTINET-ENVMON</template>
-            <name>ZBX-FORTINET-ENVMON</name>
+            <template>ZBX-FORTINET-MEMORY</template>
+            <name>ZBX-FORTINET-MEMORY</name>
             <groups>
                 <group>
                     <name>ZBX-FORTINET-TEMPLATES</name>
@@ -18,334 +18,17 @@
             </groups>
             <applications>
                 <application>
-                    <name>Information(s)</name>
-                </application>
-                <application>
-                    <name>System</name>
+                    <name>Memory</name>
                 </application>
             </applications>
             <items>
                 <item>
-                    <name>Active sessions</name>
-                    <type>4</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <multiplier>0</multiplier>
-                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.1.8.0</snmp_oid>
-                    <key>fgSysSesCount</key>
-                    <delay>300</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units>sess</units>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>System</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                </item>
-                <item>
-                    <name>Contact</name>
-                    <type>4</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <multiplier>0</multiplier>
-                    <snmp_oid>SNMPv2-MIB::sysContact.0</snmp_oid>
-                    <key>sysContact</key>
-                    <delay>300</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>1</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>23</inventory_link>
-                    <applications>
-                        <application>
-                            <name>Information(s)</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                </item>
-                <item>
-                    <name>Device Location</name>
-                    <type>4</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <multiplier>0</multiplier>
-                    <snmp_oid>SNMPv2-MIB::sysLocation.0</snmp_oid>
-                    <key>sysLocation</key>
-                    <delay>300</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>1</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>24</inventory_link>
-                    <applications>
-                        <application>
-                            <name>Information(s)</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                </item>
-                <item>
-                    <name>Device Manufacter Name</name>
-                    <type>10</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
-                    <key>echo.something[&quot;Fortinet&quot;]</key>
-                    <delay>300</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>1</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>10</inventory_link>
-                    <applications>
-                        <application>
-                            <name>Information(s)</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                </item>
-                <item>
-                    <name>Device Model Name</name>
-                    <type>4</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <multiplier>0</multiplier>
-                    <snmp_oid>.1.3.6.1.2.1.47.1.1.1.1.13.1</snmp_oid>
-                    <key>entPhysicalModelName</key>
-                    <delay>300</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>1</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>1</inventory_link>
-                    <applications>
-                        <application>
-                            <name>Information(s)</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                </item>
-                <item>
-                    <name>Device Name</name>
-                    <type>4</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <multiplier>0</multiplier>
-                    <snmp_oid>SNMPv2-MIB::sysDescr.0</snmp_oid>
-                    <key>sysDescr</key>
-                    <delay>300</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>1</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>3</inventory_link>
-                    <applications>
-                        <application>
-                            <name>Information(s)</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                </item>
-                <item>
-                    <name>Device reachability using ICMP</name>
-                    <type>3</type>
-                    <snmp_community/>
-                    <multiplier>0</multiplier>
-                    <snmp_oid/>
-                    <key>icmpping</key>
-                    <delay>300</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>3</value_type>
-                    <allowed_hosts/>
-                    <units>ms</units>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>Information(s)</name>
-                        </application>
-                    </applications>
-                    <valuemap>
-                        <name>Host status</name>
-                    </valuemap>
-                </item>
-                <item>
-                    <name>Device Serial Number</name>
-                    <type>4</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <multiplier>0</multiplier>
-                    <snmp_oid>.1.3.6.1.4.1.12356.100.1.1.1.0</snmp_oid>
-                    <key>fnSysSerial</key>
-                    <delay>300</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>1</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>8</inventory_link>
-                    <applications>
-                        <application>
-                            <name>Information(s)</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                </item>
-                <item>
-                    <name>Disk Capacity</name>
+                    <name>Kernel Buffer</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <multiplier>1</multiplier>
-                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.1.7.0</snmp_oid>
-                    <key>fgSysDiskCapacity</key>
+                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.6.1.4.0</snmp_oid>
+                    <key>fgSIAdvMemBuffer</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -358,7 +41,7 @@
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
                     <snmpv3_authpassphrase/>
                     <snmpv3_privpassphrase/>
-                    <formula>1048576</formula>
+                    <formula>1024</formula>
                     <delay_flex/>
                     <params/>
                     <ipmi_sensor/>
@@ -373,18 +56,18 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>System</name>
+                            <name>Memory</name>
                         </application>
                     </applications>
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Disk Usage</name>
+                    <name>Kernel Cache(Active)</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <multiplier>1</multiplier>
-                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.1.6.0</snmp_oid>
-                    <key>fgSysDiskUsage</key>
+                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.6.1.2.0</snmp_oid>
+                    <key>fgSIAdvMemCacheActive</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
@@ -397,7 +80,7 @@
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
                     <snmpv3_authpassphrase/>
                     <snmpv3_privpassphrase/>
-                    <formula>1048576</formula>
+                    <formula>1024</formula>
                     <delay_flex/>
                     <params/>
                     <ipmi_sensor/>
@@ -412,109 +95,31 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>System</name>
+                            <name>Memory</name>
                         </application>
                     </applications>
                     <valuemap/>
                 </item>
                 <item>
-                    <name>FortiOS version</name>
-                    <type>4</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <multiplier>0</multiplier>
-                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.1.1.0</snmp_oid>
-                    <key>fgSysVersion</key>
-                    <delay>300</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>1</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>5</inventory_link>
-                    <applications>
-                        <application>
-                            <name>Information(s)</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                </item>
-                <item>
-                    <name>IPS signature database version</name>
-                    <type>4</type>
-                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <multiplier>0</multiplier>
-                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.2.2.0</snmp_oid>
-                    <key>fgSysVersionIps</key>
-                    <delay>300</delay>
-                    <history>7</history>
-                    <trends>365</trends>
-                    <status>0</status>
-                    <value_type>1</value_type>
-                    <allowed_hosts/>
-                    <units/>
-                    <delta>0</delta>
-                    <snmpv3_securityname/>
-                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
-                    <snmpv3_authpassphrase/>
-                    <snmpv3_privpassphrase/>
-                    <formula>1</formula>
-                    <delay_flex/>
-                    <params/>
-                    <ipmi_sensor/>
-                    <data_type>0</data_type>
-                    <authtype>0</authtype>
-                    <username/>
-                    <password/>
-                    <publickey/>
-                    <privatekey/>
-                    <port/>
-                    <description/>
-                    <inventory_link>0</inventory_link>
-                    <applications>
-                        <application>
-                            <name>System</name>
-                        </application>
-                    </applications>
-                    <valuemap/>
-                </item>
-                <item>
-                    <name>Uptime</name>
+                    <name>Kernel Cache(Inactive)</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
                     <multiplier>1</multiplier>
-                    <snmp_oid>SNMPv2-MIB::sysUpTime.0</snmp_oid>
-                    <key>sysUpTime</key>
+                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.6.1.3.0</snmp_oid>
+                    <key>fgSIAdvMemCacheInactive</key>
                     <delay>300</delay>
-                    <history>31</history>
+                    <history>7</history>
                     <trends>365</trends>
                     <status>0</status>
                     <value_type>3</value_type>
                     <allowed_hosts/>
-                    <units>uptime</units>
+                    <units>B</units>
                     <delta>0</delta>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
                     <snmpv3_authpassphrase/>
                     <snmpv3_privpassphrase/>
-                    <formula>0.01</formula>
+                    <formula>1024</formula>
                     <delay_flex/>
                     <params/>
                     <ipmi_sensor/>
@@ -529,25 +134,220 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>Information(s)</name>
+                            <name>Memory</name>
                         </application>
                     </applications>
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Virus signature database version</name>
+                    <name>Kernel Conserve Enter Threshold</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <multiplier>0</multiplier>
-                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.2.1.0</snmp_oid>
-                    <key>fgSysVersionAv</key>
+                    <multiplier>1</multiplier>
+                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.6.1.5.0</snmp_oid>
+                    <key>fgSIAdvMemEnterKerConsThrsh</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
                     <status>0</status>
-                    <value_type>1</value_type>
+                    <value_type>3</value_type>
                     <allowed_hosts/>
-                    <units/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Memory</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Kernel Conserve Leave Threshold</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <multiplier>1</multiplier>
+                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.6.1.6.0</snmp_oid>
+                    <key>fgSIAdvMemLeaveKerConsThrsh</key>
+                    <delay>300</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Memory</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Kernel Page Cache</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <multiplier>1</multiplier>
+                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.6.1.1.0</snmp_oid>
+                    <key>fgSIAdvMemPageCache</key>
+                    <delay>300</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Memory</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Low Memory Capacity</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <multiplier>1</multiplier>
+                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.1.10.0</snmp_oid>
+                    <key>fgSysLowMemCapacity</key>
+                    <delay>300</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Memory</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Low Memory Usage</name>
+                    <type>15</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>fgSysLowMemUsageBytes</key>
+                    <delay>300</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params>last(fgSysLowMemCapacity)*last(fgSysLowMemUsage)/100</params>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Memory</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Low Memory Usage(%)</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <multiplier>0</multiplier>
+                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.1.9.0</snmp_oid>
+                    <key>fgSysLowMemUsage</key>
+                    <delay>300</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>%</units>
                     <delta>0</delta>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -568,7 +368,241 @@
                     <inventory_link>0</inventory_link>
                     <applications>
                         <application>
-                            <name>System</name>
+                            <name>Memory</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Proxy Conserve Enter Threshold</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <multiplier>1</multiplier>
+                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.6.1.7.0</snmp_oid>
+                    <key>fgSIAdvMemEnterProxyConsThrsh</key>
+                    <delay>300</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Memory</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Proxy Conserve Leave Threshold</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <multiplier>1</multiplier>
+                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.6.1.8.0</snmp_oid>
+                    <key>fgSIAdvMemLeaveProxyConsThrsh</key>
+                    <delay>300</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Memory</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>System Memory Capacity</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <multiplier>1</multiplier>
+                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.1.5.0</snmp_oid>
+                    <key>fgSysMemCapacity</key>
+                    <delay>300</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1024</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Memory</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>System Memory Usage</name>
+                    <type>15</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>fgSysMemUsageBytes</key>
+                    <delay>300</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params>last(fgSysMemCapacity)*last(fgSysMemUsage)/100</params>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Memory</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>System Memory Usage(%)</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <multiplier>0</multiplier>
+                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.1.4.0</snmp_oid>
+                    <key>fgSysMemUsage</key>
+                    <delay>300</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>%</units>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Memory</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>System Memory Usage(used-)</name>
+                    <type>15</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>fgSysMemUsageBytesUsed-</key>
+                    <delay>300</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params>(last(fgSysMemCapacity)*last(fgSysMemUsage)/100) - (last(fgSIAdvMemBuffer)+last(fgSIAdvMemPageCache))</params>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Memory</name>
                         </application>
                     </applications>
                     <valuemap/>
@@ -582,8 +616,28 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>({ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)}-{ZBX-FORTINET-ENVMON:fgSysSesCount.avg(86400)})&gt;0.2 * {ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)} &amp; ({ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)}-{ZBX-FORTINET-ENVMON:fgSysSesCount.avg(86400)})&lt;0.3 * {ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)}</expression>
-            <name>An increase of 20% of active sessions was detected</name>
+            <expression>({ZBX-FORTINET-MEMORY:fgSysMemUsageBytesUsed-.avg(600)}/{ZBX-FORTINET-MEMORY:fgSysMemCapacity.avg(600)})&gt;50</expression>
+            <name>Memory usage(used-) exceeded 50%</name>
+            <url/>
+            <status>0</status>
+            <priority>4</priority>
+            <description/>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-FORTINET-MEMORY:fgSysMemUsage.avg(600)}&gt;60 &amp; {ZBX-FORTINET-MEMORY:fgSysMemUsage.avg(600)}&lt;70</expression>
+            <name>Memory usage exceeded 60%</name>
+            <url/>
+            <status>0</status>
+            <priority>2</priority>
+            <description/>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-FORTINET-MEMORY:fgSysMemUsage.avg(600)}&gt;70 &amp; {ZBX-FORTINET-MEMORY:fgSysMemUsage.avg(600)}&lt;80</expression>
+            <name>Memory usage exceeded 70%</name>
             <url/>
             <status>0</status>
             <priority>3</priority>
@@ -592,91 +646,11 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>({ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)}-{ZBX-FORTINET-ENVMON:fgSysSesCount.avg(86400)})&gt;0.3 * {ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)} &amp; ({ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)}-{ZBX-FORTINET-ENVMON:fgSysSesCount.avg(86400)})&lt;0.4 * {ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)}</expression>
-            <name>An increase of 30% of active sessions was detected</name>
+            <expression>{ZBX-FORTINET-MEMORY:fgSysMemUsage.avg(600)}&gt;80</expression>
+            <name>Memory usage exceeded 80%</name>
             <url/>
             <status>0</status>
             <priority>4</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>({ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)}-{ZBX-FORTINET-ENVMON:fgSysSesCount.avg(86400)})&gt;0.4 * {ZBX-FORTINET-ENVMON:fgSysSesCount.last(0)}</expression>
-            <name>An increase of 40% of active sessions was detected</name>
-            <url/>
-            <status>0</status>
-            <priority>5</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>{ZBX-FORTINET-ENVMON:fnSysSerial.diff(0)}&gt;0</expression>
-            <name>Device Serial Number was changed</name>
-            <url/>
-            <status>0</status>
-            <priority>1</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>{ZBX-FORTINET-ENVMON:sysDescr.diff(0)}&gt;0</expression>
-            <name>Hostname was changed</name>
-            <url/>
-            <status>0</status>
-            <priority>1</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>{ZBX-FORTINET-ENVMON:fgSysVersionIps.diff(0)}&gt;1</expression>
-            <name>IPS signature database was changed</name>
-            <url/>
-            <status>0</status>
-            <priority>1</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>{ZBX-FORTINET-ENVMON:fgSysVersion.diff(0)}&gt;0</expression>
-            <name>Software version was changed</name>
-            <url/>
-            <status>0</status>
-            <priority>1</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>{ZBX-FORTINET-ENVMON:fgSysVersionAv.diff(0)}&gt;1</expression>
-            <name>Virus signature database was changed</name>
-            <url/>
-            <status>0</status>
-            <priority>1</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>{ZBX-FORTINET-ENVMON:sysUpTime.change(0)}&lt;0</expression>
-            <name>{HOST.NAME} has just been restarted</name>
-            <url/>
-            <status>0</status>
-            <priority>4</priority>
-            <description/>
-            <type>0</type>
-            <dependencies/>
-        </trigger>
-        <trigger>
-            <expression>{ZBX-FORTINET-ENVMON:icmpping.last(0)}=0</expression>
-            <name>{HOST.NAME} is UNREACHABLE or DOWN</name>
-            <url/>
-            <status>0</status>
-            <priority>5</priority>
             <description/>
             <type>0</type>
             <dependencies/>
@@ -684,39 +658,7 @@
     </triggers>
     <graphs>
         <graph>
-            <name>Active sessions</name>
-            <width>900</width>
-            <height>200</height>
-            <yaxismin>0.0000</yaxismin>
-            <yaxismax>100.0000</yaxismax>
-            <show_work_period>1</show_work_period>
-            <show_triggers>1</show_triggers>
-            <type>0</type>
-            <show_legend>1</show_legend>
-            <show_3d>0</show_3d>
-            <percent_left>0.0000</percent_left>
-            <percent_right>0.0000</percent_right>
-            <ymin_type_1>0</ymin_type_1>
-            <ymax_type_1>0</ymax_type_1>
-            <ymin_item_1>0</ymin_item_1>
-            <ymax_item_1>0</ymax_item_1>
-            <graph_items>
-                <graph_item>
-                    <sortorder>0</sortorder>
-                    <drawtype>2</drawtype>
-                    <color>C80000</color>
-                    <yaxisside>0</yaxisside>
-                    <calc_fnc>2</calc_fnc>
-                    <type>0</type>
-                    <item>
-                        <host>ZBX-FORTINET-ENVMON</host>
-                        <key>fgSysSesCount</key>
-                    </item>
-                </graph_item>
-            </graph_items>
-        </graph>
-        <graph>
-            <name>Disk Usage</name>
+            <name>Memory Usage</name>
             <width>900</width>
             <height>200</height>
             <yaxismin>0.0000</yaxismin>
@@ -730,37 +672,118 @@
             <percent_right>0.0000</percent_right>
             <ymin_type_1>1</ymin_type_1>
             <ymax_type_1>2</ymax_type_1>
-            <ymin_item_1>
-                <host>ZBX-FORTINET-ENVMON</host>
-                <key>fgSysDiskCapacity</key>
-            </ymin_item_1>
+            <ymin_item_1>0</ymin_item_1>
             <ymax_item_1>
-                <host>ZBX-FORTINET-ENVMON</host>
-                <key>fgSysDiskCapacity</key>
+                <host>ZBX-FORTINET-MEMORY</host>
+                <key>fgSysMemCapacity</key>
             </ymax_item_1>
             <graph_items>
                 <graph_item>
-                    <sortorder>0</sortorder>
-                    <drawtype>2</drawtype>
-                    <color>EACC00</color>
+                    <sortorder>6</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>FFFF00</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>ZBX-FORTINET-ENVMON</host>
-                        <key>fgSysDiskUsage</key>
+                        <host>ZBX-FORTINET-MEMORY</host>
+                        <key>fgSIAdvMemBuffer</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>7</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>C800C8</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>ZBX-FORTINET-MEMORY</host>
+                        <key>fgSIAdvMemCacheActive</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>8</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>FF00FF</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>ZBX-FORTINET-MEMORY</host>
+                        <key>fgSIAdvMemCacheInactive</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>5</sortorder>
+                    <drawtype>0</drawtype>
+                    <color>C8C800</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>ZBX-FORTINET-MEMORY</host>
+                        <key>fgSIAdvMemPageCache</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>0</sortorder>
+                    <drawtype>4</drawtype>
+                    <color>000099</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>ZBX-FORTINET-MEMORY</host>
+                        <key>fgSysMemCapacity</key>
                     </item>
                 </graph_item>
                 <graph_item>
                     <sortorder>1</sortorder>
-                    <drawtype>4</drawtype>
-                    <color>00C800</color>
+                    <drawtype>2</drawtype>
+                    <color>009999</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
                     <type>0</type>
                     <item>
-                        <host>ZBX-FORTINET-ENVMON</host>
-                        <key>fgSysDiskCapacity</key>
+                        <host>ZBX-FORTINET-MEMORY</host>
+                        <key>fgSysMemUsageBytes</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>3</sortorder>
+                    <drawtype>4</drawtype>
+                    <color>0000FF</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>ZBX-FORTINET-MEMORY</host>
+                        <key>fgSysLowMemCapacity</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>4</sortorder>
+                    <drawtype>2</drawtype>
+                    <color>00FFFF</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>ZBX-FORTINET-MEMORY</host>
+                        <key>fgSysLowMemUsageBytes</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
+                    <drawtype>2</drawtype>
+                    <color>C80000</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>ZBX-FORTINET-MEMORY</host>
+                        <key>fgSysMemUsageBytesUsed-</key>
                     </item>
                 </graph_item>
             </graph_items>

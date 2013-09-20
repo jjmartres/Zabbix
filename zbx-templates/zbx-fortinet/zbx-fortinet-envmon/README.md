@@ -13,7 +13,6 @@ Items
   * Device reachability using ICMP
   * Device Serial Number (Populates host inventory field **Serial Number A**)
   * FortiOS Version (Populates host inventory field **OS**)
-  * Memory usage for the last 5 minutes
   * Uptime
   * Disk Usage
   * Number of active sessions
@@ -26,11 +25,8 @@ Triggers
   * **[DISASTER]** => Device is UNREACHABLE or DOWN
   * **[DISASTER]** => An increase of 40% of active sessions was detected
   * **[HIGH]** => Device as just been restarted
-  * **[HIGH]** => Memory usage on device exceeded 80%
   * **[HIGH]** => An increase of 30% of active sessions was detected
   * **[AVERAGE]** => An increase of 20% of active sessions was detected
-  * **[AVERAGE]** => Memory usage on device exceeded 70%
-  * **[WARNING]** => Memory usage on device exceeded 60%
   * **[INFORMATION]** => Software version on device was changed
   * **[INFORMATION]** => Hostname was changed on device
   * **[INFORMATION]** => IPS signature database was changed
@@ -40,7 +36,6 @@ Triggers
 Graphs
 ------
 
-  * Memory usage
   * Disk Usage
   * Active sessions
 
