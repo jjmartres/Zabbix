@@ -64,13 +64,19 @@ Installation
   * 3 => short wave laser
   * 4 => long wave LED
   * 5 => copper (electrical)
-4. Import **zbx-brocade-fc-port.xml** file into Zabbix.
-5. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
-6. Associate **ZBX-BROCADE-FC-PORT** template to the host.
+4. Install [`advsnmp.discovery`](https://github.com/simonkowallik/Zabbix-Addons/tree/master/advsnmp.discovery) in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
+5. Then `chmod a+x advsnmp.discovery`
+6. Import **zbx-brocade-fc-port.xml** file into Zabbix.
+7. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
+8. Associate **ZBX-BROCADE-FC-PORT** template to the host.
 
 ### Requirements
 
 This template was tested for Zabbix 2.0.0 and higher.
+
+###### [advsnmp.discovery](https://github.com/simonkowallik/Zabbix-Addons/tree/master/advsnmp.discovery) 2.0
+
+This template use this script as an alternative to the build-in SNMP low level discovery of Zabbix.
 
 License
 -------
