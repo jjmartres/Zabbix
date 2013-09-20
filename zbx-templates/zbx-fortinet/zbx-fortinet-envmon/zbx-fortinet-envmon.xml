@@ -340,25 +340,64 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Disk usage for the last 5 minutes</name>
+                    <name>Disk Capacity</name>
                     <type>4</type>
                     <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
-                    <multiplier>0</multiplier>
+                    <multiplier>1</multiplier>
+                    <snmp_oid>.1.3.6.1.4.1.12356.101.4.1.7.0</snmp_oid>
+                    <key>fgSysDiskCapacity</key>
+                    <delay>300</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units>B</units>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1048576</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>System</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Disk Usage</name>
+                    <type>4</type>
+                    <snmp_community>{$SNMP_COMMUNITY}</snmp_community>
+                    <multiplier>1</multiplier>
                     <snmp_oid>.1.3.6.1.4.1.12356.101.4.1.6.0</snmp_oid>
                     <key>fgSysDiskUsage</key>
                     <delay>300</delay>
                     <history>7</history>
                     <trends>365</trends>
                     <status>0</status>
-                    <value_type>0</value_type>
+                    <value_type>3</value_type>
                     <allowed_hosts/>
-                    <units>%</units>
+                    <units>B</units>
                     <delta>0</delta>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
                     <snmpv3_authpassphrase/>
                     <snmpv3_privpassphrase/>
-                    <formula>1</formula>
+                    <formula>1048576</formula>
                     <delay_flex/>
                     <params/>
                     <ipmi_sensor/>
@@ -837,7 +876,7 @@
             </graph_items>
         </graph>
         <graph>
-            <name>Disk usage</name>
+            <name>Disk Usage</name>
             <width>900</width>
             <height>200</height>
             <yaxismin>0.0000</yaxismin>
@@ -849,14 +888,20 @@
             <show_3d>0</show_3d>
             <percent_left>0.0000</percent_left>
             <percent_right>0.0000</percent_right>
-            <ymin_type_1>0</ymin_type_1>
-            <ymax_type_1>0</ymax_type_1>
-            <ymin_item_1>0</ymin_item_1>
-            <ymax_item_1>0</ymax_item_1>
+            <ymin_type_1>1</ymin_type_1>
+            <ymax_type_1>2</ymax_type_1>
+            <ymin_item_1>
+                <host>ZBX-FORTINET-ENVMON</host>
+                <key>fgSysDiskCapacity</key>
+            </ymin_item_1>
+            <ymax_item_1>
+                <host>ZBX-FORTINET-ENVMON</host>
+                <key>fgSysDiskCapacity</key>
+            </ymax_item_1>
             <graph_items>
                 <graph_item>
                     <sortorder>0</sortorder>
-                    <drawtype>1</drawtype>
+                    <drawtype>2</drawtype>
                     <color>EACC00</color>
                     <yaxisside>0</yaxisside>
                     <calc_fnc>2</calc_fnc>
@@ -864,6 +909,18 @@
                     <item>
                         <host>ZBX-FORTINET-ENVMON</host>
                         <key>fgSysDiskUsage</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <drawtype>4</drawtype>
+                    <color>00C800</color>
+                    <yaxisside>0</yaxisside>
+                    <calc_fnc>2</calc_fnc>
+                    <type>0</type>
+                    <item>
+                        <host>ZBX-FORTINET-ENVMON</host>
+                        <key>fgSysDiskCapacity</key>
                     </item>
                 </graph_item>
             </graph_items>
