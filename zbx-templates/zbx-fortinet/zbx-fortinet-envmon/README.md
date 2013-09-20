@@ -15,7 +15,6 @@ Items
   * FortiOS Version (Populates host inventory field **OS**)
   * Uptime
   * Disk Usage
-  * Number of active sessions
   * IPS signature database version
   * Virus signature database version
 
@@ -23,10 +22,7 @@ Triggers
 --------
 
   * **[DISASTER]** => Device is UNREACHABLE or DOWN
-  * **[DISASTER]** => An increase of 40% of active sessions was detected
   * **[HIGH]** => Device as just been restarted
-  * **[HIGH]** => An increase of 30% of active sessions was detected
-  * **[AVERAGE]** => An increase of 20% of active sessions was detected
   * **[INFORMATION]** => Software version on device was changed
   * **[INFORMATION]** => Hostname was changed on device
   * **[INFORMATION]** => IPS signature database was changed
@@ -37,7 +33,6 @@ Graphs
 ------
 
   * Disk Usage
-  * Active sessions
 
 Installation
 ------------
