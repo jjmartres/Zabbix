@@ -16,7 +16,7 @@ Items
   * Memory usage for the last 5 minutes
   * Uptime
   * CPU usage for the last 5 minutes
-  * Disk usage for the last 5 minutes
+  * Disk Usage
   * Number of active sessions
   * IPS signature database version
   * Virus signature database version
@@ -39,13 +39,14 @@ Triggers
   * **[INFORMATION]** => Hostname was changed on device
   * **[INFORMATION]** => IPS signature database was changed
   * **[INFORMATION]** => Virus signature database was changed
+  * **[INFORMATION]** => Device Serial Number was changed
 
 Graphs
 ------
 
   * CPU usage
   * Memory usage
-  * Disk usage
+  * Disk Usage
   * Active sessions
 
 Installation
