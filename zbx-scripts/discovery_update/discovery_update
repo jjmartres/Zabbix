@@ -102,7 +102,7 @@ cnf.each_key { |key|
     # We need to ensure that the provided proxy exist
     proxy = Rubix.connection.request('proxy.get', 'filter' => { 'host' => key })
     if proxy.has_data?
-      proxy_id=(proxy.result)[0]
+      proxy = proxy.result.reduce Hash.new, :merge
     else
       log.error "Proxy #{key} doesn't exist !" if proxy.success?
       exit(-1)
@@ -111,14 +111,14 @@ cnf.each_key { |key|
     # We need to ensure that provided group exist
     group = Rubix.connection.request('hostgroup.get', 'filter' => { 'name' => cnf[key]['group'] })
     if group.has_data?
-      group_id=(group.result)[0]
+      group = group.result.reduce Hash.new, :merge
     else
       log.error "Host group #{cnf[key]['group']} doesn't exist !"
       exit(-1)
     end
 
     # Get hosts list
-    hosts = Rubix.connection.request('host.get', 'groupids' => group_id, 'proxyids' => proxy_id )
+    hosts = Rubix.connection.request('host.get', 'groupids' => group["groupid"], 'proxyids' => proxy["proxyid"] )
     hosts = hosts.result
     if hosts.count.to_i.zero?
       log.error "No hosts to update on this group"
