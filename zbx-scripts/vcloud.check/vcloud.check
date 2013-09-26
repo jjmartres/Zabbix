@@ -43,7 +43,7 @@ OPTIONS
            vdc.vm_created
            vdc.network_nicquota
            vdc.network_quota
-           vdc.network_usedcount
+           vdc.network_usednetworkcount
            vdc.storage_profiles
            vdc.storage_profile_limit
            vdc.storage_profile_enabled
@@ -81,7 +81,7 @@ QUERIES = %w(
   vdc.vm_created
   vdc.network_nicquota
   vdc.network_quota
-  vdc.network_usedcount
+  vdc.network_usednetworkcount
   vdc.storage_profiles
   vdc.storage_profile_limit
   vdc.storage_profile_enabled
@@ -247,7 +247,7 @@ module VCloud
       response, headers = send_request(params)
       response.css("Link[type='application/vnd.vmware.vcloud.org+xml']").each do |link|
         orgId = link['href'].gsub("#{@api_url}/org/", "")
-        orgName = self.organizations.key(orgId)
+        orgName = self.organizations.index(orgId)
       end
       orgName
     end
@@ -421,7 +421,7 @@ module VCloud
         :vm_created => createdvms.to_s,
         :network_nicquota => nicquota,
         :network_quota => networkquota,
-        :network_usedcount => usednetworkcount,
+        :network_usednetworkcount => usednetworkcount,
         :storage_profiles => storage
       }
 
@@ -569,25 +569,31 @@ if QUERIES.include? OPTIONS[:query]
   when "vdc.organization"
     puts session.organization_by_vdc(OPTIONS[:items]) unless OPTIONS[:items].nil?
 
-  when /vdc.(isenabled|description|allocationmodel|cpu_units|cpu_allocated|cpu_limit|cpu_reserved|cpu_used|cpu_overhead|memory_units|memory_allocated|memory_limit|memory_reserved|memory_used|memory_overhead|vm_quota|vm_running|vm_created|network_nicquota|network_quota|network_usedcount)/
+  when /vdc.(isenabled|description|allocationmodel|cpu_units|cpu_allocated|cpu_limit|cpu_reserved|cpu_used|cpu_overhead|memory_units|memory_allocated|memory_limit|memory_reserved|memory_used|memory_overhead|vm_quota|vm_running|vm_created|network_nicquota|network_quota|network_usednetworkcount)/
     type = OPTIONS[:query].split(/\./)
     query = session.vdc(OPTIONS[:items]) unless OPTIONS[:items].nil?
     puts query[type[1].to_sym]
 
   when "vdc.storage_profiles"
-    query = session.vdc(OPTIONS[:items]) unless OPTIONS[:items].nil?
-    storage_profiles = query[:storage_profiles]
+    storage_profiles = Hash.new
+    vdcs = session.vdcs
+    vdcs.each do |key,value|
+      query = session.vdc(value)
+      storage_profiles[value] = query[:storage_profiles]
+    end
 
     # begin json document
     puts "{  \"data\":["
 
     x = 0
     storage_profiles.each do |key,value|
-      x += 1
-      if x < storage_profiles.count
-        puts "{ \"{#ID}\":\"#{x}\", \"{#STORAGEPROFILE}\":\"#{key}\"},"
-      else
-        puts "{ \"{#ID}\":\"#{x}\", \"{#STORAGEPROFILE}\":\"#{key}\"}"
+      value.each do |k,v|
+        x += 1
+        if x < (value.count * storage_profiles.count)
+          puts "{ \"{#ID}\":\"#{x}\", \"{#VCDID}\":\"#{key}\",\"{#VCDNAME}\":\"#{vdcs.index(key)}\",\"{#STORAGEPROFILE}\":\"#{k}\"},"
+        else
+          puts "{ \"{#ID}\":\"#{x}\", \"{#VCDID}\":\"#{key}\",\"{#VCDNAME}\":\"#{vdcs.index(key)}\",\"{#STORAGEPROFILE}\":\"#{k}\"}"
+        end
       end
     end
 
