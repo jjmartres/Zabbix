@@ -13,10 +13,6 @@ Installation
 
 This script was tested for Zabbix 2.0.0 or higher.
 
-###### [Ruby](http://www.ruby-lang.org/en/downloads/) 1.8.7
-
-This script require Ruby 1.8.7 or higher.
-
 Usage
 -----
 
@@ -25,13 +21,13 @@ Usage
 
 ### As an item
 Use `echo.something` like an **External Check** item in Zabbix.  So, when creating an item, select **External Check**.  In the **Key** field, you specify:
-    
+
     echo.something["ARGUMENT"]
 
 Version
 -------
 
-Version 1.0
+Version 2.0
 
 License
 -------
@@ -40,7 +36,7 @@ This script is distributed under the terms of the GNU General Public License as 
 
 ### Copyright
 
-  Copyright (c) 2012 Jean-Jacques Martrès
+  Copyright (c) Jean-Jacques Martrès
 
 ### Authors
   
