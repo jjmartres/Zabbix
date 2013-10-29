@@ -272,7 +272,7 @@
                     <status>0</status>
                     <value_type>3</value_type>
                     <allowed_hosts/>
-                    <units>ms</units>
+                    <units/>
                     <delta>0</delta>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -282,7 +282,7 @@
                     <delay_flex/>
                     <params/>
                     <ipmi_sensor/>
-                    <data_type>0</data_type>
+                    <data_type>3</data_type>
                     <authtype>0</authtype>
                     <username/>
                     <password/>
