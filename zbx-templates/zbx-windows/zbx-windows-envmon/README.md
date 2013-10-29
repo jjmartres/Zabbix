@@ -65,6 +65,7 @@ Triggers
 --------
 
   * **[DISASTER]** => Host is UNREACHABLE or DOWN
+  * **[DISASTER]** => Discovery: Free disk space is less than {$DISK\_THRESHOLD\_DISASTER}% on each disk
   * **[HIGH]** => Application audit failure message(s) logged in eventlog
   * **[HIGH]** => DNS resolution failed
   * **[HIGH]** => CPU usage exceeded {$CPU\_THRESHOLD\_HIGH}%
@@ -127,6 +128,7 @@ Macros
   * **{$HOST_ROLE}** => User defined server role
   * **{$CPU\_THRESHOLD\_WARN}** => Warning threshold value for CPU usage. Default value is 60 (percent).
   * **{$CPU\_THRESHOLD\_HIGH}** => High threshold value for CPU usage. Default value is 90 (percent).
+  * **{$DISK\_THRESHOLD\_DISASTER}** => Disaster threshold value for disk usage. Default value is 4 (percent).
   * **{$DISK\_THRESHOLD\_WARN}** => Warning threshold value for disk usage. Default value is 20 (percent).
   * **{$DISK\_THRESHOLD\_HIGH}** => High threshold value for disk usage. Default value is 10 (percent).
   * **{$QUOTA\_THRESHOLD\_CRIT}** => Critical threshold value for quota usage. Default value is 2147483648 (Bytes), 2GB.

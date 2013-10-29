@@ -1802,6 +1802,15 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
+                            <expression>{ZBX-WINDOWS-ENVMON:vfs.fs.size[{#FSNAME},pfree].last(0)}&gt;{$DISK_THRESHOLD_DISASTER} &amp; {ZBX-WINDOWS-ENVMON:vfs.fs.size[{#FSNAME},pfree].last(0)}&lt;{$DISK_THRESHOLD_HIGH}</expression>
+                            <name>Free disk space is less than {$DISK_THRESHOLD_DISASTER}% on volume {#FSNAME}</name>
+                            <url/>
+                            <status>0</status>
+                            <priority>1</priority>
+                            <description/>
+                            <type>0</type>
+                        </trigger_prototype>
+                        <trigger_prototype>
                             <expression>{ZBX-WINDOWS-ENVMON:vfs.fs.size[{#FSNAME},pfree].last(0)}&lt;{$DISK_THRESHOLD_HIGH}</expression>
                             <name>Free disk space is less than {$DISK_THRESHOLD_HIGH}% on {#FSNAME}</name>
                             <url/>
@@ -2632,6 +2641,10 @@
                 <macro>
                     <macro>{$CPU_THRESHOLD_WARN}</macro>
                     <value>60</value>
+                </macro>
+                <macro>
+                    <macro>{$DISK_THRESHOLD_DISASTER}</macro>
+                    <value>4</value>
                 </macro>
                 <macro>
                     <macro>{$DISK_THRESHOLD_HIGH}</macro>
