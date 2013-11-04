@@ -221,19 +221,19 @@
                     <valuemap/>
                 </item>
                 <item>
-                    <name>Device reachability using ICMP</name>
+                    <name>Device packet loss</name>
                     <type>3</type>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>icmpping</key>
-                    <delay>300</delay>
+                    <key>icmppingloss</key>
+                    <delay>60</delay>
                     <history>7</history>
                     <trends>365</trends>
                     <status>0</status>
                     <value_type>3</value_type>
                     <allowed_hosts/>
-                    <units>ms</units>
+                    <units>%</units>
                     <delta>0</delta>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
@@ -244,6 +244,45 @@
                     <params/>
                     <ipmi_sensor/>
                     <data_type>0</data_type>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Information(s)</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                </item>
+                <item>
+                    <name>Device reachability using ICMP</name>
+                    <type>3</type>
+                    <snmp_community/>
+                    <multiplier>0</multiplier>
+                    <snmp_oid/>
+                    <key>icmpping</key>
+                    <delay>60</delay>
+                    <history>7</history>
+                    <trends>365</trends>
+                    <status>0</status>
+                    <value_type>3</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <delta>0</delta>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privpassphrase/>
+                    <formula>1</formula>
+                    <delay_flex/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <data_type>3</data_type>
                     <authtype>0</authtype>
                     <username/>
                     <password/>
@@ -568,6 +607,16 @@
             <url/>
             <status>0</status>
             <priority>1</priority>
+            <description/>
+            <type>0</type>
+            <dependencies/>
+        </trigger>
+        <trigger>
+            <expression>{ZBX-FORTINET-ENVMON:icmpping.avg(600)}&gt;0&amp;{ZBX-FORTINET-ENVMON:icmppingloss.avg(600)}&gt;1</expression>
+            <name>Packet loss detected on {HOST.NAME}</name>
+            <url/>
+            <status>0</status>
+            <priority>3</priority>
             <description/>
             <type>0</type>
             <dependencies/>
