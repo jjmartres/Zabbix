@@ -660,7 +660,7 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-DELL-COMPELLENT:scCtrlStatus[{#SNMPVALUE}].last(0)}=3</expression>
-                            <name>Controller {$SNMPVALUE} is degraded on {HOST.NAME}</name>
+                            <name>Controller {#SNMPVALUE} is degraded on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
@@ -669,7 +669,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-DELL-COMPELLENT:scCtrlStatus[{#SNMPVALUE}].last(0)}=2</expression>
-                            <name>Controller {$SNMPVALUE} is down on {HOST.NAME}</name>
+                            <name>Controller {#SNMPVALUE} is down on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
@@ -828,7 +828,7 @@
                     <trigger_prototypes>
                         <trigger_prototype>
                             <expression>{ZBX-DELL-COMPELLENT:scDiskStatus[{#SNMPVALUE}].last(0)}=3</expression>
-                            <name>Disk {$SNMPVALUE} is degraded  {HOST.NAME}</name>
+                            <name>Disk {#SNMPVALUE} is degraded  {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>3</priority>
@@ -837,7 +837,7 @@
                         </trigger_prototype>
                         <trigger_prototype>
                             <expression>{ZBX-DELL-COMPELLENT:scDiskStatus[{#SNMPVALUE}].last(0)}=2</expression>
-                            <name>Disk {$SNMPVALUE} is down on {HOST.NAME}</name>
+                            <name>Disk {#SNMPVALUE} is down on {HOST.NAME}</name>
                             <url/>
                             <status>0</status>
                             <priority>5</priority>
