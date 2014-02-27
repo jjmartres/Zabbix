@@ -2,15 +2,15 @@
 ' OCSINVENTORY-NG
 ' Web : http://www.ocsinventory-ng.org
 '
-' Liste les bases de données SQL Server du poste
-'  4 données sont remontées :
+' Liste les bases de donnï¿½es SQL Server du poste
+'  4 donnï¿½es sont remontï¿½es :
 '  - strSQLName :     Nom long du produit SQL Server
 '                     Par exple : "Microsoft SQL Server 2008 R2"
 '  - strServiceName : Nom de l'instance
 '                     Par exple : "MSSQLSERVER"
 '  - strEdition :     Edition.
 '                     Par exple : "Enterprise Edition (64-bit)"
-'  - strVersion :     Version "chiffrée".
+'  - strVersion :     Version "chiffrï¿½e".
 '                     Par exple : "8.00.194"
 '
 ' Auteur  : Sylvie Grimonpont
@@ -24,7 +24,7 @@
 
 On Error Resume Next
 
-'Déclaration des constantes
+'Dï¿½claration des constantes
 Const DblQuote  = """"
 Const ForReading = 1
 Const HKEY_LOCAL_MACHINE   = &H80000002
@@ -36,14 +36,14 @@ if WScript.Arguments.Count = 0 then
     WScript.Echo "Missing parameters"
 end if
 
-' Spécificités SQL 2000
-   ' RegExp pour récupération de l'édition dans un fichier ERRORLOG
+' Spï¿½cificitï¿½s SQL 2000
+   ' RegExp pour rï¿½cupï¿½ration de l'ï¿½dition dans un fichier ERRORLOG
    Set regexpEdition = New RegExp
    regexpEdition.IgnoreCase = True
    regexpEdition.Global = True
    regexpEdition.Pattern = "^.*dition"
 
-   ' RegExp pour récupération de la version dans un fichier ERRORLOG
+   ' RegExp pour rï¿½cupï¿½ration de la version dans un fichier ERRORLOG
    Set regexpVersion = New RegExp
    regexpVersion.IgnoreCase = True
    regexpVersion.Global = True
@@ -61,7 +61,7 @@ If Err = 0 Then
    If Err = 0 Then
       If colServices.count > 0 Then
          If Err = 0 Then
-            'Wscript.Echo "SQL Server trouvé !"
+            'Wscript.Echo "SQL Server trouvï¿½ !"
             For Each objService in colServices
                ' ServiceName
                strServiceName = objService.Name
@@ -102,9 +102,10 @@ If Err = 0 Then
 
                      ' Positionne la classe WMI SqlServer en fonction de la version du fichier sqlservr.exe
                      If strSQLFileVersion = 90 Then strWMIsql = "ComputerManagement"
-                     If strSQLFileVersion > 90 Then strWMIsql = "ComputerManagement10"
+                     If strSQLFileVersion = 100 Then strWMIsql = "ComputerManagement10"
+                     If strSQLFileVersion = 110 Then strWMIsql = "ComputerManagement11"
 
-                     ' Recherche la version et l'édition de la base SQL via la classe WMI SqlServer si disponible
+                     ' Recherche la version et l'ï¿½dition de la base SQL via la classe WMI SqlServer si disponible
                      If (strWMIsql <> "") Then
                         ' Si on a eu une erreur entre temps, on efface
                         Err.Clear
@@ -124,7 +125,7 @@ If Err = 0 Then
                         End If
                      End If
 
-                     ' Si on n'a pas pu determiner la version et l'édition à partir de la classe WMI (cas SQL Server 2000), on essaie de la déterminer à partir du fichier ERRORLOG (si en local)
+                     ' Si on n'a pas pu determiner la version et l'ï¿½dition ï¿½ partir de la classe WMI (cas SQL Server 2000), on essaie de la dï¿½terminer ï¿½ partir du fichier ERRORLOG (si en local)
                      If (((strWMIsql= "") Or (strVersion = "") Or (strEdition = "")) And (strSourceServer = ".")) Then
                         ' On ne trappe plus les erreurs...
                         On Error Goto 0
@@ -136,14 +137,14 @@ If Err = 0 Then
                            For I=0 To UBound(arrValueNames)
                                If arrValueTypes(I) = REG_SZ Then
                                   objRegistry.GetStringValue HKEY_LOCAL_MACHINE,strMSSQLServerRegKey,arrValueNames(I),strValue
-                                  ' Dans HKLMSOFTWARE\Microsoft\MSSQLServer\MSSQLServer\Parameters, le paramètre qui commence par "-e" définie le path de ERRORLOG
+                                  ' Dans HKLMSOFTWARE\Microsoft\MSSQLServer\MSSQLServer\Parameters, le paramï¿½tre qui commence par "-e" dï¿½finie le path de ERRORLOG
                                   If Left(strValue,2) = "-e" Then
                                      strErrorlogPath = Mid(strValue,3)
                                   End If
                                End If
                            Next
 
-                           ' Si on a trouvé le chemin du fichier ERRORLOG dans la base de registre, on essaie de lire le fichier en question
+                           ' Si on a trouvï¿½ le chemin du fichier ERRORLOG dans la base de registre, on essaie de lire le fichier en question
                            If strErrorlogPath <> "" Then
                               ' Teste l'existence du fichier
                               Set objFSO = CreateObject("Scripting.FileSystemObject")
@@ -166,13 +167,13 @@ If Err = 0 Then
                                  strError = "Le fichier " & strErrorlogPath & " n'existe pas"
                               End If
                            Else
-                              strError = "Information sur fichier ERRORLOG non trouvée en base de registre"
+                              strError = "Information sur fichier ERRORLOG non trouvï¿½e en base de registre"
                            End If
                         Else
-                           strError = "Information sur fichier ERRORLOG non trouvée en base de registre"
+                           strError = "Information sur fichier ERRORLOG non trouvï¿½e en base de registre"
                         End If
                      End If
-                     ' Récupération du nom SQL Server
+                     ' Rï¿½cupï¿½ration du nom SQL Server
                      If Left(strVersion,3) = "6.5" Then
                         strSQLName = "Microsoft SQL Server 6.5"
                      ElseIf Left(strVersion,1) = "7" Then
@@ -191,13 +192,13 @@ If Err = 0 Then
                         strSQLName = "Microsoft SQL Server"
                      End if
 
-                     ' Ecrit les données de sortie
+                     ' Ecrit les donnï¿½es de sortie
 
-                     ' Les données disponibles sont :
+                     ' Les donnï¿½es disponibles sont :
                      ' - strSQLName :     Nom long du produit SQL Server
                      ' - strServiceName : Nom de l'instance
                      ' - strEdition :     Edition. Par exple : Enterprise Edition (64-bit) / Express Edition
-                     ' - strVersion :     Version "chiffrée". Par exemple : 8.00.194 / 10.50.1600.1
+                     ' - strVersion :     Version "chiffrï¿½e". Par exemple : 8.00.194 / 10.50.1600.1
            Select Case Arg(0)
            Case "NAME"
             Wscript.Echo strSQLName
@@ -228,7 +229,7 @@ If Err = 0 Then
          End If
       Else
          On Error Goto 0
-         'Wscript.Echo "Aucun SQL Server trouvé !"
+         'Wscript.Echo "Aucun SQL Server trouvï¿½ !"
       End if
    Else
       WriteError()
@@ -244,7 +245,7 @@ WScript.Quit
 Sub WriteError()
    strError = "Erreur " & Err.Number & " - " & Err.Description
 
-   '         ' On écrit l'erreur dans le fichier
+   '         ' On ï¿½crit l'erreur dans le fichier
 
    Err.Clear
 End Sub
@@ -270,7 +271,7 @@ Sub ReadErrorLog (strFilePath)
    For i = 1 To 4
       strErrorlogText = objTextFile.Readline
 
-      ' La version se trouve sur la première ligne
+      ' La version se trouve sur la premiï¿½re ligne
       If i = 1 Then
          Set versions = regexpVersion.Execute(strErrorlogText)
          For Each version In versions
@@ -282,7 +283,7 @@ Sub ReadErrorLog (strFilePath)
          If strVersion="" Then strVersion = "Errolog"
       End If
 
-      ' L'édition se trouve sur la quatrième ligne
+      ' L'ï¿½dition se trouve sur la quatriï¿½me ligne
       If i = 4 Then
          strEdition = strErrorlogText
          Set editions = regexpEdition.Execute(strErrorlogText)
