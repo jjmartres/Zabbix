@@ -1,0 +1,203 @@
+#!/usr/bin/env ruby
+
+=begin
+Script: nmsupdate
+Author: Jean-Jacques Martrès (jjmartres |at| gmail |dot| com)
+Description: Update RANCID from NMS
+License: GPL2
+
+This script is intended for use with Zabbix > 2.0
+
+USAGE:
+
+  as a script:    nmsupdate [options]
+
+  OPTIONS
+     -h, --help                            Display this help message
+     -c, --config CONFIG_FILE              Configuration file
+
+  CONFIG FILE FORMAT
+
+     url:                "zabbix api url"
+     login:              "zabbix username"
+     password:           "zabbix password"
+     folders:            "[['host group name 1','snmp_community_1'],['host group name 2','snmp_community_2']]"
+     rules:              "[['TEMPLATE_NAME_1','regex1','class1'],['TEMPLATE_NAME_2','regex2','class2']]"
+     headers:            "some headers"
+=end
+require 'rubygems'
+require 'optparse'
+require 'rubix'
+require 'snmp'
+require 'logger'
+require 'yaml'
+require 'net/ping/external'
+
+version="0.4.7"
+
+# Howto use it ... quiet simple
+OPTIONS = {}
+mandatory_options=[:config]
+optparse = OptionParser.new do |opts|
+  opts.banner = "Usage: #{$0} [options]"
+  opts.separator ""
+  opts.separator "Options"
+  opts.on("-h", "--help", "Display this help message") do
+    puts opts
+    exit(-1)
+  end
+  opts.on('-c', '--config CONFIG_FILE',String,  'Configuration file') { |v| OPTIONS[:config] = v }
+  opts.separator ""
+end
+
+
+# Show usage when no args pass
+if ARGV.empty?
+  puts optparse
+  exit(-1)
+end
+
+# Validate that mandatory parameters are specified
+begin
+  optparse.parse!(ARGV)
+  missing = mandatory_options.select{|p| OPTIONS[p].nil? }
+  if not missing.empty?
+    puts "Missing options: #{missing.join(', ')}"
+    puts optparse
+    exit(-1)
+  end
+  rescue OptionParser::ParseError,OptionParser::InvalidArgument,OptionParser::InvalidOption
+       puts $!.to_s
+       exit(-1)
+end
+
+# Log each events
+log = Logger.new(STDOUT)
+
+# Start logger
+log.level = Logger::DEBUG
+log.debug ""
+log.debug "Starting configuring RANCID from NMS"
+log.debug ""
+
+# Read file config
+if File.exist?(OPTIONS[:config])
+ cnf = YAML::load(File.open(OPTIONS[:config]))
+else
+ log.error "File #{OPTIONS[:config]} doesn't exist !"
+ exit(-1)
+end
+
+# Connect to the Zabbix API
+Rubix.connect(cnf["url"],cnf["login"],cnf["password"])
+
+# We print default entry of /etc/hosts
+@files = {}
+@files["hosts"] = cnf['headers']
+
+# Define FOLDERS
+x = eval(cnf["folders"])
+FOLDERS = Hash[x.map {|folder, community| [folder, community]} ]
+
+# Define RULES
+y = eval(cnf["rules"])
+RULES = Hash[y.map {|template, regexp| [template, regexp]} ]
+
+FOLDERS.each do |folder,community|
+
+    @files["hosts"] += "\n\n## #{folder}\n"
+    @files[folder] = ""
+
+    # We need to ensure that provided group exist
+    group = Rubix.connection.request('hostgroup.get', 'filter' => { 'name' => folder })
+    if group.has_data?
+      group = group.result.reduce Hash.new, :merge
+    else
+      log.error "Host group #{folder} doesn't exist !"
+      exit(-1)
+    end
+
+    # Get hosts list
+    hosts = Rubix.connection.request('host.get', 'groupids' => group["groupid"] )
+    hosts = hosts.result
+    if hosts.count.to_i.zero?
+      log.error "No hosts to update on this group"
+      exit(-1)
+    else
+      log.info "We need to update #{hosts.count} hosts"
+    end
+
+    count = 0
+    while count < hosts.count  do
+      host_id = hosts.fetch(count)["hostid"]
+      host = Rubix.connection.request('host.getobjects', 'hostid'=> host_id )
+      sys_information = Array.new
+
+      # Check if host is up
+      if Net::Ping::External.new(host.result[0]["host"]).ping?
+        SNMP::Manager.open(:host => host.result[0]["host"], :community => community, :version => :SNMPv2c) do |manager|
+          begin
+            response = manager.get(["sysDescr.0","sysName.0"])
+            response.each_varbind do |vb|
+              sys_information.push(vb.value.to_s)
+            end
+          rescue
+            log.error "SNMP request timeout. Host #{host.result[0]["host"]} is not responding."
+          end
+        end
+        if sys_information.any?
+          RULES.each { |k,v|
+
+
+
+            # We can update device if we match the template regexp
+            if sys_information[0].to_s.match("#{v}")
+
+              # Lookup for the template ID
+              template = Rubix.connection.request('template.get', 'filter' => {'name' => k })
+              if template.has_data?
+
+                # We need to save templateid
+                templateid = template[0]["templateid"]
+                sys_information = sys_information[1].split('.')
+                sys_information = sys_information[0].upcase
+
+                # We produce /etc/hosts
+                @files["hosts"] += "#{host.result[0]["host"]}\t#{sys_information}\n"
+                @files[folder] += "#{sys_information}.downcase:#{(k.split("-")).last.downcase}:up\n"
+
+              else
+                log.error "Template #{k} doesn't exist !"
+              end
+            end
+          }
+        else
+          #log.error "No response receive from #{host.result[0]["host"]} !"
+        end
+      else
+        #log.error "Host #{host.result[0]["host"]} is not responding."
+      end
+      count = count +1
+    end
+
+    begin
+      file = File.open("/home/rancid/var/#{folder}/router.db","w")
+      file.write(@files[folder])
+    rescue IOError => e
+      #some error occur, dir not writable etc.
+    ensure
+      file.close unless file == nil
+    end
+end
+
+
+begin
+  file = File.open("/etc/hosts", "w")
+  file.write(@files["hosts"])
+rescue IOError => e
+  #some error occur, dir not writable etc.
+ensure
+  file.close unless file == nil
+end
+
+
