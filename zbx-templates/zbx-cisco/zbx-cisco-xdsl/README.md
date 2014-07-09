@@ -74,9 +74,20 @@ Installation
 
 1. Install [`advsnmp.discovery`](https://github.com/simonkowallik/Zabbix-Addons/tree/master/advsnmp.discovery) in the **ExternalScripts** directory of your Zabbix server and/or proxy. Check your `zabbix_server.conf` and/or `zabbix_proxy.conf` if in doubt.
 2. Then `chmod a+x advsnmp.discovery`
-4. Import **zbx-cisco-xdsl.xml** file into Zabbix.
-5. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
-6. Associate **ZBX-CISCO-xDSL** template to the host.
+3. Add a value mapping named `ciscoAdslLineType` with the following values:
+  * 1 => noChannel
+  * 2 => fastOnly
+  * 3 => interleavedOnly
+  * 4 => fastOrInterleaved
+  * 5 => fastAndInterleaved
+4. Add a value mapping named `ciscoAdslLineConfig` with the following values:
+  * 1 => other
+  * 2 => dmt
+  * 3 => cap
+  * 4 => qam
+5. Import **zbx-cisco-xdsl.xml** file into Zabbix.
+6. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
+7. Associate **ZBX-CISCO-xDSL** template to the host.
  
 ### Requirements
 
