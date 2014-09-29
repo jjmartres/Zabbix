@@ -34,14 +34,13 @@ Installation
 1. Install the Zabbix agent on your host or download my automated package [`Zabbix agent`](https://github.com/jjmartres/Zabbix/tree/master/zbx-agent)
 
   If your choose to install the Zabbix agent from the source, you need to :
-  1. Install [`zabbix_mssql_version.vbs`](https://github.com/jjmartres/Zabbix/tree/master/zbx-templates/zbx-windows/zbx-windows-mssql/zabbix_mssql_version.vbs) in the script directory of your Zabbix agent.
-  2. Add the following line to your Zabbix agent configuration file. Note that `<zabbix_script_path>` is your Zabbix agent script path :
+  1. Add the following line to your Zabbix agent configuration file. Note that `<zabbix_script_path>` is your Zabbix agent script path :
 
     EnableRemoteCommands=1
     UnsafeUserParameters=1
 
-  5. Import **zbx-windows-iis.xml** file into Zabbix.
-  6. Associate **ZBX-WINDOWS-IIS** template to the host.
+  2. Import **zbx-windows-iis.xml** file into Zabbix.
+  3. Associate **ZBX-WINDOWS-IIS** template to the host.
 
 ### Requirements
 
