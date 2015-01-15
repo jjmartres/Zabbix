@@ -49,7 +49,6 @@ Use `rbl.check` like an **External Check** item in Zabbix.  So, when creating an
   NJABL               =>     dnsbl.njabl.org
   SPAMCOP             =>     bl.spamcop.net
   SORBS               =>     dnsbl.sorbs.net
-  AHBL                =>     dnsbl.ahbl.org
   DRONEBL             =>     dnsbl.dronebl.org
   BARRACUDA           =>     b.barracudacentral.org
   DRONE_ABUSE_CH      =>     drone.abuse.ch
@@ -57,7 +56,6 @@ Use `rbl.check` like an **External Check** item in Zabbix.  So, when creating an
   SPAM_ABUSE_CH       =>     spam.abuse.ch
   MAILSHELL           =>     dnsbl.mailshell.net
   CBL                 =>     cbl.abuseat.org
-  RHSBL               =>     rhsbl.ahbl.org
   FIVETENSG           =>     blackholes.five-ten-sg.com
   INPS                =>     dnsbl.inps.de
   MANITU              =>     ix.dnsbl.manitu.net
