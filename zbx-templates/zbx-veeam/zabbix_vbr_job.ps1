@@ -18,7 +18,7 @@
 # Add to Zabbix Agent
 #   UserParameter=vbr[*],%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -nologo -command "& C:\Zabbix\zabbix_vbr_job.ps1 $1 $2"
 #
-$version = "1.0.0"
+$version = "1.0.3"
 
 $ITEM = [string]$args[0]
 $ID = [string]$args[1]
@@ -49,7 +49,7 @@ switch ($ITEM) {
     $output = $output + "]}"
     Write-Host $output
   }
-  "Status"  {
+  "Result"  {
   $query = Get-VBRJob | Where-Object {$_.Id -like "*$ID*"}
     switch ([string]$query.GetLastResult()) {
       "Failed" {
@@ -62,6 +62,10 @@ switch ($ITEM) {
         return "2"
       }
     }
+  }
+  "RunStatus" {
+  $query = Get-VBRJob | Where-Object {$_.Id -like "*$ID*"}
+  if ($query.IsRunning) { return "1" } else { return "0"}
   }
   "IncludedSize"{
   $query = Get-VBRJob | Where-Object {$_.Id -like "*$ID*"}
@@ -80,11 +84,11 @@ switch ($ITEM) {
   [string]$query.JobType
   }
   "RunningJob" {
-  $query = Get-VBRBackupSession | where { $_.isCompleted -eq $false }
+  $query = Get-VBRBackupSession | where { $_.isCompleted -eq $false } | Measure
   if ($query) {
 	[string]$query.Count
     } else {
-	0
+	return "0"
     }
   }
   default {
