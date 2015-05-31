@@ -28,7 +28,7 @@
                     <type>10</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>advsnmp.discovery[{HOST.HOST},&quot;-v1 -c{$SNMP_COMMUNITY}&quot;,.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.37,1.1]</key>
+                    <key>advsnmp.discovery[{HOST.CONN},&quot;-v1 -c{$SNMP_COMMUNITY}&quot;,.1.3.6.1.4.1.1588.2.1.1.1.6.2.1.37,1.1]</key>
                     <delay>300</delay>
                     <status>0</status>
                     <allowed_hosts/>
