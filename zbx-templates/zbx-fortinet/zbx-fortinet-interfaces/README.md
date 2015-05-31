@@ -23,10 +23,10 @@ Items
 Triggers
 --------
 
-  * **[DISASTER]** => Discovery: operational status was changed for an interface where ifAlias match user macro {$INTF_REGEXP}
+  * **[DISASTER]** => Discovery: operational status was changed for an interface where ifAlias match user macro {$INTF_REGEX}
   * **[WARNING]** => Discovery: incoming use on an interface exceed 80% for the last 5 minutes
   * **[WARNING]** => Discovery: outgoing use on an interface exceed 80% for the last 5 minutes
-  * **[INFORMATION]** => Discovery: operational status was changed for an interface where ifAlias didn't match user macro {$INTF_REGEXP}
+  * **[INFORMATION]** => Discovery: operational status was changed for an interface where ifAlias didn't match user macro {$INTF_REGEX}
   * **[INFORMATION]** => Discovery: the length of the output packet queue is not empty on each interface
 
 Graphs
@@ -45,7 +45,7 @@ Installation
 4. Then `chmod a+x if.vdom` 
 5. Import **zbx-fortinet-interfaces.xml** file into Zabbix.
 6. Add to your host the **{$SNMP_COMMUNITY}** macro with your SNMP community as value.
-7. Add to your host the **{$INTF_REGEXP}** macro with your regular expression as value (ex: -p-|-P-|-pe-|-PE-)
+7. Add to your host the **{$INTF_REGEX}** macro with your regular expression as value (ex: -p-|-P-|-pe-|-PE-)
 8. Associate **ZBX-FORTINET-INTERFACES** template to the host.
 
 ### Requirements
