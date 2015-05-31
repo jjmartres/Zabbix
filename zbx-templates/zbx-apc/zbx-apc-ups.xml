@@ -910,8 +910,8 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{ZBX-APC-UPS:upsBasicBatteryStatus.last(0)}#2</expression>
-            <name>Loss of input power</name>
+            <expression>{ZBX-APC-UPS:upsBasicBatteryStatus.last(0)}=3</expression>
+            <name>The battery power is too low to support the load; if power fails, the UPS will be shut down immediately</name>
             <url/>
             <status>0</status>
             <priority>5</priority>
