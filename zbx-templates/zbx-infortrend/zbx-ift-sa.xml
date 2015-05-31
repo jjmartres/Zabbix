@@ -870,7 +870,7 @@
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{KHP-TEMPLATE-STORAGE-DEVICE-INFORTREND:hddStatus[{#SNMPVALUE}].last(0)}#0 &amp; {KHP-TEMPLATE-STORAGE-DEVICE-INFORTREND:hddStatus[{#SNMPVALUE}].last(0)}&gt;3 &amp; {KHP-TEMPLATE-STORAGE-DEVICE-INFORTREND:hddStatus[{#SNMPVALUE}].last(0)}&lt;64</expression>
+                            <expression>{ZBX-IFT-SA:hddStatus[{#SNMPVALUE}].last(0)}#0 &amp; {ZBX-IFT-SA:hddStatus[{#SNMPVALUE}].last(0)}&gt;3 &amp; {ZBX-IFT-SA:hddStatus[{#SNMPVALUE}].last(0)}&lt;64</expression>
                             <name>NOT ONLINE state for HDD in slot {#SNMPVALUE}</name>
                             <url/>
                             <status>0</status>
