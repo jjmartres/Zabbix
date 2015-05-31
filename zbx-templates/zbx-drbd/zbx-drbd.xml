@@ -148,7 +148,7 @@
     </templates>
     <triggers>
         <trigger>
-            <expression>{KHP-NMS-TEMPLATE-DRBD:drbd.cs.regexp(^Connected$)}=0</expression>
+            <expression>{ZBX-DRBD:drbd.cs.regexp(^Connected$)}=0</expression>
             <name>DRBD connection failed on {HOST.NAME}</name>
             <url/>
             <status>0</status>
@@ -158,7 +158,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{KHP-NMS-TEMPLATE-DRBD:drbd.ds.regexp(^UpToDate$)}=0</expression>
+            <expression>{ZBX-DRBD:drbd.ds.regexp(^UpToDate$)}=0</expression>
             <name>DRBD disk is not up to date on {HOST.NAME}</name>
             <url/>
             <status>0</status>
@@ -168,7 +168,7 @@
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{KHP-NMS-TEMPLATE-DRBD:drbd.ro.diff(0)}&gt;0</expression>
+            <expression>{ZBX-DRBD:drbd.ro.diff(0)}&gt;0</expression>
             <name>DRBD disk role was changed on {HOST.NAME}</name>
             <url/>
             <status>0</status>
