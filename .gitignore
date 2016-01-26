@@ -16,5 +16,3 @@ zbx-scripts/.idea/encodings.xml
 zbx-scripts/.idea/.name
 
 *.tmproj
-
-zbx-scripts/hosts_update/hosts_update.yml

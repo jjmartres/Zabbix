@@ -1,0 +1,19 @@
+---
+node:
+  url: URL
+  username: USERNAME
+  password: PASSWORD
+devices: ~/Downloads/HostUpdate/router.db
+hosts: ~/Downloads/HostUpdate/hosts
+folders:
+  - 00_KHP-NETWORK-CE
+  - 00_KHP-NETWORK-BACKBONE
+  - 00_KHP-NETWORK-BACKBONE-IAAS-PLR
+  - 00_KHP-NETWORK-BACKBONE-IAAS-VLZ
+  - 00_KHP-SAN
+rules:
+  - { name: KHP-TEMPLATE-NETWORK-DEVICE-CISCO, type: cisco, username: rancid, password: rancidkheops }
+  - { name: KHP-TEMPLATE-NETWORK-DEVICE-DELL, type: dell, username: rancid, password: rancidkheops }
+  - { name: KHP-TEMPLATE-STORAGE-DEVICE-BROCADE, type: brocade, username: admin, password: oFOUyey2i }
+  - { name: KHP-TEMPLATE-NETWORK-DEVICE-FORTINET, type: fortinet, username: rancid, password: rancidkheops }
+headers:  [ "127.0.0.1\t\tlocalhost\n", "192.168.200.200\t\tkhp-nms-srv-01.kheops-network.info\n", "::1\t\tlocalhost ip6-localhost ip6-localhost\n", "fe00::0 ip6-localnet\n", "ff00::0 ip6-mcastprefix\n", "ff02::1 ip6-allnodes\n", "ff02::2 ip6-allrouters\n", "ff02::3 ip6-allhosts\n\n\n\n"]
